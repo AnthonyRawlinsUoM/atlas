@@ -1,0 +1,12 @@
+<div class="ui attached inverted grey menu">
+    <button class="ui icon button item" (click)="toggleSize()">
+        <i *ngIf="!grown" class="table icon"></i>
+        <i *ngIf="grown" class="columns icon"></i>
+    </button>
+</div>
+<div class="ui two column grid">
+    <div class="column" #left>
+        <app-study-area-window [study]="study" #summary></app-study-area-window>
+        <app-overview (bounds)=boundsChange($event) (study)="onStudyChange($event)" #overview></app-overview></div>
+    <div class="column" #right><app-detailed-map #detail></app-detailed-map></div>
+</div>

@@ -1,0 +1,34 @@
+<sui-modal
+*ngIf="!disclaim.noticed()"
+    [isClosable]="true"
+    [isFullScreen]="true"
+    [size]="small"
+    [isBasic]="true"
+    #modal
+>
+  <h1 class="header">Disclaimer</h1>
+  <div class="content">
+      <p>The content of this website is provided for information purposes only. No claim is made as to the accuracy or authenticity of the content of the website. In no event will the University of Wollongong, its agents, instrumentalities and employees be liable for the accuracy of the information contained on this website nor its use or reliance placed on it. The information on the website is provided on the basis that all persons accessing the site undertake responsibility for assessing the relevance and accuracy of its content.</p>
+
+      <p>Information published by the University of Wollongong is considered to be true and correct at the time of publication. Changes in circumstances after the time of publication may impact on the accuracy of this information and the University of Wollongong gives no assurance of any information or advice contained.</p>
+
+      <p>The information contained in the website is not to be displayed except in full screen format. No liability is accepted for any information that may appear in other format.</p>
+
+      <p>No responsibility is taken for any information that may appear on any linked websites.</p>
+
+      <p>This website provides links to other websites. These external information sources are outside our control. It is the responsibility of users to make their own decision about the accuracy, currency, reliability and correctness of information found. The University of Wollongong does not necessarily endorse any company or organisation linked to from this site.</p>
+
+      <p>There is no warranty that the site will be free of infections by viruses or any other manifesting, contaminating or destructive properties.</p>
+  </div>
+  <div class="actions">
+    <button
+        class="ui basic red button"
+        (click)="modal.deny();deny()"
+    >Cancel</button>
+    <button
+        class="ui basic green button"
+        (click)="modal.approve('done');approve()"
+        autofocus
+    >OK</button>
+  </div>
+</sui-modal>

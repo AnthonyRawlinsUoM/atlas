@@ -1,0 +1,31 @@
+<nav>
+<div class="ui inverted primary stackable pointing menu" #primary>
+    <a class="ui header item" routerLink="/">
+  <div><i class="ui icons">
+      <i class="blue globe icon"></i>
+      <i class="red corner fire icon"></i>
+    </i>
+  </div>
+  <div class="header">The Prescribed Burning Atlas</div>
+  </a>
+  <a
+      class="item"
+      *ngFor="let r of routes"
+      [routerLink]="r.path"
+      [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{exact:true}"
+  ><i [class]="r.icon"></i> {{r.name}}</a>
+  <div class="right menu">
+      <a class="ui item" routerLink="profile" *ngIf="auth.loggedIn"><i class="id card icon"></i> Profile</a>
+    
+    <a class="ui item" (click)="auth.login()" *ngIf="!auth.loggedIn"><i class="sign in icon"></i> Log In</a>
+    <a class="ui item" (click)="auth.logout()" *ngIf="auth.loggedIn"><i class="sign out icon"></i>Log Out</a>
+    <a class="ui item" routerLink="external-api" *ngIf="auth.loggedIn"><i class="cloud icon"></i> API</a>
+    
+  </div>
+</div>
+</nav>
+<article #main>
+  <router-outlet></router-outlet>
+</article>
+<app-footer></app-footer>

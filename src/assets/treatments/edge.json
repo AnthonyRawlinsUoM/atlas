@@ -1,0 +1,11 @@
+{
+    "treatment" : "edge",
+    "options": [
+        { "name": "e0" },
+        { "name": "e1" },
+        { "name": "e2" },
+        { "name": "e3" },
+        { "name": "e5" },
+        { "name": "e10" }
+    ]
+}

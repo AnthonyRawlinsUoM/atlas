@@ -1,0 +1,12 @@
+{
+    "treatment" : "landscape",
+    "options": [
+        { "name": "l0" },
+        { "name": "l1" },
+        { "name": "l2" },
+        { "name": "l3" },
+        { "name": "l5" },
+        { "name": "l10" },
+        { "name": "l15" }
+    ]
+}

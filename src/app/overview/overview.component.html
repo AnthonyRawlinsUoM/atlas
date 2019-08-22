@@ -1,0 +1,59 @@
+<!-- [style]="'mapbox://styles/mapbox/outdoors-v11'" -->
+<mgl-map
+    [style]="'mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft'"
+    [zoom]="[4.9]"
+    [center]="[141.2, -35.557]"
+    [bearing]="bearing"
+    #overview
+>
+  <mgl-control
+      mglNavigation
+      position="top-left"
+  ></mgl-control>
+  <mgl-control
+      mglScale
+      unit="metric"
+      position="bottom-left"
+  ></mgl-control>
+  <mgl-geojson-source
+      id="study-areas-source"
+      [data]="studyareas"
+  >
+    <mgl-feature
+        *ngFor="let g of studyareas.features"
+        [geometry]="g.geometry"
+        properties="g.properties"
+        id="g.properties.sim_name"
+        (hover)="console.log('Entered feature!');"
+    ></mgl-feature>
+  </mgl-geojson-source>
+
+  <mgl-layer
+      id="study-hotspots"
+      type="line"
+      source="study-areas-source"
+      [paint]="{
+        'line-color': '#ca3706',
+        'line-width': 2
+    }"
+  >
+  </mgl-layer>
+  <mgl-layer
+      id="study-hotspots-fills"
+      type="fill"
+      source="study-areas-source"
+      [paint]="{
+        'fill-color': '#ca3706',
+        'fill-opacity': ['case',['boolean', ['feature-state', 'hover'], false],
+        1,
+        0.1
+        ]
+      }"
+      (mouseMove)="mousemove($event)"
+      (mouseLeave)="mouseleave()"
+      (click)="click($event)"
+  >
+  </mgl-layer>
+
+
+</mgl-map>

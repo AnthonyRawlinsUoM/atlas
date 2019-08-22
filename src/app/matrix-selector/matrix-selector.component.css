@@ -1,0 +1,20 @@
+.matrix {
+    
+    width: calc((32px * 8));
+    height: calc((32px * 8));
+    
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.matrix .cell {
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}

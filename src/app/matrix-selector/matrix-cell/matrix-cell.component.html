@@ -1,0 +1,12 @@
+<div
+    class="cell active"
+    *ngIf="active"
+    (click)="onClick($event)"
+    [ngStyle]="{'background-color': color}"
+></div>
+<div
+    class="cell"
+    *ngIf="!active"
+    (click)="onClick($event)"
+    [ngStyle]="{'background-color': color}"
+></div>
