@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'app-matrix-selection',
@@ -7,11 +7,22 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MatrixSelectionComponent implements OnInit {
 
-    @Input() selectedItemList: any[];
+    @Input() selectedItemList: any[] = [];
+    @Input() regimes;
+
+    @Output() change: EventEmitter<any> = new EventEmitter<any>();
 
     constructor() { }
 
     ngOnInit() {
+    }
+
+    updateSelectedItemList(l) {
+        this.selectedItemList = l;
+    }
+
+    selectionModify(ev) {
+        this.change.emit({});
     }
 
 }

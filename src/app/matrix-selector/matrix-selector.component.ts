@@ -1,9 +1,12 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
-import { MatrixSelectionComponent } from '../matrix-'
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { MatrixSelectionComponent } from './matrix-selection/matrix-selection.component';
+import { BayesNetOutputsService } from '../bayes-net-outputs.service';
+
+
 import * as colormap from 'colormap';
 
 let colors = colormap({
-    colormap: 'viridis',
+    colormap: 'hot',
     nshades: 255,
     format: 'rgbaString',
     alpha: 0.5
@@ -18,19 +21,24 @@ export class MatrixSelectorComponent implements OnInit {
 
     @ViewChild('mselection', { static: false }) mselection: MatrixSelectionComponent;
 
-    @Output selectedItems: EventEmitter<any> = new EventEmitter<any>();
+    @Input() study_area;
+
+    @Output() selectedItems: EventEmitter<any> = new EventEmitter<any>();
 
     private selection_matrix: boolean[][];
     private matrix_colors: any[][];
-    private regimes = [0, 1, 2, 3, 5, 10, 15, -1];
+    regimes = [0, 1, 2, 3, 5, 10, 15, -1];
 
-    constructor() { }
+    scope = "Life_loss";
+
+
+    constructor(private bayes: BayesNetOutputsService) { }
 
     ngOnInit() {
         this.selection_matrix = [];
         this.matrix_colors = [];
 
-        for (var i: number = 0; i < this.regimes.length - 1; i++) {
+        for (var i: number = this.regimes.length - 1; i > -1; i--) {
             this.selection_matrix[i] = [];
             this.matrix_colors[i] = [];
 
@@ -43,7 +51,10 @@ export class MatrixSelectorComponent implements OnInit {
         console.log(this.selection_matrix);
         console.log(this.matrix_colors);
 
+        this.refresh();
     }
+
+
 
     deactivated(position) {
 
@@ -52,6 +63,8 @@ export class MatrixSelectorComponent implements OnInit {
 
         this.selection_matrix[row][column] = false;
         console.log(this.selection_matrix);
+
+        this.mselection.updateSelectedItemList(this.flat());
     }
 
     activated(position) {
@@ -61,7 +74,7 @@ export class MatrixSelectorComponent implements OnInit {
         this.selection_matrix[row][column] = true;
         console.log(this.selection_matrix);
         // this.selectedItems[this.regime_id(row, column)];
-        this.selection.updateSelectedItemList(this.flat());
+        this.mselection.updateSelectedItemList(this.flat());
     }
 
     flat() {
@@ -77,11 +90,32 @@ export class MatrixSelectorComponent implements OnInit {
     }
 
     regime_id(row: number, column: number) {
-        return 'r' + str(row) + 'c' + str(column);
+        return 'r' + row + 'c' + column;
     }
 
     color(row, column) {
         return this.matrix_colors[this.regimes.indexOf(row)][this.regimes.indexOf(column)];
+    }
+
+    updateSelection(ev) {
+        console.log(ev);
+    }
+
+    public refresh() {
+        this.bayes.loadMatrix(this.study_area).subscribe((data) => {
+            console.log('Got data!!');
+            console.log(data);
+
+            for (var i: number = 0; i < this.regimes.length - 1; i++) {
+                for (var j: number = 0; j < this.regimes.length - 1; j++) {
+                    let color = data[i][j][this.scope]['color'];
+
+                    if (color != undefined) {
+                        this.matrix_colors[i][j] = color;
+                    }
+                }
+            }
+        });
     }
 
 }

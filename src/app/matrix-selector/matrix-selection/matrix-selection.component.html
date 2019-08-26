@@ -1,5 +1,15 @@
-<div class="ui form">
+<div class="ui form vertical middle aligned divided list">
+    
+    <div class="ui four column grid item" *ngIf="selectedItemList.length > 0">
+        <div class="ui column"><h3 class="ui header">Edge Treatment</h3></div>
+        
+        <div class="ui column"></div>
+        
+        <div class="ui column"><h3 class="ui header">Landscape Treatment</h3></div>
+        <div class="ui column"></div>
+    </div>
+    
     <div *ngFor="let s of selectedItemList">
-        <app-selected-item [item]="s"></app-selected-item>
+        <app-selected-item [item]="s" [regimes]="regimes" (change)="selectionModify($event)"></app-selected-item>
     </div>
 </div>

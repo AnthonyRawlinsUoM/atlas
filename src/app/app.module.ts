@@ -7,14 +7,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { SuiModule, SuiModalService, SuiCheckboxModule } from 'ng2-semantic-ui';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 
-
 import { ReactiveService } from './reactive.service';
 import { DisclaimerService } from './disclaimer.service';
 import { AuthService } from './auth.service';
-
+import { WeightsService } from './weights.service';
 import { CookieService } from 'ngx-cookie-service';
-
 import { InterceptorService } from './interceptor.service';
+import { BayesNetOutputsService } from './bayes-net-outputs.service';
+
 import { AuthGuard } from './auth.guard';
 
 import { AppComponent } from './app.component';
@@ -121,6 +121,8 @@ const routes: Routes = [
         DisclaimerService,
         CookieService,
         SuiModalService,
+        WeightsService,
+        BayesNetOutputsService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: InterceptorService,

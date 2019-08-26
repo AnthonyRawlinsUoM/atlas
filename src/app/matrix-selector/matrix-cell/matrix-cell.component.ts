@@ -41,5 +41,5 @@ export class MatrixCellComponent implements OnInit {
 
 export class MatrixPosition {
     row: number;
-    columne: number;
+    column: number;
 }

@@ -3,7 +3,7 @@
     *ngIf="study.properties != undefined"
 >
   <div class="summary-content">
-    <div class="ui container thick border">
+    <div class="thick border">
       <div class="ui top attached raised blue menu">
         <div class="header item">Study Area: {{study.properties.sim_name}}</div>
         <div class="right menu">
@@ -19,7 +19,7 @@
         <!-- <pre><code>{{ study | json }}</code></pre> -->
         <p>{{blurb}}</p>
 
-        <app-matrix-selector></app-matrix-selector>
+        <app-matrix-selector [study_area]="study" #mtx></app-matrix-selector>
         <app-matrix-plot></app-matrix-plot>
         
         

@@ -3,6 +3,7 @@
     [style]="'mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft'"
     [zoom]="[4.9]"
     [center]="[141.2, -35.557]"
+    (mouseMove)="onMouseMove($event)"
     #map
 >
 <mgl-control
