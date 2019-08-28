@@ -1,16 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { MatrixSelectionComponent } from './matrix-selection/matrix-selection.component';
-import { BayesNetOutputsService } from '../bayes-net-outputs.service';
+import { WeightsService } from '../weights.service';
 
-
-import * as colormap from 'colormap';
-
-let colors = colormap({
-    colormap: 'hot',
-    nshades: 255,
-    format: 'rgbaString',
-    alpha: 0.5
-});
 
 @Component({
     selector: 'app-matrix-selector',
@@ -22,54 +13,53 @@ export class MatrixSelectorComponent implements OnInit {
     @ViewChild('mselection', { static: false }) mselection: MatrixSelectionComponent;
 
     @Input() study_area;
-
+    @Input() scope = "House_loss";
     @Output() selectedItems: EventEmitter<any> = new EventEmitter<any>();
 
     private selection_matrix: boolean[][];
-    private matrix_colors: any[][];
-    regimes = [0, 1, 2, 3, 5, 10, 15, -1];
 
-    scope = "Life_loss";
+    edgeOptions = [];
+    landscapeOptions = [];
+    matrix_colors: any[][];
 
-
-    constructor(private bayes: BayesNetOutputsService) { }
+    constructor(private matrixservice: WeightsService) { }
 
     ngOnInit() {
-        this.selection_matrix = [];
+        this.edgeOptions = this.matrixservice.getEdgeOptions();
+        this.landscapeOptions = this.matrixservice.getLandscapeOptions();
+
         this.matrix_colors = [];
+        this.selection_matrix = [];
 
-        for (var i: number = this.regimes.length - 1; i > -1; i--) {
-            this.selection_matrix[i] = [];
-            this.matrix_colors[i] = [];
+        for (let e = 0; e < this.edgeOptions.length; e++) {
+            this.matrix_colors[e] = [];
+            this.selection_matrix[e] = [];
 
-            for (var j: number = 0; j < this.regimes.length - 1; j++) {
-                this.selection_matrix[i][j] = false;
-                this.matrix_colors[i][j] = colors[Math.floor(Math.random() * 255)];  // Randomized for testing - dynamic from json later
+            for (let l = 0; l < this.landscapeOptions.length; l++) {
+                this.selection_matrix[e][l] = false;
+                this.matrix_colors[e][l] = this.matrixservice.getMatrixCellOptionsForAreaScope(e, l, this.study_area.properties.sim_name, this.scope, 'viridis', 'rgba');
             }
         }
-
-        console.log(this.selection_matrix);
         console.log(this.matrix_colors);
 
-        this.refresh();
     }
 
 
 
     deactivated(position) {
 
-        let row = this.regimes.indexOf(position.row);
-        let column = this.regimes.indexOf(position.column);
+        let row = this.edgeOptions.indexOf(position.row);
+        let column = this.landscapeOptions.indexOf(position.column);
 
         this.selection_matrix[row][column] = false;
         console.log(this.selection_matrix);
-
+        // 
         this.mselection.updateSelectedItemList(this.flat());
     }
 
     activated(position) {
-        let row = this.regimes.indexOf(position.row);
-        let column = this.regimes.indexOf(position.column);
+        let row = this.edgeOptions.indexOf(position.row);
+        let column = this.landscapeOptions.indexOf(position.column);
 
         this.selection_matrix[row][column] = true;
         console.log(this.selection_matrix);
@@ -79,8 +69,8 @@ export class MatrixSelectorComponent implements OnInit {
 
     flat() {
         let flat = [];
-        for (var i: number = 0; i < this.regimes.length - 1; i++) {
-            for (var j: number = 0; j < this.regimes.length - 1; j++) {
+        for (var i: number = 0; i < this.edgeOptions.length; i++) {
+            for (var j: number = 0; j < this.landscapeOptions.length; j++) {
                 if (this.selection_matrix[i][j]) {
                     flat.push({ row: i, column: j });
                 }
@@ -94,28 +84,28 @@ export class MatrixSelectorComponent implements OnInit {
     }
 
     color(row, column) {
-        return this.matrix_colors[this.regimes.indexOf(row)][this.regimes.indexOf(column)];
+        return this.matrix_colors[this.edgeOptions.indexOf(row)][this.landscapeOptions.indexOf(column)];
     }
 
     updateSelection(ev) {
         console.log(ev);
     }
 
-    public refresh() {
-        this.bayes.loadMatrix(this.study_area).subscribe((data) => {
-            console.log('Got data!!');
-            console.log(data);
+    public refresh(scope) {
+        console.log(scope);
+        this.scope = scope;
+        console.log('Refreshing Matrix!!!');
 
-            for (var i: number = 0; i < this.regimes.length - 1; i++) {
-                for (var j: number = 0; j < this.regimes.length - 1; j++) {
-                    let color = data[i][j][this.scope]['color'];
+        this.edgeOptions = this.matrixservice.getEdgeOptions();
+        this.landscapeOptions = this.matrixservice.getLandscapeOptions();
 
-                    if (color != undefined) {
-                        this.matrix_colors[i][j] = color;
-                    }
-                }
+        this.matrix_colors = [];
+        for (let e = 0; e < this.edgeOptions.length; e++) {
+            this.matrix_colors[e] = [];
+            for (let l = 0; l < this.landscapeOptions.length; l++) {
+                this.matrix_colors[e][l] = this.matrixservice.getMatrixCellOptionsForAreaScope(e, l, this.study_area.properties.sim_name, this.scope, 'viridis', 'rgba');
             }
-        });
+        }
+        console.log(this.matrix_colors);
     }
-
 }

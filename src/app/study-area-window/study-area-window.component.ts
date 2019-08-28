@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { MatrixPlotComponent } from '../matrix-plot/matrix-plot.component';
+import { MatrixSelectorComponent } from '../matrix-selector/matrix-selector.component';
 
 @Component({
     selector: 'app-study-area-window',
@@ -9,7 +9,7 @@ import { MatrixPlotComponent } from '../matrix-plot/matrix-plot.component';
 export class StudyAreaWindowComponent implements OnInit {
 
     @Input() study: any;
-    @ViewChild('mtx', { static: false }) mtx: MatrixPlotComponent;
+    @ViewChild('mtx', { static: false }) mtx: MatrixSelectorComponent;
 
 
     constructor() { }

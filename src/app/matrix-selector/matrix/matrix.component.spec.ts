@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatrixPlotComponent } from './matrix-plot.component';
+import { MatrixComponent } from './matrix.component';
 
-describe('MatrixPlotComponent', () => {
-  let component: MatrixPlotComponent;
-  let fixture: ComponentFixture<MatrixPlotComponent>;
+describe('MatrixComponent', () => {
+  let component: MatrixComponent;
+  let fixture: ComponentFixture<MatrixComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MatrixPlotComponent ]
+      declarations: [ MatrixComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MatrixPlotComponent);
+    fixture = TestBed.createComponent(MatrixComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

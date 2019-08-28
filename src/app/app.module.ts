@@ -40,7 +40,6 @@ import { StudyAreasComponent } from './study-areas/study-areas.component';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 import { StudyAreaWindowComponent } from './study-area-window/study-area-window.component';
 import { StudyToolbarComponent } from './study-toolbar/study-toolbar.component';
-import { MatrixPlotComponent } from './matrix-plot/matrix-plot.component';
 
 import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
 import { MatrixSelectorComponent } from './matrix-selector/matrix-selector.component';
@@ -48,6 +47,8 @@ import { MatrixCellComponent } from './matrix-selector/matrix-cell/matrix-cell.c
 import { MatrixHeaderCellComponent } from './matrix-selector/matrix-header-cell/matrix-header-cell.component';
 import { MatrixSelectionComponent } from './matrix-selector/matrix-selection/matrix-selection.component';
 import { SelectedItemComponent } from './matrix-selector/selected-item/selected-item.component';
+import { ScopeOptionComponent } from './matrix-selector/scope-option/scope-option.component';
+import { MatrixComponent } from './matrix-selector/matrix/matrix.component';
 
 
 
@@ -96,12 +97,13 @@ const routes: Routes = [
         ModalConfirmComponent,
         StudyAreaWindowComponent,
         StudyToolbarComponent,
-        MatrixPlotComponent,
         MatrixSelectorComponent,
         MatrixCellComponent,
         MatrixHeaderCellComponent,
         MatrixSelectionComponent,
-        SelectedItemComponent
+        SelectedItemComponent,
+        ScopeOptionComponent,
+        MatrixComponent
     ],
     imports: [
         BrowserModule,

@@ -36,7 +36,9 @@ export class MatrixCellComponent implements OnInit {
             this.deactivated.emit({ row: this.row, column: this.column });
         }
     }
-
+    getColor() {
+        return this.color;
+    }
 }
 
 export class MatrixPosition {

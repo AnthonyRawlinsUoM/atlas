@@ -2,11 +2,11 @@
     class="cell active"
     *ngIf="active"
     (click)="onClick($event)"
-    [ngStyle]="{'background-color': color}"
+    [style.background-color]="getColor()"
 ></div>
 <div
     class="cell"
     *ngIf="!active"
     (click)="onClick($event)"
-    [ngStyle]="{'background-color': color}"
+    [style.background-color]="getColor()"
 ></div>

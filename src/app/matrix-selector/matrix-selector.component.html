@@ -1,24 +1,39 @@
-<h3 class="ui header">Matrix Selector for {{study_area.properties.sim_name}}</h3>
+<h3 class="ui header">Matrix Selector for {{study_area.properties.sim_name}} - {{scope}}</h3>
 
 <div class="ui form">
     <div class="ui segment">
-        <div class="ui matrix">
-            <div *ngFor="let r of regimes">
-                <div *ngFor="let c of regimes">
-                    <div
-                        class="cell"
-                        *ngIf="r == -1 && c == -1"
-                    ></div>
-                    <app-matrix-header-cell
-                        *ngIf="r == -1 && c != -1"
-                        [column]="c"
-                    ></app-matrix-header-cell>
-                    <app-matrix-header-cell
-                        *ngIf="c == -1 && r != -1"
-                        [row]="r"
-                    ></app-matrix-header-cell>
+        <app-scope-option (scopeChange)="refresh($event)"></app-scope-option>
+        <div class="ui relaxed">
+        <div
+            class="ui matrix"
+            #matrixselector
+        >
+
+
+            <div class="mcol">
+                <div class="header cell"></div>
+                <div
+                    *ngFor="let c of edgeOptions"
+                    class="mrow"
+                >
+                    <app-matrix-header-cell [column]="c"></app-matrix-header-cell>
+                </div>
+            </div>
+
+
+            <div
+                *ngFor="let r of landscapeOptions"
+                class="mcol"
+            >
+
+
+                <app-matrix-header-cell [row]="r"></app-matrix-header-cell>
+
+                <div
+                    *ngFor="let c of edgeOptions"
+                    class="mrow"
+                >
                     <app-matrix-cell
-                        *ngIf="c != -1 && r != -1"
                         [row]="r"
                         [column]="c"
                         [color]="color(r,c)"
@@ -28,8 +43,13 @@
                 </div>
             </div>
         </div>
+        </div>
         <h2 class="ui header">Treatment Comparator</h2>
-        <app-matrix-selection #mselection (change)="updateSelection($event)"></app-matrix-selection>
+        <app-matrix-selection
+            (selectedItemList)="matrix_selection"
+            #mselection
+            (change)="updateSelection($event)"
+        ></app-matrix-selection>
         <button class="ui icon button">
             <i class="ui random icon"></i>
             Compare

@@ -27,7 +27,7 @@ export class StudyAreasComponent implements AfterViewInit {
     constructor(private modalService: SuiModalService) { }
 
     ngAfterViewInit() {
-        this.detail;
+        // this.detail;
     }
 
     boundsChange(bbox) {
