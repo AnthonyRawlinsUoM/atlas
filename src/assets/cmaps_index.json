@@ -1,0 +1,29 @@
+{
+    "Perceptually Uniform Sequential": {
+        "cividis": "cmaps/pu/cmap_cividis_255.json",
+        "inferno": "cmaps/pu/cmap_inferno_255.json",
+        "magma": "cmaps/pu/cmap_magma_255.json",
+        "plasma": "cmaps/pu/cmap_plasma_255.json",
+        "viridis": "cmaps/pu/cmap_viridis_255.json"
+    },
+    "Sequential": {
+        "Blues": "cmaps/seq/cmap_Blues_255.json",
+        "BuGn": "cmaps/seq/cmap_BuGn_255.json",
+        "BuPu": "cmaps/seq/cmap_BuPu_255.json",
+        "GnBu": "cmaps/seq/cmap_GnBu_255.json",
+        "Greens": "cmaps/seq/cmap_Greens_255.json",
+        "Greys": "cmaps/seq/cmap_Greys_255.json",
+        "OrRd": "cmaps/seq/cmap_OrRd_255.json",
+        "Oranges": "cmaps/seq/cmap_Oranges_255.json",
+        "PuBu": "cmaps/seq/cmap_PuBu_255.json",
+        "PuBuGn": "cmaps/seq/cmap_PuBuGn_255.json",
+        "PuRd": "cmaps/seq/cmap_PuRd_255.json",
+        "Purples": "cmaps/seq/cmap_Purples_255.json",
+        "RdPu": "cmaps/seq/cmap_RdPu_255.json",
+        "Reds": "cmaps/seq/cmap_Reds_255.json",
+        "YlGn": "cmaps/seq/cmap_YlGn_255.json",
+        "YlGnBu": "cmaps/seq/cmap_YlGnBu_255.json",
+        "YlOrBr": "cmaps/seq/cmap_YlOrBr_255.json",
+        "YlOrRd": "cmaps/seq/cmap_YlOrRd_255.json"
+    }
+}
