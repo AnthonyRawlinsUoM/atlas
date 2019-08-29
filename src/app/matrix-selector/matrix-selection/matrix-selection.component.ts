@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
+
 @Component({
     selector: 'app-matrix-selection',
     templateUrl: './matrix-selection.component.html',
@@ -22,7 +23,7 @@ export class MatrixSelectionComponent implements OnInit {
     }
 
     selectionModify(ev) {
-        this.change.emit({});
+        this.change.emit(ev);
     }
 
 }

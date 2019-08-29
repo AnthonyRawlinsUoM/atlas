@@ -9,7 +9,7 @@
         <div class="ui column"></div>
     </div>
     
-    <div *ngFor="let s of selectedItemList">
+    <div *ngFor="let s of selectedItemList" #sels>
         <app-selected-item [item]="s" [regimes]="regimes" (change)="selectionModify($event)"></app-selected-item>
     </div>
 </div>

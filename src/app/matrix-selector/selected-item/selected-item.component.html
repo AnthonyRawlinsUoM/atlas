@@ -1,7 +1,7 @@
-<div class="item">
-    <i class="large bars middle aligned icon"></i>
+<div class="ui item">
+    <!-- <i class="large bars middle aligned icon"></i> -->
     <div class="ui content">
-        <div class="ui four column grid ">
+        <div class="ui two column grid ">
             <div class="ui column">
 
                 <sui-select
@@ -9,7 +9,8 @@
                     [(ngModel)]="item.row"
                     [options]="edgeOptions"
                     labelField="name"
-                    (selectedOptionChange)="changedEdge($event)"
+                    valueField="value"
+                    (selectedOptionChange)="changedOption($event)"
                     #edge
                 >
                     <sui-select-option
@@ -20,14 +21,15 @@
                 </sui-select>
             </div>
 
-            <div class="ui column">{{item.row}}</div>
+            <!-- <div class="ui column">{{item.row}}</div> -->
             <div class="ui column">
                 <sui-select
                     class="selection"
                     [(ngModel)]="item.column"
                     [options]="landscapeOptions"
                     labelField="name"
-                    (selectedOptionChange)="changedLandscape($event)"
+                    valueField="value"
+                    (selectedOptionChange)="changedOption($event)"
                     #landscape
                 >
                     <sui-select-option
@@ -38,7 +40,7 @@
                 </sui-select>
 
             </div>
-            <div class="ui column">{{item.column}}</div>
+            <!-- <div class="ui column">{{item.column}}</div> -->
         </div>
     </div>
 </div>

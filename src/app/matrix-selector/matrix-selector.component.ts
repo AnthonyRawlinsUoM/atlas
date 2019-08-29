@@ -1,6 +1,20 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Input,
+    Output,
+    EventEmitter,
+    ElementRef,
+    ViewChild,
+    ViewChildren,
+    QueryList,
+    AfterViewInit
+} from '@angular/core';
+
 import { MatrixSelectionComponent } from './matrix-selection/matrix-selection.component';
 import { WeightsService } from '../weights.service';
+import { MatrixCellComponent } from './matrix-cell/matrix-cell.component';
+
 
 
 @Component({
@@ -10,6 +24,7 @@ import { WeightsService } from '../weights.service';
 })
 export class MatrixSelectorComponent implements OnInit {
 
+    @ViewChildren('mtxcell') components: QueryList<MatrixCellComponent>;
     @ViewChild('mselection', { static: false }) mselection: MatrixSelectionComponent;
 
     @Input() study_area;
@@ -44,13 +59,43 @@ export class MatrixSelectorComponent implements OnInit {
 
     }
 
+    ngAfterViewInit() {
+        // print array of CustomComponent objects
+        console.log(this.components.toArray());
+    }
 
+    deactivate(position) {
+        this.selection_matrix[position.row][position.column] = false;
+
+        let o = this.components
+            .filter(c => { return c.row == this.edgeOptions[position.row] })
+            .filter(c => { return c.column == this.landscapeOptions[position.column] })[0];
+
+        console.log(o);
+        o.active = false;
+
+        this.mselection.selectedItemList = this.flat();
+
+    }
+
+    activate(position) {
+        this.selection_matrix[position.row][position.column] = true;
+
+        console.log(this.edgeOptions[position.row]);
+
+        this.components
+            .filter(c => { return c.row == this.edgeOptions[position.row] })
+            .filter(c => { return c.column == this.landscapeOptions[position.column] })[0].active = true;
+
+        this.mselection.selectedItemList = this.flat();
+    }
 
     deactivated(position) {
 
         let row = this.edgeOptions.indexOf(position.row);
         let column = this.landscapeOptions.indexOf(position.column);
 
+        console.log(this.selection_matrix);
         this.selection_matrix[row][column] = false;
         console.log(this.selection_matrix);
         // 
@@ -88,7 +133,9 @@ export class MatrixSelectorComponent implements OnInit {
     }
 
     updateSelection(ev) {
-        console.log(ev);
+        console.log('>>> Update Selection Event: ', ev);
+        this.deactivate(ev.was);
+        this.activate(ev.now);
     }
 
     public refresh(scope) {
