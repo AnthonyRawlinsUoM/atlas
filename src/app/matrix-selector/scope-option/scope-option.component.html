@@ -1,10 +1,11 @@
 <sui-select class="selection"
                     [(ngModel)]="scope"
                     [options]="scopes"
-                    [labelField]="name"
+                    labelField="name"
+                    valueField="value"
                     (selectedOptionChange)="onChange($event)
                     "#select>
     <sui-select-option *ngFor="let option of select.filteredOptions"
-                   [value]="option.value">
+                   [value]="option">
     </sui-select-option>
 </sui-select>

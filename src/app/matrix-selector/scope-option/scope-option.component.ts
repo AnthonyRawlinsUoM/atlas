@@ -22,6 +22,7 @@ export class ScopeOptionComponent implements OnInit {
     constructor(private matrixservice: WeightsService) { }
 
     ngOnInit() {
+        this.scope = this.scopes[1].value;
     }
 
     onChange(ev) {
