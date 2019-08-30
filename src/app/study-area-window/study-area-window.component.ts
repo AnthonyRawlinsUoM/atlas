@@ -23,7 +23,8 @@ export class StudyAreaWindowComponent implements OnInit {
 
     reload(study) {
         this.study = study;
-        this.mtx.refresh();
+        // this.mtx.study_area = study;
+        this.mtx.renew();
     }
 
 }

@@ -4,46 +4,29 @@
     <div class="ui segment">
         <app-scope-option (scopeChange)="refresh($event)"></app-scope-option>
         <div class="ui relaxed">
-        <div
-            class="ui matrix"
-            #matrixselector
-        >
-
-
+        <div class="ui matrix" #matrixselector>
+            
             <div class="mcol">
-                <div
-                    *ngFor="let c of edgeOptions.reverse()"
-                    class="mrow"
-                >
-                    <app-matrix-header-cell [column]="c"></app-matrix-header-cell>
+                <div *ngFor="let r of edgeOptions" class="mrow">
+                    <app-matrix-header-cell [row]="r.name"></app-matrix-header-cell>
                 </div>
                 <div class="header cell"></div>
             </div>
 
 
-            <div
-                *ngFor="let r of landscapeOptions"
-                class="mcol"
-            >
-
-
-                
-
-                <div
-                    *ngFor="let c of edgeOptions"
-                    class="mrow"
-                >
+            <div *ngFor="let c of landscapeOptions" class="mcol">
+                <div *ngFor="let r of edgeOptions" class="mrow">
                     <app-matrix-cell
-                        [row]="r"
-                        [column]="c"
-                        [color]="color(r,c)"
-                        (activated)="activated($event)"
-                        (deactivated)="deactivated($event)"
+                        [row]="r.value"
+                        [column]="c.value"
+                        [area]="study_area.properties.sim_name"
+                        [scope]="scope"
+                        [cmap]="'viridis'"
+                        (activated)="onActivate($event)"
+                        (deactivated)="onDeactivate($event)"
                     #mtxcell></app-matrix-cell>
                 </div>
-                
-                <app-matrix-header-cell [row]="r"></app-matrix-header-cell>
-                
+                <app-matrix-header-cell [column]="c.name"></app-matrix-header-cell>
             </div>
         </div>
         </div>

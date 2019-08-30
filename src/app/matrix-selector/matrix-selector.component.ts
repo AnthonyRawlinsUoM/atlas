@@ -35,7 +35,6 @@ export class MatrixSelectorComponent implements OnInit {
 
     edgeOptions = [];
     landscapeOptions = [];
-    matrix_colors: any[][];
 
     constructor(private matrixservice: WeightsService) { }
 
@@ -43,20 +42,18 @@ export class MatrixSelectorComponent implements OnInit {
         this.edgeOptions = this.matrixservice.getEdgeOptions();
         this.landscapeOptions = this.matrixservice.getLandscapeOptions();
 
-        this.matrix_colors = [];
+        // this.matrix_colors = [];
         this.selection_matrix = [];
 
         for (let e = 0; e < this.edgeOptions.length; e++) {
-            this.matrix_colors[e] = [];
+            // this.matrix_colors[e] = [];
             this.selection_matrix[e] = [];
 
             for (let l = 0; l < this.landscapeOptions.length; l++) {
                 this.selection_matrix[e][l] = false;
-                this.matrix_colors[e][l] = this.matrixservice.getMatrixCellOptionsForAreaScope(e, l, this.study_area.properties.sim_name, this.scope, 'viridis', 'rgba');
+                // this.matrix_colors[e][l] = this.matrixservice.getMatrixCellOptionsForAreaScope(e, l, this.study_area.properties.sim_name, this.scope, 'viridis', 'rgba');
             }
         }
-        console.log(this.matrix_colors);
-
     }
 
     ngAfterViewInit() {
@@ -64,53 +61,57 @@ export class MatrixSelectorComponent implements OnInit {
         console.log(this.components.toArray());
     }
 
-    deactivate(position) {
+    onDeactivate(position) {
         this.selection_matrix[position.row][position.column] = false;
 
         let o = this.components
-            .filter(c => { return c.row == this.edgeOptions[position.row] })
-            .filter(c => { return c.column == this.landscapeOptions[position.column] })[0];
+            .filter(cmp => { return cmp.row == position.row })
+            .filter(cmp => { return cmp.column == position.column })[0]
 
         console.log(o);
-        o.active = false;
+        if (o.active) {
+            o.active = false;
+        }
 
         this.mselection.selectedItemList = this.flat();
 
     }
 
-    activate(position) {
+    onActivate(position) {
         this.selection_matrix[position.row][position.column] = true;
 
-        console.log(this.edgeOptions[position.row]);
+        let o = this.components
+            .filter(cmp => { return cmp.row == position.row })
+            .filter(cmp => { return cmp.column == position.column })[0]
 
-        this.components
-            .filter(c => { return c.row == this.edgeOptions[position.row] })
-            .filter(c => { return c.column == this.landscapeOptions[position.column] })[0].active = true;
+        if (!o.active) {
+            o.active = true;
+        }
 
         this.mselection.selectedItemList = this.flat();
     }
 
-    deactivated(position) {
-
-        let row = this.edgeOptions.indexOf(position.row);
-        let column = this.landscapeOptions.indexOf(position.column);
-
-        console.log(this.selection_matrix);
-        this.selection_matrix[row][column] = false;
-        console.log(this.selection_matrix);
-        // 
-        this.mselection.updateSelectedItemList(this.flat());
-    }
-
-    activated(position) {
-        let row = this.edgeOptions.indexOf(position.row);
-        let column = this.landscapeOptions.indexOf(position.column);
-
-        this.selection_matrix[row][column] = true;
-        console.log(this.selection_matrix);
-        // this.selectedItems[this.regime_id(row, column)];
-        this.mselection.updateSelectedItemList(this.flat());
-    }
+    // deactivated(position) {
+    // 
+    //     let row = this.edgeOptions.indexOf(position.row);
+    //     let column = this.landscapeOptions.indexOf(position.column);
+    // 
+    //     console.log(this.selection_matrix);
+    //     this.selection_matrix[row][column] = false;
+    //     console.log(this.selection_matrix);
+    //     // 
+    //     this.mselection.updateSelectedItemList(this.flat());
+    // }
+    // 
+    // activated(position) {
+    //     let row = this.edgeOptions.indexOf(position.row);
+    //     let column = this.landscapeOptions.indexOf(position.column);
+    // 
+    //     this.selection_matrix[row][column] = true;
+    //     console.log(this.selection_matrix);
+    //     // this.selectedItems[this.regime_id(row, column)];
+    //     this.mselection.updateSelectedItemList(this.flat());
+    // }
 
     flat() {
         let flat = [];
@@ -128,31 +129,29 @@ export class MatrixSelectorComponent implements OnInit {
         return 'r' + row + 'c' + column;
     }
 
-    color(row, column) {
-        return this.matrix_colors[this.edgeOptions.indexOf(row)][this.landscapeOptions.indexOf(column)];
-    }
+    // color(row, column) {
+    //     return this.matrix_colors[this.edgeOptions.indexOf(row)][this.landscapeOptions.indexOf(column)];
+    // }
 
     updateSelection(ev) {
         console.log('>>> Update Selection Event: ', ev);
-        this.deactivate(ev.was);
-        this.activate(ev.now);
+        this.onDeactivate(ev.was);
+        this.onActivate(ev.now);
     }
 
     public refresh(scope) {
-        console.log(scope);
+        console.log("Doing REFRESH. ");
         this.scope = scope;
-        console.log('Refreshing Matrix!!!');
+        this.renew();
+    }
 
-        this.edgeOptions = this.matrixservice.getEdgeOptions();
-        this.landscapeOptions = this.matrixservice.getLandscapeOptions();
+    renew() {
+        console.log("doing renew");
+        this.components.map((c) => {
+            c.scope = this.scope;
+            c.area = this.study_area.properties.sim_name;
+            c.refresh();
+        });
 
-        this.matrix_colors = [];
-        for (let e = 0; e < this.edgeOptions.length; e++) {
-            this.matrix_colors[e] = [];
-            for (let l = 0; l < this.landscapeOptions.length; l++) {
-                this.matrix_colors[e][l] = this.matrixservice.getMatrixCellOptionsForAreaScope(e, l, this.study_area.properties.sim_name, this.scope, 'viridis', 'rgba');
-            }
-        }
-        console.log(this.matrix_colors);
     }
 }

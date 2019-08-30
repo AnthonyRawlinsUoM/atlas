@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { WeightsService } from '../../weights.service';
 
 @Component({
     selector: 'app-matrix-cell',
@@ -9,16 +10,28 @@ export class MatrixCellComponent implements OnInit {
 
     @Input() row: number;
     @Input() column: number;
-    @Input() color: any;
+    @Input() area;
+    @Input() scope;
+    @Input() cmap;
+
+    // @Input() color: any;
 
     @Output() activated: EventEmitter<any> = new EventEmitter<any>();
     @Output() deactivated: EventEmitter<any> = new EventEmitter<any>();
 
-    private active = false;
+    active = false;
 
-    constructor() { }
+    color;
+    edgeOptions;
+    landscapeOptions;
+
+    constructor(private ms: WeightsService) { }
 
     ngOnInit() {
+
+        this.edgeOptions = this.ms.getEdgeOptions();
+        this.landscapeOptions = this.ms.getLandscapeOptions();
+        this.color = this.ms.getMatrixCellOptionsForAreaScope(this.row, this.column, this.area, this.scope, this.cmap, 'rgba');
     }
 
     toggle() {
@@ -39,6 +52,11 @@ export class MatrixCellComponent implements OnInit {
     getColor() {
         return this.color;
     }
+
+    public refresh() {
+        this.color = this.ms.getMatrixCellOptionsForAreaScope(this.row, this.column, this.area, this.scope, this.cmap, 'rgba');
+    }
+
 }
 
 export class MatrixPosition {
