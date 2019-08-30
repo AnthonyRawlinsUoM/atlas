@@ -49,6 +49,7 @@ import { MatrixSelectionComponent } from './matrix-selector/matrix-selection/mat
 import { SelectedItemComponent } from './matrix-selector/selected-item/selected-item.component';
 import { ScopeOptionComponent } from './matrix-selector/scope-option/scope-option.component';
 import { MatrixComponent } from './matrix-selector/matrix/matrix.component';
+import { LegendComponent } from './matrix-selector/legend/legend.component';
 
 
 
@@ -103,7 +104,8 @@ const routes: Routes = [
         MatrixSelectionComponent,
         SelectedItemComponent,
         ScopeOptionComponent,
-        MatrixComponent
+        MatrixComponent,
+        LegendComponent
     ],
     imports: [
         BrowserModule,

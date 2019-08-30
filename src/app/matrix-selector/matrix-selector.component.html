@@ -11,13 +11,13 @@
 
 
             <div class="mcol">
-                <div class="header cell"></div>
                 <div
-                    *ngFor="let c of edgeOptions"
+                    *ngFor="let c of edgeOptions.reverse()"
                     class="mrow"
                 >
                     <app-matrix-header-cell [column]="c"></app-matrix-header-cell>
                 </div>
+                <div class="header cell"></div>
             </div>
 
 
@@ -27,7 +27,7 @@
             >
 
 
-                <app-matrix-header-cell [row]="r"></app-matrix-header-cell>
+                
 
                 <div
                     *ngFor="let c of edgeOptions"
@@ -41,6 +41,9 @@
                         (deactivated)="deactivated($event)"
                     #mtxcell></app-matrix-cell>
                 </div>
+                
+                <app-matrix-header-cell [row]="r"></app-matrix-header-cell>
+                
             </div>
         </div>
         </div>
