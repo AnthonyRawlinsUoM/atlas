@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { WeightsService } from '../weights.service';
 
 @Component({
@@ -8,11 +8,17 @@ import { WeightsService } from '../weights.service';
 })
 export class SandboxComponent implements OnInit {
     source;
+    @Input() positions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+    @Input() area = 'VIC';
 
     constructor(private ws: WeightsService) { }
 
     ngOnInit() {
-        this.source = this.ws.getSpiderSeries('VIC', [1, 2, 3, 4, 5]);
+        this.source = this.ws.getSpiderSeries('VIC', this.positions);
+    }
+
+    onAreaChange() {
+        this.source = this.ws.getSpiderSeries(this.area, this.positions);
     }
 
 }

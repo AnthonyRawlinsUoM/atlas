@@ -3,7 +3,7 @@ import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from
 import { filter, map } from 'rxjs/operators';
 
 import matrix from '../assets/matrix_master.json';
-import absolutes from '../assets/BayesNetOutputs/master_absolute.json';
+import normals from '../assets/BayesNetOutputs/master_normalised.json';
 
 import Blues from '../assets/cmaps/seq/cmap_Blues_255.json';
 import BuGn from '../assets/cmaps/seq/cmap_BuGn_255.json';
@@ -55,13 +55,15 @@ export class WeightsService {
         console.log(positions);
         console.log(area);
 
-        let selected_area = absolutes.areas[area];
+        let selected_area = normals.areas[area];
+
         let res = [];
-        for (let s in selected_area) {
+
+        for (let s = 0; s < selected_area.length; s++) {
             for (let pos = 0; pos < positions.length; pos++) {
-                console.log(s);
+                console.log(selected_area[s]);
                 if (s == positions[pos]) {
-                    res.push(absolutes.areas[area][pos]);
+                    res.push(normals.areas[area][pos]);
                 }
             }
         }
