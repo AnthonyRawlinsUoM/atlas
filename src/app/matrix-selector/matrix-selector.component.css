@@ -9,6 +9,15 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
+    
+}
+
+/* .matrix .mrow {
+    flex-direction: row-reverse;
+} */
+
+.matrix .mcol {
+    flex-direction: row-reverse;
 }
 
 .matrix .cell {

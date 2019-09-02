@@ -38,10 +38,10 @@ export class WeightsService {
     }
 
     public getEdgeOptions() {
-        return matrix.regimes.edge;
+        return matrix.regimes.edge.reverse();
     }
 
-    public getMatrixCellOptionsForAreaScope(epos, lpos, area, scope, cmap, mode) {
+    public getMatrixCellOptionsForAreaScope(lpos, epos, area, scope, cmap, mode) {
 
         console.log(area);
         console.log(scope);
@@ -50,7 +50,7 @@ export class WeightsService {
 
         console.log(norms);
 
-        let e = parseInt(epos);
+        let e = parseInt(epos); // reverse order
         let l = parseInt(lpos);
         let cellpos: number = l * e + l;
 

@@ -6,6 +6,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SuiModule, SuiModalService, SuiCheckboxModule } from 'ng2-semantic-ui';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { CommonModule } from '@angular/common';
+
 
 import { ReactiveService } from './reactive.service';
 import { DisclaimerService } from './disclaimer.service';
@@ -49,6 +51,8 @@ import { MatrixSelectionComponent } from './matrix-selector/matrix-selection/mat
 import { SelectedItemComponent } from './matrix-selector/selected-item/selected-item.component';
 import { ScopeOptionComponent } from './matrix-selector/scope-option/scope-option.component';
 import { LegendComponent } from './matrix-selector/legend/legend.component';
+import { SpiderchartComponent } from './spiderchart/spiderchart.component';
+import { SandboxComponent } from './sandbox/sandbox.component';
 
 
 
@@ -66,6 +70,9 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     { path: 'faq', component: FaqsComponent },
+
+    { path: 'test', component: SandboxComponent },
+
     { path: 'publications', component: PublicationsComponent },
     { path: 'logout', component: LogoutComponent },
     {
@@ -103,10 +110,13 @@ const routes: Routes = [
         MatrixSelectionComponent,
         SelectedItemComponent,
         ScopeOptionComponent,
-        LegendComponent
+        LegendComponent,
+        SpiderchartComponent,
+        SandboxComponent
     ],
     imports: [
         BrowserModule,
+        CommonModule,
         FormsModule,
         SuiModule,
         SuiCheckboxModule,
