@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
+import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+
 import matrix from '../assets/matrix_master.json';
+import absolutes from '../assets/BayesNetOutputs/master_absolute.json';
 
 import Blues from '../assets/cmaps/seq/cmap_Blues_255.json';
 import BuGn from '../assets/cmaps/seq/cmap_BuGn_255.json';
@@ -31,6 +35,8 @@ import viridis from '../assets/cmaps/pu/cmap_viridis_255.json';
 })
 export class WeightsService {
 
+
+
     constructor() { }
 
     public getLandscapeOptions() {
@@ -39,6 +45,29 @@ export class WeightsService {
 
     public getEdgeOptions() {
         return matrix.regimes.edge.reverse();
+    }
+
+    public getSpiderSeries(area, positions) {
+
+        // Area = array of indexes row*col + col
+        // eg., [0,12,14...,48] etc
+
+        console.log(positions);
+        console.log(area);
+
+        let selected_area = absolutes.areas[area];
+        let res = [];
+        for (let s in selected_area) {
+            for (let pos = 0; pos < positions.length; pos++) {
+                console.log(s);
+                if (s == positions[pos]) {
+                    res.push(absolutes.areas[area][pos]);
+                }
+            }
+        }
+        console.log(res);
+        return res;
+
     }
 
     public getMatrixCellOptionsForAreaScope(lpos, epos, area, scope, cmap, mode) {
