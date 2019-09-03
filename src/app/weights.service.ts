@@ -48,28 +48,39 @@ export class WeightsService {
     }
 
     public getSpiderSeries(area, positions) {
+        return Observable.create((observer) => {
+            // Area = array of indexes row*col + col
+            // eg., [0,12,14...,48] etc
 
-        // Area = array of indexes row*col + col
-        // eg., [0,12,14...,48] etc
+            console.log(positions);
+            console.log(area);
 
-        console.log(positions);
-        console.log(area);
+            let selected_area = normals.areas[area];
 
-        let selected_area = normals.areas[area];
+            let res = [];
 
-        let res = [];
+            // console.log(selected_area);
 
-        for (let s = 0; s < selected_area.length; s++) {
-            for (let pos = 0; pos < positions.length; pos++) {
-                console.log(selected_area[s]);
-                if (s == positions[pos]) {
-                    res.push(normals.areas[area][pos]);
+            for (let m in selected_area) {
+                let metric = {};
+
+                for (let i in selected_area[m]) {
+
+
+                    for (let pos = 0; pos < positions.length; pos++) {
+                        if (i == positions[pos].toString()) {
+                            metric['idx' + (i.toString())] = selected_area[m][i];
+                        }
+                    }
                 }
-            }
-        }
-        console.log(res);
-        return res;
 
+                metric["metric"] = m;
+                res.push(metric);
+            }
+
+            // console.log(res);
+            observer.next(res)
+        });
     }
 
     public getMatrixCellOptionsForAreaScope(lpos, epos, area, scope, cmap, mode) {
@@ -83,7 +94,7 @@ export class WeightsService {
 
         let e = parseInt(epos); // reverse order
         let l = parseInt(lpos);
-        let cellpos: number = l * e + l;
+        let cellpos: number = (l * this.getEdgeOptions().length) + e;
 
         // console.log('Evaluating: ', cellpos);
 
@@ -108,6 +119,22 @@ export class WeightsService {
         // console.log(c);
         // console.log(c[0]['hex']);
 
+        return c[0]['hex'];
+    }
+
+
+    public get2DColor(size, row, column) {
+        let cmap = plasma;
+
+        let offset = Math.floor(((row * size) + column) * 5);
+        let c = this.where(colormap, { index: offset });
+        return c[0]['hex'];
+    }
+
+    public get1DColor(idx) {
+        let colormap = magma;
+        let offset = Math.floor(idx * 5);
+        let c = this.where(colormap, { index: offset });
         return c[0]['hex'];
     }
 

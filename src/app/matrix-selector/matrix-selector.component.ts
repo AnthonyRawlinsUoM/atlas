@@ -74,7 +74,7 @@ export class MatrixSelectorComponent implements OnInit {
         }
 
         this.mselection.selectedItemList = this.flat();
-
+        this.selectedItems.emit(this.flat());
     }
 
     onActivate(position) {
@@ -89,6 +89,7 @@ export class MatrixSelectorComponent implements OnInit {
         }
 
         this.mselection.selectedItemList = this.flat();
+        this.selectedItems.emit(this.flat());
     }
 
     // deactivated(position) {
@@ -145,7 +146,7 @@ export class MatrixSelectorComponent implements OnInit {
         this.renew();
     }
 
-    renew() {
+    public renew() {
         console.log("doing renew");
         this.components.map((c) => {
             c.scope = this.scope;

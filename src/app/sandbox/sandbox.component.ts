@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { WeightsService } from '../weights.service';
+import { SpiderchartComponent } from '../spiderchart/spiderchart.component';
 
 @Component({
     selector: 'app-sandbox',
@@ -7,18 +8,31 @@ import { WeightsService } from '../weights.service';
     styleUrls: ['./sandbox.component.css']
 })
 export class SandboxComponent implements OnInit {
-    source;
-    @Input() positions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+    @ViewChild('spider', { static: false }) spider: SpiderchartComponent;
+    source = [];
+    @Input() positions = [];
     @Input() area = 'VIC';
+
+    sub;
 
     constructor(private ws: WeightsService) { }
 
     ngOnInit() {
-        this.source = this.ws.getSpiderSeries('VIC', this.positions);
+        this.sub = this.ws.getSpiderSeries(this.area, this.positions).subscribe((data) => {
+            console.log('Got subscription data for Spider Chart');
+            console.log(data);
+            this.source = data;
+        });
     }
 
-    onAreaChange() {
-        this.source = this.ws.getSpiderSeries(this.area, this.positions);
-    }
+    refresh() {
+        this.sub = this.ws.getSpiderSeries(this.area, this.positions).subscribe((data) => {
+            console.log('Got subscription data for Spider Chart');
+            console.log(data);
+            this.source = data;
+            this.spider.updateSelf();
+        });
 
+    }
 }

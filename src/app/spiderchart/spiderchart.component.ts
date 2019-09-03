@@ -1,6 +1,6 @@
 import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { jqxChartComponent } from 'jqwidgets-ng/jqxchart';
-
+import { WeightsService } from '../weights.service';
 
 @Component({
     selector: 'app-spiderchart',
@@ -14,76 +14,92 @@ export class SpiderchartComponent implements OnInit {
     @Input() chart_title: any = 'Unnamed Chart';
     @Input() description: any = 'Description.'
     @Input() source: any[] = [];
+    @Input() positions: any = [];
 
     @Input() xAxis: any = {
-        dataField: 'id',
+        dataField: 'metric',
         displayText: 'Metric',
-        valuesOnTicks: false,
+        valuesOnTicks: true,
         labels: { autoRotate: false }
     };
 
     chartInstance;
 
+    opacity = 0.13;
+    lineWidth = 1.13;
+    radii = 1.2;
 
     dataAdapter: any;
     padding: any;
     titlePadding: any;
     valueAxis: any;
     seriesGroups: any;
-    selected_type: string = 'scatter';
+    selected_type: string = 'column';
     seriesList: string[] = ['splinearea', 'spline', 'column', 'scatter', 'stackedcolumn', 'stackedsplinearea', 'stackedspline'];
 
+    series = [];
+    colorchart = [];
 
     ngOnInit(): void {
         this.valueAxis = { unitInterval: 1, };
         this.padding = { left: 5, top: 5, right: 5, bottom: 5 };
         this.titlePadding = { left: 0, top: 5, right: 0, bottom: 5 };
+
+        for (let p in Array.from(Array(49).keys())) {
+            this.colorchart[p] = this.ws.get1DColor(p);
+        }
+
+        for (let p in Array.from(Array(49).keys())) {
+            this.series.push({
+                dataField: 'idx' + p,
+                displayText: p,
+                opacity: this.opacity,
+                lineWidth: this.lineWidth,
+                radius: this.radii,
+                symbolType: 'circle',
+                lineColor: this.colorchart[p],
+                fillColor: this.colorchart[p]
+            });
+        }
+
         this.seriesGroups =
             [
                 {
-                    spider: true,
-                    radius: 275,
+                    polar: true,
+                    radius: 150,
                     startAngle: 0,
                     endAngle: 360,
                     type: this.selected_type,
-                    series: [
-                        { dataField: 'House_loss', displayText: 'House Loss', opacity: 0.12, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#440154", fillColor: "#440154" },
-                        { dataField: 'Life_loss', displayText: 'Life Loss', opacity: 0.12, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#414487", fillColor: "#414487" },
-                        { dataField: 'Power_loss', displayText: 'Power Loss', opacity: 0.12, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#2a788e", fillColor: "#2a788e" },
-                        { dataField: 'Road_loss', displayText: 'Road Loss', opacity: 0.12, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#22a884", fillColor: "#22a884" },
-                        { dataField: 'Fire_area', displayText: 'Fire Area', opacity: 0.12, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#7ad151", fillColor: "#7ad151" },
-                        { dataField: 'TFI_burnt', displayText: 'TFI Burnt', opacity: 0.12, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#fde725", fillColor: "#fde725" }
-
-                    ]
+                    series: this.series
                 }
             ];
 
         this.chartInstance = this.myChart;
+
+        console.log(this.colorchart);
     }
 
     updateSelf() {
-        this.seriesGroups =
-            [
-                {
-                    spider: true,
-                    radius: 275,
-                    startAngle: 0,
-                    endAngle: 360,
-                    type: this.selected_type,
-                    series: [
-                        { dataField: 'House_loss', displayText: 'House Loss', opacity: 0.42, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#440154", fillColor: "#440154" },
-                        { dataField: 'Life_loss', displayText: 'Life Loss', opacity: 0.42, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#414487", fillColor: "#414487" },
-                        { dataField: 'Power_loss', displayText: 'Power Loss', opacity: 0.42, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#2a788e", fillColor: "#2a788e" },
-                        { dataField: 'Road_loss', displayText: 'Road Loss', opacity: 0.42, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#22a884", fillColor: "#22a884" },
-                        { dataField: 'Fire_area', displayText: 'Fire Area', opacity: 0.42, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#7ad151", fillColor: "#7ad151" },
-                        { dataField: 'TFI_burnt', displayText: 'TFI Burnt', opacity: 0.42, lineWidth: 1.24, radius: 1.2, symbolType: 'circle', lineColor: "#fde725", fillColor: "#fde725" }
-                    ]
-                }
-            ];
+        console.log('Updating Spider Chart!');
+        // if (this.positions.length > 0) {
+        //     this.opacity = (1 / this.positions.length);
+        // }
+        // 
+        // this.seriesGroups =
+        //     [
+        //         {
+        //             polar: true,
+        //             radius: 150,
+        //             startAngle: 0,
+        //             endAngle: 360,
+        //             type: this.selected_type,
+        //             series: this.series
+        //         }
+        //     ];
         this.myChart.update();
     }
 
 
-    constructor() { }
+    constructor(private ws: WeightsService) { }
 
 }

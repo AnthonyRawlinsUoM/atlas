@@ -2,25 +2,40 @@
     class="summary"
     *ngIf="study.properties != undefined"
 >
-  <div class="summary-content">
-    <div class="thick border">
-      <div class="ui top attached raised blue menu">
-        <div class="header item">Study Area: {{study.properties.sim_name}}</div>
-        <div class="right menu">
-          <a
-              class="ui red inverted item"
-              (click)="closeThis()"
-          ><i class=" close icon"></i></a>
-      </div>
-  </div>
-  
-      <app-study-toolbar></app-study-toolbar>
-      <div class="ui bottom attached raised segment">
-        <!-- <pre><code>{{ study | json }}</code></pre> -->
-        <p>{{blurb}}</p>
+    <div class="summary-content">
+        <div class="thick border">
 
-        <app-matrix-selector [study_area]="study" #mtx></app-matrix-selector>
-      </div>
+            <div class="ui top attached raised blue menu">
+                <div class="header item">Study Area: {{study.properties.sim_name}}</div>
+                <div class="right menu">
+                    <a
+                        class="ui red inverted item"
+                        (click)="closeThis()"
+                    ><i class=" close icon"></i></a>
+                </div>
+            </div>
+
+            <app-study-toolbar></app-study-toolbar>
+            <div class="ui bottom attached raised segment">
+
+                <div class="ui two column grid">
+                    <div class="ui column">
+
+                        <app-matrix-selector
+                            [study_area]="study"
+                            (selectedItems)="onSelectedItemsChange($event)"
+                            #mtx
+                        ></app-matrix-selector>
+                        
+                        </div>
+                        <div class="ui column">
+                            <app-sandbox
+                                [positions]="selectedItems"
+                                [area]="study.properties.sim_name"
+                            #spider></app-sandbox>
+                        </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
