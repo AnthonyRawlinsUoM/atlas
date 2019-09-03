@@ -21,8 +21,8 @@ export class StudyAreasComponent implements AfterViewInit {
     @ViewChild('right', { read: ElementRef, static: false }) right: ElementRef;
 
     study: any = {};
-    grown = false;
-
+    leftIsPip = false;
+    rightIsPip = false;
 
     constructor(private modalService: SuiModalService) { }
 
@@ -31,29 +31,17 @@ export class StudyAreasComponent implements AfterViewInit {
     }
 
     boundsChange(bbox) {
-        console.log('StudyAreas was notified of bbox change: ' + bbox);
-        console.log(this.detail);
-
         this.detail.boundsChange(bbox);
     }
 
     onStudyChange(study) {
         console.log('Study Controller was notified of change of study');
-        console.log(study);
         this.study = study;
         this.detail.focusOn(this.study);
-        this.summary.reload(this.study);
-        // this.overview.className = "pip";
+
+        if (!this.leftIsPip) {
+            this.leftIsPip = true;
+        }
     }
 
-    toggleSize() {
-        this.grown = !this.grown;
-        // if (this.growm) {
-        //   this.left.nativeElement.className = "shrink";
-        //   this.right.nativeElement.className = "grow";
-        // } else {
-        //   this.left.nativeElement.className = "grow";
-        //   this.right.nativeElement.className = "shrink";
-        // }
-    }
 }

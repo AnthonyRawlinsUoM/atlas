@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { MatrixSelectorComponent } from '../matrix-selector/matrix-selector.component';
-import { SandboxComponent } from '../sandbox/sandbox.component';
+import { SpiderchartComponent } from '../spiderchart/spiderchart.component';
 
 
 @Component({
@@ -12,7 +12,7 @@ export class StudyAreaWindowComponent implements OnInit {
 
     @Input() study: any;
     @ViewChild('mtx', { static: false }) mtx: MatrixSelectorComponent;
-    @ViewChild('spider', { static: false }) spider: SandboxComponent;
+    @ViewChild('spider', { static: false }) spider: SpiderchartComponent;
 
     selectedItems: any = [];
 

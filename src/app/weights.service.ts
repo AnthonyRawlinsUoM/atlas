@@ -44,7 +44,7 @@ export class WeightsService {
     }
 
     public getEdgeOptions() {
-        return matrix.regimes.edge.reverse();
+        return matrix.regimes.edge;
     }
 
     public getSpiderSeries(area, positions) {
@@ -52,56 +52,32 @@ export class WeightsService {
             // Area = array of indexes row*col + col
             // eg., [0,12,14...,48] etc
 
-            console.log(positions);
-            console.log(area);
-
             let selected_area = normals.areas[area];
-
             let res = [];
-
-            // console.log(selected_area);
-
             for (let m in selected_area) {
                 let metric = {};
-
                 for (let i in selected_area[m]) {
-
-
                     for (let pos = 0; pos < positions.length; pos++) {
                         if (i == positions[pos].toString()) {
                             metric['idx' + (i.toString())] = selected_area[m][i];
                         }
                     }
                 }
-
                 metric["metric"] = m;
                 res.push(metric);
             }
-
-            // console.log(res);
             observer.next(res)
         });
     }
 
     public getMatrixCellOptionsForAreaScope(lpos, epos, area, scope, cmap, mode) {
-
-        console.log(area);
-        console.log(scope);
-
         let norms = matrix.areas[area][scope];
-
-        console.log(norms);
-
         let e = parseInt(epos); // reverse order
         let l = parseInt(lpos);
         let cellpos: number = (l * this.getEdgeOptions().length) + e;
 
-        // console.log('Evaluating: ', cellpos);
-
         let normalised_value = norms[cellpos];
-        // console.log('Normalised: ', normalised_value);
         let color_value = Math.floor(normalised_value * 255);
-        // console.log('Color value: ', color_value);
         let colormap = viridis; // Default
 
         if (cmap == 'viridis') {
@@ -116,15 +92,13 @@ export class WeightsService {
             let colormap = cividis;
         }
         let c = this.where(colormap, { index: color_value });
-        // console.log(c);
-        // console.log(c[0]['hex']);
 
         return c[0]['hex'];
     }
 
 
     public get2DColor(size, row, column) {
-        let cmap = plasma;
+        let colormap = magma;
 
         let offset = Math.floor(((row * size) + column) * 5);
         let c = this.where(colormap, { index: offset });

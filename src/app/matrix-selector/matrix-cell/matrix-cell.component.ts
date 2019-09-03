@@ -20,7 +20,7 @@ export class MatrixCellComponent implements OnInit {
     @Output() deactivated: EventEmitter<any> = new EventEmitter<any>();
 
     active = false;
-
+    idx;
     color;
     edgeOptions;
     landscapeOptions;
@@ -32,6 +32,8 @@ export class MatrixCellComponent implements OnInit {
         this.edgeOptions = this.ms.getEdgeOptions();
         this.landscapeOptions = this.ms.getLandscapeOptions();
         this.color = this.ms.getMatrixCellOptionsForAreaScope(this.row, this.column, this.area, this.scope, this.cmap, 'rgba');
+
+        this.idx = this.row * 7 + this.column;
     }
 
     toggle() {
@@ -42,10 +44,10 @@ export class MatrixCellComponent implements OnInit {
         this.toggle();
 
         if (this.active) {
-            console.log([this.row, this.column], ' is now activated');
+            // console.log([this.row, this.column], ' is now activated');
             this.activated.emit({ row: this.row, column: this.column });
         } else {
-            console.log([this.row, this.column], ' is now deactivated');
+            // console.log([this.row, this.column], ' is now deactivated');
             this.deactivated.emit({ row: this.row, column: this.column });
         }
     }

@@ -16,10 +16,18 @@
             </div>
 
             <app-study-toolbar></app-study-toolbar>
+            
+            <div class="ui attached raised segment">
+                <app-spiderchart
+                    [area]="study.properties.sim_name"
+                    [chart_title]="'Collective Losses using Landscape and Edge Treatments'"
+                    [description] = "'Smaller shape is better.'"
+                    [positions]="selectedItems"
+                #spider></app-spiderchart>
+                
+            </div>
+            
             <div class="ui bottom attached raised segment">
-
-                <div class="ui two column grid">
-                    <div class="ui column">
 
                         <app-matrix-selector
                             [study_area]="study"
@@ -27,14 +35,6 @@
                             #mtx
                         ></app-matrix-selector>
                         
-                        </div>
-                        <div class="ui column">
-                            <app-sandbox
-                                [positions]="selectedItems"
-                                [area]="study.properties.sim_name"
-                            #spider></app-sandbox>
-                        </div>
-                </div>
             </div>
         </div>
     </div>

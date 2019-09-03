@@ -135,19 +135,19 @@ export class MatrixSelectorComponent implements OnInit {
     // }
 
     updateSelection(ev) {
-        console.log('>>> Update Selection Event: ', ev);
+        // console.log('>>> Update Selection Event: ', ev);
         this.onDeactivate(ev.was);
         this.onActivate(ev.now);
     }
 
     public refresh(scope) {
-        console.log("Doing REFRESH. ");
+        // console.log("Doing REFRESH. ");
         this.scope = scope;
         this.renew();
     }
 
     public renew() {
-        console.log("doing renew");
+        // console.log("doing renew");
         this.components.map((c) => {
             c.scope = this.scope;
             c.area = this.study_area.properties.sim_name;

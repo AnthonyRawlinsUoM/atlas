@@ -1,9 +1,9 @@
 <app-study-area-window [study]="study" #summary></app-study-area-window>
 
-<div class="pip" #left>
+<div [class.pip]="leftIsPip" #left>
     <app-overview (bounds)=boundsChange($event) (study)="onStudyChange($event)" #overview></app-overview>
 </div>
 
-<div class="fullscreen" #right>
+<div [class.pip]="rightIsPip" #right>
     <app-detailed-map #detail></app-detailed-map>
 </div>

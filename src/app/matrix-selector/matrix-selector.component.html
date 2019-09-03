@@ -1,44 +1,61 @@
-<h3 class="ui header">Matrix Selector for {{study_area.properties.sim_name}} - {{scope}}</h3>
+<!-- <h3 class="ui header">Matrix Selector for {{study_area.properties.sim_name}} - {{scope}}</h3> -->
 
 <div class="ui form">
     <div class="ui segment">
+        <div class="field">
+        <label>Metric</label>
         <app-scope-option (scopeChange)="refresh($event)"></app-scope-option>
-        <div class="ui relaxed">
-        <div class="ui matrix" #matrixselector>
-            
-            <div class="mcol">
-                <div *ngFor="let r of edgeOptions" class="mrow">
-                    <app-matrix-header-cell [row]="r.name"></app-matrix-header-cell>
-                </div>
-                <div class="header cell"></div>
-            </div>
+        </div>
+        
+        <div class="ui two column stackable grid">
+            <div class="ui column">
+                
+                <div class="ui relaxed">
+                <div class="ui matrix" #matrixselector>
+                    
+                    <div class="mcol">
+                        <div *ngFor="let r of edgeOptions" class="mrow">
+                            <app-matrix-header-cell [row]="r.name"></app-matrix-header-cell>
+                        </div>
+                        <div class="header cell"></div>
+                    </div>
 
 
-            <div *ngFor="let c of landscapeOptions" class="mcol">
-                <div *ngFor="let r of edgeOptions" class="mrow">
-                    <app-matrix-cell
-                        [row]="r.value"
-                        [column]="c.value"
-                        [area]="study_area.properties.sim_name"
-                        [scope]="scope"
-                        [cmap]="'viridis'"
-                        (activated)="onActivate($event)"
-                        (deactivated)="onDeactivate($event)"
-                    #mtxcell></app-matrix-cell>
+                    <div *ngFor="let c of landscapeOptions" class="mcol">
+                        <div *ngFor="let r of edgeOptions" class="mrow">
+                            <app-matrix-cell
+                                [row]="r.value"
+                                [column]="c.value"
+                                [area]="study_area.properties.sim_name"
+                                [scope]="scope"
+                                [cmap]="'viridis'"
+                                (activated)="onActivate($event)"
+                                (deactivated)="onDeactivate($event)"
+                            #mtxcell></app-matrix-cell>
+                        </div>
+                        <app-matrix-header-cell [column]="c.name"></app-matrix-header-cell>
+                    </div>
                 </div>
-                <app-matrix-header-cell [column]="c.name"></app-matrix-header-cell>
+                </div>
+                
+                
+            </div>
+            <div class="ui column">
+                <app-matrix-selection
+                    (selectedItemList)="matrix_selection"
+                    #mselection
+                    (change)="updateSelection($event)"
+                ></app-matrix-selection>
+                
+                <!-- <button class="ui icon button">
+                    <i class="ui random icon"></i>
+                    Compare
+                </button> -->
             </div>
         </div>
-        </div>
-        <h2 class="ui header">Treatment Comparator</h2>
-        <app-matrix-selection
-            (selectedItemList)="matrix_selection"
-            #mselection
-            (change)="updateSelection($event)"
-        ></app-matrix-selection>
-        <button class="ui icon button">
-            <i class="ui random icon"></i>
-            Compare
-        </button>
+        
+        
+        
+        
     </div>
 </div>
