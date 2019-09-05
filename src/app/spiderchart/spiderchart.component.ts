@@ -35,11 +35,7 @@ export class SpiderchartComponent implements OnInit {
     padding: any;
     titlePadding: any;
 
-    valueAxis: any = {
-        unitInterval: 0.25,
-        minValue: 0,
-        maxValue: 1,
-    };
+    valueAxis: any;
 
     seriesGroups: any;
     selected_type: string = 'line';
@@ -51,6 +47,13 @@ export class SpiderchartComponent implements OnInit {
     sub;
 
     ngOnInit(): void {
+
+        this.valueAxis = {
+            unitInterval: 0.25,
+            minValue: 0,
+            maxValue: 1,
+            valuesOnTicks: true
+        };
 
         this.padding = { left: 5, top: 5, right: 5, bottom: 5 };
         this.titlePadding = { left: 0, top: 5, right: 0, bottom: 5 };
@@ -73,8 +76,8 @@ export class SpiderchartComponent implements OnInit {
                 lineWidth: this.lineWidth,
                 radius: this.radii,
                 symbolType: 'circle',
-                lineColor: this.colorchart[p],
-                fillColor: this.colorchart[p]
+                // lineColor: this.colorchart[p],
+                // fillColor: this.colorchart[p]
             });
         }
 
@@ -82,7 +85,7 @@ export class SpiderchartComponent implements OnInit {
             [
                 {
                     polar: true,
-                    radius: 150,
+                    radius: 100,
                     startAngle: 0,
                     endAngle: 360,
                     type: this.selected_type,

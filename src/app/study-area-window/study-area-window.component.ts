@@ -32,14 +32,13 @@ export class StudyAreaWindowComponent implements OnInit {
     }
 
     onSelectedItemsChange(selection) {
-        console.log(selection);
+        // console.log(selection);
 
         let itms = [];
         for (let s in selection) {
             itms.push((selection[s].row * 7) + selection[s].column);
         }
         this.selectedItems = itms.filter(distinct);
-        console.log();
         this.spider.refresh();
     }
 

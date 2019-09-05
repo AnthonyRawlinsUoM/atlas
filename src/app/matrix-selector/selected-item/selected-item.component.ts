@@ -8,28 +8,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class SelectedItemComponent implements OnInit {
 
     @Input() item: any;
-    @Input() regimes: any;
+    @Input() edges: any;
+    @Input() landscapes: any;
     @Output() change: EventEmitter<any> = new EventEmitter<any>();
-
-    edgeOptions = [
-        { name: "0", value: 0 },
-        { name: "1", value: 1 },
-        { name: "2", value: 2 },
-        { name: "3", value: 3 },
-        { name: "5", value: 4 },
-        { name: "10", value: 5 },
-        { name: "15", value: 6 }
-    ];
-
-    landscapeOptions = [
-        { name: "0", value: 0 },
-        { name: "1", value: 1 },
-        { name: "2", value: 2 },
-        { name: "3", value: 3 },
-        { name: "5", value: 4 },
-        { name: "10", value: 5 },
-        { name: "15", value: 6 }
-    ];
 
     initial;
 
@@ -37,7 +18,7 @@ export class SelectedItemComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.item);
+        // console.log(this.item);
         this.initial = this.deepCopy(this.item);
     }
 
@@ -76,7 +57,7 @@ export class SelectedItemComponent implements OnInit {
     }
 
     changedOption(ev) {
-        console.log('>> ChangedOption', ev);
+        // console.log('>> ChangedOption', ev);
         let change = {
             was: {
                 row: this.initial.row,
@@ -88,7 +69,7 @@ export class SelectedItemComponent implements OnInit {
             }
         };
 
-        console.log(change);
+        // console.log(change);
         this.change.emit(change);
     }
 }

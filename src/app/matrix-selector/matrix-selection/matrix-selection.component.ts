@@ -9,7 +9,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 export class MatrixSelectionComponent implements OnInit {
 
     @Input() selectedItemList: any[] = [];
-    @Input() regimes;
+    @Input() edges;
+    @Input() landscapes;
 
     @Output() change: EventEmitter<any> = new EventEmitter<any>();
 

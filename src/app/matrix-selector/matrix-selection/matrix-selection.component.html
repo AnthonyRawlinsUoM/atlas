@@ -10,6 +10,6 @@
     </div>
     
     <div *ngFor="let s of selectedItemList" #sels>
-        <app-selected-item [item]="s" [regimes]="regimes" (change)="selectionModify($event)"></app-selected-item>
+        <app-selected-item [item]="s" [edges]="edges" [landscapes]="landscapes" (change)="selectionModify($event)"></app-selected-item>
     </div>
 </div>

@@ -7,7 +7,7 @@
                 <sui-select
                     class="selection"
                     [(ngModel)]="item.row"
-                    [options]="edgeOptions"
+                    [options]="edges"
                     labelField="name"
                     valueField="value"
                     (selectedOptionChange)="changedOption($event)"
@@ -26,7 +26,7 @@
                 <sui-select
                     class="selection"
                     [(ngModel)]="item.column"
-                    [options]="landscapeOptions"
+                    [options]="landscapes"
                     labelField="name"
                     valueField="value"
                     (selectedOptionChange)="changedOption($event)"

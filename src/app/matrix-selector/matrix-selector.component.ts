@@ -42,6 +42,7 @@ export class MatrixSelectorComponent implements OnInit {
         this.edgeOptions = this.matrixservice.getEdgeOptions();
         this.landscapeOptions = this.matrixservice.getLandscapeOptions();
 
+
         // this.matrix_colors = [];
         this.selection_matrix = [];
 
@@ -138,6 +139,7 @@ export class MatrixSelectorComponent implements OnInit {
         // console.log('>>> Update Selection Event: ', ev);
         this.onDeactivate(ev.was);
         this.onActivate(ev.now);
+        this.renew();
     }
 
     public refresh(scope) {
