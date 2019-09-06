@@ -21,10 +21,6 @@ export class StudyAreaWindowComponent implements OnInit {
     ngOnInit() {
     }
 
-    closeThis() {
-        this.study = {};
-    }
-
     reload(study) {
         this.study = study;
         // this.mtx.study_area = study;
@@ -39,7 +35,19 @@ export class StudyAreaWindowComponent implements OnInit {
             itms.push((selection[s].row * 7) + selection[s].column);
         }
         this.selectedItems = itms.filter(distinct);
-        this.spider.refresh();
+        if (this.spider != undefined) {
+            this.spider.positions = this.selectedItems;
+            this.spider.refresh();
+        }
+    }
+
+    refresh() {
+        this.mtx.renew();
+        if (this.spider != undefined) {
+            this.spider.study = this.study;
+            this.spider.positions = this.selectedItems;
+            this.spider.refresh();
+        }
     }
 
 }

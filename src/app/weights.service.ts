@@ -70,12 +70,8 @@ export class WeightsService {
         });
     }
 
-    public getMatrixCellOptionsForAreaScope(lpos, epos, area, scope, cmap, mode) {
+    public getMatrixCellOptionsForAreaScope(cellpos, area, scope, cmap, mode) {
         let norms = matrix.areas[area][scope];
-        let e = parseInt(epos); // reverse order
-        let l = parseInt(lpos);
-        let cellpos: number = (l * this.getEdgeOptions().length) + e;
-
         let normalised_value = norms[cellpos];
         let color_value = Math.floor(normalised_value * 255);
         let colormap = viridis; // Default

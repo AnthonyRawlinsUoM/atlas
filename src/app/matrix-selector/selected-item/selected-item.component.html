@@ -1,46 +1,30 @@
-<div class="ui item">
-    <!-- <i class="large bars middle aligned icon"></i> -->
-    <div class="ui content">
-        <div class="ui two column grid ">
-            <div class="ui column">
-
-                <sui-select
-                    class="selection"
-                    [(ngModel)]="item.row"
-                    [options]="edges"
-                    labelField="name"
-                    valueField="value"
-                    (selectedOptionChange)="changedOption($event)"
-                    #edge
-                >
-                    <sui-select-option
-                        *ngFor="let option of edge.filteredOptions"
-                        [value]="option"
-                    >
-                    </sui-select-option>
-                </sui-select>
-            </div>
-
-            <!-- <div class="ui column">{{item.row}}</div> -->
-            <div class="ui column">
-                <sui-select
-                    class="selection"
-                    [(ngModel)]="item.column"
-                    [options]="landscapes"
-                    labelField="name"
-                    valueField="value"
-                    (selectedOptionChange)="changedOption($event)"
-                    #landscape
-                >
-                    <sui-select-option
-                        *ngFor="let option of landscape.filteredOptions"
-                        [value]="option"
-                    >
-                    </sui-select-option>
-                </sui-select>
-
-            </div>
-            <!-- <div class="ui column">{{item.column}}</div> -->
-        </div>
-    </div>
-</div>
+<sui-select
+    class="selection"
+    [(ngModel)]="item.row"
+    [options]="edges"
+    labelField="name"
+    valueField="value"
+    (selectedOptionChange)="changedOption($event)"
+    #edge
+>
+    <sui-select-option
+        *ngFor="let option of edge.filteredOptions"
+        [value]="option"
+    >
+    </sui-select-option>
+</sui-select>
+<sui-select
+    class="selection"
+    [(ngModel)]="item.column"
+    [options]="landscapes"
+    labelField="name"
+    valueField="value"
+    (selectedOptionChange)="changedOption($event)"
+    #landscape
+>
+    <sui-select-option
+        *ngFor="let option of landscape.filteredOptions"
+        [value]="option"
+    >
+    </sui-select-option>
+</sui-select>

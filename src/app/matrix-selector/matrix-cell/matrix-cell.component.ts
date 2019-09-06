@@ -7,12 +7,13 @@ import { WeightsService } from '../../weights.service';
     styleUrls: ['./matrix-cell.component.css']
 })
 export class MatrixCellComponent implements OnInit {
-
+    @Input() id: number;
     @Input() row: number;
     @Input() column: number;
     @Input() area;
     @Input() scope;
     @Input() cmap;
+    @Input() active: boolean;
 
     // @Input() color: any;
 
@@ -28,12 +29,8 @@ export class MatrixCellComponent implements OnInit {
     constructor(private ms: WeightsService) { }
 
     ngOnInit() {
-
-        this.edgeOptions = this.ms.getEdgeOptions();
-        this.landscapeOptions = this.ms.getLandscapeOptions();
-        this.color = this.ms.getMatrixCellOptionsForAreaScope(this.row, this.column, this.area, this.scope, this.cmap, 'rgba');
-
-        this.idx = this.row * 7 + this.column;
+        this.color = this.ms.getMatrixCellOptionsForAreaScope(this.id, this.area, this.scope, this.cmap, 'rgba');
+        this.idx = this.id;
     }
 
     toggle() {
@@ -56,7 +53,7 @@ export class MatrixCellComponent implements OnInit {
     }
 
     public refresh() {
-        this.color = this.ms.getMatrixCellOptionsForAreaScope(this.row, this.column, this.area, this.scope, this.cmap, 'rgba');
+        this.color = this.ms.getMatrixCellOptionsForAreaScope(this.id, this.area, this.scope, this.cmap, 'rgba');
     }
 
 }

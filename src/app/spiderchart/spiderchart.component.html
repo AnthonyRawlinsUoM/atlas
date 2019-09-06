@@ -1,3 +1,4 @@
+
 <div class="ui field">
     <label>Chart Style</label><sui-select class="selection"
                     [(ngModel)]="scope"
@@ -12,7 +13,7 @@
 
 <jqxChart #myChart
 [width]="'calc(100%)'"
-[height]="'calc(33vh)'"
+[height]="'calc(100%)'"
 [title]="chart_title"
 [description]="description"
 [showLegend]="false"
@@ -22,6 +23,6 @@
 [source]="source"
 [xAxis]="xAxis"
 [seriesGroups]="seriesGroups"
-[colorScheme]="'scheme02'"
-[backgroundColor]="'#FFFFFF'">
+[colorScheme]="'scheme03'"
+[backgroundColor]="'#CCC'">
 </jqxChart>

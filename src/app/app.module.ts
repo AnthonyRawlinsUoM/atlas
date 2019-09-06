@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SuiModule, SuiModalService, SuiCheckboxModule } from 'ng2-semantic-ui';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { CommonModule } from '@angular/common';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { ReactiveService } from './reactive.service';
 import { DisclaimerService } from './disclaimer.service';
@@ -53,6 +53,8 @@ import { ScopeOptionComponent } from './matrix-selector/scope-option/scope-optio
 import { LegendComponent } from './matrix-selector/legend/legend.component';
 import { SpiderchartComponent } from './spiderchart/spiderchart.component';
 import { SandboxComponent } from './sandbox/sandbox.component';
+import { CellHighlightComponent } from './matrix-selector/cell-highlight/cell-highlight.component';
+import { InformationComponent } from './information/information.component';
 
 
 
@@ -112,7 +114,9 @@ const routes: Routes = [
         ScopeOptionComponent,
         LegendComponent,
         SpiderchartComponent,
-        SandboxComponent
+        SandboxComponent,
+        CellHighlightComponent,
+        InformationComponent
     ],
     imports: [
         BrowserModule,
@@ -122,6 +126,7 @@ const routes: Routes = [
         SuiCheckboxModule,
         HttpClientModule,
         jqxChartModule,
+        DragDropModule,
         NgxMapboxGLModule.withConfig({
             accessToken: 'pk.eyJ1IjoiYW50aG9ueXJhd2xpbnN1b20iLCJhIjoiY2o1dm81NTIwMDN6MTJxbjlvOHBiNHdlOSJ9.lt8I4sU0ceA6N8Tnnmx2ig', // Optionnal, can also be set per map (accessToken input of mgl-map)
             geocoderAccessToken: 'pk.eyJ1IjoiYW50aG9ueXJhd2xpbnN1b20iLCJhIjoiY2o1dm81NTIwMDN6MTJxbjlvOHBiNHdlOSJ9.lt8I4sU0ceA6N8Tnnmx2ig' // Optionnal, specify if different from the map access token, can also be set per mgl-geocoder (accessToken input of mgl-geocoder)

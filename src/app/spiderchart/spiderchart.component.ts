@@ -16,21 +16,16 @@ export class SpiderchartComponent implements OnInit {
     @Input() source: any[] = [];
     @Input() positions: any = [];
     @Input() area = 'VIC';
-    @Input() xAxis: any = {
-        dataField: 'metric',
-        displayText: 'Metric',
-        valuesOnTicks: false,
-        labels: { autoRotate: false }
-    };
+    @Input() xAxis: any;
 
     @Output() chartType: EventEmitter<any> = new EventEmitter<any>();
 
     chartInstance;
 
-    opacity = 0.23;
-    lineWidth = 1.13;
-    radii = 1.2;
-
+    opacity = 1.0;
+    lineWidth = 1.43;
+    radii = 1.2; // datapoints
+    radius;  // Polar chart
     dataAdapter: any;
     padding: any;
     titlePadding: any;
@@ -48,11 +43,23 @@ export class SpiderchartComponent implements OnInit {
 
     ngOnInit(): void {
 
+        this.radius = "260";
+
+        this.xAxis = {
+            dataField: 'metric',
+            displayText: 'Metric',
+            valuesOnTicks: true,
+            labels: { autoRotate: false, color: 'rgb(100,100,100)' },
+            gridLines: { color: 'rgb(10,11,12)', interval: 0.25 },
+            tickMarks: { color: 'rgb(13,14,15)' }
+        };
+
         this.valueAxis = {
-            unitInterval: 0.25,
-            minValue: 0,
-            maxValue: 1,
-            valuesOnTicks: true
+            unitInterval: 0.2,
+            minValue: 0.0,
+            maxValue: 1.0,
+            valuesOnTicks: true,
+            gridLines: { color: 'rgb(10,11,12)', interval: 0.25 },
         };
 
         this.padding = { left: 5, top: 5, right: 5, bottom: 5 };
@@ -85,7 +92,7 @@ export class SpiderchartComponent implements OnInit {
             [
                 {
                     polar: true,
-                    radius: 100,
+                    radius: this.radius,
                     startAngle: 0,
                     endAngle: 360,
                     type: this.selected_type,
@@ -115,11 +122,11 @@ export class SpiderchartComponent implements OnInit {
                 lineWidth: this.lineWidth,
                 radius: this.radii,
                 symbolType: 'circle',
-                lineColor: this.colorchart[p],
-                fillColor: this.colorchart[p]
+                // lineColor: this.colorchart[p],
+                // fillColor: this.colorchart[p]
             });
         }
-
+        this.sub.unsubscribe();
 
         this.sub = this.ws.getSpiderSeries(this.area, this.positions).subscribe((data) => {
             // console.log('Got subscription data for Spider Chart');
@@ -130,7 +137,7 @@ export class SpiderchartComponent implements OnInit {
                 [
                     {
                         polar: true,
-                        radius: 100,
+                        radius: this.radius,
                         startAngle: 0,
                         endAngle: 360,
                         type: this.selected_type,

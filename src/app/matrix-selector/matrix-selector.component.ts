@@ -11,7 +11,6 @@ import {
     AfterViewInit
 } from '@angular/core';
 
-import { MatrixSelectionComponent } from './matrix-selection/matrix-selection.component';
 import { WeightsService } from '../weights.service';
 import { MatrixCellComponent } from './matrix-cell/matrix-cell.component';
 
@@ -25,7 +24,6 @@ import { MatrixCellComponent } from './matrix-cell/matrix-cell.component';
 export class MatrixSelectorComponent implements OnInit {
 
     @ViewChildren('mtxcell') components: QueryList<MatrixCellComponent>;
-    @ViewChild('mselection', { static: false }) mselection: MatrixSelectionComponent;
 
     @Input() study_area;
     @Input() scope = "House_loss";
@@ -36,14 +34,13 @@ export class MatrixSelectorComponent implements OnInit {
     edgeOptions = [];
     landscapeOptions = [];
 
+
     constructor(private matrixservice: WeightsService) { }
 
     ngOnInit() {
         this.edgeOptions = this.matrixservice.getEdgeOptions();
         this.landscapeOptions = this.matrixservice.getLandscapeOptions();
 
-
-        // this.matrix_colors = [];
         this.selection_matrix = [];
 
         for (let e = 0; e < this.edgeOptions.length; e++) {
@@ -52,7 +49,6 @@ export class MatrixSelectorComponent implements OnInit {
 
             for (let l = 0; l < this.landscapeOptions.length; l++) {
                 this.selection_matrix[e][l] = false;
-                // this.matrix_colors[e][l] = this.matrixservice.getMatrixCellOptionsForAreaScope(e, l, this.study_area.properties.sim_name, this.scope, 'viridis', 'rgba');
             }
         }
     }
@@ -74,7 +70,7 @@ export class MatrixSelectorComponent implements OnInit {
             o.active = false;
         }
 
-        this.mselection.selectedItemList = this.flat();
+        // this.mselection.selectedItemList = this.flat();
         this.selectedItems.emit(this.flat());
     }
 
@@ -89,31 +85,9 @@ export class MatrixSelectorComponent implements OnInit {
             o.active = true;
         }
 
-        this.mselection.selectedItemList = this.flat();
+        // this.mselection.selectedItemList = this.flat();
         this.selectedItems.emit(this.flat());
     }
-
-    // deactivated(position) {
-    // 
-    //     let row = this.edgeOptions.indexOf(position.row);
-    //     let column = this.landscapeOptions.indexOf(position.column);
-    // 
-    //     console.log(this.selection_matrix);
-    //     this.selection_matrix[row][column] = false;
-    //     console.log(this.selection_matrix);
-    //     // 
-    //     this.mselection.updateSelectedItemList(this.flat());
-    // }
-    // 
-    // activated(position) {
-    //     let row = this.edgeOptions.indexOf(position.row);
-    //     let column = this.landscapeOptions.indexOf(position.column);
-    // 
-    //     this.selection_matrix[row][column] = true;
-    //     console.log(this.selection_matrix);
-    //     // this.selectedItems[this.regime_id(row, column)];
-    //     this.mselection.updateSelectedItemList(this.flat());
-    // }
 
     flat() {
         let flat = [];
@@ -130,10 +104,6 @@ export class MatrixSelectorComponent implements OnInit {
     regime_id(row: number, column: number) {
         return 'r' + row + 'c' + column;
     }
-
-    // color(row, column) {
-    //     return this.matrix_colors[this.edgeOptions.indexOf(row)][this.landscapeOptions.indexOf(column)];
-    // }
 
     updateSelection(ev) {
         // console.log('>>> Update Selection Event: ', ev);
@@ -157,4 +127,5 @@ export class MatrixSelectorComponent implements OnInit {
         });
 
     }
+
 }

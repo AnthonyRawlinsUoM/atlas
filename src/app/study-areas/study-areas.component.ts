@@ -20,9 +20,10 @@ export class StudyAreasComponent implements AfterViewInit {
     @ViewChild('left', { read: ElementRef, static: false }) left: ElementRef;
     @ViewChild('right', { read: ElementRef, static: false }) right: ElementRef;
 
-    study: any = {};
+    study: any;
     leftIsPip = false;
     rightIsPip = false;
+    sidebarIsOpen = false;
 
     constructor(private modalService: SuiModalService) { }
 
@@ -35,6 +36,7 @@ export class StudyAreasComponent implements AfterViewInit {
     }
 
     onStudyChange(study) {
+
         console.log('Study Controller was notified of change of study');
         this.study = study;
         this.detail.focusOn(this.study);
@@ -42,6 +44,18 @@ export class StudyAreasComponent implements AfterViewInit {
         if (!this.leftIsPip) {
             this.leftIsPip = true;
         }
+
+        this.sidebarOpen();
+        if (this.summary != undefined) {
+            this.summary.refresh();
+        }
     }
 
+    sidebarOpen() {
+        this.sidebarIsOpen = true;
+    }
+
+    sidebarClose() {
+        this.sidebarIsOpen = false;
+    }
 }

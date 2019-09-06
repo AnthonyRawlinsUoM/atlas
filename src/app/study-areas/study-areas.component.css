@@ -20,3 +20,7 @@
     width: 33vw !important;
 } */ 
 
+.ui.left.sidebar, .ui.right.sidebar,
+.panel {
+    width: 66vw !important;
+}

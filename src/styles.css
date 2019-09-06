@@ -1,18 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~jqwidgets-scripts/jqwidgets/styles/jqx.base.css";
+
 .ui.modal.fullscreen {
     width: 100% !important;
     height: 100% !important;
     display: table !important;
     vertical-align: middle;
 }
+
 .ui.modal.fullscreen>.header {
     text-align: center;
 }
+
 .ui.modal.fullscreen>.content {
     max-width: 50vw;
     margin-left: auto;
     margin-right: auto;
 }
+
 .ui.modal.fullscreen>.actions {
     max-width: 50vw;
     margin-left: auto;
@@ -23,7 +28,6 @@
 .ui.modal.fullscreen>.content>* {
     color: #fff;
 }
-
 
 .fullscreen,
 mgl-map {
@@ -46,5 +50,22 @@ mgl-map {
 .pip mgl-map {
     width: 350px !important;
     height: 350px !important;
+}
 
+.jqx-chart-label-text,
+.jqx-chart-tooltip-text,
+.jqx-chart-legend-text {
+    
+}
+
+.jqx-knob-label,
+.jqx-chart-axis-text {
+    font-family: sans-serif !important;
+    font-size: 1rem;
+    color: #000 !important;
+    fill: #000 !important;
+}
+
+.jqx-rc-all {
+    background-color: rgb(23, 24, 25);
 }
