@@ -55,6 +55,7 @@ import { SpiderchartComponent } from './spiderchart/spiderchart.component';
 import { SandboxComponent } from './sandbox/sandbox.component';
 import { CellHighlightComponent } from './matrix-selector/cell-highlight/cell-highlight.component';
 import { InformationComponent } from './information/information.component';
+import { FaqComponent } from './faq/faq.component';
 
 
 
@@ -116,7 +117,8 @@ const routes: Routes = [
         SpiderchartComponent,
         SandboxComponent,
         CellHighlightComponent,
-        InformationComponent
+        InformationComponent,
+        FaqComponent
     ],
     imports: [
         BrowserModule,

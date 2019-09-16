@@ -1,1 +1,15 @@
-<p>faqs works!</p>
+<div class="ui segment vertical stripe">
+    <div class="ui masthead">
+        <img src="/assets/images/37786078192_d19cb3c62d_b.jpg">
+    </div>
+    <div class="ui container">
+        <h2 class="header">FAQs</h2>
+        <div class="ui list">
+            <app-faq
+                *ngFor="let faq of faqs"
+                [faq]="faq"
+                class="item"
+            ></app-faq>
+        </div>
+    </div>
+</div>

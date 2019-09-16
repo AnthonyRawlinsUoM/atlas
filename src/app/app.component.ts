@@ -13,9 +13,9 @@ export class AppComponent implements OnInit {
     routes = [
         { path: '/about', name: 'About', icon: 'book icon' },
         { path: '/team', name: 'Team', icon: 'user icon' },
-        { path: '/publications', name: 'Publications', icon: 'university icon' },
         { path: '/faq', name: 'FAQ', icon: 'question icon' },
-        { path: '/test', name: 'Testing Component', icon: 'bug icon' },
+        { path: '/publications', name: 'Publications', icon: 'university icon' },
+        // { path: '/test', name: 'Testing Component', icon: 'bug icon' },
 
     ];
 

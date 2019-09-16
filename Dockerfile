@@ -10,9 +10,8 @@ COPY . .
 RUN npm install --no-optional
 
 # Deployment
-EXPOSE 3033
+EXPOSE 3035
 
 ENV TZ Australia/Melbourne
 
 CMD ["npm", "run", "reactive"]
-

@@ -44,7 +44,7 @@ export class StudyAreaWindowComponent implements OnInit {
     refresh() {
         this.mtx.renew();
         if (this.spider != undefined) {
-            this.spider.study = this.study;
+            this.spider.area = this.study.properties.sim_name;
             this.spider.positions = this.selectedItems;
             this.spider.refresh();
         }
