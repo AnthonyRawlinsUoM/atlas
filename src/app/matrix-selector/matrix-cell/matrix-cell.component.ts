@@ -13,14 +13,13 @@ export class MatrixCellComponent implements OnInit {
     @Input() area;
     @Input() scope;
     @Input() cmap;
-    @Input() active: boolean;
+    @Input() active: boolean = false;
 
     // @Input() color: any;
 
     @Output() activated: EventEmitter<any> = new EventEmitter<any>();
     @Output() deactivated: EventEmitter<any> = new EventEmitter<any>();
 
-    active = false;
     idx;
     color;
     edgeOptions;

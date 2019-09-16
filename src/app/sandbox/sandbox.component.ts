@@ -31,7 +31,7 @@ export class SandboxComponent implements OnInit {
             // console.log('Got subscription data for Spider Chart');
             // console.log(data);
             this.source = data;
-            this.spider.updateSelf();
+            this.spider.refresh();
         });
 
     }
