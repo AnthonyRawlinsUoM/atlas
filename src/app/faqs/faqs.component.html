@@ -1,1 +1,16 @@
-<p>faqs works!</p>
+<div class="ui masthead center aligned segment">
+    <div class="ui text container">
+        <h1 class="ui inverted header">Frequently Asked Qustions</h1>
+    </div>
+</div>
+<div class="ui segment vertical stripe">
+    <div class="ui container">
+        <div class="ui list">
+            <app-faq
+                *ngFor="let faq of faqs"
+                [faq]="faq"
+                class="item"
+            ></app-faq>
+        </div>
+    </div>
+</div>

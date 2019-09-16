@@ -1,3 +1,18 @@
-#main {
+.main {
     min-height: 95vh;
+}
+
+.main footer,
+.foot {
+    display: flex;
+    flex-grow: 0 1;
+}
+
+nav {
+    max-height: 5vh;
+}
+
+footer.foot {
+    margin-top: 3em !important;
+    margin-bottom: 3em !important;
 }

@@ -18,9 +18,20 @@
 
 /* .shrink {
     width: 33vw !important;
-} */ 
+} */
 
 .ui.left.sidebar, .ui.right.sidebar,
 .panel {
-    width: 66vw !important;
+    width: 45vw !important;
+}
+
+.left.docked {
+    position: absolute;
+    left: 0;
+    top: 48vh;
+    z-index: 100;
+}
+
+.ui.inverted.black.icon.button {
+
 }

@@ -15,4 +15,3 @@ EXPOSE 3035
 ENV TZ Australia/Melbourne
 
 CMD ["npm", "run", "reactive"]
-

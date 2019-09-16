@@ -41,7 +41,11 @@ export class SpiderchartComponent implements OnInit {
 
     sub;
 
+    edgeOptions;
+    landscapeOptions;
+
     ngOnInit(): void {
+
 
         this.radius = "260";
 
@@ -49,7 +53,10 @@ export class SpiderchartComponent implements OnInit {
             dataField: 'metric',
             displayText: 'Metric',
             valuesOnTicks: true,
-            labels: { autoRotate: false, color: 'rgb(100,100,100)' },
+            labels: {
+                autoRotate: false,
+                color: 'rgb(100,100,100)'
+             },
             gridLines: { color: 'rgb(10,11,12)', interval: 0.25 },
             tickMarks: { color: 'rgb(13,14,15)' }
         };
@@ -59,7 +66,7 @@ export class SpiderchartComponent implements OnInit {
             minValue: 0.0,
             maxValue: 1.0,
             valuesOnTicks: true,
-            gridLines: { color: 'rgb(10,11,12)', interval: 0.25 },
+            gridLines: { color: 'rgb(10,11,12)', interval: 0.25 }
         };
 
         this.padding = { left: 5, top: 5, right: 5, bottom: 5 };
@@ -71,6 +78,10 @@ export class SpiderchartComponent implements OnInit {
             this.source = data;
         });
 
+        this.toolFn = (p:number): string => {
+            return this.ws.getRowColumnForIndex(p);
+        };
+
         for (let p in Array.from(Array(49).keys())) {
             this.colorchart[p] = this.ws.get1DColor(p);
         }
@@ -78,7 +89,7 @@ export class SpiderchartComponent implements OnInit {
         for (let p in Array.from(Array(49).keys())) {
             this.series.push({
                 dataField: 'idx' + p,
-                displayText: p,
+                displayText: this.toolFn(p),
                 opacity: this.opacity,
                 lineWidth: this.lineWidth,
                 radius: this.radii,
@@ -86,7 +97,9 @@ export class SpiderchartComponent implements OnInit {
                 // lineColor: this.colorchart[p],
                 // fillColor: this.colorchart[p]
             });
-        }
+        };
+
+
 
         this.seriesGroups =
             [
@@ -96,7 +109,8 @@ export class SpiderchartComponent implements OnInit {
                     startAngle: 0,
                     endAngle: 360,
                     type: this.selected_type,
-                    series: this.series
+                    series: this.series,
+                    tooltipFormatFunction: this.toolFn
                 }
             ];
 
@@ -104,6 +118,8 @@ export class SpiderchartComponent implements OnInit {
 
         // console.log(this.colorchart);
     }
+
+
 
     onChartTypeChange(t) {
         this.selected_type = t;
@@ -117,7 +133,7 @@ export class SpiderchartComponent implements OnInit {
         for (let p in Array.from(Array(49).keys())) {
             this.series.push({
                 dataField: 'idx' + p,
-                displayText: p,
+                displayText: this.toolFn(p),
                 opacity: this.opacity,
                 lineWidth: this.lineWidth,
                 radius: this.radii,
@@ -151,6 +167,14 @@ export class SpiderchartComponent implements OnInit {
     }
 
 
-    constructor(private ws: WeightsService) { }
+    constructor(private ws: WeightsService) {
+        this.edgeOptions = this.ws.getEdgeOptions().map(eo => {
+            return eo.name;
+        });
+        console.log(this.edgeOptions);
+        this.landscapeOptions = this.ws.getLandscapeOptions().map(eo => {
+            return eo.name;
+        });
+    }
 
 }

@@ -1,3 +1,10 @@
+<div class="left docked">
+    <button
+        class="ui black icon button"
+        (click)="sidebarIsOpen=!sidebarIsOpen"
+        *ngIf="!sidebarIsOpen"
+    ><i class="expand arrows alternate icon"></i></button>
+</div>
 <sui-sidebar-container>
 
     <sui-sidebar
@@ -22,7 +29,7 @@
                     class="item"
                     suiTabHeader="3"
                 >Third</a> -->
-                
+
                 <div class="right menu">
                     <a
                         class="ui red inverted item"
@@ -46,15 +53,19 @@
             <div
                 class="ui bottom attached inverted segment"
                 suiTabContent="2"
-            ><app-information *ngIf="study != undefined"
-            [study]="study"></app-information></div>
+            >
+                <app-information
+                    *ngIf="study != undefined"
+                    [study]="study"
+                ></app-information>
+            </div>
             <!-- <div
                 class="ui bottom attached inverted segment"
                 suiTabContent="3"
             >Third tab!</div> -->
         </sui-tabset>
-        
-        
+
+
     </sui-sidebar>
 
     <sui-sidebar-sibling [isDimmedWhenVisible]="true">

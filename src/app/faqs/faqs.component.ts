@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import freq from '../../assets/faqs.json';
+import { FAQ } from '../faq/faq.component';
 
 @Component({
   selector: 'app-faqs',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaqsComponent implements OnInit {
 
-  constructor() { }
+  faqs: FAQ[];
+
+  constructor() {
+    console.log(freq.faqs);
+    this.faqs = freq.faqs;
+  }
 
   ngOnInit() {
   }

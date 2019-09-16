@@ -55,7 +55,7 @@ mgl-map {
 .jqx-chart-label-text,
 .jqx-chart-tooltip-text,
 .jqx-chart-legend-text {
-    
+
 }
 
 .jqx-knob-label,
@@ -68,4 +68,9 @@ mgl-map {
 
 .jqx-rc-all {
     background-color: rgb(23, 24, 25);
+}
+
+.ui.segment.vertical.stripe {
+    margin-top: 6em;
+    margin-bottom: 6em;
 }

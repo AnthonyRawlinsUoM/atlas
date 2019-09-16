@@ -1,0 +1,12 @@
+{"faqs":
+    [
+        {
+            "question": "What is the purpose of this web application?",
+            "answer": "Example answer"
+        },
+        {
+            "question": "Where does the data come from?",
+            "answer": "The datasets used to produce this website are produced by... "
+        }
+    ]
+}
