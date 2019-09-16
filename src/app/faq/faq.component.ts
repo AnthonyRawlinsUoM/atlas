@@ -19,5 +19,5 @@ export class FAQ {
     answer:string;
     asked_when?:any;
     asked_by?:any;
-    category:string;
+    category?:string;
 }
