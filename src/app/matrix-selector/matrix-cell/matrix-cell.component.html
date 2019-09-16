@@ -3,7 +3,9 @@
     *ngIf="active"
     (click)="onClick($event)"
     [style.background-color]="getColor()"
-><label>{{idx}}</label></div>
+><label>
+        <!-- {{idx}} -->
+    </label></div>
 <div
     class="cell"
     *ngIf="!active"
