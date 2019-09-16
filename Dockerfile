@@ -14,5 +14,5 @@ EXPOSE 3033
 
 ENV TZ Australia/Melbourne
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "reactive"]
 
