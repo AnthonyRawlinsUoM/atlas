@@ -1,37 +1,56 @@
 <div class="ui segment">
     <h2 class="ui header">{{study.properties.sim_name}}</h2>
 
-    <div class="ui stackable grid">
+    <div class="ui basic segment">
+        <div class="ui stackable internally celled grid">
 
-        <div class="five wide column">
-            <h4 class="ui header">Location</h4>
-            <p>{{ study.properties.location }}</p>
-        </div>
-        <div class="five wide column">
-            <h4 class="ui header">Population</h4>
-            <p>{{ study.properties.Population }}</p>
-        </div>
-        <div class="five wide column">
-            <h4 class="ui header">Land use</h4>
-            <p>{{ study.properties.Landuse }}</p>
-        </div>
-        <div class="five wide column">
-            <h4 class="ui header">Vegetation</h4>
-            <p>{{ study.properties.Vegetation }}</p>
-        </div>
-        <div class="five wide column">
-            <h4 class="ui header">Climate</h4>
-            <p>{{ study.properties.Climate }}</p>
-        </div>
-        <div class="five wide column">
-            <h4 class="ui header">Fire Regime</h4>
-            <p>{{ study.properties.FireRegime }}</p>
-        </div>
-        <div class="five wide column">
-            <h4 class="ui header">Prescribed Burning Regime</h4>
-            <p>{{ study.properties.PrescribedBurningRegime }}</p>
+            <div class="ui four wide column">
+                <h4 class="ui header"><i class="ui red map marker alternate icon"></i>
+                    <div class="content">Location
+                    </div>
+                </h4>
+                <p>{{ study.properties.location }}</p>
+            </div>
+            <div class="ui four wide column">
+                <h4 class="ui header"><i class="ui orange line chart icon"></i>
+                    <div class="content">Population</div>
+                </h4>
+                <p>{{ study.properties.Population }}</p>
+            </div>
+            <div class="ui four wide column">
+                <h4 class="ui header"><i class="ui purple pie chart icon"></i>
+                    <div class="content">Land use</div>
+                </h4>
+                <p>{{ study.properties.Landuse }}</p>
+            </div>
+            <div class="ui four wide column">
+                <h4 class="ui header"><i class="ui green tree icon"></i>
+                    <div class="content">Vegetation</div>
+                </h4>
+                <p>{{ study.properties.Vegetation }}</p>
+            </div>
+            <div class="ui four wide column">
+                <h4 class="ui header"><i class="ui grey thermometer icon"></i>
+                    <div class="content">Climate</div>
+                </h4>
+                <p>{{ study.properties.Climate }}</p>
+            </div>
+            <div class="ui twelve wide column">
+                <h4 class="ui header"><i class="ui red fire icon"></i>
+                    <div class="content">Fire Regime</div>
+                </h4>
+                <p>{{ study.properties.FireRegime }}</p>
+            </div>
+            <div
+                class="ui four wide column"
+                *ngIf="study.properties.PrescribedBurningRegime != ''"
+            >
+                <h4 class="ui header"><i class="ui red fire extinguisher icon"></i>
+                    <div class="content">Prescribed Burning Regime</div>
+                </h4>
+                <p>{{ study.properties.PrescribedBurningRegime }}</p>
+            </div>
         </div>
     </div>
-
 </div>
 <!-- {{study.properties | json}} -->

@@ -5,12 +5,12 @@
         "type": "Feature",
         "properties": {
             "sim_name": "SA_MAM",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
+            "location": "Centred on Mamungari Conservation Park in the Great Victoria Desert.",
+            "Population": "Sparsely populated.",
+            "Landuse": "Includes mallee and rangelands.",
+            "Vegetation": "Major vegetation types are mallee woodlands and shrublands, acacia shrublands",
+            "Climate": "Mean annual rainfall ranges from 184mm at Cook to the south of the study area to 279 mm at Pukatja to the northeast of the study area. Mean summer daily maximum temperatures are 32.3℃ at Cook and 34.4℃ at Pukatja.",
+            "FireRegime": "Part of the mallee (temperate) fire regime niche, a low productivity niche characterised by infrequent medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 20–100 years.",
             "PrescribedBurningRegime": ""
         },
         "geometry": {
@@ -30,12 +30,12 @@
         "type": "Feature",
         "properties": {
             "sim_name": "NSW_BHILL",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
+            "location": "Northeast of Broken Hill, incorporating parts of Little Topar Park and Mutawintji National Park.",
+            "Population": "Sparsely populated, with about 18,000 in Broken Hill.",
+            "Landuse": "Includes native chenopod and grasslands, grazing lands and mining.",
+            "Vegetation": "Major vegetation types are acacia shrublands, and chenopod shrublands.",
+            "Climate": "Mean annual rainfall is 260 mm at Broken Hill. Mean summer daily maximum temperatures are 32.1℃.",
+            "FireRegime": "Part of the acacia shrubland (mulga) (semi-arid/arid) fire regime niche, a low-productivity niche characterised by rare low-intensity grass or medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 0 to 100 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 20–100 years, although the interval between fires can over 100 years.",
             "PrescribedBurningRegime": ""
         },
         "geometry": {
@@ -55,12 +55,12 @@
         "type": "Feature",
         "properties": {
             "sim_name": "VIC_LD",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
+            "location": "Centred on Little Desert National Park in State’s west.",
+            "Population": "Sparsely populated.",
+            "Landuse": "Includes mallee, woodlands and agricultural areas.",
+            "Vegetation": "Major vegetation types are mallee woodlands and shrublands, heathlands,",
+            "Climate": "Mean annual rainfall is 411 mm at Nhill. Mean summer daily maximum temperatures are 29.0℃.",
+            "FireRegime": "Part of the mallee (temperate) fire regime niche, a low productivity niche characterised by infrequent medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 20–100 years.",
             "PrescribedBurningRegime": ""
         },
         "geometry": {
@@ -80,12 +80,12 @@
         "type": "Feature",
         "properties": {
             "sim_name": "NSW_SWS",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
+            "location": "Centred on Parkes and Goobang National Park.",
+            "Population": "About 15,000 in Parkes.",
+            "Landuse": "Includes agricultural land, regional populations, remnant native forest and woodland.",
+            "Vegetation": "Major native vegetation types are eucalypt woodlands, callitris forests and woodlands and tussock grasslands.",
+            "Climate": "Mean annual rainfall is 636 mm at Parkes airport. Mean summer daily maximum temperatures are 32.4℃.",
+            "FireRegime": "For cleared areas, part of the pasture, cropland (temperate) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity grass fires in autumn. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years. For remnant woodlands, part of the eucalypt woodland (temperate) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity grass fires in summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 20–100 years, although the interval between fires can be over 100 years.",
             "PrescribedBurningRegime": ""
         },
         "geometry": {
@@ -105,12 +105,12 @@
         "type": "Feature",
         "properties": {
             "sim_name": "NSW_NAN",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
+            "location": "Centred on Mount Kaputar National Park east of Narrabri.",
+            "Population": "About 13,000 in Narrabri.",
+            "Landuse": "Includes remnant native forest and woodlands, agricultural land, forestry.",
+            "Vegetation": "Major vegetation types are eucalypt woodlands and callitris forests and woodland",
+            "Climate": "Mean annual rainfall is 560 mm at Narrabri airport. Mean summer daily maximum temperatures are 33.9℃.",
+            "FireRegime": "For cleared areas, part of the pasture, cropland (temperate/tropical and subtropical) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity grass fires in autumn/spring and summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years. For remnant woodlands, part of the eucalypt woodland (temperate) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity grass fires in summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 20–100 years, although the interval between fires can be over 100 years.",
             "PrescribedBurningRegime": ""
         },
         "geometry": {
@@ -130,12 +130,12 @@
         "type": "Feature",
         "properties": {
             "sim_name": "NSW_SEC",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
+            "location": "The southeastern corner of NSW including South East Forest National Park, Nadgee Nature Reserve and several State Forests.",
+            "Population": "About 34,000 in Bega Valley.",
+            "Landuse": "Includes native forest, forestry and regional populations.",
+            "Vegetation": "Major vegetation types are dry sclerophyll forest and woodlands.",
+            "Climate": "Mean annual rainfall is 645 mm at Merimbula airport. Mean summer daily maximum temperatures are 24.3℃.",
+            "FireRegime": "Part of the eucalypt forest (temperate) fire regime niche, a high-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years.",
             "PrescribedBurningRegime": ""
         },
         "geometry": {
@@ -155,12 +155,12 @@
         "type": "Feature",
         "properties": {
             "sim_name": "SA_MDD",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
+            "location": "Centred on Danggali Conservation Park and Wilderness Protection Area.",
+            "Population": "Sparsely populated.",
+            "Landuse": "Includes mallee and rangelands.",
+            "Vegetation": "Major vegetation types are mallee woodlands and shrublands, chenopod shrublands.",
+            "Climate": "Mean annual rainfall is 273 mm at Gluepot Reserve to the southwest of the study area. Mean summer daily maximum temperatures are 32.8℃.",
+            "FireRegime": "Part of the mallee (temperate) fire regime niche, a low productivity niche characterised by infrequent medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 20–100 years.",
             "PrescribedBurningRegime": ""
         },
         "geometry": {
@@ -206,13 +206,13 @@
         "type": "Feature",
         "properties": {
             "sim_name": "TAS",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
-            "PrescribedBurningRegime": ""
+            "location": "Centred on the capital city, Hobart.",
+            "Population": "About 230,000 in Greater Hobart region.",
+            "Landuse": "Includes urban and peri-urban areas, forests and agricultural areas.",
+            "Vegetation": "Major vegetation types within forested areas are dry and wet sclerophyll forest.",
+            "Climate": "Mean annual rainfall ranges from 614 mm at Hobart to 897 mm at Mount Kunanyi in the Wellington Range to the west of Hobart. Mean summer daily maximum temperatures are 21.4℃ in Hobart and 12.9℃ at Mount Kunanyi",
+            "FireRegime": "Part of the eucalypt forest (temperate) fire regime niche, a high-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity shrub fires in spring and summer (Murphy et al. 2013). Typically, fire intensity ranges from 1000 to 5000 kW m-1, although under extreme weather conditions, crown fires can occur and fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years.",
+            "PrescribedBurningRegime": "In Tasmania between the 2008–09 and 2012–13 fire seasons, prescribed fire was applied to an average of 0.66% of treatable land, ranging from 0.29% to 1.58% (Richards et al. 2014)."
         },
         "geometry": {
             "type": "Polygon",
@@ -231,12 +231,12 @@
         "type": "Feature",
         "properties": {
             "sim_name": "SA",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
+            "location": "Includes Adelaide and Mount Lofty Ranges to northeast.",
+            "Population": "About 1.3m in Greater Adelaide region.",
+            "Landuse": "Includes urban areas, grazing, conservation reserves.",
+            "Vegetation": "Major vegetation type is eucalypt woodlands.",
+            "Climate": "Mean annual rainfall ranges from 551 mm at Adelaide to 474 mm at Nuriootpa Pirsa. Mean summer daily maximum temperatures are 28.8℃ at Adelaide and 29.1℃ at Nuriootpa Pirsa.",
+            "FireRegime": "For cleared areas, part of the pasture, cropland (temperate/tropical and subtropical) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity grass fires in autumn/spring and summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years. For remnant woodlands, part of the eucalypt woodland (temperate) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity grass fires in summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 20–100 years, although the interval between fires can be over 100 years.",
             "PrescribedBurningRegime": ""
         },
         "geometry": {
@@ -258,12 +258,12 @@
         "type": "Feature",
         "properties": {
             "sim_name": "QLD",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
+            "location": "Centred on Gold Coast Hinterland, south of Brisbane.",
+            "Population": "About 600,000 on the Gold Coast and 40,000 in the Scenic Rim region.",
+            "Landuse": "Includes peri-urban areas, agricultural land, native forest and forestry.",
+            "Vegetation": "Major vegetation types are eucalypt forests, rainforest and eucalypt woodlands.",
+            "Climate": "Mean annual rainfall ranges from 1,260 mm at the Gold Coast east of the study area to 1,565 mm at Mount Tamborine. Mean summer daily maximum temperatures are 28.5℃ at the Gold Coast and 25.6℃ at Mount Tamborine.",
+            "FireRegime": "For cleared areas, part of the pasture (tropical and subtropical) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity grass fires in spring and summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years. Includes rain forest (tropical) fire regime niche, a medium-productivity niche characterised by rare low-intensity litter fires in spring. Typically, fire intensity ranges from 0 to 100 kW m-1, although under extreme weather conditions, fire intensity may reach 100–1 000kWm-1. The interval between fires is typically over 100 years. Includes eucalypt forest and woodland (tropical) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity grass fires in winter and medium intensity shrub fires in summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 5 000–10 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years.",
             "PrescribedBurningRegime": ""
         },
         "geometry": {
@@ -283,12 +283,12 @@
         "type": "Feature",
         "properties": {
             "sim_name": "VIC",
-            "location": "",
-            "Population": "",
-            "Landuse": "",
-            "Vegetation": "",
-            "Climate": "",
-            "FireRegime": "",
+            "location": "Based on Victoria’s East Central Bushfire Risk Landscape, stretching from northeast fringes of Melbourne to Central Highlands.",
+            "Population": "Several hundred thousand people.",
+            "Landuse": "Includes urban and peri-urban areas, agricultural areas, native forests.",
+            "Vegetation": "Major vegetation types are dry and wet eucalypt forests, eucalypt woodlands.",
+            "Climate": "Mean annual rainfall ranges from 735 mm at Coldstream to 1,111 mm at Noojee. Mean summer daily maximum temperatures are 27.1℃ at Coldstream and 24.3 at Noojee.",
+            "FireRegime": "Part of the eucalypt forest (temperate) fire regime niche, a high-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years. Includes tall eucalypt forest (temperate) fire regime niche, a high-productivity niche characterised by very infrequent high-intensity crown fires in summer. Typically, fire intensity ranges from 5 000 to 10 000 kW m-1, although under extreme weather conditions, fire intensity may exceed 50 000kWm-1. Fires typically recur every 20–100 years, although the interval between fires can be over 100 years.",
             "PrescribedBurningRegime": ""
         },
         "geometry": {
