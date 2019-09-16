@@ -43,6 +43,7 @@ export class SpiderchartComponent implements OnInit {
 
     edgeOptions;
     landscapeOptions;
+    toolFn;
 
     ngOnInit(): void {
 
