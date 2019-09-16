@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import freq from '../../assets/faqs.json';
+import { FAQ } from '../faq/faq.component';
 
 @Component({
   selector: 'app-faqs',

@@ -113,4 +113,34 @@ export class WeightsService {
             Object.keys(constraint).every(key =>
                 collectionItem.hasOwnProperty(key) && constraint[key] === collectionItem[key]));
     }
+
+
+    public getRowColumnForIndex(idx) {
+        let column = parseInt(idx) % matrix.regimes.landscape.length;
+        let row = Math.floor(parseInt(idx) / matrix.regimes.edge.length); // Reversed order!!
+
+        console.log("Row: " + row);
+        console.log("Column: " + column);
+
+        let edge = matrix.regimes.edge.filter(e => {
+            if(e['value'] === row) {
+                return e;
+            }
+        }).map(e => {
+            return e['name'];
+        });
+        let land = matrix.regimes.landscape.filter(l => {
+            if(l['value'] === column) {
+                return l;
+            }
+        }).map(l => {
+            return l['name'];
+        });
+        console.log("Edge: " + edge);
+        console.log("Land: " + land);
+
+        let disp = "Edge: " + edge+ "% Landscape: " + land + "%";
+        console.log(disp);
+        return disp;
+    }
 }
