@@ -1,10 +1,10 @@
 import { Output, Component, AfterViewInit, ViewChild, EventEmitter, OnInit, Input } from '@angular/core';
-
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Map, FitBoundsOptions } from 'mapbox-gl';
 import * as turf from '@turf/turf';
 import { easing } from 'ts-easing';
 import test from '../../assets/PointDistance/pointdist.json';
-
+import { Base64 } from 'js-base64';
 
 @Component({
     selector: 'app-detailed-map',
@@ -17,14 +17,17 @@ export class DetailedMapComponent implements AfterViewInit {
     studyareas: any = { "type": "FeatureCollection", "features": [] };
     burnblocks: any = { "type": "FeatureCollection", "features": [] };
     ignitions: any = { "type": "FeatureCollection", "features": [] };
-    detailed;
+    detailed?;
 
     movingOptions: FitBoundsOptions = { padding: 30, easing: (x) => { return easing.quadratic(x) }, maxZoom: 5 };
 
     blurb: any;
     weightData: any[] = [];
 
-    constructor() { }
+
+    constructor() {
+
+    }
 
     ngOnInit() {
         this.weightData = test;
@@ -39,7 +42,7 @@ export class DetailedMapComponent implements AfterViewInit {
 
 
     boundsChange(bbox) {
-        // console.log(this.detailed);
+        console.log(bbox);
         this.detailed.MapService.fitBounds(bbox);
     }
 

@@ -1,0 +1,6 @@
+<div class="item pointing dropdown link" autoClose="outsideClick" suiDropdown>
+  <i class="ui expand icon"></i>Study Areas
+  <div class="menu" suiDropdownMenu>
+    <a *ngFor="let sc of links" class="item" (click)="onClick(sc)">{{ sc.name }}</a>
+  </div>
+</div>

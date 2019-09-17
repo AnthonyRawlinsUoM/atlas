@@ -50,6 +50,12 @@ mgl-map {
 .pip mgl-map {
     width: 350px !important;
     height: 350px !important;
+    opacity: 0.4 !important;
+}
+
+.pip:hover,
+.pip:hover mgl-map {
+  opacity: 1.0 !important;
 }
 
 .jqx-chart-label-text,

@@ -1,10 +1,10 @@
 <nav>
 
     <div
-        class="ui inverted primary stackable pointing menu"
+        class="ui inverted primary pointing menu"
         #primary
-    >
-        <div class="ui container">
+    ><div class="ui container">
+
             <a
                 class="ui header item"
                 routerLink="/"
@@ -25,6 +25,14 @@
                 [routerLinkActive]="'active'"
                 [routerLinkActiveOptions]="{exact:true}"
             ><i [class]="r.icon"></i> {{r.name}}</a>
+
+            <a class="ui pointing dropdown link item" suiDropdown>
+              <i class="ui expand icon"></i> Study Areas
+              <div class="inverted menu" suiDropdownMenu>
+                <a *ngFor="let sc of links" routerLink="/" autoClose="outsideClick" [fragment]="enc(sc)" class="item" (click)="onClick(sc)">{{ sc.name }}</a>
+              </div>
+            </a>
+
             <div class="right menu">
                 <a
                     class="ui item"

@@ -1,5 +1,5 @@
 .main {
-    min-height: 95vh;
+    /* min-height: 95vh; */
 }
 
 .main footer,
@@ -8,9 +8,9 @@
     flex-grow: 0 1;
 }
 
-nav {
+/* nav {
     max-height: 5vh;
-}
+} */
 
 footer.foot {
     margin-top: 3em !important;

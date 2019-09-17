@@ -31,6 +31,7 @@
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
     "jqwidgets-ng": "^8.1.4",
+    "js-base64": "^2.5.1",
     "jwks-rsa": "^1.6.0",
     "mapbox-gl": "^0.54.0",
     "moment": "^2.24.0",

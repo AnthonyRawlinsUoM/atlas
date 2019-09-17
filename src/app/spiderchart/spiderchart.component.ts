@@ -34,7 +34,7 @@ export class SpiderchartComponent implements OnInit {
 
     seriesGroups: any;
     selected_type: string = 'line';
-    seriesList: string[] = ['line', 'stackedline', 'splinearea', 'spline', 'column', 'scatter', 'stackedcolumn', 'stackedsplinearea', 'stackedspline'];
+    seriesList: string[] = ['line', 'stackedline', 'splinearea', 'spline'];
 
     series = [];
     colorchart = [];
@@ -48,7 +48,7 @@ export class SpiderchartComponent implements OnInit {
     ngOnInit(): void {
 
 
-        this.radius = "260";
+        this.radius = "130";
 
         this.xAxis = {
             dataField: 'metric',

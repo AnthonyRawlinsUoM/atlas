@@ -1,1 +1,42 @@
-<p>comparator works!</p>
+<h2 class="ui inverted header">{{study.properties.sim_name}}</h2>
+
+<div class="ui two column grid summary-content">
+    <div class="ui column">
+        <app-matrix-selector
+            [study_area]="study"
+            (selectedItems)="onSelectedItemsChange($event)"
+            #mtx
+        ></app-matrix-selector>
+    </div>
+    <div class="ui column">
+        <div
+            class="ui inverted segment"
+            *ngIf="selectedItems.length == 0"
+        >
+            <div class="ui big inverted icon message">
+                <i class="info circle icon"></i>
+                <div class="content">
+                    <div class="header">Make a selection</div>
+                    <p>Select Landscape / Edge Percentage Burnt to compare losses.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui field" *ngIf="selectedItems.length > 0">
+            <label>Metric</label>
+            <app-scope-option (scopeChange)="onScopeChange($event)"></app-scope-option>
+        </div>
+
+        <app-barchart *ngIf="selectedItems.length > 0" [scope]="scope" [chart_title]="'Losses using Landscape and Edge Treatment Regimes'"
+        [description]="'Lower is better.'" [area]="study.properties.sim_name" [positions]="selectedItems" #barchart></app-barchart>
+
+        <!-- <app-spiderchart
+            *ngIf="selectedItems.length > 0"
+            [area]="study.properties.sim_name"
+            [chart_title]="'Collective Losses using Landscape and Edge Treatments'"
+            [description]="'Smaller shape is better.'"
+            [positions]="selectedItems"
+            #spider
+        ></app-spiderchart> -->
+    </div>
+</div>

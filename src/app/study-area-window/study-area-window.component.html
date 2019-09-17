@@ -1,19 +1,19 @@
 <h2 class="ui inverted header">{{study.properties.sim_name}}</h2>
 
-<div class="ui grid summary-content">
-    <div class="ui five wide column">
+<div class="ui two column grid summary-content">
+    <div class="ui column">
         <app-matrix-selector
             [study_area]="study"
             (selectedItems)="onSelectedItemsChange($event)"
             #mtx
         ></app-matrix-selector>
     </div>
-    <div class="ui eleven wide column">
+    <div class="ui column">
         <div
             class="ui inverted segment"
             *ngIf="selectedItems.length == 0"
         >
-            <div class="ui huge inverted icon message">
+            <div class="ui big inverted icon message">
                 <i class="info circle icon"></i>
                 <div class="content">
                     <div class="header">Make a selection</div>

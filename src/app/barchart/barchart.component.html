@@ -1,10 +1,9 @@
-
 <div class="ui field">
     <label>Chart Style</label>
 
     <sui-select class="selection"
                     [(ngModel)]="scope"
-                    [options]="seriesList"
+                    [options]="chart_types"
                     (selectedOptionChange)="onChartTypeChange($event)
                     "#select>
     <sui-select-option *ngFor="let option of select.filteredOptions"
@@ -13,9 +12,9 @@
 </sui-select>
 </div>
 
-<jqxChart #myChart
+<jqxChart
 [width]="'calc(100%)'"
-[height]="'calc(100%)'"
+[height]="'calc(50vh)'"
 [title]="chart_title"
 [description]="description"
 [showLegend]="false"
@@ -26,5 +25,6 @@
 [xAxis]="xAxis"
 [seriesGroups]="seriesGroups"
 [colorScheme]="'scheme03'"
-[backgroundColor]="'#CCC'">
+[backgroundColor]="'#CCC'"
+#myChart>
 </jqxChart>
