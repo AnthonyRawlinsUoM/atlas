@@ -20,16 +20,14 @@ export class StudyAreasComponent implements AfterViewInit {
     @ViewChild('left', { read: ElementRef, static: false }) left: ElementRef;
     @ViewChild('right', { read: ElementRef, static: false }) right: ElementRef;
 
-    study: any;
+    study: any;;
     leftIsPip = false;
     rightIsPip = false;
     sidebarIsOpen = false;
 
     constructor(private modalService: SuiModalService) { }
 
-    ngAfterViewInit() {
-        // this.detail;
-    }
+    ngAfterViewInit() { }
 
     boundsChange(bbox) {
         this.detail.boundsChange(bbox);

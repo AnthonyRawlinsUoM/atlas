@@ -16,7 +16,9 @@ export class StudyAreaWindowComponent implements OnInit {
 
     selectedItems: any = [];
 
-    constructor() { }
+    constructor() {
+
+    }
 
     ngOnInit() {
     }

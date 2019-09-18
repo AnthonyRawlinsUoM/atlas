@@ -18,7 +18,7 @@
             </div>
             <div class="ui bottom attached inverted segment" suiTabContent="1">
                 <div class="inverted">
-                    <app-study-area-window [study]="study" *ngIf="study != undefined" #summary></app-study-area-window>
+                    <app-study-area-window *ngIf="study != undefined" [study]="study" #summary></app-study-area-window>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
     <sui-sidebar-sibling [isDimmedWhenVisible]="true">
         <!-- PUSHER -->
         <div [class.pip]="leftIsPip" #left>
-            <app-overview (bounds)=boundsChange($event) (study)="onStudyChange($event)" #overview></app-overview>
+            <app-overview (bounds)=boundsChange($event) (studyChange)="onStudyChange($event)" #overview></app-overview>
         </div>
         <div [class.pip]="rightIsPip" #right>
             <app-detailed-map #detail></app-detailed-map>
