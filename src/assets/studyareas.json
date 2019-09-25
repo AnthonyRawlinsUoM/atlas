@@ -5,6 +5,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "SA_MAM",
+            "long_name": "Mamungari (SA)",
             "location": "Centred on Mamungari Conservation Park in the Great Victoria Desert.",
             "Population": "Sparsely populated.",
             "Landuse": "Includes mallee and rangelands.",
@@ -30,6 +31,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "NSW_BHILL",
+            "long_name": "Broken Hill (NSW)",
             "location": "Northeast of Broken Hill, incorporating parts of Little Topar Park and Mutawintji National Park.",
             "Population": "Sparsely populated, with about 18,000 in Broken Hill.",
             "Landuse": "Includes native chenopod and grasslands, grazing lands and mining.",
@@ -55,6 +57,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "VIC_LD",
+            "long_name": "Little Desert (VIC)",
             "location": "Centred on Little Desert National Park in State’s west.",
             "Population": "Sparsely populated.",
             "Landuse": "Includes mallee, woodlands and agricultural areas.",
@@ -80,6 +83,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "NSW_SWS",
+            "long_name": "Southwestern Slopes (NSW)",
             "location": "Centred on Parkes and Goobang National Park.",
             "Population": "About 15,000 in Parkes.",
             "Landuse": "Includes agricultural land, regional populations, remnant native forest and woodland.",
@@ -105,6 +109,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "NSW_NAN",
+            "long_name": "Nandewar (NSW)",
             "location": "Centred on Mount Kaputar National Park east of Narrabri.",
             "Population": "About 13,000 in Narrabri.",
             "Landuse": "Includes remnant native forest and woodlands, agricultural land, forestry.",
@@ -130,6 +135,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "NSW_SEC",
+            "long_name": "Southeast Corner (NSW)",
             "location": "The southeastern corner of NSW including South East Forest National Park, Nadgee Nature Reserve and several State Forests.",
             "Population": "About 34,000 in Bega Valley.",
             "Landuse": "Includes native forest, forestry and regional populations.",
@@ -155,6 +161,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "SA_MDD",
+            "long_name": "Murray Darling Depression (SA)",
             "location": "Centred on Danggali Conservation Park and Wilderness Protection Area.",
             "Population": "Sparsely populated.",
             "Landuse": "Includes mallee and rangelands.",
@@ -180,6 +187,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "ACT",
+            "long_name": "(ACT)",
             "location": "Stretches from the capital Canberra in the east to the Brindabella Ranges in the west.",
             "Population": "About 420,000 in ACT.",
             "Landuse": "Includes a mixture of native forest, agricultural land and urban areas.",
@@ -206,6 +214,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "TAS",
+            "long_name": "Hobart (TAS",
             "location": "Centred on the capital city, Hobart.",
             "Population": "About 230,000 in Greater Hobart region.",
             "Landuse": "Includes urban and peri-urban areas, forests and agricultural areas.",
@@ -231,6 +240,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "SA",
+            "long_name": "Adelaide (SA)",
             "location": "Includes Adelaide and Mount Lofty Ranges to northeast.",
             "Population": "About 1.3m in Greater Adelaide region.",
             "Landuse": "Includes urban areas, grazing, conservation reserves.",
@@ -258,6 +268,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "QLD",
+            "long_name": "Southeast Qld",
             "location": "Centred on Gold Coast Hinterland, south of Brisbane.",
             "Population": "About 600,000 on the Gold Coast and 40,000 in the Scenic Rim region.",
             "Landuse": "Includes peri-urban areas, agricultural land, native forest and forestry.",
@@ -283,6 +294,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "VIC",
+            "long_name": "East Central (VIC)",
             "location": "Based on Victoria’s East Central Bushfire Risk Landscape, stretching from northeast fringes of Melbourne to Central Highlands.",
             "Population": "Several hundred thousand people.",
             "Landuse": "Includes urban and peri-urban areas, agricultural areas, native forests.",
@@ -308,6 +320,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "BM",
+            "long_name": "BM",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -340,6 +353,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Cobar",
+            "long_name": "Cobar",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -365,6 +379,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Mildura",
+            "long_name": "Mildura",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -390,6 +405,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "JervisBay",
+            "long_name": "Jervis Bay",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -415,6 +431,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Kosciuszko",
+            "long_name": "Mt Kosciuszko",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -440,6 +457,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Casino",
+            "long_name": "Casino",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -465,6 +483,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Kempsey",
+            "long_name": "Kempsey",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -490,6 +509,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Gloucester",
+            "long_name": "Gloucester",
             "location": "",
             "Population": "",
             "Landuse": "",

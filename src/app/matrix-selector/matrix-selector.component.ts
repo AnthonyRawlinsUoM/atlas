@@ -55,7 +55,7 @@ export class MatrixSelectorComponent implements OnInit {
 
     ngAfterViewInit() {
         // print array of CustomComponent objects
-        console.log(this.components.toArray());
+        // console.log(this.components.toArray());
     }
 
     onDeactivate(position) {
@@ -113,13 +113,13 @@ export class MatrixSelectorComponent implements OnInit {
     }
 
     public refresh(scope) {
-        // console.log("Doing REFRESH. ");
+        console.log("Doing REFRESH. ");
         this.scope = scope;
         this.renew();
     }
 
     public renew() {
-        // console.log("doing renew");
+        console.log("doing renew");
         this.components.map((c) => {
             c.scope = this.scope;
             c.area = this.study_area.properties.sim_name;

@@ -59,6 +59,7 @@ import { InformationComponent } from './information/information.component';
 import { FaqComponent } from './faq/faq.component';
 import { BarchartComponent } from './barchart/barchart.component';
 import { ShortcutsComponent } from './shortcuts/shortcuts.component';
+import { MapviewComponent } from './mapview/mapview.component';
 
 
 
@@ -126,7 +127,8 @@ const routes: Routes = [
         InformationComponent,
         FaqComponent,
         BarchartComponent,
-        ShortcutsComponent
+        ShortcutsComponent,
+        MapviewComponent
     ],
     imports: [
         BrowserModule,

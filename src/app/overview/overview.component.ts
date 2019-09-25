@@ -20,7 +20,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
     @Output() selectedAreaId = null;
     @Output() selectedArea = null;
     @Output() bounds = new EventEmitter<any>();
-    @Output() study = new EventEmitter<any>();
+    @Output() studyChange = new EventEmitter<any>();
 
     overview: Map;
     study_areas: any = '/assets/studyareas.json';
@@ -43,7 +43,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
             this.fragment = JSON.parse(Base64.decode(fragment));
             console.log(this.fragment);
             this.bounds.emit(this.fragment.bbox);
-            this.study.emit(
+            this.studyChange.emit(
               studyareas.features.map((f) => {
                 if (f.properties.sim_name == this.fragment.name) {
                     return f;
@@ -83,7 +83,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
 
         // console.log(this.overview);
         this.bounds.emit(bbox);
-        this.study.emit(e.features[0]);
+        this.studyChange.emit(e.features[0]);
     }
 
     private where(collection, constraint) {
