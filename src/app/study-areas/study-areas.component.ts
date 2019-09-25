@@ -11,6 +11,7 @@ import { Base64 } from 'js-base64';
 import studyareas from '../../assets/studyareas.json';
 import { filter, map } from 'rxjs/operators';
 import { Shortcut } from '../shortcuts/shortcuts.component';
+import { InformationComponent } from '../information/information.component';
 
 @Component({
     selector: 'app-study-areas',
@@ -22,6 +23,7 @@ export class StudyAreasComponent implements AfterViewInit {
     // @ViewChild('overview', { static: false }) overview !: OverviewComponent;
     @ViewChild('mapview', { static: false }) mapview !: MapviewComponent;
     @ViewChild('summary', { static: false }) summary !: StudyAreaWindowComponent;
+    @ViewChild('info', { static: false }) info !: InformationComponent;
 
     @ViewChild('left', { read: ElementRef, static: false }) left: ElementRef;
     @ViewChild('right', { read: ElementRef, static: false }) right: ElementRef;
@@ -113,6 +115,7 @@ export class StudyAreasComponent implements AfterViewInit {
         if (this.summary != undefined) {
             this.summary.refresh();
         }
+        this.info.study = study;
     }
 
     sidebarOpen() {

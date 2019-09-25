@@ -44,6 +44,7 @@ export class StudyAreaWindowComponent implements OnInit {
     }
 
     refresh() {
+
         console.log('REFRESHING!');
         this.mtx.study_area = this.study;
         this.mtx.renew();
