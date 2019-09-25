@@ -1,14 +1,14 @@
-<h2 class="ui inverted header" >{{study.properties.sim_name}}</h2>
+<h2 class="ui inverted header" >{{study.properties.long_name}}</h2>
 
-<div class="ui two column grid summary-content">
-    <div class="ui column">
+<div class="ui grid summary-content">
+    <div class="ui six wide column">
         <app-matrix-selector
             [study_area]="study"
             (selectedItems)="onSelectedItemsChange($event)"
             #mtx
         ></app-matrix-selector>
     </div>
-    <div class="ui column">
+    <div class="ui ten wide column">
         <div
             class="ui inverted segment"
             *ngIf="selectedItems.length == 0"

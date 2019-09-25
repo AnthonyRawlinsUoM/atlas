@@ -63,7 +63,7 @@ export class SpiderchartComponent implements OnInit {
         };
 
         this.valueAxis = {
-            unitInterval: 0.2,
+            unitInterval: 0.25,
             minValue: 0.0,
             maxValue: 1.0,
             valuesOnTicks: true,
@@ -129,7 +129,8 @@ export class SpiderchartComponent implements OnInit {
     }
 
     refresh() {
-        // console.log('Updating Spider Chart!');
+        // console.log(this.positions);
+        this.series = [];
 
         for (let p in Array.from(Array(49).keys())) {
             this.series.push({
@@ -139,17 +140,13 @@ export class SpiderchartComponent implements OnInit {
                 lineWidth: this.lineWidth,
                 radius: this.radii,
                 symbolType: 'circle',
-                // lineColor: this.colorchart[p],
-                // fillColor: this.colorchart[p]
             });
         }
+
         this.sub.unsubscribe();
 
         this.sub = this.ws.getSpiderSeries(this.area, this.positions).subscribe((data) => {
-            // console.log('Got subscription data for Spider Chart');
-            // console.log(data);
             this.source = data;
-
             this.seriesGroups =
                 [
                     {

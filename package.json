@@ -25,6 +25,8 @@
     "@angular/router": "~8.1.0",
     "@auth0/auth0-spa-js": "^1.1.1",
     "@turf/turf": "^5.1.6",
+    "@types/geojson": "^7946.0.7",
+    "@types/js-base64": "^2.3.1",
     "angular-persistence": "^1.0.1",
     "colormap": "^2.3.1",
     "d3": "^5.9.7",

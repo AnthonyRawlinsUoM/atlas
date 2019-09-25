@@ -29,7 +29,8 @@
             <a class="ui pointing dropdown link item" suiDropdown>
               <i class="ui expand icon"></i> Study Areas
               <div class="inverted menu" suiDropdownMenu>
-                <a *ngFor="let sc of links" routerLink="/" autoClose="outsideClick" [fragment]="enc(sc)" class="item" (click)="onClick(sc)">{{ sc.name }}</a>
+                <a class="item" (click)="onClick(overview)" routerLink="/" autoClose="outsideClick"  [fragment]="enc(overview)" (click)="onClick(overview)"><div class="ui header">Overview</div></a>
+                <a *ngFor="let sc of links" routerLink="/" autoClose="outsideClick" [fragment]="enc(sc)" class="item" (click)="onClick(sc)">{{ sc.link }}</a>
               </div>
             </a>
 

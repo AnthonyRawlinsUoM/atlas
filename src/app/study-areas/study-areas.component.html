@@ -40,11 +40,8 @@
 
     <sui-sidebar-sibling [isDimmedWhenVisible]="true">
         <!-- PUSHER -->
-        <div [class.pip]="leftIsPip" #left>
-            <app-overview (bounds)=boundsChange($event) (studyChange)="onStudyChange($event)" #overview></app-overview>
-        </div>
-        <div [class.pip]="rightIsPip" #right>
-            <app-detailed-map #detail></app-detailed-map>
+        <div #left>
+            <app-mapview (boundsChange)=onBoundsChange($event) (studyChange)="onStudyChange($event)" (focus)="focus" #mapview></app-mapview>
         </div>
     </sui-sidebar-sibling>
 

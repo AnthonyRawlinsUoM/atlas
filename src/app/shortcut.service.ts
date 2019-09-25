@@ -23,6 +23,7 @@ export class ShortcutService {
 
                 res.push({
                     name: f.properties.sim_name,
+                    link: f.properties.long_name,
                     centroid: cent,
                     bbox: turf.bbox(turf.buffer(poly, 25, { units: 'kilometers' })),
                     lat: cent.geometry.coordinates[1].toFixed(2),

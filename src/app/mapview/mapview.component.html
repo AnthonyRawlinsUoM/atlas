@@ -1,0 +1,88 @@
+<!-- draft changes to mapbox styles. Remove this from production! -->
+<mgl-map [style]="'mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft'" [zoom]="[4.9]" [center]="[141.2, -35.557]" [fitBoundsOptions]="boundsOptions" (mouseMove)="onMouseMove($event)" (load)="mapLoaded($event)" #mapview>
+    <mgl-control mglNavigation position="top-left"></mgl-control>
+    <mgl-control mglScale unit="metric" position="bottom-left"></mgl-control>
+    <mgl-geojson-source id="ignitions-source" [data]="ignitions">
+        <mgl-feature *ngFor="let g of ignitions.features" [geometry]="g.geometry" properties="g.properties" id="g.id"></mgl-feature>
+    </mgl-geojson-source>
+
+    <mgl-geojson-source id="burnblocks-source" [data]="burnblocks">
+        <mgl-feature *ngFor="let g of burnblocks.features" [geometry]="g.geometry" properties="g.properties" id="g.id"></mgl-feature>
+    </mgl-geojson-source>
+
+    <mgl-geojson-source id="study-detail-source" [data]="study_detail">
+        <mgl-feature *ngFor="let g of focus.features" [geometry]="g.geometry" properties="g.properties" id="g.properties.sim_name" (hover)="console.log('Entered feature!');"></mgl-feature>
+    </mgl-geojson-source>
+
+    <mgl-geojson-source id="study-areas-source" [data]="studyareas">
+        <mgl-feature *ngFor="let g of studyareas.features" [geometry]="g.geometry" properties="g.properties" id="g.properties.sim_name"></mgl-feature>
+    </mgl-geojson-source>
+
+
+
+
+
+    <mgl-layer id="burnblocks-layer" type="line" source="burnblocks-source" [paint]="{
+        'line-color': '#032904',
+        'line-opacity': 0.35,
+        'line-width': 1.0
+      }">
+    </mgl-layer>
+
+    <mgl-layer id="burnblocks-fills-layer" type="fill" source="burnblocks-source" [paint]="{
+          'fill-color': '#032904',
+          'fill-opacity': 0.20
+        }">
+    </mgl-layer>
+
+    <mgl-layer id="ignitions-layer" type="circle" source="ignitions-source" [paint]="{
+          'circle-radius': {
+          'base': 2.75,
+          'stops': [[12, 3], [22, 180]]
+        },
+        'circle-color': {
+        property: 'prob',
+        colorSpace: 'hcl',
+        stops: [
+          [0, '#646365'],
+          [1, '#e20909']
+        ],
+        type: 'exponential'
+      }
+      }">
+    </mgl-layer>
+
+    <mgl-layer id="study-hotspots" type="line" source="study-areas-source" [paint]="{
+        'line-color': '#ca3706',
+        'line-width': 2
+    }">
+    </mgl-layer>
+    <mgl-layer id="study-hotspots-fills" type="fill" source="study-areas-source" [paint]="{
+        'fill-color': '#ca3706',
+        'fill-opacity': ['case',['boolean', ['feature-state', 'hover'], false],
+        1,
+        0.1
+        ]
+      }" (mouseMove)="mousemove($event)" (mouseLeave)="mouseleave()" (click)="click($event)">
+    </mgl-layer>
+
+
+    <mgl-layer id="study-area" type="line" source="study-areas-source" [paint]="{
+      'line-color': '#e09a20',
+      'line-opacity': 0.6,
+      'line-width': 2.0 }">
+    </mgl-layer>
+
+    <mgl-layer id="study-area-labels" type="symbol" source="study-areas-source"
+    [paint]="{
+      'text-color': '#ffffff',
+      'text-halo-color': '#333333',
+      'text-halo-width': 2
+    }"
+    [layout]="{
+        'text-field': ['get', 'long_name'],
+        'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+        'text-justify': 'auto'}">
+    </mgl-layer>
+
+</mgl-map>

@@ -3,6 +3,7 @@ import { ShortcutService } from './shortcut.service';
 import { AuthService } from './auth.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Base64 } from 'js-base64';
+import { LngLat } from 'mapbox-gl';
 
 @Component({
     selector: 'app-root',
@@ -16,13 +17,20 @@ export class AppComponent implements OnInit {
 
     title = 'Prescribed Burning Atlas';
 
+    overview: Shortcut = {
+        name: 'overview', bbox: [
+            134.47265625,
+            -25.005972656239177,
+            154.6435546875,
+            -44.276671273775165
+        ], centroid: new LngLat(144.558105468749972, -34.64132196500718)
+    }
+
     routes = [
         { path: '/about', name: 'About', icon: 'book icon' },
         { path: '/team', name: 'Team', icon: 'user icon' },
         { path: '/faq', name: 'FAQ', icon: 'question icon' },
         { path: '/publications', name: 'Publications', icon: 'university icon' },
-        // { path: '/test', name: 'Testing Component', icon: 'bug icon' },
-
     ];
 
     constructor(
@@ -31,13 +39,14 @@ export class AppComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router) {
 
-          // router.events.subscribe(s => {
-          //       if (s instanceof NavigationEnd) {
-          //         const tree = router.parseUrl(router.url);
-          //       }
-          //     });
+        router.events.subscribe(s => {
+            if (s instanceof NavigationEnd) {
+                const tree = router.parseUrl(router.url);
+                console.log(tree.fragment);
+            }
+        });
 
-        }
+    }
 
     ngOnInit() {
         this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
@@ -52,11 +61,11 @@ export class AppComponent implements OnInit {
 
     onClick(ev) {
         console.log(ev);
-        this.shct.emit(ev);
+        // this.router.navigate(ev);
     }
 
     enc(sc) {
-      return Base64.encode(JSON.stringify(sc));
+        return Base64.encode(JSON.stringify(sc));
     }
 
 }
