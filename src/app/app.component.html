@@ -3,7 +3,8 @@
     <div
         class="ui inverted primary pointing menu"
         #primary
-    ><div class="ui container">
+    >
+        <div class="ui container">
 
             <a
                 class="ui header item"
@@ -16,7 +17,7 @@
 
                     </i>
                 </div>
-                <div class="header">The Prescribed Burning Atlas</div>
+                <div class="header">{{title}}</div>
             </a>
             <a
                 class="item"
@@ -26,12 +27,34 @@
                 [routerLinkActiveOptions]="{exact:true}"
             ><i [class]="r.icon"></i> {{r.name}}</a>
 
-            <a class="ui pointing dropdown link item" suiDropdown>
-              <i class="ui expand icon"></i> Study Areas
-              <div class="inverted menu" suiDropdownMenu>
-                <a class="item" (click)="onClick(overview)" routerLink="/" autoClose="outsideClick"  [fragment]="enc(overview)" (click)="onClick(overview)"><div class="ui header">Overview</div></a>
-                <a *ngFor="let sc of links" routerLink="/" autoClose="outsideClick" [fragment]="enc(sc)" class="item" (click)="onClick(sc)">{{ sc.link }}</a>
-              </div>
+            <a
+                class="ui pointing dropdown link item"
+                suiDropdown
+            >
+                <i class="ui expand icon"></i> Study Areas
+                <div
+                    class="inverted menu"
+                    suiDropdownMenu
+                >
+                    <a
+                        class="item"
+                        (click)="onClick(overview)"
+                        routerLink="/"
+                        autoClose="outsideClick"
+                        [fragment]="enc(overview)"
+                        (click)="onClick(overview)"
+                    >
+                        <div class="ui header">Overview</div>
+                    </a>
+                    <a
+                        *ngFor="let sc of links"
+                        routerLink="/"
+                        autoClose="outsideClick"
+                        [fragment]="enc(sc)"
+                        class="item"
+                        (click)="onClick(sc)"
+                    >{{ sc.link }}</a>
+                </div>
             </a>
 
             <div class="right menu">
@@ -61,10 +84,7 @@
         </div>
     </div>
 </nav>
-<article
-    class="main"
-    #main
->
-    <router-outlet></router-outlet>
-</article>
+<main [@routerTransition]="getState(o)">
+    <router-outlet #o="outlet"></router-outlet>
+</main>
 <app-footer></app-footer>

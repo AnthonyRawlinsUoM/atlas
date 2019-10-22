@@ -1,5 +1,5 @@
 .main {
-    /* min-height: 95vh; */
+    /* min-height: 95vh; */    min-height: 700px;
 }
 
 .main footer,
@@ -15,4 +15,8 @@
 footer.foot {
     margin-top: 3em !important;
     margin-bottom: 3em !important;
+
+}
+main {
+    min-height: 700px;
 }

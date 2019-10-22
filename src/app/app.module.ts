@@ -1,6 +1,8 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -17,6 +19,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { InterceptorService } from './interceptor.service';
 import { BayesNetOutputsService } from './bayes-net-outputs.service';
 import { ShortcutService } from './shortcut.service';
+import { TeamService } from './team.service';
 
 import { AuthGuard } from './auth.guard';
 
@@ -60,35 +63,37 @@ import { FaqComponent } from './faq/faq.component';
 import { BarchartComponent } from './barchart/barchart.component';
 import { ShortcutsComponent } from './shortcuts/shortcuts.component';
 import { MapviewComponent } from './mapview/mapview.component';
+import { TeamMemberComponent } from './teammember/teammember.component';
+import { TeampageComponent } from './teampage/teampage.component';
 
 
 
 const routes: Routes = [
     { path: 'callback', component: CallbackComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'team', component: TeamComponent },
+    { path: 'about', component: AboutComponent , data: { state: 'about' }},
+    { path: 'team', component: TeampageComponent , data: { state: 'team' }},
     {
         path: 'profile', component: ProfileComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard], data: { state: 'profile' }
     },
     {
         path: 'external-api',
         component: ExternalApiComponent,
         canActivate: [AuthGuard]
     },
-    { path: 'faq', component: FaqsComponent },
+    { path: 'faq', component: FaqsComponent, data: { state: 'faq' } },
 
     { path: 'test', component: SandboxComponent },
 
-    { path: 'publications', component: PublicationsComponent },
+    { path: 'publications', component: PublicationsComponent, data: { state: 'publications' } },
     { path: 'logout', component: LogoutComponent },
     {
-        path: 'home', component: StudyAreasComponent
+        path: 'home', component: StudyAreasComponent, data: { state: 'home' }
     },
     {
         path: '', component: StudyAreasComponent
     },
-    { path: '**', component: PageNotFoundComponent }];
+    { path: '**', component: PageNotFoundComponent , data: { state: '404' }}];
 
 @NgModule({
     declarations: [
@@ -128,10 +133,13 @@ const routes: Routes = [
         FaqComponent,
         BarchartComponent,
         ShortcutsComponent,
-        MapviewComponent
+        MapviewComponent,
+        TeamMemberComponent,
+        TeampageComponent
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         CommonModule,
         FormsModule,
         SuiModule,
@@ -154,6 +162,7 @@ const routes: Routes = [
         WeightsService,
         BayesNetOutputsService,
         ShortcutService,
+        TeamService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: InterceptorService,

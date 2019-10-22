@@ -22,7 +22,10 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/assets/images",
+              "src/assets/images/*",
               "src/assets/team",
+              "src/assets/team/group.json",
               "src/assets/BurnBlocks",
               "src/assets/Ignitions",
               "src/assets/studyareas.json"

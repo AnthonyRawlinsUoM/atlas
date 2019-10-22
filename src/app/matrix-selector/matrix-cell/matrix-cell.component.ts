@@ -36,6 +36,10 @@ export class MatrixCellComponent implements OnInit {
         this.active = !this.active;
     }
 
+    public deactivate() {
+        this.active = false;
+    }
+
     onClick(ev) {
         this.toggle();
 

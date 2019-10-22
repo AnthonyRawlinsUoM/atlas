@@ -1,12 +1,14 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, NgModule, OnInit, Output, EventEmitter } from '@angular/core';
 import { ShortcutService } from './shortcut.service';
 import { AuthService } from './auth.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Base64 } from 'js-base64';
 import { LngLat } from 'mapbox-gl';
+import { routerTransition } from './router.animations';
 
 @Component({
     selector: 'app-root',
+    animations: [routerTransition],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
@@ -15,7 +17,7 @@ export class AppComponent implements OnInit {
     @Output() shct: EventEmitter<Shortcut> = new EventEmitter<Shortcut>();
     private fragment: string;
 
-    title = 'Prescribed Burning Atlas';
+    title = 'The Prescribed Burning Atlas';
 
     overview: Shortcut = {
         name: 'overview', bbox: [
@@ -57,6 +59,10 @@ export class AppComponent implements OnInit {
         this.s.getStudyLinks().subscribe((data) => {
             this.links = data;
         });
+    }
+
+    getState(outlet) {
+      return outlet.activatedRouteData.state;
     }
 
     onClick(ev) {
