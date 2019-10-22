@@ -214,7 +214,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "TAS",
-            "long_name": "Hobart (TAS",
+            "long_name": "Hobart (TAS)",
             "location": "Centred on the capital city, Hobart.",
             "Population": "About 230,000 in Greater Hobart region.",
             "Landuse": "Includes urban and peri-urban areas, forests and agricultural areas.",
@@ -320,7 +320,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "BM",
-            "long_name": "BM",
+            "long_name": "Blue Mountains (NSW)",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -353,7 +353,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Cobar",
-            "long_name": "Cobar",
+            "long_name": "Cobar  (NSW)",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -379,7 +379,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Mildura",
-            "long_name": "Mildura",
+            "long_name": "Mildura (VIC)",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -405,7 +405,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "JervisBay",
-            "long_name": "Jervis Bay",
+            "long_name": "Jervis Bay  (NSW)",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -431,7 +431,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Kosciuszko",
-            "long_name": "Mt Kosciuszko",
+            "long_name": "Mt Kosciuszko  (NSW)",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -483,7 +483,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Kempsey",
-            "long_name": "Kempsey",
+            "long_name": "Kempsey  (NSW)",
             "location": "",
             "Population": "",
             "Landuse": "",
@@ -509,7 +509,7 @@
         "type": "Feature",
         "properties": {
             "sim_name": "Gloucester",
-            "long_name": "Gloucester",
+            "long_name": "Gloucester (NSW)",
             "location": "",
             "Population": "",
             "Landuse": "",
