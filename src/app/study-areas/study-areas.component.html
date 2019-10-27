@@ -1,36 +1,78 @@
 <div class="left docked">
-    <button class="ui black icon button" (click)="sidebarIsOpen=!sidebarIsOpen" *ngIf="!sidebarIsOpen"><i class="expand arrows alternate icon"></i></button>
+    <button
+        class="ui black icon button"
+        (click)="sidebarIsOpen=!sidebarIsOpen"
+        *ngIf="!sidebarIsOpen"
+    ><i class="expand arrows alternate icon"></i></button>
 </div>
-<sui-sidebar-container>
-
-    <sui-sidebar class="inverted form" [(isVisible)]="sidebarIsOpen" [transition]="'overlay'" #sidebar>
+<sui-sidebar-container class="whiteform">
+    <sui-sidebar
+        class="ui form"
+        [(isVisible)]="sidebarIsOpen"
+        [transition]="'push'"
+        #sidebar
+    >
         <!-- SIDEBAR  -->
 
         <sui-tabset class="panel">
-            <div class="ui top attached tabular menu">
-                <a class="item" suiTabHeader="1"><i class="ui chart line icon"></i> Treatment Comparator</a>
-                <a class="item" suiTabHeader="2"><i class="ui bar chart icon"></i> Single Metric Comparator</a>
-                <a class="item" suiTabHeader="3"><i class="ui info icon"></i> Information</a>
+            <div class="ui top attached tabular menu"> <a
+                    class="item"
+                    suiTabHeader="1"
+                ><i class="ui info icon"></i> Information</a>
+                <a
+                    class="item"
+                    suiTabHeader="2"
+                ><i class="ui chart line icon"></i> Treatment Comparator</a>
+                <a
+                    class="item"
+                    suiTabHeader="3"
+                ><i class="ui bar chart icon"></i> Single Metric Comparator</a>
+
 
                 <div class="right menu">
-                    <a class="ui red inverted item" (click)="sidebarClose()"><i class="red close icon"></i></a>
+                    <a
+                        class="ui red  item"
+                        (click)="sidebarClose()"
+                    ><i class="red close icon"></i></a>
                 </div>
             </div>
-            <div class="ui bottom attached inverted segment" suiTabContent="1">
+            <div
+                class="ui bottom attached segment"
+                suiTabContent="1"
+            >
+                <app-information
+                    *ngIf="study != undefined"
+                    [study]="study"
+                    #info
+                ></app-information>
+            </div>
+
+            <div
+                class="ui bottom attached  segment"
+                suiTabContent="2"
+            >
                 <div class="inverted">
-                    <app-study-area-window *ngIf="study != undefined" [study]="study" #summary></app-study-area-window>
+                    <app-study-area-window
+                        *ngIf="study != undefined"
+                        [study]="study"
+                        #summary
+                    ></app-study-area-window>
                 </div>
             </div>
 
-            <div class="ui bottom attached inverted segment" suiTabContent="2">
-                <div class="inverted">
-                    <app-comparator *ngIf="study != undefined" [study]="study"></app-comparator>
+            <div
+                class="ui bottom attached  segment"
+                suiTabContent="3"
+            >
+                <div class="ui">
+                    <app-comparator
+                        *ngIf="study != undefined"
+                        [study]="study"
+                    ></app-comparator>
                 </div>
             </div>
 
-            <div class="ui bottom attached inverted segment" suiTabContent="3">
-                <app-information *ngIf="study != undefined" [study]="study" #info></app-information>
-            </div>
+
 
 
         </sui-tabset>
@@ -41,7 +83,12 @@
     <sui-sidebar-sibling [isDimmedWhenVisible]="true">
         <!-- PUSHER -->
         <div #left>
-            <app-mapview (boundsChange)=onBoundsChange($event) (studyChange)="onStudyChange($event)" (focus)="focus" #mapview></app-mapview>
+            <app-mapview
+                (boundsChange)=onBoundsChange($event)
+                (studyChange)="onStudyChange($event)"
+                (focus)="focus"
+                #mapview
+            ></app-mapview>
         </div>
     </sui-sidebar-sibling>
 

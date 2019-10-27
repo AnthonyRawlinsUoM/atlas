@@ -1,4 +1,33 @@
-.foot {
-    display: flex;
-    flex-grow: 1;
+
+/* UOM Brand guidelines
+https://brandhub.unimelb.edu.au/guidelines/colour-palette
+23-10-2019
+*/
+.uom .blue,
+.uom_blue {
+    background-color: #094183;
+}
+.uws_white {
+    background-color: #FFFFFF;
+}
+
+
+/* UOW Brand guidelines
+https://intranet.uow.edu.au/static/UOW%20Brand%20Guidelines%2018-7-16_latestReleased_UOW211142.pdf
+23-10-2019
+ */
+.uow_black,
+.uow .black {
+    background-color: #000000;
+}
+
+.uow .darkblue {
+    background-color: #0C2340;
+}
+
+.uow .brightblue {
+    background-color: #0047BB;
+}
+.uow .red {
+    background-color: #CC0000;
 }

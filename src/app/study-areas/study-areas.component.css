@@ -20,9 +20,31 @@
     width: 33vw !important;
 } */
 
-.ui.left.sidebar, .ui.right.sidebar,
-.panel {
-    width: 55vw !important;
+@media screen and (max-width: 960px) {
+    .ui.left.sidebar,
+    .ui.right.sidebar,
+    .panel {
+        width: 100% !important;
+            height: auto;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .ui.left.sidebar,
+    .ui.right.sidebar,
+    .panel {
+        width: 960px !important;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .ui.left.sidebar,
+    .ui.right.sidebar,
+    .panel {
+        width: 960px !important;
+        height: auto;
+    }
 }
 
 .left.docked {
@@ -34,4 +56,15 @@
 
 .ui.inverted.black.icon.button {
 
+}
+.panel {
+    background-color: #FFF;
+}
+
+.whiteform .ui.tabular.menu,
+.whiteform .ui.tabular.menu .item {
+    background-color: #CCC;
+}
+.whiteform .ui.tabular.menu .item.active {
+    background-color: #FFF;
 }

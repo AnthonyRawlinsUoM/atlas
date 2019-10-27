@@ -1,0 +1,65 @@
+[{
+    "title": "Dr",
+    "role": "Associate Professor",
+    "firstname": "Trent",
+    "surname": "Penman",
+    "avatar": "assets/team/Trent_Penman.jpg",
+    "description": "Trent is a bushfire risk modeller interested in all aspects of bushfire management. His work covers a range of theoretical and applied aspects of bushfire behaviour and management. The main focus of his research is optimising management expenditure to reduce the risk of detrimental fire impacts on people, property and the environment. Trent’s early research was in conservation biology focusing on amphibians. During his PhD, he worked with Forests NSW and learnt the applied fundamentals of forest and fire management. His post-doctoral research began with fire ecology and shifted to focusing on trade-offs between human and natural assets.",
+    "googleScholarID": "AA3N2YYAAAAJ",
+    "twitter": "trentpenman"
+}, {
+    "title": "",
+    "role": "Research Fellow, Academic Specialist",
+    "firstname": "Anthony",
+    "surname": "Rawlins",
+    "avatar": "assets/team/Anthony_Rawlins.jpg",
+    "description": "Anthony Rawlins is a full stack web developer and programmer of scientific software. Bringing a wealth of graphic design and information technology experience, Anthony relishes the opportunity to apply design methodology and aesthetic sensibility to complex visualisation problems on the web and desktop. Anthony processes Big Data for the production of spatial datasets and information products. He also enjoys building agent based machine learning models.",
+    "googleScholarID": "gFUuv38AAAAJ",
+    "twitter": "tony_rawlins"
+}, {
+    "title": "",
+    "role": "Statistical Programmer",
+    "firstname": "Brett",
+    "surname": "Cirulis",
+    "avatar": "assets/team/Brett_Cirulis.jpg",
+    "description": "Brett Cirulis completed the Masters of Forest and Ecosystem Science in 2013. Since then he has worked under various roles within the group. He has strong interests in fire simulations, spatial data science and remote sensing technology. The focus of Brett's work up until 2016 was related to the research and development of the PHOENIX RapidFire bushfire characterisation model, in particular, the improvement of the fuel inputs through the development of a state-wide fuel classification modelSince 2016 his work has been focused simulation based risk analysis and the application of UAV's for bushfire research. He is motivated to complete research that improves the management of bushfire in the Australian landscape. ",
+    "googleScholarID": "F1Z5b1sAAAAJ"
+}, {
+    "title": "",
+    "role": "Senior Research Fellow, Bushfire Smoke",
+    "firstname": "Owen",
+    "surname": "Price",
+    "organisation": "Faculty of Science, Medicine and Health Centre for Sustainable Ecosystem Solutions",
+    "avatar": "assets/team/Owen_Price.jpg",
+    "description": "Owen conducts research on bushfire risk. This includes impacts on human health (smoke), assets (houses), and environmental values (fauna and flora). The methods involve a range of field work (e.g. monitoring reptiles or smoke), data management (including advanced Geographic Information Systems and remote sensing) and statistical modelling. The approach is a landscape one: understanding how risk varies across large areas.",
+    "googleScholarID": "wgkVr9MAAAAJ",
+    "twitter": "OwenBushfire"
+}, {
+    "title": "Dr",
+    "role": "Research Fellow",
+    "firstname": "Hamish",
+    "surname": "Clarke",
+    "organisation": "Centre for Environmental Risk Management of Bushfires School of Earth, Atmospheric and Life Sciences Faculty of Science, Medicine and Health",
+    "avatar": "assets/team/Hamish_Clarke.jpg",
+    "description": "Dr Hamish Clarke has been a member of the Centre for Environmental Risk Management of Bushfires (CERMB) at UOW since 2016. He is leader of a project on optimising cost-effective prescribed burning as part of the NSW Bushfire Risk Management Research Hub. He works jointly at the Hawkesbury Institute for the Environment (HIE) at Western Sydney University. Dr Clarke previously worked as Senior Climate and Atmospheric Scientist at the NSW Office of Environment and Heritage. His research focused on understanding the regional impacts of climate change, particularly on bushfire risk. He is co-convenor of Science at the Local, a community initiative bringing people and scientists together in the Blue Mountains. He is former Deputy Chair of the Australian Academy of Science’s Early- and Mid-Career Researcher Forum (EMCR Forum), the voice of Australia’s emerging scientists.",
+    "googleScholarID": "wgkVr9MAAAAJ",
+    "twitter": "SciAtTheLocal"
+}, {
+    "title": "",
+    "role": "Associate Professor",
+    "firstname": "Matthias",
+    "surname": "Boer",
+    "organisation": "Western Sydney University Hawkesbury Institute for the Environment",
+    "avatar": "assets/team/Matthias_Boer.jpg",
+    "description": "Associate Professor Matthias Boer's research interest focuses on the landscape ecology and management of fire-prone environments. He is particularly interested in the biophysical basis for spatial variation in current and future fire regimes, and in the mechanisms and feedbacks by which fire may mediate, reinforce or constrain impacts of changing climate, [CO2] or land use on ecosystem functions and services such as regulation of water and carbon fluxes or biodiversity conservation.",
+    "googleScholarID": "0bQeCP8AAAAJ",
+    "twitter": "MatthiasBoer"
+}, {
+    "title": "",
+    "role": "Professorial Fellow",
+    "firstname": "Ross",
+    "surname": "Bradstock",
+    "organisation": "Faculty of Science, Medicine and Health Centre for Sustainable Ecosystem Solutions School of Biological Sciences",
+    "avatar": "assets/team/Ross_Bradstock.jpg",
+    "description": "Ross leads a multi-disciplinary research team that is dedicated to the development of a quantitative understanding of risks posed by landscape fires to multiple values and the way such risks can be altered through cost-effective management and global change. Major funding sources for his team include the NSW Government, ARC, NSW Environmental Trusts, Bushfire and Natural Hazards CRC, CSIRO, USGS and the European Union. Ross is Director of the Centre for Environmental Risk Management of Bushfires and the new NSW Bushfire Risk Management Research Hub, a collaborative venture between the NSW Department of Planning, Industry and Environment, University of Wollongong, University of Tasmania, Western Sydney University and the University of New South Wales."
+}]

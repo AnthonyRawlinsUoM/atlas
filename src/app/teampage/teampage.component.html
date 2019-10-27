@@ -1,0 +1,11 @@
+<div class="ui vertical stripe segment">
+    <div class="ui container">
+        <h2 class="ui top attached segment header">Meet the Team </h2>
+        <div class="ui container cellgrid attached segment">
+            <app-teammember
+                *ngFor="let t of team"
+                [teammember]="t"
+            ></app-teammember>
+        </div>
+    </div>
+</div>
