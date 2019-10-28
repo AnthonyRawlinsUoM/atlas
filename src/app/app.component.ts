@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Base64 } from 'js-base64';
 import { LngLat } from 'mapbox-gl';
 import { routerTransition } from './router.animations';
+import { version } from '../../package.json';
 
 @Component({
     selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit {
     links: Shortcut[] = [];
     @Output() shct: EventEmitter<Shortcut> = new EventEmitter<Shortcut>();
     private fragment: string;
+    public version: string = version;
 
     title = 'The Prescribed Burning Atlas';
 
