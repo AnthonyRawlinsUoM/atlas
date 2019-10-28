@@ -8,7 +8,7 @@ import { TeamMember } from '../team.service';
 })
 export class TeamMemberComponent implements OnInit {
 
-  @Input() teammember: TeamMember;
+  @Input() teammember: any;
 
   constructor() { }
 

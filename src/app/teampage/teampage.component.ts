@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamService, TeamMember } from '../team.service';
+// import { TeamService, TeamMember } from '../team.service';
+
+import TeamMembersData from '../../assets/team/group.json';
 
 @Component({
   selector: 'app-teampage',
@@ -8,14 +10,11 @@ import { TeamService, TeamMember } from '../team.service';
 })
 export class TeampageComponent implements OnInit {
 
-    team: TeamMember[] = [];
+    TeamMembers: any[] = TeamMembersData;
 
-    constructor(private teamservice: TeamService) { }
+    constructor() { }
 
     ngOnInit() {
-        this.teamservice.getTeam().subscribe((data: TeamMember[]) => {
-            console.log(data);
-            this.team = data;
-        });
+        console.log(this.TeamMembers);
     }
 }

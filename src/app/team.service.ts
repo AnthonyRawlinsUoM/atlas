@@ -12,7 +12,7 @@ export class TeamService {
 
     public getTeam() {
         console.log('Getting Team Metadata');
-        return this.http.get<TeamMember[]>(this.configUrl);
+        return this.http.get<any>(this.configUrl);
     }
 }
 
