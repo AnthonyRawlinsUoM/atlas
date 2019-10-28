@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SuiModule, SuiModalService, SuiCheckboxModule } from 'ng2-semantic-ui';
@@ -65,6 +67,7 @@ import { ShortcutsComponent } from './shortcuts/shortcuts.component';
 import { MapviewComponent } from './mapview/mapview.component';
 import { TeamMemberComponent } from './teammember/teammember.component';
 import { TeampageComponent } from './teampage/teampage.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 
 
@@ -135,13 +138,15 @@ const routes: Routes = [
         ShortcutsComponent,
         MapviewComponent,
         TeamMemberComponent,
-        TeampageComponent
+        TeampageComponent,
+        ContactFormComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         SuiModule,
         HttpClientModule,
         jqxChartModule,

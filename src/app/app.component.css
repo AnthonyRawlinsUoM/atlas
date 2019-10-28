@@ -30,6 +30,7 @@ footer .ui.list {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+      background-color: rgb(224, 228, 231);
 }
 .Site-content {
   flex: 1;
@@ -37,6 +38,10 @@ footer .ui.list {
 .Site-header,
 footer {
   flex: none; /* 2 */
+}
+
+.ui.page {
+    background-color: rgb(224, 228, 231);
 }
 
 @media screen and (max-width: 959px) {
