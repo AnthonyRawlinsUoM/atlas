@@ -22,6 +22,8 @@ import { InterceptorService } from './interceptor.service';
 import { BayesNetOutputsService } from './bayes-net-outputs.service';
 import { ShortcutService } from './shortcut.service';
 import { TeamService } from './team.service';
+import { ValidatorService } from './validator.service';
+import { MailerService } from './mailer.service';
 
 import { AuthGuard } from './auth.guard';
 
@@ -69,6 +71,8 @@ import { TeamMemberComponent } from './teammember/teammember.component';
 import { TeampageComponent } from './teampage/teampage.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:5050', options: {} };
 
 
 const routes: Routes = [
@@ -151,6 +155,7 @@ const routes: Routes = [
         HttpClientModule,
         jqxChartModule,
         DragDropModule,
+        SocketIoModule.forRoot(config),
         NgxMapboxGLModule.withConfig({
             accessToken: 'pk.eyJ1IjoiYW50aG9ueXJhd2xpbnN1b20iLCJhIjoiY2o1dm81NTIwMDN6MTJxbjlvOHBiNHdlOSJ9.lt8I4sU0ceA6N8Tnnmx2ig', // Optionnal, can also be set per map (accessToken input of mgl-map)
             geocoderAccessToken: 'pk.eyJ1IjoiYW50aG9ueXJhd2xpbnN1b20iLCJhIjoiY2o1dm81NTIwMDN6MTJxbjlvOHBiNHdlOSJ9.lt8I4sU0ceA6N8Tnnmx2ig' // Optionnal, specify if different from the map access token, can also be set per mgl-geocoder (accessToken input of mgl-geocoder)
@@ -168,6 +173,8 @@ const routes: Routes = [
         BayesNetOutputsService,
         ShortcutService,
         TeamService,
+        ValidatorService,
+        MailerService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: InterceptorService,
