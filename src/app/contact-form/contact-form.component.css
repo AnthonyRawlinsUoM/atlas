@@ -1,0 +1,14 @@
+input.ng-touched.ng-dirty.ng-invalid {
+    color: #F00 !important;
+    border-color: rgba(255,0,0,0.64);
+    background-color: rgba(255,0,0,0.14);
+}
+sui-multi-select.ng-pristine.ng-invalid.ng-touched,
+input.ng-pristine.ng-invalid.ng-touched,
+sui-checkbox.ng-pristine.ng-invalid.ng-touched,
+textarea.ng-pristine.ng-invalid.ng-touched,
+sui-checkbox.ng-pristine.ng-invalid.ng-touched {
+    color: rgba(0,0,0,0.85) !important;
+    border-color: rgba(255,170,0,0.64) !important;
+    background-color: rgba(255,170,0,0.14) !important;
+}
