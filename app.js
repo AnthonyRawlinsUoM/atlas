@@ -1,12 +1,23 @@
 const express = require('express');
 const http = require('http');
-const https = require('https');
 const fs = require('fs');
 const path = require('path');
-const socketIO = require('socket.io');
-const redisAdapter = require('socket.io-redis');
+const nodemailer = require("nodemailer");
+const ejs = require('ejs');
 
 const app = express();
+
+const socketIO = require('socket.io');
+
+const server = http.createServer(app);
+
+const sioc = require('socket.io-client');
+
+const io = socketIO(server);
+
+const redisAdapter = require('socket.io-redis');
+
+
 const uuidv4 = require('uuid/v4');
 const moment = require('moment');
 
@@ -43,18 +54,15 @@ app.set('port', port);
 
 
 
-const server = http.createServer(app);
 
-const io = socketIO(server);
+
 io.adapter(redisAdapter({
     host: 'mq',
     port: 6379
 }));
 
-const sioc = require('socket.io-client');
-const nodemailer = require("nodemailer");
-const ejs = require('ejs');
-const fs = require('fs');
+
+
 
 const {
     body,
