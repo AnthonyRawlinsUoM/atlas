@@ -72,7 +72,7 @@ import { TeampageComponent } from './teampage/teampage.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'http://localhost:5050', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:3035', options: {} };
 
 
 const routes: Routes = [
