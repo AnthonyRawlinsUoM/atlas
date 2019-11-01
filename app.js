@@ -135,11 +135,8 @@ io.on("connection", socket => {
             port: 465,
             secure: true,
             auth: {
-<<<<<<< HEAD
                 user: "anthony.lewis.rawlins@gmail.com",
-=======
                 user: username,
->>>>>>> d99db264eb8d30e1d9394c850a0281aebf640b27
                 pass: password
             }
         });
