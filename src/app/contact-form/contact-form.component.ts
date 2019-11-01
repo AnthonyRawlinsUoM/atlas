@@ -79,7 +79,11 @@ export class ContactFormComponent implements OnInit {
                         console.error('An error occured sending the message', err);
                     },
                     complete() {
+<<<<<<< HEAD
                         console.log('Message sending complete.');
+=======
+                        console.log('Message seding complete.');
+>>>>>>> c7566db665b0c0d758bc847312cb425291283116
                     }
                 });
             }
