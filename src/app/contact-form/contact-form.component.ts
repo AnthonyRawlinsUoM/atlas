@@ -67,14 +67,19 @@ export class ContactFormComponent implements OnInit {
                 this.postman.sendMail(cd).subscribe({
                     next(data) {
                         console.log(data);
+                        if(data.success !== undefined) {
+                            if (data.success) {
+                                this.message_sent = true;
+                                console.warn('Your enquiry has been submitted', contactData);
+                            }
+                        }
                 },
                     error(err) {
                         this.postman_error = err;
                         console.error('An error occured sending the message', err);
                     },
                     complete() {
-                        this.message_sent = true;
-                        console.warn('Your enquiry has been submitted', contactData);
+                        console.log('Message sending complete.');
                     }
                 });
             }
