@@ -137,3 +137,15 @@
         <p>We'll endeavour to respond as quickly as possible.</p>
     </div>
 </sui-message>
+<sui-message
+    class="bottom attached success icon message"
+    [isDismissable]="true"
+    *ngIf="postman_error != '' "
+>
+    <i class="inbox icon"></i>
+    <div class="content">
+
+        <div class="ui header">Message failure</div>
+        <p>{{postman_error}}</p>
+    </div>
+</sui-message>
