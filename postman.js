@@ -17,6 +17,10 @@ const template = fs.readFileSync('./email.html', {
     encoding: 'utf-8'
 });
 
+const password = fs.readFileSync('./config/smtp.txt', {
+    encoding: 'utf-8'
+});
+
 const true_emails = [
 {name: "Hamish", email: '"Hamish Clarke" <hamishc@uow.edu.au>'},
 {name: "Anthony", email: '"Anthony Rawlins" <anthony_rawlins@uow.edu.au>'},
@@ -28,29 +32,6 @@ const true_emails = [
 ];
 
 app.use(express.json());
-//
-// /* Middleware for CORS */
-// app.use(function(req, res, next) {
-//     app.use(function(req, res, next) {
-//
-//         // Website you wish to allow to connect
-//         res.setHeader('Access-Control-Allow-Origin', '*');
-//
-//         // Request methods you wish to allow
-//         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-//
-//         // Request headers you wish to allow
-//         res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-//
-//         // Set to true if you need the website to include cookies in the requests sent
-//         // to the API (e.g. in case you use sessions)
-//         res.setHeader('Access-Control-Allow-Credentials', true);
-//
-//         // Pass to next layer of middleware
-//         next();
-//     });
-//     next();
-// });
 
 const port = process.env.PORT || '5050';
 app.set('port', port);
@@ -104,7 +85,7 @@ io.on("connection", socket => {
             secure: true,
             auth: {
                 user: "anthony.lewis.rawlins@gmail.com",
-                pass: "$1M@36[100%]"
+                pass: password
             }
         });
 
