@@ -70,10 +70,9 @@ import { MapviewComponent } from './mapview/mapview.component';
 import { TeamMemberComponent } from './teammember/teammember.component';
 import { TeampageComponent } from './teampage/teampage.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'http://localhost:3035', options: {} };
 
+const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 
 const routes: Routes = [
     { path: 'callback', component: CallbackComponent },

@@ -52,10 +52,6 @@ io.adapter(redisAdapter({
 }));
 
 const sioc = require('socket.io-client');
-
-
-
-
 const nodemailer = require("nodemailer");
 const ejs = require('ejs');
 const fs = require('fs');
