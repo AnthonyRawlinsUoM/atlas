@@ -17,7 +17,14 @@ const template = fs.readFileSync('./email.html', {
     encoding: 'utf-8'
 });
 
+<<<<<<< HEAD
 const password = fs.readFileSync('./config/smtp.txt', {
+=======
+const username = fs.readFileSync('/run/secrets/smtp_user', {
+    encoding: 'utf-8'
+});
+const password = fs.readFileSync('/run/secrets/smtp_pass', {
+>>>>>>> d99db264eb8d30e1d9394c850a0281aebf640b27
     encoding: 'utf-8'
 });
 
@@ -84,7 +91,11 @@ io.on("connection", socket => {
             port: 465,
             secure: true,
             auth: {
+<<<<<<< HEAD
                 user: "anthony.lewis.rawlins@gmail.com",
+=======
+                user: username,
+>>>>>>> d99db264eb8d30e1d9394c850a0281aebf640b27
                 pass: password
             }
         });
