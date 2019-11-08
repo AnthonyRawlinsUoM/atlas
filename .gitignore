@@ -46,3 +46,4 @@ testem.log
 Thumbs.db
 .ipynb_checkpoints/*
 *.ipynb
+config/*
