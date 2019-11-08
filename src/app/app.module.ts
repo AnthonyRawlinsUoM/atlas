@@ -1,4 +1,6 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './interceptor.service';
+
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +16,6 @@ import { DisclaimerService } from './disclaimer.service';
 import { AuthService } from './auth.service';
 import { WeightsService } from './weights.service';
 import { CookieService } from 'ngx-cookie-service';
-import { InterceptorService } from './interceptor.service';
 import { BayesNetOutputsService } from './bayes-net-outputs.service';
 
 import { AuthGuard } from './auth.guard';
