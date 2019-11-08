@@ -1,0 +1,151 @@
+<sui-message
+    class="top attached warning"
+    [isDismissable]="false"
+    *ngIf="contactForm.touched && !contactForm.valid"
+>
+    <div class="ui header"></div>
+    <p>Please fill out the form entirely.</p>
+</sui-message>
+<div class="ui attached segment">
+    <h3 class="ui dividing header">Contact Us</h3>
+
+    <form
+        class="ui form"
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit(contactForm.value)"
+        id="contactForm"
+    >
+        <div class="two fields">
+            <div class="field">
+                <label>First Name</label>
+                <input
+                    type="text"
+                    name="first_name"
+                    placeholder="First Name"
+                    formControlName="first_name"
+                    required
+                >
+            </div>
+
+            <div class="field">
+                <label>Last Name</label>
+                <input
+                    type="text"
+                    name="last-name"
+                    placeholder="Last Name"
+                    formControlName="last_name"
+                >
+            </div>
+        </div>
+        <div class="ui field">
+            <label for="address">
+                Email Address
+            </label>
+
+            <input
+                id="address"
+                type="email"
+                formControlName="address"
+                required
+            >
+        </div>
+
+        <h4 class="ui dividing header">I would like to contact:</h4>
+        <div class="field">
+            <label>Send To:</label>
+            <sui-multi-select
+                class="ui fluid multiple search selection dropdown"
+                formControlName="member"
+                [options]="TeamMembers"
+                labelField="firstname"
+                [isSearchable]="searchable"
+                [isDisabled]="disabled"
+                [hasLabels]="!hideLabels"
+                required
+                #multiSelect
+            >
+                <sui-select-option
+                    *ngFor="let option of multiSelect.filteredOptions"
+                    [value]="option"
+                >
+                    <div class="item">
+                        <img
+                            class="ui mini avatar image"
+                            [src]="option.avatar"
+                        > {{option.title}} {{option.firstname}} {{option.surname}}
+                    </div>
+                </sui-select-option>
+            </sui-multi-select>
+        </div>
+
+        <div class="field">
+            <label>Message</label>
+            <textarea
+                name="message"
+                required
+                class="ui fluid"
+                rows="8"
+                cols="80"
+                formControlName="message"
+            ></textarea>
+        </div>
+
+        <div class="field">
+            <div class="ui checkbox">
+
+                <sui-checkbox
+                    required
+                    formControlName="terms"
+                >I agree to the <a href="#">Terms and Conditions</a></sui-checkbox>
+
+            </div>
+        </div>
+
+        <button
+            class="ui primary button"
+            type="submit"
+            [disabled]="!contactForm.valid"
+        >Send</button>
+        <button
+            class="ui button"
+            type="reset"
+            (click)="onReset()"
+        >Reset</button>
+    </form>
+</div>
+<sui-message
+    class="bottom attached info icon message"
+    [isDismissable]="true"
+    *ngIf="contactForm.touched && contactForm.valid && !message_sent"
+>
+    <i class="paper plane icon"></i>
+    <div class="content">
+
+        <div class="ui header">Ready to send your message. </div>
+        <p>Thank you for taking the time to reach out to us.</p>
+    </div>
+</sui-message>
+<sui-message
+    class="bottom attached success icon message"
+    [isDismissable]="true"
+    *ngIf="contactForm.touched && contactForm.valid && message_sent"
+>
+    <i class="inbox icon"></i>
+    <div class="content">
+        <div class="ui header">Message received</div>
+        <p>We'll endeavour to respond as quickly as possible.</p>
+    </div>
+</sui-message>
+<sui-message
+    class="bottom attached warning icon message"
+    [isDismissable]="true"
+    *ngIf="postman_error != '' "
+>
+    <i class="inbox icon"></i>
+    <div class="content">
+
+        <div class="ui header">Message failure</div>
+        <p>{{postman_error}}</p>
+    </div>
+</sui-message>
+<!-- {{ message_sent | json }} -->

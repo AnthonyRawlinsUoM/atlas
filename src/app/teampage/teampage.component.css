@@ -1,0 +1,10 @@
+.flow {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+
+    padding: 0;
+    border: none;
+
+    background-color: rgb(224, 228, 231);
+}

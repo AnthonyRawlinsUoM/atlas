@@ -55,7 +55,7 @@ export class MatrixSelectorComponent implements OnInit {
 
     ngAfterViewInit() {
         // print array of CustomComponent objects
-        console.log(this.components.toArray());
+        // console.log(this.components.toArray());
     }
 
     onDeactivate(position) {
@@ -113,13 +113,13 @@ export class MatrixSelectorComponent implements OnInit {
     }
 
     public refresh(scope) {
-        // console.log("Doing REFRESH. ");
+        console.log("Doing REFRESH. ");
         this.scope = scope;
         this.renew();
     }
 
     public renew() {
-        // console.log("doing renew");
+        console.log("doing renew");
         this.components.map((c) => {
             c.scope = this.scope;
             c.area = this.study_area.properties.sim_name;
@@ -128,4 +128,18 @@ export class MatrixSelectorComponent implements OnInit {
 
     }
 
+    clearAll() {
+        this.selection_matrix = [];
+
+        for (let e = 0; e < this.edgeOptions.length; e++) {
+            // this.matrix_colors[e] = [];
+            this.selection_matrix[e] = [];
+
+            for (let l = 0; l < this.landscapeOptions.length; l++) {
+                this.selection_matrix[e][l] = false;
+            }
+        }
+        this.selectedItems.emit(this.flat());
+        this.components.map(o => o.deactivate());
+    }
 }

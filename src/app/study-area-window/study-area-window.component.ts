@@ -16,15 +16,16 @@ export class StudyAreaWindowComponent implements OnInit {
 
     selectedItems: any = [];
 
-    constructor() { }
+    constructor() {
+
+    }
 
     ngOnInit() {
     }
 
-    reload(study) {
+    onStudyChange(study) {
         this.study = study;
-        // this.mtx.study_area = study;
-        this.mtx.renew();
+        this.refresh();
     }
 
     onSelectedItemsChange(selection) {
@@ -36,13 +37,18 @@ export class StudyAreaWindowComponent implements OnInit {
         }
         this.selectedItems = itms.filter(distinct);
         if (this.spider != undefined) {
+            this.spider.area = this.study.properties.sim_name;
             this.spider.positions = this.selectedItems;
             this.spider.refresh();
         }
     }
 
     refresh() {
+
+        console.log('REFRESHING!');
+        this.mtx.study_area = this.study;
         this.mtx.renew();
+
         if (this.spider != undefined) {
             this.spider.area = this.study.properties.sim_name;
             this.spider.positions = this.selectedItems;

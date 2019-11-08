@@ -1,31 +1,60 @@
-<nav>
+<div class="Site">
 
-    <div
-        class="ui inverted primary stackable pointing menu"
-        #primary
-    >
-        <div class="ui container">
-            <a
-                class="ui header item"
-                routerLink="/"
-            >
-                <div class="ui">
-                    <i class="ui icons">
-                        <i class="large red fire icon"></i>
-                        <i class="white globe icon"></i>
+    <div class="Site-content">
+        <!-- Sidebar Menu -->
+        <sui-sidebar-container>
+            <sui-sidebar
+                id="sidemenu"
+                class="ui vertical inverted sidebar menu left"
+                transition="push"
+                #sidebar
+            > <a
+                    class="ui item"
+                    routerLink="/"
+                    [routerLinkActive]="'active'"
+                    [routerLinkActiveOptions]="{exact:true}"
+                ><i class="home icon"></i>Home
+                </a>
+                <a
+                    class="item"
+                    *ngFor="let r of routes"
+                    [routerLink]="r.path"
+                    [routerLinkActive]="'active'"
+                    [routerLinkActiveOptions]="{exact:true}"
+                ><i [class]="r.icon"></i> {{r.name}}</a>
 
-                    </i>
-                </div>
-                <div class="header">The Prescribed Burning Atlas</div>
-            </a>
-            <a
-                class="item"
-                *ngFor="let r of routes"
-                [routerLink]="r.path"
-                [routerLinkActive]="'active'"
-                [routerLinkActiveOptions]="{exact:true}"
-            ><i [class]="r.icon"></i> {{r.name}}</a>
-            <div class="right menu">
+                <div class="ui divider"></div>
+
+                <a
+                    class="ui pointing dropdown link item"
+                    suiDropdown
+                >
+                    <i class="ui expand icon"></i> Study Areas
+                    <div
+                        class="inverted menu"
+                        suiDropdownMenu
+                    >
+                        <a
+                            class="item"
+                            (click)="onClick(overview)"
+                            routerLink="/"
+                            autoClose="outsideClick"
+                            [fragment]="enc(overview)"
+                            (click)="onClick(overview)"
+                        >
+                            <div class="ui header">Overview</div>
+                        </a>
+                        <a
+                            *ngFor="let sc of links"
+                            routerLink="/"
+                            autoClose="outsideClick"
+                            [fragment]="enc(sc)"
+                            class="item"
+                            (click)="onClick(sc)"
+                        >{{ sc.link }}</a>
+                    </div>
+                </a>
+
                 <a
                     class="ui item"
                     routerLink="profile"
@@ -47,15 +76,127 @@
                     routerLink="external-api"
                     *ngIf="auth.loggedIn"
                 ><i class="cloud icon"></i> API</a>
+            </sui-sidebar>
 
-            </div>
-        </div>
+            <sui-sidebar-sibling [isDimmedWhenVisible]="false">
+
+
+                <nav>
+                    <!-- Following Navigation -->
+                    <div
+                        id="primary"
+                        class="ui top inverted primary menu"
+                        #primary
+                    >
+                        <div class="ui container">
+                            <a
+                                class="toc item"
+                                id="burger"
+                                (click)="sidebar.toggle()"
+                            ><i class="sidebar icon"></i></a>
+                            <a
+                                class="ui header item"
+                                routerLink="/"
+                            >
+                                <div class="ui">
+                                    <i class="ui icons">
+                                        <i class="large red fire icon"></i>
+                                        <i class="white globe icon"></i>
+
+                                    </i>
+                                </div>
+                                <div class="header">{{title}}</div>
+                            </a>
+                            <a
+                                class="item"
+                                *ngFor="let r of routes"
+                                [routerLink]="r.path"
+                                [routerLinkActive]="'active'"
+                                [routerLinkActiveOptions]="{exact:true}"
+                            ><i [class]="r.icon"></i> {{r.name}}</a>
+
+                            <a
+                                class="ui pointing dropdown link item"
+                                suiDropdown
+                            >
+                                <i class="ui expand icon"></i> Study Areas
+                                <div
+                                    class="inverted menu"
+                                    suiDropdownMenu
+                                >
+                                    <a
+                                        class="item"
+                                        (click)="onClick(overview)"
+                                        routerLink="/"
+                                        autoClose="outsideClick"
+                                        [fragment]="enc(overview)"
+                                        (click)="onClick(overview)"
+                                    >
+                                        <div class="ui header">Overview</div>
+                                    </a>
+                                    <a
+                                        *ngFor="let sc of links"
+                                        routerLink="/"
+                                        autoClose="outsideClick"
+                                        [fragment]="enc(sc)"
+                                        class="item"
+                                        (click)="onClick(sc)"
+                                    >{{ sc.link }}</a>
+                                </div>
+                            </a>
+
+                            <div class="right menu">
+                                <a
+                                    class="ui item"
+                                    routerLink="profile"
+                                    *ngIf="auth.loggedIn"
+                                ><i class="id card icon"></i> Profile</a>
+
+                                <a
+                                    class="ui item"
+                                    (click)="auth.login()"
+                                    *ngIf="!auth.loggedIn"
+                                ><i class="sign in icon"></i> Log In</a>
+                                <a
+                                    class="ui item"
+                                    (click)="auth.logout()"
+                                    *ngIf="auth.loggedIn"
+                                ><i class="sign out icon"></i>Log Out</a>
+                                <a
+                                    class="ui item"
+                                    routerLink="external-api"
+                                    *ngIf="auth.loggedIn"
+                                ><i class="cloud icon"></i> API</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="ui page">
+                    <main [@routerTransition]="getState(o)">
+                        <router-outlet #o="outlet"></router-outlet>
+                    </main>
+                </div>
+            </sui-sidebar-sibling>
+        </sui-sidebar-container>
+
+
     </div>
-</nav>
-<article
-    class="main"
-    #main
->
-    <router-outlet></router-outlet>
-</article>
-<app-footer></app-footer>
+    <app-footer [version]="version"></app-footer>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-151196886-1"
+    ></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-151196886-1');
+    </script>
+</div>

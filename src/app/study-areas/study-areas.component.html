@@ -5,64 +5,76 @@
         *ngIf="!sidebarIsOpen"
     ><i class="expand arrows alternate icon"></i></button>
 </div>
-<sui-sidebar-container>
-
+<sui-sidebar-container class="whiteform">
     <sui-sidebar
-        class="inverted form"
+        class="ui form"
         [(isVisible)]="sidebarIsOpen"
-        [transition]="'overlay'"
+        [transition]="'push'"
         #sidebar
     >
         <!-- SIDEBAR  -->
 
         <sui-tabset class="panel">
-            <div class="ui top attached tabular menu">
-                <a
+            <div class="ui top attached tabular menu"> <a
                     class="item"
                     suiTabHeader="1"
-                ><i class="ui chart line icon"></i> Treatment Comparator</a>
+                ><i class="ui info icon"></i> Information</a>
                 <a
                     class="item"
                     suiTabHeader="2"
-                ><i class="ui info icon"></i> Information</a>
-                <!-- <a
+                ><i class="ui chart line icon"></i> Treatment Comparator</a>
+                <a
                     class="item"
                     suiTabHeader="3"
-                >Third</a> -->
+                ><i class="ui bar chart icon"></i> Single Metric Comparator</a>
+
 
                 <div class="right menu">
                     <a
-                        class="ui red inverted item"
+                        class="ui red  item"
                         (click)="sidebarClose()"
                     ><i class="red close icon"></i></a>
                 </div>
             </div>
             <div
-                class="ui bottom attached inverted segment"
+                class="ui bottom attached segment"
                 suiTabContent="1"
+            >
+                <app-information
+                    *ngIf="study != undefined"
+                    [study]="study"
+                    #info
+                ></app-information>
+            </div>
+
+            <div
+                class="ui bottom attached  segment"
+                suiTabContent="2"
             >
                 <div class="inverted">
                     <app-study-area-window
-                        [study]="study"
                         *ngIf="study != undefined"
+                        [study]="study"
                         #summary
                     ></app-study-area-window>
                 </div>
             </div>
 
             <div
-                class="ui bottom attached inverted segment"
-                suiTabContent="2"
-            >
-                <app-information
-                    *ngIf="study != undefined"
-                    [study]="study"
-                ></app-information>
-            </div>
-            <!-- <div
-                class="ui bottom attached inverted segment"
+                class="ui bottom attached  segment"
                 suiTabContent="3"
-            >Third tab!</div> -->
+            >
+                <div class="ui">
+                    <app-comparator
+                        *ngIf="study != undefined"
+                        [study]="study"
+                    ></app-comparator>
+                </div>
+            </div>
+
+
+
+
         </sui-tabset>
 
 
@@ -70,21 +82,13 @@
 
     <sui-sidebar-sibling [isDimmedWhenVisible]="true">
         <!-- PUSHER -->
-        <div
-            [class.pip]="leftIsPip"
-            #left
-        >
-            <app-overview
-                (bounds)=boundsChange($event)
-                (study)="onStudyChange($event)"
-                #overview
-            ></app-overview>
-        </div>
-        <div
-            [class.pip]="rightIsPip"
-            #right
-        >
-            <app-detailed-map #detail></app-detailed-map>
+        <div #left>
+            <app-mapview
+                (boundsChange)=onBoundsChange($event)
+                (studyChange)="onStudyChange($event)"
+                (focus)="focus"
+                #mapview
+            ></app-mapview>
         </div>
     </sui-sidebar-sibling>
 

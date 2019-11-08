@@ -1,0 +1,16 @@
+<div class="ui vertical stripe  segment">
+    <div class="ui container">
+        <h2 class="ui  center aligned header">Meet the Team </h2>
+        <div class="ui cellgrid">
+            <div class="ui flow">
+                <app-teammember
+                    *ngFor="let t of TeamMembers"
+                    [teammember]="t"
+                ></app-teammember>
+            </div>
+        </div>
+
+
+        <app-contact-form [TeamMembers]="TeamMembers"></app-contact-form>
+    </div>
+</div>

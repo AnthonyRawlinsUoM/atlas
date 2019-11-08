@@ -3,7 +3,11 @@ import { InterceptorService } from './interceptor.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SuiModule, SuiModalService, SuiCheckboxModule } from 'ng2-semantic-ui';
@@ -17,6 +21,10 @@ import { AuthService } from './auth.service';
 import { WeightsService } from './weights.service';
 import { CookieService } from 'ngx-cookie-service';
 import { BayesNetOutputsService } from './bayes-net-outputs.service';
+import { ShortcutService } from './shortcut.service';
+import { TeamService } from './team.service';
+import { ValidatorService } from './validator.service';
+import { MailerService } from './mailer.service';
 
 import { AuthGuard } from './auth.guard';
 
@@ -57,32 +65,42 @@ import { SandboxComponent } from './sandbox/sandbox.component';
 import { CellHighlightComponent } from './matrix-selector/cell-highlight/cell-highlight.component';
 import { InformationComponent } from './information/information.component';
 import { FaqComponent } from './faq/faq.component';
+import { BarchartComponent } from './barchart/barchart.component';
+import { ShortcutsComponent } from './shortcuts/shortcuts.component';
+import { MapviewComponent } from './mapview/mapview.component';
+import { TeamMemberComponent } from './teammember/teammember.component';
+import { TeampageComponent } from './teampage/teampage.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
-
+const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 
 const routes: Routes = [
     { path: 'callback', component: CallbackComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'team', component: TeamComponent },
+    { path: 'about', component: AboutComponent , data: { state: 'about' }},
+    { path: 'team', component: TeampageComponent , data: { state: 'team' }},
     {
         path: 'profile', component: ProfileComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard], data: { state: 'profile' }
     },
     {
         path: 'external-api',
         component: ExternalApiComponent,
         canActivate: [AuthGuard]
     },
-    { path: 'faq', component: FaqsComponent },
+    { path: 'faq', component: FaqsComponent, data: { state: 'faq' } },
 
     { path: 'test', component: SandboxComponent },
 
-    { path: 'publications', component: PublicationsComponent },
+    { path: 'publications', component: PublicationsComponent, data: { state: 'publications' } },
     { path: 'logout', component: LogoutComponent },
+    {
+        path: 'home', component: StudyAreasComponent, data: { state: 'home' }
+    },
     {
         path: '', component: StudyAreasComponent
     },
-    { path: '**', component: PageNotFoundComponent }];
+    { path: '**', component: PageNotFoundComponent , data: { state: '404' }}];
 
 @NgModule({
     declarations: [
@@ -119,22 +137,32 @@ const routes: Routes = [
         SandboxComponent,
         CellHighlightComponent,
         InformationComponent,
-        FaqComponent
+        FaqComponent,
+        BarchartComponent,
+        ShortcutsComponent,
+        MapviewComponent,
+        TeamMemberComponent,
+        TeampageComponent,
+        ContactFormComponent
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         SuiModule,
-        SuiCheckboxModule,
         HttpClientModule,
         jqxChartModule,
         DragDropModule,
+        SocketIoModule.forRoot(config),
         NgxMapboxGLModule.withConfig({
             accessToken: 'pk.eyJ1IjoiYW50aG9ueXJhd2xpbnN1b20iLCJhIjoiY2o1dm81NTIwMDN6MTJxbjlvOHBiNHdlOSJ9.lt8I4sU0ceA6N8Tnnmx2ig', // Optionnal, can also be set per map (accessToken input of mgl-map)
             geocoderAccessToken: 'pk.eyJ1IjoiYW50aG9ueXJhd2xpbnN1b20iLCJhIjoiY2o1dm81NTIwMDN6MTJxbjlvOHBiNHdlOSJ9.lt8I4sU0ceA6N8Tnnmx2ig' // Optionnal, specify if different from the map access token, can also be set per mgl-geocoder (accessToken input of mgl-geocoder)
         }),
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, {
+          anchorScrolling: 'enabled'
+        })
     ],
     providers: [
         ReactiveService,
@@ -143,6 +171,10 @@ const routes: Routes = [
         SuiModalService,
         WeightsService,
         BayesNetOutputsService,
+        ShortcutService,
+        TeamService,
+        ValidatorService,
+        MailerService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: InterceptorService,

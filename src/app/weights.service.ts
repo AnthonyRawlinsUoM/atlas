@@ -70,6 +70,32 @@ export class WeightsService {
         });
     }
 
+    public getSingleSeries(area, positions, scope) {
+        return Observable.create((observer) => {
+            // Area = array of indexes row*col + col
+            // eg., [0,12,14...,48] etc
+
+            let selected_area = normals.areas[area];
+            let res = [];
+            for (let m in selected_area) {
+                if (m == scope) {
+                    let metric = {};
+                    for (let i in selected_area[m]) {
+                        for (let pos = 0; pos < positions.length; pos++) {
+                            if (i == positions[pos].toString()) {
+                                metric['idx' + (i.toString())] = selected_area[m][i];
+                            }
+                        }
+                    }
+
+                    metric["metric"] = m;
+                    res.push(metric);
+                }
+            }
+            observer.next(res)
+        });
+    }
+
     public getMatrixCellOptionsForAreaScope(cellpos, area, scope, cmap, mode) {
         let norms = matrix.areas[area][scope];
         let normalised_value = norms[cellpos];
@@ -123,14 +149,14 @@ export class WeightsService {
         console.log("Column: " + column);
 
         let edge = matrix.regimes.edge.filter(e => {
-            if(e['value'] === row) {
+            if (e['value'] === row) {
                 return e;
             }
         }).map(e => {
             return e['name'];
         });
         let land = matrix.regimes.landscape.filter(l => {
-            if(l['value'] === column) {
+            if (l['value'] === column) {
                 return l;
             }
         }).map(l => {
@@ -139,7 +165,7 @@ export class WeightsService {
         console.log("Edge: " + edge);
         console.log("Land: " + land);
 
-        let disp = "Edge: " + edge+ "% Landscape: " + land + "%";
+        let disp = "Edge: " + edge + "% Landscape: " + land + "%";
         console.log(disp);
         return disp;
     }

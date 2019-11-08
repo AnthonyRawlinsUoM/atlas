@@ -1,7 +1,7 @@
 <!-- [style]="'mapbox://styles/mapbox/outdoors-v11'" -->
 <mgl-map
     [style]="'mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft'"
-    [zoom]="[3]"
+    [zoom]="[4.7]"
     [center]="[141.2, -35.557]"
     [bearing]="bearing"
     #overview
@@ -17,10 +17,10 @@
   ></mgl-control>
   <mgl-geojson-source
       id="study-areas-source"
-      [data]="studyareas"
+      [data]="study_areas"
   >
     <mgl-feature
-        *ngFor="let g of studyareas.features"
+        *ngFor="let g of study_areas.features"
         [geometry]="g.geometry"
         properties="g.properties"
         id="g.properties.sim_name"

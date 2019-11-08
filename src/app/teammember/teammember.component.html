@@ -1,0 +1,32 @@
+<div class="ui box">
+    <!-- <img src="https://via.placeholder.com/250?text=ProfilePic" alt="" class="ui profile image"> -->
+    <img
+        src="{{teammember.avatar}}"
+        class="ui profile image"
+    >
+    <div class="expander frame">
+        <div class="ui raised expander contents">
+            <div class="ui profile content">
+                <div class="ui top attached inverted header segment">{{teammember.title}} {{teammember.firstname}} {{teammember.surname}}</div>
+                <div class="ui bottom attached segment relaxed">
+                    <div class="profile scrolling">
+                        <p><em>{{teammember.role}}</em></p>
+                        <p>{{teammember.description}}</p>
+                        <!--Google Scholar -->
+                        <p *ngIf="teammember.googleScholarID">
+                            <a href="https://scholar.google.com/citations?user={{teammember.googleScholarID}}&hl=en">
+                                <i class="google icon"></i>
+                                Google Scholar Citations
+                            </a></p>
+                        <!--Twitter -->
+                        <p *ngIf="teammember.twitter">
+                            <a href="https://twitter.com/{{teammember.twitter}}&hl=en">
+                                <i class="twitter icon"></i>
+                                @{{teammember.twitter}}
+                            </a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
