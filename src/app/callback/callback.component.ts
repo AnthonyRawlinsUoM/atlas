@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-callback',
@@ -8,7 +9,16 @@ import { AuthService } from '../auth.service';
 })
 export class CallbackComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+        error?;
+        error_message?;
+
+      constructor(private auth: AuthService, private route: ActivatedRoute) {
+
+          this.route.queryParams.subscribe(params => {
+                this.error = params['error'].toUpperCase();
+                this.error_message = params['error_description'];
+            });
+      }
 
   ngOnInit() {
     this.auth.handleAuthCallback();

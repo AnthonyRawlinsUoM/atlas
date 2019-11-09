@@ -72,6 +72,7 @@ import { TeamMemberComponent } from './teammember/teammember.component';
 import { TeampageComponent } from './teampage/teampage.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ContactComponent } from './contact/contact.component';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 
@@ -82,6 +83,11 @@ const routes: Routes = [
     {
         path: 'profile', component: ProfileComponent,
         canActivate: [AuthGuard], data: { state: 'profile' }
+    },
+    {
+        path: 'contact', component: ContactComponent,
+        // canActivate: [AuthGuard],
+        data: { state: 'contact' }
     },
     {
         path: 'external-api',
@@ -143,7 +149,8 @@ const routes: Routes = [
         MapviewComponent,
         TeamMemberComponent,
         TeampageComponent,
-        ContactFormComponent
+        ContactFormComponent,
+        ContactComponent
     ],
     imports: [
         BrowserModule,

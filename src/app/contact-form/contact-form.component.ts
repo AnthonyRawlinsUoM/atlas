@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidatorService } from '../validator.service';
 import { MailerService } from '../mailer.service';
+import TeamMembersData from '../../assets/team/group.json';
+import { TeamMember } from '../team.service';
 
 @Component({
     selector: 'app-contact-form',
@@ -9,12 +11,13 @@ import { MailerService } from '../mailer.service';
     styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
-    @Input() TeamMembers: any[];
     contactForm;
     conditions;
     message_sent = false;
     tcs = "Terms and Coditions of use";
     postman_error = '';
+
+        TeamMembers: any[] = TeamMembersData;
 
     constructor(
         private formBuilder: FormBuilder,
