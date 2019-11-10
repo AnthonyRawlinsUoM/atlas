@@ -4,19 +4,12 @@ const fs = require('fs');
 const path = require('path');
 const nodemailer = require("nodemailer");
 const ejs = require('ejs');
-
 const app = express();
-
 const socketIO = require('socket.io');
-
 const server = http.createServer(app);
-
 const sioc = require('socket.io-client');
-
 const io = socketIO(server);
-
 const redisAdapter = require('socket.io-redis');
-
 
 const uuidv4 = require('uuid/v4');
 const moment = require('moment');
@@ -52,17 +45,10 @@ app.get('*', (req, res) => {
 const port = process.env.PORT || '3035';
 app.set('port', port);
 
-
-
-
-
-io.adapter(redisAdapter({
-    host: 'mq',
-    port: 6379
-}));
-
-
-
+// io.adapter(redisAdapter({
+//     host: 'mq',
+//     port: 6379
+// }));
 
 const {
     body,
@@ -81,6 +67,9 @@ const password = fs.readFileSync('/run/secrets/smtp_pass', {
     encoding: 'utf-8'
 });
 
+// const username = 'himself@anthonyrawlins.com';
+// const password = 'rubbish';
+
 const true_emails = [
 {name: "Hamish", email: '"Hamish Clarke" <hamishc@uow.edu.au>'},
 {name: "Anthony", email: '"Anthony Rawlins" <anthony_rawlins@uow.edu.au>'},
@@ -93,6 +82,42 @@ const true_emails = [
 
 app.use(express.json());
 
+const jwt = require("express-jwt");
+const jwksRsa = require("jwks-rsa");
+
+// Set up Auth0 configuration
+const authConfig = {
+  domain: "bnhcrclfmc.au.auth0.com",
+  audience: "http://prescribedburnatlas.science/api"
+};
+
+// Define middleware that validates incoming bearer tokens
+// using JWKS from YOUR_DOMAIN
+const checkJwt = jwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
+  }),
+
+  audience: authConfig.audience,
+  issuer: `https://${authConfig.domain}/`,
+  algorithm: ["RS256"]
+});
+
+var securedRoutes = require('express').Router();
+
+securedRoutes.get('ena', (req, res) => {
+  res.send({
+    msg: "ENA Object."
+  });
+});
+
+securedRoutes.use(checkJwt);
+
+// Define an endpoint that must be called with an access token
+app.get("/secure", securedRoutes);
 
 io.on("connection", socket => {
     console.log('New client connected');
