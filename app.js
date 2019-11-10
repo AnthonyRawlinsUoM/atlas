@@ -117,7 +117,7 @@ securedRoutes.get('ena', (req, res) => {
 securedRoutes.use(checkJwt);
 
 // Define an endpoint that must be called with an access token
-app.get("/secure", securedRoutes);
+app.get("/assets/secure", securedRoutes);
 
 io.on("connection", socket => {
     console.log('New client connected');
