@@ -17,7 +17,11 @@ const template = fs.readFileSync('./email.html', {
     encoding: 'utf-8'
 });
 
-const password = fs.readFileSync('./config/smtp.txt', {
+
+const username = fs.readFileSync('/run/secrets/smtp_user', {
+    encoding: 'utf-8'
+});
+const password = fs.readFileSync('/run/secrets/smtp_pass', {
     encoding: 'utf-8'
 });
 
@@ -84,7 +88,7 @@ io.on("connection", socket => {
             port: 465,
             secure: true,
             auth: {
-                user: "anthony.lewis.rawlins@gmail.com",
+                user: username,
                 pass: password
             }
         });

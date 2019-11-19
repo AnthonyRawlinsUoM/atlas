@@ -1,1 +1,22 @@
-<p>callback works!</p>
+<div class="ui container">
+    <!-- Not yet verified -->
+    <div *ngIf="auth.userProfile$ | async as profile">
+        <code>{{ profile | json }}</code>
+        <code>{{ profile.email_verified | json }}</code>
+    </div>
+
+
+    <!-- Verification Error -->
+    <div
+        *ngIf="!auth.loggedIn "
+        class="ui icon warning message"
+    >
+        <i class="warning icon"></i>
+        <div class="content">
+            <div class="header">
+                {{error}}
+            </div>
+            <p>{{error_message}}</p>
+        </div>
+    </div>
+</div>

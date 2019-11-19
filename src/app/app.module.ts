@@ -1,4 +1,6 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './interceptor.service';
+
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,7 +20,6 @@ import { DisclaimerService } from './disclaimer.service';
 import { AuthService } from './auth.service';
 import { WeightsService } from './weights.service';
 import { CookieService } from 'ngx-cookie-service';
-import { InterceptorService } from './interceptor.service';
 import { BayesNetOutputsService } from './bayes-net-outputs.service';
 import { ShortcutService } from './shortcut.service';
 import { TeamService } from './team.service';
@@ -70,10 +71,10 @@ import { MapviewComponent } from './mapview/mapview.component';
 import { TeamMemberComponent } from './teammember/teammember.component';
 import { TeampageComponent } from './teampage/teampage.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'http://localhost:5050', options: {} };
+import { ContactComponent } from './contact/contact.component';
 
+const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 
 const routes: Routes = [
     { path: 'callback', component: CallbackComponent },
@@ -82,6 +83,11 @@ const routes: Routes = [
     {
         path: 'profile', component: ProfileComponent,
         canActivate: [AuthGuard], data: { state: 'profile' }
+    },
+    {
+        path: 'contact', component: ContactComponent,
+        // canActivate: [AuthGuard],
+        data: { state: 'contact' }
     },
     {
         path: 'external-api',
@@ -143,7 +149,8 @@ const routes: Routes = [
         MapviewComponent,
         TeamMemberComponent,
         TeampageComponent,
-        ContactFormComponent
+        ContactFormComponent,
+        ContactComponent
     ],
     imports: [
         BrowserModule,

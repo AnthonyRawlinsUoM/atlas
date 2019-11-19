@@ -1,17 +1,16 @@
 {
   "name": "atlas",
-  "version": "1.1.2",
+  "version": "1.1.10",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host \"0.0.0.0\" --port 3033 --disableHostCheck",
+    "start": "ng serve --host \"0.0.0.0\" --port 3035 --disableHostCheck",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "server": "node server.js",
     "reactive": "node app.js",
-    "postman": "node postman.js",
-    "dev": "npm-run-all --parallel start postman reactive server"
+    "dev": "npm-run-all --parallel reactive server"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +33,7 @@
     "d3": "^5.9.7",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "express-basic-auth": "^1.2.0",
     "express-jwt": "^5.3.1",
     "express-validator": "^6.2.0",
     "jqwidgets-ng": "^8.1.4",
