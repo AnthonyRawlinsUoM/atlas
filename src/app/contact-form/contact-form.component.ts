@@ -48,6 +48,14 @@ export class ContactFormComponent implements OnInit {
     ngOnInit() {
     }
 
+    // ngOnDestory() {
+    //     this.disconnectSocket();
+    // }
+    //
+    // disconnectSocket() {
+    //     if (this.socket) this.socket.disconnect();
+    //   }
+
     onReset() {
         this.message_sent = false;
         this.contactForm.reset();
