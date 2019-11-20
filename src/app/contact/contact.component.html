@@ -1,0 +1,32 @@
+<div class="ui container">
+    <!-- Not yet verified -->
+    <div
+        *ngIf="!auth.loggedIn"
+        class="ui info icon message"
+    >
+        <i class="inbox icon"></i>
+        <div class="content">
+            <div class="header">
+                Please <a (click)="auth.login('/contact')">signup</a> to contact us.
+            </div>
+            <p>Please signup and verify your email address before trying again.</p>
+        </div>
+    </div>
+
+    <!-- Verification Error -->
+    <div
+        *ngIf="!auth.loggedIn"
+        class="ui icon warning message"
+    >
+        <i class="warning icon"></i>
+        <div class="content">
+            <div class="header">
+                {{error}}
+            </div>
+            <p>{{error_message}}</p>
+        </div>
+    </div>
+
+    <!-- Email is verified -->
+    <app-contact-form *ngIf="true"></app-contact-form>
+</div>
