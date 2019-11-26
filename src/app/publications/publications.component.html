@@ -5,13 +5,21 @@
             <div class="ui masthead">
 
             </div>
-            <div class="ui relaxed divided list">
-                <div class="ui item">Cirulis B, Clarke H, Boer M, Penman T, Price O and Bradstock R (2019) Quantification of inter-regional differences in risk mitigation from prescribed burning across multiple management values. International
-                    Journal
-                    of Wildland Fire. https://doi.org/10.1071/WF18135</div>
-                <div class="ui item">Clarke H, Tran B, Boer MM, Price O, Kenny B and Bradstock R (2019) Climate change effects on the frequency, seasonality and interannual variability of suitable prescribed burning weather conditions in
-                    south-eastern
-                    Australia. Agricultural and Forest Meteorology, 271, 148-157. https://doi.org/10.1016/j.agrformet.2019.03.005</div>
+            <div
+                class="ui relaxed divided list"
+                *ngIf="dois !== undefined"
+            >
+                <div
+                    class="ui item"
+                    *ngFor="let ref of dois"
+                >
+                    <a href="https://doi.org/{{ ref.doi}}">{{ref.doi}}</a>
+                    <div
+                        class="citation"
+                        innerHTML="asCitation(ref.doi)"
+                    ><i class="circle notch icon"></i></div>
+                </div>
+
             </div>
         </div>
         <div class="ui raised segment">

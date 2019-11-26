@@ -1,0 +1,96 @@
+[
+	{
+		"id": "http://zotero.org/users/6172900/items/GCQHGSCX",
+		"type": "article-journal",
+		"title": "Determining burnability: Predicting completion rates and coverage of prescribed burns for fuel management",
+		"container-title": "Forest Ecology and Management",
+		"page": "431-440",
+		"volume": "433",
+		"source": "EBSCOhost",
+		"abstract": "Highlights •Prescribed burning is a key risk reduction tool in southern Australia.•Effective risk planning requires predictable prescribed burn outcomes.•Over a 6-year period, 29.6% of planned burns were not completed.•Of completed burns, a median of 15.5% of area remained unburnt.•Burn coverage could be predicted from burn size, fuel type, seasonality and aridity.",
+		"DOI": "10.1016/j.foreco.2018.11.009",
+		"ISSN": "0378-1127",
+		"title-short": "Determining burnability",
+		"journalAbbreviation": "Forest Ecology and Management",
+		"author": [
+			{
+				"family": "Duff",
+				"given": "Thomas J."
+			},
+			{
+				"family": "Cawson",
+				"given": "Jane G."
+			},
+			{
+				"family": "Penman",
+				"given": "Trent D."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					2,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/6172900/items/TBWZJA2D",
+		"type": "article-journal",
+		"title": "Quantification of inter-regional differences in risk mitigation from prescribed burning across multiple management values",
+		"container-title": "International Journal of Wildland Fire",
+		"source": "www.publish.csiro.au",
+		"abstract": "Fire agencies are moving towards planning systems based on risk assessment; however, knowledge of the most effective way to quantify changes in risk to key values by application of prescribed fire is generally lacking. We present a quantification and inter-regional comparison of how risk to management values responds to variations in prescribed burning treatment rate. Fire simulations were run using the PHOENIX RapidFire fire behaviour simulator for two case study landscapes in interface zones in Tasmania and the Australian Capital Territory (ACT), Australia. A Bayesian network approach used these data to explore the influence of treatment and weather on risk from wildfire. Area burnt, length of powerline damaged and length of road damaged responded more strongly to treatment in the ACT than in Tasmania, whereas treatment mitigated house loss and life loss more strongly in Tasmania than the ACT. The effect of prescribed burning treatment rate on area burnt below minimum tolerable fire interval was similar in each case study landscape. Our study shows that the effectiveness of prescribed burning at mitigating area burnt by wildfire and other key values varies considerably across landscapes and values.",
+		"URL": "https://www.publish.csiro.au/wf/WF18135",
+		"DOI": "10.1071/WF18135",
+		"ISSN": "1448-5516",
+		"journalAbbreviation": "Int. J. Wildland Fire",
+		"language": "en",
+		"author": [
+			{
+				"family": "Cirulis",
+				"given": "Brett"
+			},
+			{
+				"family": "Clarke",
+				"given": "Hamish"
+			},
+			{
+				"family": "Boer",
+				"given": "Matthias"
+			},
+			{
+				"family": "Penman",
+				"given": "Trent"
+			},
+			{
+				"family": "Price",
+				"given": "Owen"
+			},
+			{
+				"family": "Bradstock",
+				"given": "Ross"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					6,
+					11
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2019",
+					11,
+					21
+				]
+			]
+		}
+	}
+]

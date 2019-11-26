@@ -73,6 +73,8 @@ import { TeampageComponent } from './teampage/teampage.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ContactComponent } from './contact/contact.component';
+import { CitationHarvardPipe } from './citation-harvard.pipe';
+import { FetchJsonPipe } from './fetch-json.pipe';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 
@@ -150,7 +152,9 @@ const routes: Routes = [
         TeamMemberComponent,
         TeampageComponent,
         ContactFormComponent,
-        ContactComponent
+        ContactComponent,
+        CitationHarvardPipe,
+        FetchJsonPipe
     ],
     imports: [
         BrowserModule,
