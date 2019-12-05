@@ -1,6 +1,18 @@
 .header.cell {
     width: 32px;
     height:32px;
+
+    margin: 0;
+    padding: 0;
+    border: none;
+    position: relative;
+}
+
+.header.cell label {
+    width: 32px;
+    height:32px;
+    display: block;
     text-align: center;
-    vertical-align: baseline;
+    vertical-align:middle;
+    padding-top:0.33rem;
 }

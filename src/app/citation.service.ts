@@ -1,35 +1,27 @@
 import { Injectable } from '@angular/core';
 import { from, of, Observable, BehaviorSubject, combineLatest, throwError, forkJoin } from 'rxjs';
-import { filter, map, concatMap, delay, toArray, catchError, scan } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import {tap, filter, map, concatMap, delay, toArray, catchError, scan } from 'rxjs/operators';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CitationService {
 
-    configUrl = 'https://harvardfromdoi-45iy27o3gqvh.runkit.sh/';
+    configUrl = '/harvardfromdoi/branches/master';
 
     constructor(private http: HttpClient) { }
 
-   getCitation = (doi) => {
-       let citation = '';
-       console.log(`Getting: ${doi}`);
-       return this.http.get<any>(`${this.configUrl}?doi=${doi}`)
-   }
+    getCitation(doi) {
+        // console.log(`GET https://anthonyrawlinsuom.runkit.io${this.configUrl}/${doi}`);
 
-    // getBibliography() {
-    //     console.log(this.dois);
-    //     return from(this.dois).pipe(
-    //         concatMap(doi =>
-    //             {
-    //                 return this.getCitation(doi);
-    //             }
-    //         ),
-    //         catchError(err => {
-    //     	  console.error(err);
-    //     	  return of([]);
-    //     	})
-    //     )
-    // }
+        const requestOptions: Object = {
+            responseType: 'text'
+        }
+
+        return this.http.get(`${this.configUrl}/${doi}`, requestOptions).pipe(tap(
+            data => console.log(data),
+            error => console.log(error)
+        ));
+    }
 }

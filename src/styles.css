@@ -61,7 +61,17 @@ mgl-map {
 .jqx-chart-label-text,
 .jqx-chart-tooltip-text,
 .jqx-chart-legend-text {
+    font-family: sans-serif !important;
+    font-size: 1rem;
+}
 
+.jqx-chart-title-text {
+    font-family: sans-serif !important;
+    font-size: 1.25rem;
+}
+.jqx-chart-title-description {
+    font-family: sans-serif !important;
+    font-size: 0.85rem;
 }
 
 .jqx-knob-label,

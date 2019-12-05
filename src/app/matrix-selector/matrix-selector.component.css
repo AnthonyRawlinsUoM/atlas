@@ -1,15 +1,15 @@
 .matrix {
-    
+
     width: calc((32px * 10));
     height: calc((32px * 10));
-    
+
     display: flex;
     /* justify-content: center; */
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
-    
+
 }
 
 /* .matrix .mrow {
@@ -34,16 +34,15 @@
 .matrix .dcol label,
 .matrix .wcol label,
 .matrix .ncol label {
-    display: table-cell;
     vertical-align: middle;
     text-align: center;
-    width: 100%;
-    height: 100%;
+    width: 32px;
+    height: 32px;
 }
 
 .matrix .dcol label {
     transform: rotate(90deg);
-    transform-origin: top left;
+    transform-origin: bottom left;
 }
 
 .matrix .cell,

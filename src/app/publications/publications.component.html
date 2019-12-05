@@ -1,10 +1,56 @@
 <div class="ui segment vertical stripe">
     <div class="ui container">
+        <div class="ui message">
+            <div class="ref-intro">
+                <p>The following references are a shortlist of publications relevant to the Prescribed Burning Atlas. To submit a reference contact the <a routerLink="contact-us">webmaster</a>.</p>
+            </div>
+
+        </div>
         <div class="ui raised segment">
             <h2 class="ui header">Publications</h2>
-            <div class="ui masthead">
+
+            <div class="ui relaxed list">
+                <div class="item">
+                    <div class="csl-bib-body">
+                        <div
+                            data-csl-entry-id="temp_id_2016465693265641"
+                            class="csl-entry"
+                        >Cirulis, B., Clarke, H., Boer, M., Penman, T., Price, O., &#38; Bradstock, R. (2019). Quantification of inter-regional differences in risk mitigation from prescribed burning across multiple management values. <i>International
+                                Journal of Wildland Fire</i>. <a
+                                href="https://doi.org/10.1071/wf18135"
+                                target="_blank"
+                            >https://doi.org/10.1071/wf18135</a></div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="csl-bib-body">
+                        <div
+                            data-csl-entry-id="temp_id_2078119870045616"
+                            class="csl-entry"
+                        >Clarke, H., Tran, B., Boer, M. M., Price, O., Kenny, B., &#38; Bradstock, R. (2019). Climate change effects on the frequency, seasonality and interannual variability of suitable prescribed burning weather conditions in
+                            south-eastern Australia. <i>Agricultural and Forest Meteorology</i>, <i>271</i>, 148–157. <a
+                                href="https://doi.org/10.1016/j.agrformet.2019.03.005"
+                                target="_blank"
+                            >https://doi.org/10.1016/j.agrformet.2019.03.005</a></div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="csl-bib-body">
+                        <div
+                            data-csl-entry-id="temp_id_1253633122922717"
+                            class="csl-entry"
+                        >Duff, T. J., Cawson, J. G., &#38; Penman, T. D. (2019). Determining burnability: Predicting completion rates and coverage of prescribed burns for fuel management. <i>Forest Ecology and Management</i>, <i>433</i>, 431–440.
+                            <a
+                                href="https://doi.org/10.1016/j.foreco.2018.11.009"
+                                target="_blank"
+                            >https://doi.org/10.1016/j.foreco.2018.11.009</a></div>
+                    </div>
+                </div>
 
             </div>
+
             <div
                 class="ui relaxed divided list"
                 *ngIf="dois !== undefined"
@@ -13,11 +59,7 @@
                     class="ui item"
                     *ngFor="let ref of dois"
                 >
-                    <a href="https://doi.org/{{ ref.doi}}">{{ref.doi}}</a>
-                    <div
-                        class="citation"
-                        innerHTML="asCitation(ref.doi)"
-                    ><i class="circle notch icon"></i></div>
+                    <app-citation-harvard [doi]="ref.doi"></app-citation-harvard>
                 </div>
 
             </div>

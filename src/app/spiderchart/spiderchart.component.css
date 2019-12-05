@@ -2,5 +2,15 @@ table.tblChart {
     border: none !important;
 }
 
+* span.jqx-chart-tooltip-text {
+    font-family: Lato, sans-serif !important;
+    font-size: 1rem;
+}
 
-
+/* .flex-container {
+    flex: 1;
+    align-content: stretch;
+    background-color: pink;
+    justify-content: flex-start;
+    flex-shrink: 0;
+} */

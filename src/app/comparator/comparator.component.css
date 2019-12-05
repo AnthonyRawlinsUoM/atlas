@@ -1,3 +1,11 @@
-.summary-content {
-    min-height: 80vh;
+/* .summary-content {
+    min-height: 90vh;
 }
+.flex-container {
+    align-items: stretch;
+    background-color: pink;
+    flex-shrink: 0;
+}
+.flex-container .ui {
+    flex-grow: 1;
+} */

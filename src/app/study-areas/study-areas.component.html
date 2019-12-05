@@ -5,7 +5,7 @@
         *ngIf="!sidebarIsOpen"
     ><i class="expand arrows alternate icon"></i></button>
 </div>
-<sui-sidebar-container class="whiteform">
+<sui-sidebar-container class="ui whiteform">
     <sui-sidebar
         class="ui form"
         [(isVisible)]="sidebarIsOpen"
@@ -14,20 +14,22 @@
     >
         <!-- SIDEBAR  -->
 
-        <sui-tabset class="panel">
-            <div class="ui top attached tabular menu"> <a
+        <sui-tabset class="ui panel">
+            <div class="ui top attached tabular fluid menu">
+                <a
                     class="item"
                     suiTabHeader="1"
                 ><i class="ui info icon"></i> Information</a>
+
                 <a
                     class="item"
                     suiTabHeader="2"
                 ><i class="ui chart line icon"></i> Treatment Comparator</a>
+
                 <a
                     class="item"
                     suiTabHeader="3"
                 ><i class="ui bar chart icon"></i> Single Metric Comparator</a>
-
 
                 <div class="right menu">
                     <a
@@ -36,44 +38,41 @@
                     ><i class="red close icon"></i></a>
                 </div>
             </div>
-            <div
-                class="ui bottom attached segment"
-                suiTabContent="1"
-            >
-                <app-information
-                    *ngIf="study != undefined"
-                    [study]="study"
-                    #info
-                ></app-information>
-            </div>
 
-            <div
-                class="ui bottom attached  segment"
-                suiTabContent="2"
-            >
-                <div class="inverted">
+            <div class="ui attached flex-container segment">
+                <div
+                    class="ui fluid segment"
+                    suiTabContent="1"
+                >
+                    <app-information
+                        *ngIf="study != undefined"
+                        [study]="study"
+                        #info
+                    ></app-information>
+                </div>
+
+                <div
+                    class="ui fluid segment"
+                    suiTabContent="2"
+                >
                     <app-study-area-window
                         *ngIf="study != undefined"
                         [study]="study"
                         #summary
                     ></app-study-area-window>
                 </div>
-            </div>
 
-            <div
-                class="ui bottom attached  segment"
-                suiTabContent="3"
-            >
-                <div class="ui">
+                <div
+                    class="ui fluid segment"
+                    suiTabContent="3"
+                >
                     <app-comparator
                         *ngIf="study != undefined"
                         [study]="study"
                     ></app-comparator>
                 </div>
+
             </div>
-
-
-
 
         </sui-tabset>
 

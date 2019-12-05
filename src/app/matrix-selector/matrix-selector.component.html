@@ -1,54 +1,56 @@
-<div class="field">
-    <label>Metric</label>
-    <app-scope-option (scopeChange)="refresh($event)"></app-scope-option>
-    <button
-        (click)="clearAll()"
-        class="ui button "
-    >Clear</button>
-</div>
-
-<div
-    class="ui matrix"
-    #matrixselector
->
-    <div class="dcol"><label>Edge</label></div>
-    <div class="mcol">
-        <div
-            *ngFor="let r of edgeOptions"
-            class="mrow"
-        >
-            <app-matrix-header-cell [row]="r.name"></app-matrix-header-cell>
-        </div>
-        <div class="header cell"></div>
+<div class="ui">
+    <div class="field">
+        <label>Metric</label>
+        <app-scope-option (scopeChange)="refresh($event)"></app-scope-option>
+        <button
+            (click)="clearAll()"
+            class="ui button "
+        >Clear</button>
     </div>
 
     <div
-        *ngFor="let c of landscapeOptions"
-        class="mcol"
+        class="ui matrix"
+        #matrixselector
     >
-        <div
-            *ngFor="let r of edgeOptions;"
-            class="mrow"
-        >
-
-            <app-matrix-cell
-                [id]="r.value * 7 + c.value"
-                [row]="r.value"
-                [column]="c.value"
-                [area]="study_area.properties.sim_name"
-                [scope]="scope"
-                [cmap]="'viridis'"
-                (activated)="onActivate($event)"
-                (deactivated)="onDeactivate($event)"
-                (mouseDown)="onMouseDown($event)"
-                (mouseUp)="onMouseUp($event)"
-                #mtxcell
+        <div class="dcol"><label>Edge % Burnt</label></div>
+        <div class="mcol">
+            <div
+                *ngFor="let r of edgeOptions"
+                class="mrow"
             >
-            </app-matrix-cell>
+                <app-matrix-header-cell [row]="r.name"></app-matrix-header-cell>
+            </div>
+            <div class="header cell"></div>
         </div>
-        <app-matrix-header-cell [column]="c.name"></app-matrix-header-cell>
+
+        <div
+            *ngFor="let c of landscapeOptions"
+            class="mcol"
+        >
+            <div
+                *ngFor="let r of edgeOptions;"
+                class="mrow"
+            >
+
+                <app-matrix-cell
+                    [id]="r.value * 7 + c.value"
+                    [row]="r.value"
+                    [column]="c.value"
+                    [area]="study_area.properties.sim_name"
+                    [scope]="scope"
+                    [cmap]="'viridis'"
+                    (activated)="onActivate($event)"
+                    (deactivated)="onDeactivate($event)"
+                    (mouseDown)="onMouseDown($event)"
+                    (mouseUp)="onMouseUp($event)"
+                    #mtxcell
+                >
+                </app-matrix-cell>
+            </div>
+            <app-matrix-header-cell [column]="c.name"></app-matrix-header-cell>
+        </div>
+        <div class="ncol"><label></label></div>
+        <div class="ncol"><label></label></div>
+        <div class="wcol"><label>Landscape % Burnt</label></div>
     </div>
-    <div class="ncol"><label></label></div>
-    <div class="ncol"><label></label></div>
-    <div class="wcol"><label>Landscape</label></div>
 </div>

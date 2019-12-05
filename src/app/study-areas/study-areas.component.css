@@ -1,35 +1,33 @@
 /* #left {
   /* flex: 4; */
-  /* margin: 0 !important;
+/* margin: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
 } */
-
 /* #right { */
-  /* flex: 4; */
-  /* margin: 0 !important;
+/* flex: 4; */
+/* margin: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
 } */
-
 /* .grow {
     width: 66vw !important;
 } */
-
 /* .shrink {
     width: 33vw !important;
 } */
-
 @media screen and (max-width: 960px) {
+
     .ui.left.sidebar,
     .ui.right.sidebar,
     .panel {
         width: 100% !important;
-            height: auto;
+        height: auto;
     }
 }
 
 @media screen and (min-width: 1280px) {
+
     .ui.left.sidebar,
     .ui.right.sidebar,
     .panel {
@@ -39,6 +37,7 @@
 }
 
 @media screen and (min-width: 1920px) {
+
     .ui.left.sidebar,
     .ui.right.sidebar,
     .panel {
@@ -54,17 +53,33 @@
     z-index: 100;
 }
 
-.ui.inverted.black.icon.button {
+.ui.inverted.black.icon.button {}
 
-}
-.panel {
+/* .panel {
     background-color: #FFF;
+    flex: none;
+} */
+
+/* .flex-container {
+    flex: 1;
+    align-content: stretch;
+    background-color: pink;
+    justify-content: flex-start;
+} */
+
+/* .flex-container .ui {
+    flex-grow: 1;
+} */
+
+.ui.fluid.segment.active {
+    margin: 0;
 }
 
 .whiteform .ui.tabular.menu,
 .whiteform .ui.tabular.menu .item {
     background-color: #CCC;
 }
+
 .whiteform .ui.tabular.menu .item.active {
     background-color: #FFF;
 }

@@ -1,8 +1,7 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
-
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
@@ -73,8 +72,8 @@ import { TeampageComponent } from './teampage/teampage.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ContactComponent } from './contact/contact.component';
-import { CitationHarvardPipe } from './citation-harvard.pipe';
 import { FetchJsonPipe } from './fetch-json.pipe';
+import { CitationHarvardComponent } from './citation-harvard/citation-harvard.component';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 
@@ -153,8 +152,8 @@ const routes: Routes = [
         TeampageComponent,
         ContactFormComponent,
         ContactComponent,
-        CitationHarvardPipe,
-        FetchJsonPipe
+        FetchJsonPipe,
+        CitationHarvardComponent
     ],
     imports: [
         BrowserModule,
