@@ -32,6 +32,7 @@ app.get("/api/external", checkJwt, (req, res) => {
     msg: "Your Access Token was successfully validated!"
   });
 });
-
+const port = process.env.PORT || '4199';
+app.set('port', port);
 // Start the app
-app.listen(3034, () => console.log('API listening on 3034'));
+app.listen(port, () => console.log(`API listening on: ${port}`));

@@ -50,7 +50,7 @@ import { StudyAreasComponent } from './study-areas/study-areas.component';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 import { StudyAreaWindowComponent } from './study-area-window/study-area-window.component';
 import { StudyToolbarComponent } from './study-toolbar/study-toolbar.component';
-
+import { NgProgressModule } from '@ngx-progressbar/core';
 import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
 import { MatrixSelectorComponent } from './matrix-selector/matrix-selector.component';
 import { MatrixCellComponent } from './matrix-selector/matrix-cell/matrix-cell.component';
@@ -74,20 +74,21 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ContactComponent } from './contact/contact.component';
 import { FetchJsonPipe } from './fetch-json.pipe';
 import { CitationHarvardComponent } from './citation-harvard/citation-harvard.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
-const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
+// const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
 
 const routes: Routes = [
     { path: 'callback', component: CallbackComponent },
-    { path: 'about', component: AboutComponent , data: { state: 'about' }},
-    { path: 'team', component: TeampageComponent , data: { state: 'team' }},
+    { path: 'about', component: AboutComponent, data: { state: 'about' } },
+    { path: 'team', component: TeampageComponent, data: { state: 'team' } },
     {
         path: 'profile', component: ProfileComponent,
         canActivate: [AuthGuard], data: { state: 'profile' }
     },
     {
         path: 'contact', component: ContactComponent,
-        // canActivate: [AuthGuard],
         data: { state: 'contact' }
     },
     {
@@ -105,9 +106,9 @@ const routes: Routes = [
         path: 'home', component: StudyAreasComponent, data: { state: 'home' }
     },
     {
-        path: '', component: StudyAreasComponent
+        path: '', component: WelcomeComponent
     },
-    { path: '**', component: PageNotFoundComponent , data: { state: '404' }}];
+    { path: '**', component: PageNotFoundComponent, data: { state: '404' } }];
 
 @NgModule({
     declarations: [
@@ -153,7 +154,8 @@ const routes: Routes = [
         ContactFormComponent,
         ContactComponent,
         FetchJsonPipe,
-        CitationHarvardComponent
+        CitationHarvardComponent,
+        WelcomeComponent
     ],
     imports: [
         BrowserModule,
@@ -164,6 +166,7 @@ const routes: Routes = [
         SuiModule,
         HttpClientModule,
         jqxChartModule,
+        NgProgressModule,
         DragDropModule,
         SocketIoModule.forRoot(config),
         NgxMapboxGLModule.withConfig({
@@ -171,7 +174,7 @@ const routes: Routes = [
             geocoderAccessToken: 'pk.eyJ1IjoiYW50aG9ueXJhd2xpbnN1b20iLCJhIjoiY2o1dm81NTIwMDN6MTJxbjlvOHBiNHdlOSJ9.lt8I4sU0ceA6N8Tnnmx2ig' // Optionnal, specify if different from the map access token, can also be set per mgl-geocoder (accessToken input of mgl-geocoder)
         }),
         RouterModule.forRoot(routes, {
-          anchorScrolling: 'enabled'
+            anchorScrolling: 'enabled'
         })
     ],
     providers: [

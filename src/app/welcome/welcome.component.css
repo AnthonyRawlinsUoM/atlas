@@ -1,0 +1,33 @@
+p.intro {
+
+}
+p.large.text {
+    font-size: 1.5rem;
+}
+
+q {
+    font-size: 1.45rem;
+}
+
+.masthead {
+    margin-top: 5vh;
+    background-image: url('/assets/images/20160403-DSC_0271.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000;
+    min-height: 12rem;
+}
+.masthead .ui.text.container {
+    margin-left: auto;
+    margin-right: auto;
+}
+.masthead .ui.text.container h1.ui.inverted.header {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    color: #FFF;
+    font-size: 4rem;
+}
+
+.page {
+        background-color: rgb(224, 228, 231);
+}

@@ -113,22 +113,30 @@
         >Reset</button>
     </form>
 </div>
+<sui-progress class="attached indicating active" [value]="changingValue"></sui-progress>
+<div class="ui attached segment">
+    <ng-progress [spinner]="false" #progressBar></ng-progress>
+</div>
 <sui-message
     class="bottom attached info icon message"
     [isDismissable]="true"
     *ngIf="contactForm.touched && contactForm.valid && !message_sent"
->
+    #messageTouched
+    >
     <i class="paper plane icon"></i>
     <div class="content">
 
         <div class="ui header">Ready to send your message. </div>
         <p>Thank you for taking the time to reach out to us.</p>
+
+
     </div>
 </sui-message>
+<div *ngIf="message_sent">
 <sui-message
     class="bottom attached success icon message"
     [isDismissable]="true"
-    *ngIf="contactForm.touched && contactForm.valid && message_sent"
+    #messageSent
 >
     <i class="inbox icon"></i>
     <div class="content">
@@ -136,11 +144,14 @@
         <p>We'll endeavour to respond as quickly as possible.</p>
     </div>
 </sui-message>
+</div>
 <sui-message
     class="bottom attached warning icon message"
     [isDismissable]="true"
     *ngIf="postman_error != '' "
->
+
+    #messageError
+    >
     <i class="inbox icon"></i>
     <div class="content">
 

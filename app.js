@@ -42,7 +42,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/atlas/index.html'))
 });
 
-const port = process.env.PORT || '3035';
+const port = process.env.PORT || '4200';
 app.set('port', port);
 
 // io.adapter(redisAdapter({
@@ -60,15 +60,15 @@ const {
 const template = fs.readFileSync('./email.html', {
     encoding: 'utf-8'
 });
-const username = fs.readFileSync('/run/secrets/smtp_user', {
-    encoding: 'utf-8'
-});
-const password = fs.readFileSync('/run/secrets/smtp_pass', {
-    encoding: 'utf-8'
-});
+// const username = fs.readFileSync('/run/secrets/smtp_user', {
+//     encoding: 'utf-8'
+// });
+// const password = fs.readFileSync('/run/secrets/smtp_pass', {
+//     encoding: 'utf-8'
+// });
 
-// const username = 'himself@anthonyrawlins.com';
-// const password = 'rubbish';
+const username = 'anthony.lewis.rawlins@gmail.com';
+const password = 'cxmkafxzqzvqnijw';
 
 const true_emails = [
 {name: "Hamish", email: '"Hamish Clarke" <hamishc@uow.edu.au>'},
@@ -106,18 +106,18 @@ const checkJwt = jwt({
   algorithm: ["RS256"]
 });
 
-var securedRoutes = require('express').Router();
-
-securedRoutes.get('ena', (req, res) => {
-  res.send({
-    msg: "ENA Object."
-  });
-});
-
-securedRoutes.use(checkJwt);
-
-// Define an endpoint that must be called with an access token
-app.get("/assets/secure", securedRoutes);
+// var securedRoutes = require('express').Router();
+//
+// securedRoutes.get('ena', (req, res) => {
+//   res.send({
+//     msg: "ENA Object."
+//   });
+// });
+//
+// securedRoutes.use(checkJwt);
+//
+// // Define an endpoint that must be called with an access token
+// app.get("/assets/secure", securedRoutes);
 
 io.on("connection", socket => {
     console.log('New client connected');
@@ -186,7 +186,8 @@ io.on("connection", socket => {
             }
             console.log('Message sent: %s', info.messageId);
             socket.emit("response", {
-                'success': true
+                success: true,
+                message: mail_data
             });
         });
 

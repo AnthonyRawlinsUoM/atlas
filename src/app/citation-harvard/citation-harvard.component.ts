@@ -15,7 +15,9 @@ export class CitationHarvardComponent implements OnInit {
 
     ngOnInit() {
         this.citationService.getCitation(encodeURIComponent(this.doi))
-            .subscribe(data => this.content = data);
+            .subscribe(data => {
+                this.content = data.toString()
+            });
     }
 
 }

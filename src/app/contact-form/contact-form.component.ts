@@ -1,25 +1,41 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ValidatorService } from '../validator.service';
 import { MailerService } from '../mailer.service';
 import TeamMembersData from '../../assets/team/group.json';
-import { TeamMember } from '../team.service';
+import { IMessage } from "ng2-semantic-ui";
+import { NgProgressComponent, NgProgress, NgProgressRef } from '@ngx-progressbar/core';
+
 
 @Component({
     selector: 'app-contact-form',
     templateUrl: './contact-form.component.html',
     styleUrls: ['./contact-form.component.css']
 })
-export class ContactFormComponent implements OnInit {
+export class ContactFormComponent implements OnInit, AfterViewInit {
+
+    @ViewChild('#progressBar', {static:false}) progressBar: NgProgressComponent;
+
+    @ViewChild('#messageTouched', {static:false}) messageTouched: ElementRef;
+    @ViewChild('#messageSent', {static:false}) messageSent: ElementRef;
+    @ViewChild('#messageError', {static:false}) messageError: ElementRef;
+
+
+    progressRef: NgProgressRef;
+
     contactForm;
     conditions;
     message_sent = false;
-    tcs = "Terms and Coditions of use";
+    tcs = "Terms and Conditions of Use";
     postman_error = '';
 
-        TeamMembers: any[] = TeamMembersData;
+    TeamMembers: any[] = TeamMembersData;
+
+    changingValue = 0;
 
     constructor(
+        private progress: NgProgress,
+        private ref: ChangeDetectorRef,
         private formBuilder: FormBuilder,
         private postman: MailerService
     ) {
@@ -46,6 +62,7 @@ export class ContactFormComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.progressRef = this.progress.ref('progressBar');
     }
 
     // ngOnDestory() {
@@ -55,6 +72,10 @@ export class ContactFormComponent implements OnInit {
     // disconnectSocket() {
     //     if (this.socket) this.socket.disconnect();
     //   }
+
+    ngAfterViewInit(): void {
+        this.progressBar.start();
+    }
 
     onReset() {
         this.message_sent = false;
@@ -75,16 +96,21 @@ export class ContactFormComponent implements OnInit {
             } catch (e) {
                 console.error(e);
             } finally {
+
+                this.progressBar.start();
                 this.postman.sendMail(cd).subscribe({
                     next(data) {
                         console.log(data);
-                        if(data.success !== undefined) {
+                        if (data.success !== undefined) {
                             if (data.success) {
+                                // this.dismiss(this.messageTouched);
                                 this.message_sent = true;
-                                console.warn('Your enquiry has been submitted', contactData);
+                                console.warn('Your enquiry has been submitted', data.message);
+
+                                this.progressBar.complete();
                             }
                         }
-                },
+                    },
                     error(err) {
                         this.postman_error = err;
                         console.error('An error occured sending the message', err);
@@ -97,6 +123,10 @@ export class ContactFormComponent implements OnInit {
         } else {
             console.warn('The form is invalid', contactData);
         }
+    }
+
+    public dismiss(message: IMessage) {
+        message.dismiss();
     }
 }
 
