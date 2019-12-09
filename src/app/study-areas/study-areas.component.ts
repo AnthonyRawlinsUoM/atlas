@@ -45,8 +45,13 @@ export class StudyAreasComponent implements AfterViewInit {
         const tree = this.router.parseUrl(this.router.url);
         console.log(tree.fragment);
         console.log('Got fragment update!');
-        this.fragment = JSON.parse(Base64.decode(tree.fragment));
-        console.log(this.fragment);
+        try {
+            this.fragment = JSON.parse(Base64.decode(tree.fragment));
+            console.log(this.fragment);
+        }
+        catch(e) {
+                console.warn(e);
+        }
     }
 
     ngOnInit() {

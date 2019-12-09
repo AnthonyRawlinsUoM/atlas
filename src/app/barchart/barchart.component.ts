@@ -10,7 +10,7 @@ import { WeightsService } from '../weights.service';
 export class BarchartComponent implements OnInit {
 
 
-    @ViewChild('myChart', { static: false }) myChart: jqxChartComponent;
+    @ViewChild('#myChart', { static: false }) myChart: jqxChartComponent;
     @Input() chart_title: any = 'Unnamed Chart';
     @Input() description: any = 'Description.'
     @Input() source: any[] = [];
