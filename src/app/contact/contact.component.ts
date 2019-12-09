@@ -21,6 +21,10 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
+  onCompleted(ev) {
+      console.log(ev);
+  }
 }

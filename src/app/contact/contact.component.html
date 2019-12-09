@@ -9,12 +9,12 @@
             <div class="header">
                 Please <a (click)="auth.login('/contact')">signup</a> to contact us.
             </div>
-            <p>Please signup and verify your email address before trying again.</p>
+            <p>Please signup and verify your email address.</p>
         </div>
     </div>
 
     <!-- Verification Error -->
-    <div
+    <!-- <div
         *ngIf="!auth.loggedIn"
         class="ui icon warning message"
     >
@@ -25,8 +25,17 @@
             </div>
             <p>{{error_message}}</p>
         </div>
-    </div>
+    </div> -->
+
+
+    <h3
+        *ngIf="auth.loggedIn"
+        class="ui dividing header"
+    >Contact Us</h3>
 
     <!-- Email is verified -->
-    <app-contact-form *ngIf="true"></app-contact-form>
+    <app-contact-form
+        *ngIf="auth.loggedIn"
+        (success)="onCompleted($event)"
+    ></app-contact-form>
 </div>

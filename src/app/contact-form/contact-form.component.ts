@@ -1,10 +1,9 @@
-import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ValidatorService } from '../validator.service';
 import { MailerService } from '../mailer.service';
 import TeamMembersData from '../../assets/team/group.json';
 import { IMessage } from "ng2-semantic-ui";
-import { NgProgressComponent, NgProgress, NgProgressRef } from '@ngx-progressbar/core';
 
 
 @Component({
@@ -12,16 +11,9 @@ import { NgProgressComponent, NgProgress, NgProgressRef } from '@ngx-progressbar
     templateUrl: './contact-form.component.html',
     styleUrls: ['./contact-form.component.css']
 })
-export class ContactFormComponent implements OnInit, AfterViewInit {
+export class ContactFormComponent {
 
-    @ViewChild('#progressBar', {static:false}) progressBar: NgProgressComponent;
-
-    @ViewChild('#messageTouched', {static:false}) messageTouched: ElementRef;
-    @ViewChild('#messageSent', {static:false}) messageSent: ElementRef;
-    @ViewChild('#messageError', {static:false}) messageError: ElementRef;
-
-
-    progressRef: NgProgressRef;
+    @Output() success: EventEmitter<any> = new EventEmitter();
 
     contactForm;
     conditions;
@@ -34,8 +26,6 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
     changingValue = 0;
 
     constructor(
-        private progress: NgProgress,
-        private ref: ChangeDetectorRef,
         private formBuilder: FormBuilder,
         private postman: MailerService
     ) {
@@ -60,23 +50,9 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             ]
         });
     }
-
-    ngOnInit() {
-        this.progressRef = this.progress.ref('progressBar');
-    }
-
     // ngOnDestory() {
     //     this.disconnectSocket();
     // }
-    //
-    // disconnectSocket() {
-    //     if (this.socket) this.socket.disconnect();
-    //   }
-
-    ngAfterViewInit(): void {
-        this.progressBar.start();
-    }
-
     onReset() {
         this.message_sent = false;
         this.contactForm.reset();
@@ -96,37 +72,31 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
             } catch (e) {
                 console.error(e);
             } finally {
-
-                this.progressBar.start();
-                this.postman.sendMail(cd).subscribe({
-                    next(data) {
-                        console.log(data);
-                        if (data.success !== undefined) {
-                            if (data.success) {
-                                // this.dismiss(this.messageTouched);
-                                this.message_sent = true;
-                                console.warn('Your enquiry has been submitted', data.message);
-
-                                this.progressBar.complete();
-                            }
+                this
+                .postman
+                .sendMail(cd)
+                .subscribe((data) => {
+                    console.log(data);
+                    if (data.success !== undefined) {
+                        if (data.success) {
+                            this.message_sent = true;
+                            console.warn('Your enquiry has been submitted', data.message);
+                            this.success.emit(data.message);
                         }
-                    },
-                    error(err) {
+                    }
+                },
+                    (err) => {
                         this.postman_error = err;
                         console.error('An error occured sending the message', err);
                     },
-                    complete() {
+                    () => {
                         console.log('Message sending complete.');
                     }
-                });
+                );
             }
         } else {
             console.warn('The form is invalid', contactData);
         }
-    }
-
-    public dismiss(message: IMessage) {
-        message.dismiss();
     }
 }
 

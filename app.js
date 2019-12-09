@@ -42,7 +42,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/atlas/index.html'))
 });
 
-const port = process.env.PORT || '4200';
+const port = process.env.PORT || '3035';
 app.set('port', port);
 
 // io.adapter(redisAdapter({

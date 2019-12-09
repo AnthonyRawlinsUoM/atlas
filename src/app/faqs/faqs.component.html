@@ -12,5 +12,36 @@
                 class="item"
             ></app-faq>
         </div>
+
+
+        <div
+            *ngIf="!auth.loggedIn"
+            class="ui info icon message"
+        >
+            <i class="inbox icon"></i>
+            <div class="content">
+                <div class="header">
+                    Please <a (click)="auth.login('/contact')">signup</a> to contact us.
+                </div>
+                <p>Please signup and verify your email address.</p>
+            </div>
+        </div>
+
+        <div class="ui segment">
+            <p>This is your chance to consult with the experts and ask any questions you might have about:</p>
+            <ul class="ui list">
+                <li>prescribed burning.</li>
+                <li>hazard reduction burning.</li>
+                <li>risk mitigation</li>
+                <li>the modelling we use, and more</li>
+            </ul>
+            <!-- <p><a [routerLink]="auth.login()">Login</a> to ask a question.</p> -->
+        </div>
+
+        <div class="ui segment">
+            <h3 class="ui dividing header">Ask a question</h3>
+
+            <app-contact-form (success)="onCompleted($event)"></app-contact-form>
+        </div>
     </div>
 </div>
