@@ -1,12 +1,16 @@
 {"faqs":
     [
         {
-            "question": "What is the purpose of this web application?",
-            "answer": "Example answer"
+            "question": "How were these study areas chosen?",
+            "answer": "..."
         },
         {
             "question": "Where does the data come from?",
-            "answer": "The datasets used to produce this website are produced by... "
+            "answer": "The datasets displayed on this website ... "
+        },
+        {
+            "question": "How can you be sure the results are accurate?",
+            "answer": "... "
         }
     ]
 }
