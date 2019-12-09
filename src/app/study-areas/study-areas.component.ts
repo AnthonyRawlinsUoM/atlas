@@ -120,7 +120,7 @@ export class StudyAreasComponent implements AfterViewInit {
         if (this.summary != undefined) {
             this.summary.refresh();
         }
-        this.info.study = study;
+        // this.info.study = study;
     }
 
     sidebarOpen() {
