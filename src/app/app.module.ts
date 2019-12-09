@@ -76,8 +76,8 @@ import { FetchJsonPipe } from './fetch-json.pipe';
 import { CitationHarvardComponent } from './citation-harvard/citation-harvard.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
-// const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
-const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
+const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
+// const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
 
 const routes: Routes = [
     { path: 'callback', component: CallbackComponent },
@@ -106,7 +106,7 @@ const routes: Routes = [
         path: 'home', component: StudyAreasComponent, data: { state: 'home' }
     },
     {
-        path: '', component: WelcomeComponent
+        path: '', component: StudyAreasComponent, data: { state: 'studies' }
     },
     { path: '**', component: PageNotFoundComponent, data: { state: '404' } }];
 
