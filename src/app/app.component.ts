@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
         { path: '/about', name: 'About', icon: 'book icon' },
         { path: '/team', name: 'Team', icon: 'user icon' },
         { path: '/faq', name: 'FAQ', icon: 'question icon' },
+        { path: '/help', name: 'Help', icon: 'life ring icon' },
         { path: '/contact', name: 'Contact Us', icon: 'envelope icon' },
         { path: '/publications', name: 'Publications', icon: 'university icon' },
     ];

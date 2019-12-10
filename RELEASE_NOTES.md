@@ -4,11 +4,17 @@
 ---
 ## Latest Release
 ####Release: December 10th 2019
+####Version: 1.1.16
+ -  Integrated Documentation and Help into primary nav and layout
+---
+
+## Previous Releases
+
+####Release: December 10th 2019
 ####Version: 1.1.15
  -  Minor UI/UX patches
  - Temporarily disabled the GeoServer Deployment until it's needed.
 ---
-## Previous Releases
 ####Release: December 9th 2019
 ####Version: 1.1.12
 

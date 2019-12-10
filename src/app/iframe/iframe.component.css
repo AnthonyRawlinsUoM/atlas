@@ -1,0 +1,29 @@
+.full {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 81vh;
+}
+
+.ui.raised.container {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.wrap {
+    display: flex;
+    /* new */
+    flex: 1 1 auto;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    min-height: 0;
+}
+
+iframe {
+    flex: 1 1 auto;
+    display: flex;
+    /* new */
+    border: 0;
+}

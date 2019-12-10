@@ -75,6 +75,10 @@ import { ContactComponent } from './contact/contact.component';
 import { FetchJsonPipe } from './fetch-json.pipe';
 import { CitationHarvardComponent } from './citation-harvard/citation-harvard.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { IframeComponent } from './iframe/iframe.component';
+import { HelpComponent } from './help/help.component';
+
+import { SafePipe } from './safe.pipe';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 // const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
@@ -98,7 +102,7 @@ const routes: Routes = [
     },
     { path: 'faq', component: FaqsComponent, data: { state: 'faq' } },
 
-    { path: 'test', component: SandboxComponent },
+    { path: 'help', component: HelpComponent, data: {state: 'help'} },
 
     { path: 'publications', component: PublicationsComponent, data: { state: 'publications' } },
     { path: 'logout', component: LogoutComponent },
@@ -155,7 +159,10 @@ const routes: Routes = [
         ContactComponent,
         FetchJsonPipe,
         CitationHarvardComponent,
-        WelcomeComponent
+        WelcomeComponent,
+        IframeComponent,
+        SafePipe,
+        HelpComponent
     ],
     imports: [
         BrowserModule,
