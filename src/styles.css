@@ -90,3 +90,27 @@ mgl-map {
     margin-top: 6em;
     margin-bottom: 6em;
 }
+
+/* OVERRIDE YUCKY JQXCHART STYLING */
+table.tblChart *,
+table.tblChart tr,
+table.tblChart tr.tdTop,
+table.tblChart th,
+table.tblChart td,
+table.tblChart td.tdLeft {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+table.tblChart tr {
+    display: table-row;
+}
+
+table.tblChart td {
+    display: table-cell;
+}
+
+.chartContainer {
+    margin: 0 !important;
+}

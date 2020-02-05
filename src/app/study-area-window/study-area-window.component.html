@@ -1,24 +1,42 @@
 <div class="ui segment flex-container">
     <h2 class="ui header">{{study.properties.long_name}}</h2>
 
-    <table class="ui very basic table">
+    <table
+        class="ui very basic table"
+        height="100%"
+    >
         <thead>
             <tr>
-                <th class="collapsing"></th>
-                <th></th>
+                <th class="collapsing">Treatment Inspector</th>
+                <th>Loss Analysis</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="collapsing">
+                <td
+                    class="collapsing"
+                    valign="top"
+                >
                     <app-matrix-selector
                         [study_area]="study"
                         (selectedItems)="onSelectedItemsChange($event)"
                         #mtx
                     ></app-matrix-selector>
+
+                    <div
+                        *ngIf="selectedItems.length > 0"
+                        (click)="mtx.clearAll()"
+                        class="ui fluid icon button"
+                    ><i class="ui orange window close icon"></i> Clear selection</div>
+
+
                 </td>
 
-                <td>
+                <td
+                    class=""
+                    valign="top"
+                >
+
                     <div
                         class="ui segment"
                         *ngIf="selectedItems.length == 0"
@@ -32,15 +50,18 @@
                         </div>
                     </div>
 
-                    <app-spiderchart
-                        *ngIf="selectedItems.length > 0"
-                        [area]="study.properties.sim_name"
-                        [chart_title]="'Collective Losses using Landscape and Edge Treatments'"
-                        [description]="'Smaller shape is better.'"
-                        [positions]="selectedItems"
-                        #spider
-                    ></app-spiderchart>
+
+                    <div *ngIf="selectedItems.length > 0">
+                        <app-spiderchart
+                            [area]="study.properties.sim_name"
+                            [chart_title]="'Collective Losses using Landscape and Edge Treatments'"
+                            [description]="'Smaller shape is better.'"
+                            [positions]="selectedItems"
+                            #spider
+                        ></app-spiderchart>
+                    </div>
                 </td>
             </tr>
         </tbody>
+    </table>
 </div>

@@ -18,13 +18,13 @@ export class SpiderchartComponent implements OnInit {
     @Input() area = 'VIC';
     @Input() xAxis: any;
 
-    @Output() chartType: EventEmitter<any> = new EventEmitter<any>();
+    // @Output() chartType: EventEmitter<any> = new EventEmitter<any>();
 
     chartInstance;
 
     opacity = 1.0;
-    lineWidth = 1.43;
-    radii = 1.2; // datapoints
+    lineWidth = 1.23;
+    radii = 1.132; // datapoints
     radius;  // Polar chart
     dataAdapter: any;
     padding: any;
@@ -33,8 +33,9 @@ export class SpiderchartComponent implements OnInit {
     valueAxis: any;
 
     seriesGroups: any;
-    selected_type: string = 'line';
-    seriesList: string[] = ['line', 'stackedline', 'splinearea', 'spline'];
+    selected_type = 'line';
+
+    // seriesList: string[] = ['line', 'stackedline', 'splinearea', 'spline'];
 
     series = [];
     colorchart = [];
@@ -48,7 +49,7 @@ export class SpiderchartComponent implements OnInit {
     ngOnInit(): void {
 
 
-        this.radius = "130";
+        this.radius = "140";
 
         this.xAxis = {
             dataField: 'metric',
@@ -63,10 +64,10 @@ export class SpiderchartComponent implements OnInit {
         };
 
         this.valueAxis = {
-            unitInterval: 0.25,
+            unitInterval: 0.1,
             minValue: 0.0,
             maxValue: 1.0,
-            valuesOnTicks: true,
+            valuesOnTicks: false,
             gridLines: { color: 'rgb(10,11,12)', interval: 0.25 }
         };
 
@@ -109,7 +110,7 @@ export class SpiderchartComponent implements OnInit {
                     radius: this.radius,
                     startAngle: 0,
                     endAngle: 360,
-                    type: this.selected_type,
+                    type: 'line',
                     series: this.series,
                     tooltipFormatFunction: this.toolFn
                 }
@@ -122,11 +123,11 @@ export class SpiderchartComponent implements OnInit {
 
 
 
-    onChartTypeChange(t) {
-        this.selected_type = t;
-        this.chartType.emit(this.selected_type);
-        this.refresh();
-    }
+    // onChartTypeChange(t) {
+    //     this.selected_type = t;
+    //     this.chartType.emit(this.selected_type);
+    //     this.refresh();
+    // }
 
     refresh() {
         // console.log(this.positions);
@@ -154,7 +155,7 @@ export class SpiderchartComponent implements OnInit {
                         radius: this.radius,
                         startAngle: 0,
                         endAngle: 360,
-                        type: this.selected_type,
+                        type: 'line',
                         series: this.series
                     }
                 ];

@@ -83,3 +83,14 @@
 .whiteform .ui.tabular.menu .item.active {
     background-color: #FFF;
 }
+
+.flex-container {
+    flex: 1;
+    align-content: stretch;
+    background-color: pink;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+}

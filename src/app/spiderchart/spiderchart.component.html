@@ -1,5 +1,5 @@
-<div class="ui field flex-container">
-    <label>Chart Style</label>
+<div class="ui flex-container">
+    <!-- <label>Chart Style</label>
 
     <sui-select
         class="selection"
@@ -14,23 +14,25 @@
             [value]="option"
         >
         </sui-select-option>
-    </sui-select>
+    </sui-select> -->
+    <!-- [width]="'calc(100%)'"
+    [height]="'calc(100%)'" -->
+    <jqxChart
+        #myChart
+        class="jqxsized"
+        width="550"
+        height="550"
+        [title]="chart_title"
+        [description]="description"
+        [showLegend]="false"
+        [enableAnimations]="true"
+        [padding]="padding"
+        [titlePadding]="titlePadding"
+        [source]="source"
+        [xAxis]="xAxis"
+        [seriesGroups]="seriesGroups"
+        [colorScheme]="'scheme03'"
+        [backgroundColor]="'#FFF'"
+    >
+    </jqxChart>
 </div>
-
-<jqxChart
-    #myChart
-    [width]="'calc(100%)'"
-    [height]="'calc(100%)'"
-    [title]="chart_title"
-    [description]="description"
-    [showLegend]="false"
-    [enableAnimations]="true"
-    [padding]="padding"
-    [titlePadding]="titlePadding"
-    [source]="source"
-    [xAxis]="xAxis"
-    [seriesGroups]="seriesGroups"
-    [colorScheme]="'scheme03'"
-    [backgroundColor]="'#FFF'"
->
-</jqxChart>

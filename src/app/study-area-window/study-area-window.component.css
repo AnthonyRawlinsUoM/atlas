@@ -14,15 +14,8 @@
 .green {
     background-color: rgb(0, 255, 0);
 }
-
-.flex-container {
-    flex: 1;
-    align-content: stretch;
-    background-color: pink;
-    justify-content: flex-start;
-    flex-shrink: 0;
-}
+*/
 
 .flex-container .ui {
     flex-grow: 1;
-} */
+}
