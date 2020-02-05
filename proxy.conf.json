@@ -3,8 +3,14 @@
         "target": "http://localhost:3034",
         "secure": false
     },
-    "/harvardfromdoi/branches/master": {
-        "target": "https://anthonyrawlinsuom.runkit.io",
-        "secure": false
-    }
+    "/*/harvard": {
+        "target": "https://fromdoi-atppui9es2iu.runkit.sh",
+        "secure": true
+    },
+    "/*/apa": {
+        "target": "https://fromdoi-atppui9es2iu.runkit.sh",
+        "secure": true
+    },
+    "changeOrigin": true,
+    "logLevel": "debug"
 }

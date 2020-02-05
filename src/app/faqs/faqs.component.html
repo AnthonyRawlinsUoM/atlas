@@ -5,13 +5,193 @@
 </div>
 <div class="ui segment vertical stripe">
     <div class="ui container">
-        <div class="ui list">
+        <sui-accordion class="ui styled fluid">
+            <!-- Static pre-defined QAs -->
+            <sui-accordion-panel [isOpen]="true">
+                <div
+                    title
+                    class="ui header question"
+                ><i class="dropdown icon"></i> What is the Prescribed Burning Atlas?</div>
+                <div
+                    content
+                    class="answer"
+                >A tool for exploring the risk reduction available from different prescribed strategies in different parts of southern Australia. <a href="/about">More information</a></div>
+            </sui-accordion-panel>
+
+            <sui-accordion-panel>
+                <div
+                    title
+                    class="ui header question"
+                ><i class="dropdown icon"></i> How do I use the Prescribed Burning Atlas?</div>
+                <div
+                    content
+                    class="answer"
+                ><a href="/help">See the user guide with examples</a></div>
+            </sui-accordion-panel>
+            <sui-accordion-panel>
+                <div
+                    title
+                    class="ui header question"
+                ><i class="dropdown icon"></i> How were the study areas chosen?</div>
+                <div
+                    content
+                    class="answer"
+                >
+                    <p>Twelve case study areas were selected as the locations for detailed landscape-scale simulation case studies, based on the project criteria of exploration of climatic, population and land use variations across
+                        southern Australia.</p>
+                    <p>Key features, similarities and differences between study areas are shown in the table.</p>
+
+                    <table class="ui celled striped table">
+                        <thead>
+                            <tr>
+                                <th class="single line">Terrestrial Ecoregion</th>
+                                <th class="single line">Bioregion</th>
+                                <th class="single line">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="5">Temperate Broadleaf and Mixed Forest</td>
+                                <td class="collapsing">Southeastern Queensland</td>
+                                <td rowspan="5">These form a gradient of mainly forested landscapes along the east coast, ranges and slopes, encompassing wide variations in population
+                                    and land uses. These complement existing risk modelling exercises done in the Sydney region and Otways.</td>
+                            </tr>
+                            <tr height="5">
+                                <td class="collapsing">Victoria Midlands</td>
+                            </tr>
+                            <tr height="5">
+                                <td class="collapsing">South East Corner</td>
+                            </tr>
+                            <tr height="5">
+                                <td class="collapsing">South Eastern Highlands</td>
+                            </tr>
+                            <tr height="5">
+                                <td>Tasmanian Southern Ranges</td>
+                            </tr>
+                            <tr height="5">
+                                <td rowspan="4">Mediterranean Forests, Woodlands &amp; Scrub</td>
+                                <td class="collapsing">Murray Darling Depression</td>
+                                <td rowspan="4">These form a mixed gradient of dry vegetation from western Victoria to south western WA</td>
+                            </tr>
+                            <tr height="5">
+                                <td>Flinders Lofty Block</td>
+                            </tr>
+                            <tr height="5">
+                                <td class="collapsing">Jarrah Forest</td>
+                            </tr>
+                            <tr height="5">
+                                <td>Swan Coastal Plain, Esperance Plains</td>
+                            </tr>
+                            <tr height="5">
+                                <td rowspan="3">Temperate Grasslands, Savannas and Shrublands</td>
+                                <td class="collapsing">Murray Darling Depression</td>
+                                <td rowspan="3">Case studies in these Bioregions represent the spectrum of mixed agriculture and remnant vegetation that typifies these moderately
+                                    populated inland regions in Victoria and NSW.</td>
+                            </tr>
+                            <tr height="5">
+                                <td class="collapsing">Nandewar</td>
+                            </tr>
+                            <tr height="5">
+                                <td>NSW South Western Slopes</td>
+                            </tr>
+                            <tr height="5">
+                                <td rowspan="2">Deserts and Xeric Shrublands</td>
+                                <td class="collapsing">Great Victoria Desert</td>
+                                <td rowspan="2">Case studies situated in SA and NSW explore effects in these sparsely populated rangelands and conservation reserves.</td>
+                            </tr>
+                            <tr height="5">
+                                <td class="collapsing">Broken Hill Complex</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </sui-accordion-panel>
+
+            <sui-accordion-panel>
+                <div
+                    title
+                    class="ui header question"
+                ><i class="dropdown icon"></i> Where does the data come from?</div>
+                <div
+                    content
+                    class="answer"
+                >
+                    <p>The data presented here are based on the combined output of these main steps:</p>
+
+                    <div class="ui three column grid relaxed ">
+                        <div class="column">
+                            <div class="ui fluid flowchart vertical menu">
+                                <div class="step item"><i class="cogs icon"></i>Phoenix Simulation</div>
+                                <div class="step item"><i class="chart bar outline icon"></i>Impact Analysis</div>
+                                <div class="step item"><i class="balance scale icon"></i>Cost Estimation</div>
+                                <div class="step item"><i class="sitemap icon"></i>Bayesian Decision Network</div>
+                                <div class="last step item"><i class="magic icon"></i>Voila! The Answer</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Fire behaviour
+                        simulation is based on the Phoenix RapidFire model, and incorporates different prescribed burning treatment rates and locations, different weather streams and different ignition locations, as well as base layers supplied by
+                        state and territory fire management agencies. Impact estimation is based on published techniques for relating fire behaviour and other outputs from Phoenix to values such as life and property loss, infrastructure damage and
+                        vegetation sensitive to particular fire intervals.</p>
+                    <p>Risk estimation is based on Bayesian Decision Networks, which estimate the risk to each value at each treatment level from the simulation-derived distributions of data and
+                        provide a basis for comparison between regions that explicitly incorporates the observed frequency of fire weather conditions in each case study area. For more information, see <a href="/publications">Cirulis et al. 2019.</a></p>
+                </div>
+            </sui-accordion-panel>
+
+            <sui-accordion-panel>
+                <div
+                    title
+                    class="ui header question"
+                ><i class="dropdown icon"></i> How accurate are the results?</div>
+                <div
+                    content
+                    class="answer"
+                > As with any experiment that involves modelling, the results reflect the strengths and weaknesses of the model and datasets used to drive the model. For details of the models and datasets, including
+                    limitations, see <a href="/publications">Cirulis et al. 2019</a> and the annual project reports at the BNHCRC.</div>
+            </sui-accordion-panel>
+            <sui-accordion-panel>
+                <div
+                    title
+                    class="ui header question"
+                ><i class="dropdown icon"></i> Has the project produced other data that isn’t shown here?</div>
+                <div
+                    content
+                    class="answer"
+                > Yes. The project has produced a large amount of information, only some of which is shown here. This includes raw simulation outputs, absolute and relative changes in risk, trade-offs, cost effectiveness
+                    and climate change information. We have tried to present the most useful information here and will continue to add to the Prescribed Burning Atlas over time. If there are other project outputs that interest you, please
+                    <a href="/contact">contact us.</a></div>
+            </sui-accordion-panel>
+            <sui-accordion-panel>
+                <div
+                    title
+                    class="ui header question"
+                ><i class="dropdown icon"></i> I am interested in an area outside the study areas. Can you help?</div>
+                <div
+                    content
+                    class="answer"
+                > We are currently testing methods for obtaining results for regions outside the twelve study areas. This information will be added to the Prescribed Burning Atlas over time.</div>
+            </sui-accordion-panel>
+            <sui-accordion-panel>
+                <div
+                    title
+                    class="ui header question"
+                ><i class="dropdown icon"></i> Can I have the data?</div>
+                <div
+                    content
+                    class="answer"
+                > Please <a href="/contact">contact us</a> if you are interested in accessing the data shown here.</div>
+            </sui-accordion-panel>
+
+            <!-- Dynamic QAs -->
             <app-faq
                 *ngFor="let faq of faqs"
                 [faq]="faq"
                 class="item"
             ></app-faq>
-        </div>
+
+        </sui-accordion>
 
 
         <div

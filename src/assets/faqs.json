@@ -1,16 +1,3 @@
-{"faqs":
-    [
-        {
-            "question": "How were these study areas chosen?",
-            "answer": "..."
-        },
-        {
-            "question": "Where does the data come from?",
-            "answer": "The datasets displayed on this website ... "
-        },
-        {
-            "question": "How can you be sure the results are accurate?",
-            "answer": "... "
-        }
-    ]
+{
+    "faqs": [  ]
 }

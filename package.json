@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "server": "node server.js",
-    "reactive": "node app.js",
+    "reactive": "node app.js --proxy-conf=proxy.conf.json",
     "dev": "npm-run-all --parallel reactive server"
   },
   "private": true,

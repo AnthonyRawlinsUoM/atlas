@@ -16,3 +16,72 @@
     color: #FFF;
     font-size: 4rem;
 }
+
+.accordion .flowchart .title {
+    border: none;
+    font-size: 1.3rem;
+}
+
+.grid.relaxed {
+    margin: 1.456rem;
+}
+.flowchart .step {
+    position: relative;
+    vertical-align: middle;
+    line-height: 1;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: 0 0;
+    padding: .92857143em 1.14285714em;
+    text-transform: none;
+    color: rgba(0,0,0,.87);
+    font-weight: 400;
+    -webkit-transition: background .1s ease,color .1s ease,-webkit-box-shadow .1s ease;
+    transition: background .1s ease,color .1s ease,-webkit-box-shadow .1s ease;
+    transition: background .1s ease,box-shadow .1s ease,color .1s ease;
+    transition: background .1s ease,box-shadow .1s ease,color .1s ease,-webkit-box-shadow .1s ease;
+    border-bottom: 1px solid rgba(34,36,38,.15);
+
+    background: #f2f2f2;
+}
+
+.flowchart .step:after {
+    position: absolute;
+    content: ' ';
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    background: rgba(34,36,38,.1);
+    margin: .5px 0 0 ;
+    width: .57142857em;
+    height: .57142857em;
+    border: none;
+    border-bottom: 1px solid #d4d4d5;
+    border-right: 1px solid #d4d4d5;
+    z-index: 2;
+    transition-property: background;
+    transition-duration: .1s;
+    transition-timing-function: ease;
+    visibility: visible;
+}
+
+.flowchart .step:after {
+    background-color: #f2f2f2;
+}
+
+.flowchart .step:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    background: rgba(34,36,38,.1);
+}
