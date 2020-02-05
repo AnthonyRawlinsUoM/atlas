@@ -1,35 +1,46 @@
 <div class="ui segment flex-container">
     <h2 class="ui header">{{study.properties.long_name}}</h2>
-    <div class="ui two column grid">
-        <div class="ui column">
-            <app-matrix-selector
-                [study_area]="study"
-                (selectedItems)="onSelectedItemsChange($event)"
-                #mtx
-            ></app-matrix-selector>
-        </div>
-        <div class="ui column">
-            <div
-                class="ui segment"
-                *ngIf="selectedItems.length == 0"
-            >
-                <div class="ui big icon message">
-                    <i class="info circle icon"></i>
-                    <div class="content">
-                        <div class="header">Make a selection</div>
-                        <p>Select Landscape / Edge Percentage Burnt to compare losses.</p>
-                    </div>
-                </div>
-            </div>
 
-            <app-spiderchart
-                *ngIf="selectedItems.length > 0"
-                [area]="study.properties.sim_name"
-                [chart_title]="'Collective Losses using Landscape and Edge Treatments'"
-                [description]="'Smaller shape is better.'"
-                [positions]="selectedItems"
-                #spider
-            ></app-spiderchart>
-        </div>
-    </div>
+    <table class="ui very basic table">
+        <thead>
+            <tr>
+                <th class="collapsing"></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="collapsing">
+                    <app-matrix-selector
+                        [study_area]="study"
+                        (selectedItems)="onSelectedItemsChange($event)"
+                        #mtx
+                    ></app-matrix-selector>
+                </td>
+
+                <td>
+                    <div
+                        class="ui segment"
+                        *ngIf="selectedItems.length == 0"
+                    >
+                        <div class="ui big icon message">
+                            <i class="info circle icon"></i>
+                            <div class="content">
+                                <div class="header">Make a selection</div>
+                                <p>Select Landscape / Edge Percentage Burnt to compare losses.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <app-spiderchart
+                        *ngIf="selectedItems.length > 0"
+                        [area]="study.properties.sim_name"
+                        [chart_title]="'Collective Losses using Landscape and Edge Treatments'"
+                        [description]="'Smaller shape is better.'"
+                        [positions]="selectedItems"
+                        #spider
+                    ></app-spiderchart>
+                </td>
+            </tr>
+        </tbody>
 </div>
