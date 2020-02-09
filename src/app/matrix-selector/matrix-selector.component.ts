@@ -142,4 +142,19 @@ export class MatrixSelectorComponent implements OnInit {
         this.selectedItems.emit(this.flat());
         this.components.map(o => o.deactivate());
     }
+
+    selectAll() {
+        this.selection_matrix = [];
+
+        for (let e = 0; e < this.edgeOptions.length; e++) {
+            // this.matrix_colors[e] = [];
+            this.selection_matrix[e] = [];
+
+            for (let l = 0; l < this.landscapeOptions.length; l++) {
+                this.selection_matrix[e][l] = true;
+            }
+        }
+        this.selectedItems.emit(this.flat());
+        this.components.map(o => o.activate());
+    }
 }

@@ -1,6 +1,7 @@
 import { Component, ViewChild, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { jqxChartComponent } from 'jqwidgets-ng/jqxchart';
 import { WeightsService } from '../weights.service';
+import { schemes } from '../Viridis';
 
 @Component({
     selector: 'app-barchart',
@@ -10,15 +11,13 @@ import { WeightsService } from '../weights.service';
 export class BarchartComponent implements OnInit {
 
 
-    @ViewChild('#myChart', { static: false }) myChart: jqxChartComponent;
+    @ViewChild('myChart', { static: false }) myChart: jqxChartComponent;
     @Input() chart_title: any = 'Unnamed Chart';
     @Input() description: any = 'Description.'
     @Input() source: any[] = [];
     @Input() positions: any = [];
     @Input() area = 'VIC';
     @Input() scope: any = 'House_loss';
-
-    @Output() chartType: EventEmitter<any> = new EventEmitter<any>();
 
     edgeOptions;
     landscapeOptions;
@@ -33,7 +32,7 @@ export class BarchartComponent implements OnInit {
     series = [];
     toolFn;
 
-    chart_types = ['line', 'column'];
+    schemes = schemes;
 
     constructor(private ws: WeightsService) {
         this.edgeOptions = this.ws.getEdgeOptions().map(eo => {
@@ -66,6 +65,7 @@ export class BarchartComponent implements OnInit {
         for (let p in Array.from(Array(49).keys())) {
             this.series.push({
                 dataField: 'idx' + p,
+                color: this.schemes[0].colors[p],
                 displayText: this.toolFn(p)
             });
         }
@@ -74,14 +74,21 @@ export class BarchartComponent implements OnInit {
             {
                 type: 'column',
                 columnsGapPercent: 0,
-                seriesGapPercent: 0,
+                seriesGapPercent: 10,
                 columnsMaxWidth: 40,
-                columnsMinWidth: 1,
+                columnsMinWidth: 8,
                 valueAxis:
                 {
                     visible: true,
+                    minValue: 0,
+                    maxValue: 1,
                     unitInterval: 0.1,
-                    title: { text: 'Normalised ' + this.scope + ' values<br>' }
+                    title: { text: 'Normalised ' + this.scope + ' values<br>' },
+                    tickMarks:
+                    {
+                        visible: true,
+                        custom: [{ value: 0 }, { value: 1.0 }]
+                    },
                 },
                 series: this.series
             }];
@@ -90,17 +97,13 @@ export class BarchartComponent implements OnInit {
     ngOnInit() {
     }
 
-    onChartTypeChange(t) {
-        this.selected_type = t;
-        this.chartType.emit(this.selected_type);
-        this.refresh();
-    }
-
     refresh() {
 
         console.log(this.area);
-        console.log(this.positions);
+        // console.log(this.positions);
         console.log(this.scope);
+
+        this.sub.unsubscribe();
 
         this.sub = this.ws.getSingleSeries(this.area, this.positions, this.scope).subscribe((data) => {
             // console.log('Got subscription data for Spider Chart');

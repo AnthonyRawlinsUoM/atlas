@@ -9,7 +9,6 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
-
 }
 
 /* .matrix .mrow {
@@ -21,7 +20,7 @@
 }
 .matrix .ncol {
     width: 32px;
-    height: 32px;
+    height: 64px;
 }
 .matrix .dcol {
     width: 64px;
@@ -29,7 +28,8 @@
 }
 .matrix .wcol {
     width: 224px;
-    height: 32px;
+    height: 64px;
+    text-align: center;
 }
 .matrix .dcol label,
 .matrix .wcol label,
@@ -64,4 +64,8 @@
 
 .matrix .cell:hover .highlight {
     border: 1px #641 dashed;
+}
+
+.pivot {
+    transform: rotate(-90deg) translate(-110px);
 }

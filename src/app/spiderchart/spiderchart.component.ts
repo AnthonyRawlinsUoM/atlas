@@ -1,6 +1,7 @@
 import { Component, ViewChild, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { jqxChartComponent } from 'jqwidgets-ng/jqxchart';
 import { WeightsService } from '../weights.service';
+import { schemes } from '../Viridis';
 
 @Component({
     selector: 'app-spiderchart',
@@ -29,12 +30,11 @@ export class SpiderchartComponent implements OnInit {
     dataAdapter: any;
     padding: any;
     titlePadding: any;
-
     valueAxis: any;
-
     seriesGroups: any;
     selected_type = 'line';
 
+    schemes = schemes;
     // seriesList: string[] = ['line', 'stackedline', 'splinearea', 'spline'];
 
     series = [];
@@ -49,7 +49,7 @@ export class SpiderchartComponent implements OnInit {
     ngOnInit(): void {
 
 
-        this.radius = "140";
+        this.radius = "160";
 
         this.xAxis = {
             dataField: 'metric',
@@ -65,10 +65,24 @@ export class SpiderchartComponent implements OnInit {
 
         this.valueAxis = {
             unitInterval: 0.1,
-            minValue: 0.0,
-            maxValue: 1.0,
+            minValue: 0,
+            maxValue: 10,
             valuesOnTicks: false,
-            gridLines: { color: 'rgb(10,11,12)', interval: 0.25 }
+            labels: {
+                step: 1,
+                visible: true,
+                custom: [{ value: 0 }, { value: 10.0 }]
+            },
+            gridLines: { color: 'rgb(10,11,12)', step: 1,
+            visible: true,
+            custom: [{ value: 0 }, { value: 10.0 }]
+         },
+            tickMarks:
+            {
+                step: 1,
+                visible: true,
+                custom: [{ value: 0 }, { value: 10.0 }]
+            },
         };
 
         this.padding = { left: 5, top: 5, right: 5, bottom: 5 };
@@ -139,6 +153,8 @@ export class SpiderchartComponent implements OnInit {
                 displayText: this.toolFn(p),
                 opacity: this.opacity,
                 lineWidth: this.lineWidth,
+                lineColor: this.schemes[0].colors[p],
+                color: this.schemes[0].colors[p],
                 radius: this.radii,
                 symbolType: 'circle',
             });

@@ -1,12 +1,16 @@
 <div class="ui fluid field">
-    <label>Metric</label>
     <app-scope-option (scopeChange)="refresh($event)"></app-scope-option>
 </div>
 <div
     class="ui matrix"
     #matrixselector
 >
-    <div class="dcol"><label>Edge % Burnt</label></div>
+    <div class="dcol">
+        <div class="pivot">
+            <label>Edge % Burnt</label>
+        </div>
+    </div>
+
     <div class="mcol">
         <div
             *ngFor="let r of edgeOptions"

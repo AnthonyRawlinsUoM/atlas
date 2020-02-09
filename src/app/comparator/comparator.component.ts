@@ -38,6 +38,8 @@ export class ComparatorComponent implements OnInit {
         this.selectedItems = itms.filter(distinct);
         if (this.chart != undefined) {
             this.chart.positions = this.selectedItems;
+
+            this.mtx.renew();
             this.chart.refresh();
         }
     }
@@ -47,11 +49,12 @@ export class ComparatorComponent implements OnInit {
         console.log(ev);
 
         this.scope = ev;
+        this.chart.scope = this.scope;
         this.mtx.renew();
         if (this.chart != undefined) {
             // this.chart.area = this.study.properties.sim_name;
             // this.chart.positions = this.selectedItems;
-            // this.chart.refresh();
+            this.chart.refresh();
         }
     }
 }

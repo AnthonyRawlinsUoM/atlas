@@ -1,22 +1,3 @@
-<div class="ui field">
-    <label>Chart Style</label>
-
-    <sui-select
-        class="selection"
-        [(ngModel)]="scope"
-        [options]="chart_types"
-        (selectedOptionChange)="onChartTypeChange($event)
-                    "
-        #select
-    >
-        <sui-select-option
-            *ngFor="let option of select.filteredOptions"
-            [value]="option"
-        >
-        </sui-select-option>
-    </sui-select>
-</div>
-
 <jqxChart
     [width]="'calc(100%)'"
     [height]="'calc(50vh)'"
@@ -29,7 +10,7 @@
     [source]="source"
     [xAxis]="xAxis"
     [seriesGroups]="seriesGroups"
-    [colorScheme]="'scheme03'"
+    [colorScheme]="'VIRIDIS_R'"
     [backgroundColor]="'#FFFFFF'"
     #myChart
 >

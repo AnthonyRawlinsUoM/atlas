@@ -12,6 +12,11 @@
             </tr>
         </thead>
         <tbody>
+
+            <tr>
+                <td class="collapsing">Values are normalised.</td>
+                <td>Values are normalised.</td>
+            </tr>
             <tr>
                 <td
                     class="collapsing"
@@ -28,15 +33,12 @@
                         (click)="mtx.clearAll()"
                         class="ui fluid icon button"
                     ><i class="ui orange window close icon"></i> Clear selection</div>
-
-
                 </td>
 
                 <td
                     class=""
                     valign="top"
                 >
-
                     <div
                         class="ui segment"
                         *ngIf="selectedItems.length == 0"
