@@ -36,6 +36,7 @@
     "@types/js-base64": "^2.3.1",
     "@types/socket.io": "^2.1.4",
     "angular-persistence": "^1.0.1",
+    "angular2-chartjs": "^0.5.1",
     "chart.js": "^2.9.3",
     "chartjs-chart-box-and-violin-plot": "^2.2.0",
     "colormap": "^2.3.1",

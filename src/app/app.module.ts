@@ -13,6 +13,7 @@ import { SuiModule, SuiModalService, SuiCheckboxModule } from 'ng2-semantic-ui';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ChartModule} from 'angular2-chartjs';
 
 import { ReactiveService } from './reactive.service';
 import { DisclaimerService } from './disclaimer.service';
@@ -181,6 +182,7 @@ const routes: Routes = [
         jqxChartModule,
         NgProgressModule,
         DragDropModule,
+        ChartModule,
         SocketIoModule.forRoot(config),
         NgxMapboxGLModule.withConfig({
             accessToken: 'pk.eyJ1IjoiYW50aG9ueXJhd2xpbnN1b20iLCJhIjoiY2o1dm81NTIwMDN6MTJxbjlvOHBiNHdlOSJ9.lt8I4sU0ceA6N8Tnnmx2ig', // Optionnal, can also be set per map (accessToken input of mgl-map)

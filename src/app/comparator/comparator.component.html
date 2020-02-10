@@ -21,25 +21,15 @@
                     class="collapsing"
                     valign="top"
                 >
-                    <app-matrix-selector
-                        [study_area]="study"
-                        (selectedItems)="onSelectedItemsChange($event)"
-                        #mtx
-                    ></app-matrix-selector>
-
-                    <div
-                        (click)="mtx.selectAll()"
-                        class="ui fluid icon button"
-                    ><i class="ui green check square icon"></i> Select All</div>
-
-                    <div
-                        *ngIf="selectedItems.length > 0"
-                        (click)="mtx.clearAll()"
-                        class="ui fluid icon button"
-                    ><i class="ui orange window close icon"></i> Clear selection</div>
-
-
-
+                    <div class="ui field">
+                      <div class="ui buttons">
+                        <div class="ui active button" *ngIf="treatment=='landscape'" (click)="onTreatmentChange('landscape')">Landscape</div>
+                        <div class="ui button" *ngIf="treatment!='landscape'" (click)="onTreatmentChange('landscape')">Landscape</div>
+                        <div class="or"></div>
+                        <div class="ui active button" *ngIf="treatment=='edge'" (click)="onTreatmentChange('edge')">Edge</div>
+                        <div class="ui button" *ngIf="treatment!='edge'" (click)="onTreatmentChange('edge')">Edge</div>
+                      </div>
+                    </div>
                 </td>
 
                 <td
@@ -47,39 +37,12 @@
                     valign="top"
                 >
                     <div
-                        class="ui segment"
-                        *ngIf="selectedItems.length == 0"
+                        class="ui field"
                     >
-                        <div class="ui big icon message">
-                            <i class="info circle icon"></i>
-                            <div class="content">
-                                <div class="header">Make a selection</div>
-                                <p>Select Landscape / Edge Percentage Burnt to compare losses.</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div *ngIf="selectedItems.length > 0">
-                        <div
-                            class="ui field"
-                            *ngIf="selectedItems.length > 0"
-                        >
-                            <app-scope-option (scopeChange)="onScopeChange($event)"></app-scope-option>
-                        </div>
-
-                        <app-barchart
-                            *ngIf="selectedItems.length > 0"
-                            [scope]="scope"
-                            [chart_title]="'Losses using Landscape and Edge Treatment Regimes'"
-                            [description]="'Lower is better.'"
-                            [area]="study.properties.sim_name"
-                            [positions]="selectedItems"
-                            #barchart
-                        ></app-barchart>
-
-                        <app-boxplot [source]="selectedItems"></app-boxplot>
-
+                        <app-scope-option (scopeChange)="onScopeChange($event)"></app-scope-option>
+                        <app-boxplot [scope]="scope"
+                        [treatment]="treatment"
+                        #boxplot></app-boxplot>
                     </div>
                 </td>
             </tr>
