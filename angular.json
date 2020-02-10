@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "atlas"
+    }
+  },
+  "defaultProject": "atlas",
+  "cli": {
+    "analytics": false
+  }
 }
