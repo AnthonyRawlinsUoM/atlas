@@ -70,26 +70,34 @@ export class WeightsService {
         });
     }
 
-    public getSingleSeries(area, positions, scope) {
+    public getSingleSeries(study, scope, level:number, treatment) {
+
+        const pos = [0,1,2,3,4,5,6];
+        console.log(treatment);
+        console.log(level);
+        console.log(study);
         return Observable.create((observer) => {
             // Area = array of indexes row*col + col
             // eg., [0,12,14...,48] etc
 
-            let selected_area = normals.areas[area];
+            let selected_area = matrix.areas[study];
             let res = [];
+
             for (let m in selected_area) {
                 if (m == scope) {
-                    let metric = {};
                     for (let i in selected_area[m]) {
-                        for (let pos = 0; pos < positions.length; pos++) {
-                            if (i == positions[pos].toString()) {
-                                metric['idx' + (i.toString())] = selected_area[m][i];
-                            }
+                      if (treatment == 'landscape') {
+                        // 0,1,2,3,4,5,6
+                        for (let j of pos) {
+                          if(i == (j + (level * 7)).toString()) res.push(selected_area[m][i]);
                         }
+                      }
+                      if (treatment == 'edge') {
+                        for (let j of pos) {
+                          if(i == (level + (j * 7)).toString()) res.push(selected_area[m][i]);
+                        }
+                      }
                     }
-
-                    metric["metric"] = m;
-                    res.push(metric);
                 }
             }
             observer.next(res)

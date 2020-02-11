@@ -54,6 +54,7 @@
     "moment": "^2.24.0",
     "ng2-nvd3": "^2.0.0",
     "ng2-semantic-ui": "^0.9.7",
+    "ng5-slider": "^1.2.4",
     "ngx-cookie-service": "^2.2.0",
     "ngx-mapbox-gl": "^3.3.1",
     "ngx-papaparse": "^4.0.2",

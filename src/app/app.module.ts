@@ -14,6 +14,7 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ChartModule} from 'angular2-chartjs';
+import { Ng5SliderModule } from 'ng5-slider';
 
 import { ReactiveService } from './reactive.service';
 import { DisclaimerService } from './disclaimer.service';
@@ -65,7 +66,6 @@ import { SandboxComponent } from './sandbox/sandbox.component';
 import { CellHighlightComponent } from './matrix-selector/cell-highlight/cell-highlight.component';
 import { InformationComponent } from './information/information.component';
 import { FaqComponent } from './faq/faq.component';
-import { BarchartComponent } from './barchart/barchart.component';
 import { ShortcutsComponent } from './shortcuts/shortcuts.component';
 import { MapviewComponent } from './mapview/mapview.component';
 import { TeamMemberComponent } from './teammember/teammember.component';
@@ -81,7 +81,6 @@ import { HelpComponent } from './help/help.component';
 
 import { SafePipe } from './safe.pipe';
 import { CandlestickComponent } from './candlestick/candlestick.component';
-import { BoxplotComponent } from './boxplot/boxplot.component';
 import { ViolinplotComponent } from './violinplot/violinplot.component';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
@@ -154,7 +153,6 @@ const routes: Routes = [
         CellHighlightComponent,
         InformationComponent,
         FaqComponent,
-        BarchartComponent,
         ShortcutsComponent,
         MapviewComponent,
         TeamMemberComponent,
@@ -168,8 +166,7 @@ const routes: Routes = [
         SafePipe,
         HelpComponent,
         CandlestickComponent,
-        BoxplotComponent,
-        ViolinplotComponent
+        ViolinplotComponent,
     ],
     imports: [
         BrowserModule,
@@ -183,6 +180,7 @@ const routes: Routes = [
         NgProgressModule,
         DragDropModule,
         ChartModule,
+        Ng5SliderModule,
         SocketIoModule.forRoot(config),
         NgxMapboxGLModule.withConfig({
             accessToken: 'pk.eyJ1IjoiYW50aG9ueXJhd2xpbnN1b20iLCJhIjoiY2o1dm81NTIwMDN6MTJxbjlvOHBiNHdlOSJ9.lt8I4sU0ceA6N8Tnnmx2ig', // Optionnal, can also be set per map (accessToken input of mgl-map)

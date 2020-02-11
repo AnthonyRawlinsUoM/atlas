@@ -9,3 +9,10 @@
 .flex-container .ui {
     flex-grow: 1;
 } */
+
+.rangeslider .ng5-slider .ng5-slider-selection {
+  /* background: rgb(255, 255, 0) !important; */
+}
+.chart-container {
+  min-height: 400px;
+}

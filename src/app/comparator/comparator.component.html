@@ -29,6 +29,11 @@
                         <div class="ui active button" *ngIf="treatment=='edge'" (click)="onTreatmentChange('edge')">Edge</div>
                         <div class="ui button" *ngIf="treatment!='edge'" (click)="onTreatmentChange('edge')">Edge</div>
                       </div>
+                      <div class="ui divider"></div>
+                      <div class="ui field">
+                        <div class="ui header">@ Level:</div>
+                        <ng5-slider class="rangeslider" [(value)]="level" [options]="pb_options" (valueChange)="levelChange($event)"></ng5-slider>
+                      </div>
                     </div>
                 </td>
 
@@ -40,9 +45,18 @@
                         class="ui field"
                     >
                         <app-scope-option (scopeChange)="onScopeChange($event)"></app-scope-option>
-                        <app-boxplot [scope]="scope"
+                        <div class="ui divider"></div>
+
+                        <!-- <app-boxplot
+                        [study]="area"
+                        [scope]="scope"
                         [treatment]="treatment"
-                        #boxplot></app-boxplot>
+                        #boxplot></app-boxplot> -->
+
+                        <div class="ui center aligned header">{{ scope + ' @ ' + pb_label(level) + '% of ' + treatment + '.'}}</div>
+                        <div class="chart-container">
+                        <canvas id='canvas' ></canvas>
+                        </div>
                     </div>
                 </td>
             </tr>
