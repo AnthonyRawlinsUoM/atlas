@@ -82,6 +82,7 @@ import { HelpComponent } from './help/help.component';
 import { SafePipe } from './safe.pipe';
 import { CandlestickComponent } from './candlestick/candlestick.component';
 import { ViolinplotComponent } from './violinplot/violinplot.component';
+import { TreatmentComponent } from './treatment/treatment.component';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 // const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
@@ -167,6 +168,7 @@ const routes: Routes = [
         HelpComponent,
         CandlestickComponent,
         ViolinplotComponent,
+        TreatmentComponent,
     ],
     imports: [
         BrowserModule,

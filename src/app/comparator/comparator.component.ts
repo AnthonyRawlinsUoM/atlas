@@ -120,6 +120,7 @@ export class ComparatorComponent implements OnInit {
               maintainAspectRatio: true,
               scales: {
                 yAxes: [{
+                  position: 'right',
                   ticks: {
                       beginAtZero: true,
                       min: 0,
@@ -180,6 +181,8 @@ export class ComparatorComponent implements OnInit {
             console.log('No chart registered');
             return;
         } else {
+            this.area = this.study.properties.sim_name
+
             if (this.sub) this.sub.unsubscribe();
             this.sub = this.ws.getSingleSeries(this.area, this.scope, this.level, this.treatment).subscribe((data) => {
                 console.log(data);
