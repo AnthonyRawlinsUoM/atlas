@@ -132,14 +132,14 @@ export class ComparatorComponent implements OnInit {
             }
         });
 
-        this.chart.scaleService.updateScaleDefaults('linear', {
-            ticks: {
-                min: 0,
-                max: 1,
-                suggestedMin: 0,
-                suggestedMax: 1
-            }
-        });
+        // this.chart.scaleService.updateScaleDefaults('linear', {
+        //     ticks: {
+        //         min: 0,
+        //         max: 1,
+        //         suggestedMin: 0,
+        //         suggestedMax: 1
+        //     }
+        // });
 
     }
 
