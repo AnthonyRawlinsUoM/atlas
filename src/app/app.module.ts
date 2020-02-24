@@ -111,10 +111,14 @@ const routes: Routes = [
     { path: 'publications', component: PublicationsComponent, data: { state: 'publications' } },
     { path: 'logout', component: LogoutComponent },
     {
-        path: 'home', component: StudyAreasComponent, data: { state: 'home' }
+        path: 'home', component: StudyAreasComponent,
+        canActivate: [AuthGuard],
+        data: { state: 'home' }
     },
     {
-        path: '', component: StudyAreasComponent, data: { state: 'studies' }
+        path: '', component: StudyAreasComponent,
+        canActivate: [AuthGuard],
+        data: { state: 'studies' }
     },
     { path: '**', component: PageNotFoundComponent, data: { state: '404' } }];
 
