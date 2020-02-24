@@ -32,6 +32,11 @@
                     suiTabHeader="3"
                 ><i class="ui bar chart icon"></i> Single Metric Comparator</a>
 
+                <a
+                    class="item"
+                    suiTabHeader="4"
+                ><i class="ui bar chart icon"></i> Treatment Comparator (Testing)</a>
+
                 <div class="right menu">
                     <a
                         class="ui red  item"
@@ -71,6 +76,16 @@
                         *ngIf="study != undefined"
                         [study]="study"
                     ></app-comparator>
+                </div>
+
+                <div
+                    class="ui fluid segment"
+                    suiTabContent="4"
+                >
+                    <app-treatment
+                        *ngIf="study != undefined"
+                        [study]="study"
+                    ></app-treatment>
                 </div>
 
             </div>
