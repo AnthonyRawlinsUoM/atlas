@@ -20,6 +20,11 @@ export class CitationHarvardComponent implements AfterViewInit {
             let headers = keys.map(key => `${key}: ${resp.headers.get(key)}`);
             let body = { ... resp.body };
             console.log(body);
+
+            // Hyperlinking the DOI itself in the result
+            // See: https://www.crossref.org/blog/dois-and-matching-regular-expressions/
+            // Regex: /^10.\d{4,9}/[-._;()/:A-Z0-9]+$/i
+
             this.content = resp.body.toString();
         });
 
