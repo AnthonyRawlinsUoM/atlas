@@ -20,7 +20,7 @@ export class CitationHarvardComponent implements AfterViewInit {
             let headers = keys.map(key => `${key}: ${resp.headers.get(key)}`);
             let body = { ... resp.body };
             console.log(body);
-
+            this.content = resp.body.toString();
         });
 
         //     .subscribe((data) => {

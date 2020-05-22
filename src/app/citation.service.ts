@@ -8,18 +8,11 @@ import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/htt
 })
 export class CitationService {
 
-    configUrl = 'https://fromdoi-atppui9es2iu.runkit.sh';
+    // Uses proxy.conf.json to alleviate CORS problem
+    configUrl = 'https://prescribedburnatlas.science';
 
     constructor(private http: HttpClient) { }
 
-    // public getCitation(doi) {
-    //     console.log(`GET https://anthonyrawlinsuom.runkit.io${this.configUrl}/harvard/${doi}`);
-    //
-    //     const requestOptions: Object = {
-    //         responseType: 'text'
-    //     }
-    //     return this.http.get(`https://anthonyrawlinsuom.runkit.io${this.configUrl}/harvard/${doi}`, requestOptions);
-    // }
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
             // A client-side or network error occurred. Handle it accordingly.
