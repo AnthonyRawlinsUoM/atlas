@@ -3,12 +3,10 @@
     *ngIf="active"
     (click)="onClick($event)"
     [style.background-color]="getColor()"
-><label>
-        <!-- {{idx}} -->
-    </label></div>
+><label>{{value | number:1.0-1 }}</label></div>
 <div
     class="cell"
     *ngIf="!active"
     (click)="onClick($event)"
     [style.background-color]="getColor()"
-></div>
+><label>{{value | number:1.0-1 }}</label></div>

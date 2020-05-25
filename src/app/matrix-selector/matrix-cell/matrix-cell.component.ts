@@ -24,6 +24,7 @@ export class MatrixCellComponent implements OnInit {
     color;
     edgeOptions;
     landscapeOptions;
+    value: any;
 
     constructor(private ms: WeightsService) { }
 
@@ -59,8 +60,13 @@ export class MatrixCellComponent implements OnInit {
         return this.color;
     }
 
+    getValue() {
+      return this.value;
+    }
+
     public refresh() {
         this.color = this.ms.getMatrixCellOptionsForAreaScope(this.id, this.area, this.scope, this.cmap, 'rgba');
+        this.value = this.ms.getMatrixValueForAreaScope(this.id, this.area, this.scope);
     }
 
 }

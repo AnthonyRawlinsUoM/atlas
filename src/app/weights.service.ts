@@ -104,6 +104,12 @@ export class WeightsService {
         });
     }
 
+    public getMatrixValueForAreaScope(cellpos, area, scope) {
+        let norms = matrix.areas[area][scope];
+        let normalised_value = norms[cellpos];
+        return normalised_value;
+    }
+
     public getMatrixCellOptionsForAreaScope(cellpos, area, scope, cmap, mode) {
         let norms = matrix.areas[area][scope];
         let normalised_value = norms[cellpos];
