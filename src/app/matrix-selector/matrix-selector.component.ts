@@ -56,6 +56,7 @@ export class MatrixSelectorComponent implements OnInit {
     ngAfterViewInit() {
         // print array of CustomComponent objects
         // console.log(this.components.toArray());
+        this.renew();
     }
 
     onDeactivate(position) {

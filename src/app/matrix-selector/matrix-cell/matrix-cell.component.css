@@ -10,8 +10,10 @@
     border: solid 1px rgba(255,0,0,1);
     cursor: pointer;
 }
-
-.cell.active label {
+.cell:hover label {
+  opacity: 1.0;
+}
+.cell label {
     text-align: center;
     color: #FFF;
     display: table-cell;
@@ -21,6 +23,10 @@
     width: 32px;
     height: 32px;
     font-weight: bold;
-    opacity: 0.65;
+    opacity: 0.25;
     cursor: pointer !important;
+}
+
+.cell label.black {
+  color: #000;
 }

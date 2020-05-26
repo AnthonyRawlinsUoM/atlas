@@ -1,0 +1,17 @@
+table.legend {
+  /* max-width: 220px; */
+}
+
+table.legend .legend {
+  background-size: contain;
+  background-image: url('/assets/images/viridis_legend.png');
+  height: 32px;
+}
+table.legend label {
+  text-align: middle center;
+}
+
+.wrap {
+  white-space: pre-wrap;
+  max-width: 330px;
+}

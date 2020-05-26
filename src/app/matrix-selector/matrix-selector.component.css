@@ -69,3 +69,7 @@
 .pivot {
     transform: rotate(-90deg) translate(-110px);
 }
+.wrap {
+  white-space: pre-wrap;
+  max-width: 330px;
+}

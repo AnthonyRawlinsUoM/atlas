@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
     styleUrls: ['./legend.component.css']
 })
 export class LegendComponent implements OnInit {
-    @Input() area;
-    @Input() scope;
+    // @Input() area;
+    // @Input() scope;
 
     constructor() { }
 

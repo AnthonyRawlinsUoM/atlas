@@ -3,10 +3,16 @@
     *ngIf="active"
     (click)="onClick($event)"
     [style.background-color]="getColor()"
-><label>{{value | number:1.0-1 }}</label></div>
+>
+<label *ngIf="value < 0.5">{{value | number:'1.0-1' }}</label>
+<label *ngIf="value >= 0.5" class="black">{{value | number:'1.0-1' }}</label>
+</div>
 <div
     class="cell"
     *ngIf="!active"
     (click)="onClick($event)"
     [style.background-color]="getColor()"
-><label>{{value | number:1.0-1 }}</label></div>
+>
+<label *ngIf="value < 0.5">{{value | number:'1.0-1' }}</label>
+<label *ngIf="value >= 0.5" class="black">{{value | number:'1.0-1' }}</label>
+</div>

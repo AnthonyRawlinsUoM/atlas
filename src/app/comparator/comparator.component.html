@@ -13,8 +13,8 @@
         </thead>
         <tbody>
             <tr>
-                <td class="collapsing">Values are normalised.</td>
-                <td>Values are normalised. (0 = Minimum Risk, 1 = Maximum Risk)</td>
+                <td class="collapsing">Values are normalised to show relative effects.</td>
+                <td>Values are normalised to show relative effects. (0 = Minimum Risk, 1 = Maximum Risk)</td>
             </tr>
             <tr>
                 <td
@@ -22,12 +22,12 @@
                     valign="top"
                 >
                     <div class="ui field">
-                      <div class="ui buttons">
-                        <div class="ui active button" *ngIf="treatment=='landscape'" (click)="onTreatmentChange('landscape')">Landscape</div>
-                        <div class="ui button" *ngIf="treatment!='landscape'" (click)="onTreatmentChange('landscape')">Landscape</div>
+                      <div class="ui fluid buttons">
+                        <div class="ui icon active button" *ngIf="treatment=='landscape'" (click)="onTreatmentChange('landscape')"><i class="arrows alternate horizontal icon"></i> Landscape</div>
+                        <div class="ui icon button" *ngIf="treatment!='landscape'" (click)="onTreatmentChange('landscape')"><i class="arrows alternate horizontal icon"></i> Landscape</div>
                         <div class="or"></div>
-                        <div class="ui active button" *ngIf="treatment=='edge'" (click)="onTreatmentChange('edge')">Edge</div>
-                        <div class="ui button" *ngIf="treatment!='edge'" (click)="onTreatmentChange('edge')">Edge</div>
+                        <div class="ui active icon button" *ngIf="treatment=='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edge</div>
+                        <div class="ui icon button" *ngIf="treatment!='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edge</div>
                       </div>
                       <div class="ui divider"></div>
                       <div class="ui field">
