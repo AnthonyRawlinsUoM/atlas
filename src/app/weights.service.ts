@@ -3,7 +3,7 @@ import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from
 import { filter, map } from 'rxjs/operators';
 
 import matrix from '../assets/matrix_master.json';
-import normals from '../assets/BayesNetOutputs/master_normalised.json';
+// import normals from '../assets/BayesNetOutputs/master_normalised.json';
 
 import Blues from '../assets/cmaps/seq/cmap_Blues_255.json';
 import BuGn from '../assets/cmaps/seq/cmap_BuGn_255.json';
@@ -52,7 +52,7 @@ export class WeightsService {
             // Area = array of indexes row*col + col
             // eg., [0,12,14...,48] etc
 
-            let selected_area = normals.areas[area];
+            let selected_area = matrix.areas[area];
             let res = [];
             for (let m in selected_area) {
                 let metric = {};
