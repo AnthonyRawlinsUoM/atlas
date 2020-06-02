@@ -50,7 +50,7 @@ export class StudyAreasComponent implements AfterViewInit {
             console.log(this.fragment);
         }
         catch(e) {
-                console.warn(e);
+            console.log(e);
         }
     }
 

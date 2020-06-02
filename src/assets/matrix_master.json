@@ -65,9 +65,9 @@
          }
       ]
    },
-   "areas":{
-      "NSW_BHILL":{
-         "Fire_area":{
+   "areas": {
+      "NSW_BHILL": {
+         "Fire_area": {
             "0":1.0,
             "1":0.9654383238,
             "2":0.9462936377,
