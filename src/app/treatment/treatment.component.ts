@@ -21,44 +21,26 @@ export class TreatmentComponent implements OnInit {
     sub;
     chart;
     selection;
-    colors = schemes[2];
+    colors = schemes[0];
     positions: any[];
+    initialData: ChartData;
 
-    initialData: ChartData = {
-        labels: ['House_loss', 'Life_loss', 'Power_loss', 'Road_loss', 'TFI_burnt', 'Fire_area'],
-        datasets: [{
-            label: 'idx0',
-            backgroundColor: this.colors.colors[0],
-            data: [Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random()]
-        },
-        {
-            label: 'idx1',
-            backgroundColor: this.colors.colors[1],
-            data: [Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random()]
-        },
-        {
-            label: 'idx2',
-            backgroundColor: this.colors.colors[2],
-            data: [Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random()]
-        },
-        {
-            label: 'idx3',
-            backgroundColor: this.colors.colors[3],
-            data: [Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random()]
-        },
-        {
-            label: 'idx4',
-            backgroundColor: this.colors.colors[4],
-            data: [Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random()]
-        },
-        {
-            label: 'idx5',
-            backgroundColor: this.colors.colors[5],
-            data: [Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random()]
-        }]
-    };
+    constructor(private ws: WeightsService) {
+      console.log(this.colors);
 
-    constructor(private ws: WeightsService) { }
+      this.initialData = {
+          labels: ['Fire_area', 'House_loss', 'Life_loss', 'Road_loss', 'Power_loss', 'TFI_burnt'],
+          datasets: [{
+              label: 'No Treatment',
+              backgroundColor: this.colors.colors[0],
+
+              borderColor: this.colors.colors[0],
+              fill: false,
+              data: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+          }
+        ]
+      };
+    }
 
     ngOnInit() {
 
@@ -67,11 +49,14 @@ export class TreatmentComponent implements OnInit {
 
         this.chart = new Chart('radar', {
             type: 'radar',
-            data:this.massage(this.initialData),
+            data: this.initialData,
             options: {
                 legend: {
-                display: false,
-                position: 'bottom'
+                display: true,
+                position: 'bottom',
+                labels: {
+                  fontSize: 16
+                }
               },
               aspectRatio: 1,
               maintainAspectRatio: true,
@@ -120,7 +105,7 @@ export class TreatmentComponent implements OnInit {
 
     refreshCharts() {
         console.log('Changes!');
-
+        console.log(this.initialData);
 
         if (!this.chart) {
             console.log('No chart registered');
@@ -130,16 +115,11 @@ export class TreatmentComponent implements OnInit {
 
             if (this.sub) this.sub.unsubscribe();
             this.sub = this.ws.getSpiderSeries(this.area, this.positions).subscribe((data) => {
+                console.log('Treatment SpiderData came back...');
                 console.log(data);
-                // this.chart.data.datasets[0].data = [data[0]];
-                // this.chart.data.datasets[1].data = [data[1]];
-                // this.chart.data.datasets[2].data = [data[2]];
-                // this.chart.data.datasets[3].data = [data[3]];
-                // this.chart.data.datasets[4].data = [data[4]];
-                // this.chart.data.datasets[5].data = [data[5]];
-                // this.chart.data.datasets[6].data = [data[6]];
-                this.chart.data = this.massage(this.initialData);
 
+                this.chart.data = this.massage(data);
+                console.log(this.chart.data);
             });
             this.chart.update({
                 duration: 450,
@@ -157,16 +137,27 @@ export class TreatmentComponent implements OnInit {
 
     massage(data) {
         let d = [];
-
         for (let i of Array(this.positions.length).keys()) {
+            let lbl = 'idx' + this.positions[i];
+            let posLabel = this.ws.getRowColumnForIndex(this.positions[i]);
+
             d.push({
-                label: 'idx' + i,
-                backgroundColor: this.colors.colors[1],
-                data: [Math.random(),Math.random(),Math.random(),Math.random(),Math.random(),Math.random()]
+                label: posLabel,
+                backgroundColor: this.colors.colors[this.positions[i]],
+                borderColor: this.colors.colors[this.positions[i]],
+                fill: false,
+                data: [
+                  data[0][lbl],
+                  data[1][lbl],
+                  data[2][lbl],
+                  data[3][lbl],
+                  data[4][lbl],
+                  data[5][lbl]
+                ]
             });
         }
         let example: ChartData = {
-            labels: ['House_loss', 'Life_loss', 'Power_loss', 'Road_loss', 'TFI_burnt', 'Fire_area'],
+            labels: ['Fire_area', 'House_loss', 'Life_loss', 'Road_loss', 'Power_loss', 'TFI_burnt'],
             datasets: d
         };
 
@@ -175,4 +166,10 @@ export class TreatmentComponent implements OnInit {
 }
 const distinct = (value, index, self) => {
     return self.indexOf(value) === index;
+}
+
+export function idxToEdgeAndLandscape(i) {
+  const e = Math.floor(i / 7);
+  const l = i % 7;
+  return {edge: e, landscape:l};
 }

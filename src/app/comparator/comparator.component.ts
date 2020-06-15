@@ -185,6 +185,7 @@ export class ComparatorComponent implements OnInit {
 
             if (this.sub) this.sub.unsubscribe();
             this.sub = this.ws.getSingleSeries(this.area, this.scope, this.level, this.treatment).subscribe((data) => {
+                console.log('Got single series.');
                 console.log(data);
                 this.chart.data.datasets[0].data = [data[0]];
                 this.chart.data.datasets[1].data = [data[1]];

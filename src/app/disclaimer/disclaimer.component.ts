@@ -10,6 +10,7 @@ export class DisclaimerComponent implements OnInit {
   constructor(private disclaim: DisclaimerService) { }
 
   ngOnInit() {
+
   }
 
   alert(ev) {
@@ -17,10 +18,12 @@ export class DisclaimerComponent implements OnInit {
   }
 
   deny() {
+    console.log('Declining disclaimer now...');
     this.disclaim.decline();
   }
 
   approve() {
+    console.log('Approving disclaimer now...');
     this.disclaim.acknowledge();
   }
 }

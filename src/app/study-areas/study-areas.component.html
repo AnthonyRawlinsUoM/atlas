@@ -1,3 +1,5 @@
+
+
 <div class="left docked">
     <button
         class="ui black icon button"
@@ -22,20 +24,25 @@
                     suiTabHeader="1"
                 ><i class="ui info icon"></i> Information</a>
 
-                <a
+                <!-- <a
                     class="item"
                     suiTabHeader="2"
-                ><i class="ui chart line icon"></i> Treatment Comparator</a>
+                ><i class="ui chart line icon"></i> Treatment Comparator</a> -->
+                <a
+                class="item"
+                suiTabHeader="2"
+                ><i class="ui bar chart icon"></i> Treatment Comparator</a>
 
                 <a
                     class="item"
                     suiTabHeader="3"
                 ><i class="ui bar chart icon"></i> Single Metric Comparator</a>
 
+
                 <a
                     class="item"
                     suiTabHeader="4"
-                ><i class="ui bar chart icon"></i> Treatment Comparator (Testing)</a>
+                ><i class="ui bar chart icon"></i> Costs Comparator (Testing)</a>
 
                 <div class="right menu">
                     <a
@@ -57,7 +64,7 @@
                     ></app-information>
                 </div>
 
-                <div
+                <!-- <div
                     class="ui fluid segment"
                     suiTabContent="2"
                 >
@@ -66,7 +73,17 @@
                         [study]="study"
                         #summary
                     ></app-study-area-window>
-                </div>
+                </div> -->
+                <div
+                class="ui fluid segment"
+                suiTabContent="2"
+                >
+                <app-treatment
+                *ngIf="study != undefined"
+                [study]="study"
+                ></app-treatment>
+              </div>
+
 
                 <div
                     class="ui fluid segment"
@@ -78,15 +95,18 @@
                     ></app-comparator>
                 </div>
 
+
                 <div
                     class="ui fluid segment"
                     suiTabContent="4"
                 >
-                    <app-treatment
+                    <app-cost-comparator
                         *ngIf="study != undefined"
                         [study]="study"
-                    ></app-treatment>
+                    ></app-cost-comparator>
                 </div>
+
+
 
             </div>
 
@@ -108,3 +128,4 @@
     </sui-sidebar-sibling>
 
 </sui-sidebar-container>
+<app-disclaimer></app-disclaimer>

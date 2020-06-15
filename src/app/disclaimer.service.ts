@@ -28,11 +28,13 @@ export class DisclaimerService implements OnInit {
   public acknowledge() {
     this.acknowledged = 'TRUE';
     this.persist();
+    return;
   }
 
   public decline() {
     this.acknowledged = 'FALSE';
     this.persist();
+    return;
   }
 
   private persist() {
