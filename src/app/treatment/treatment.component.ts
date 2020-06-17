@@ -66,7 +66,7 @@ export class TreatmentComponent implements OnInit {
                     },
                     ticks: {
                         min: 0,
-                        max: 1,
+                        max: 1.5,
                         suggestedMin: 0,
                         suggestedMax: 1
                     }

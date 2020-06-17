@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <td
-                    class="collapsing"
+                    class=""
                     valign="top"
                 >
                     <app-matrix-selector
@@ -30,12 +30,15 @@
                         (selectedItems)="onSelectedItemsChange($event)"
                         #mtx
                     ></app-matrix-selector>
+                    <app-legend></app-legend>
 
                     <div
                         *ngIf="positions.length > 0"
                         (click)="mtx.clearAll()"
                         class="ui fluid icon button"
                     ><i class="ui orange window close icon"></i> Clear selection</div>
+
+                    <app-interpretation></app-interpretation>
                 </td>
 
                 <td

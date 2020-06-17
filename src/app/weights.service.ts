@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
-import matrix from '../assets/matrix_master.json';
+// import matrix from '../assets/matrix_master.json';
+import matrix from '../assets/matrix_w_costs.json';
 // import normals from '../assets/BayesNetOutputs/master_normalised.json';
 
 import Blues from '../assets/cmaps/seq/cmap_Blues_255.json';
