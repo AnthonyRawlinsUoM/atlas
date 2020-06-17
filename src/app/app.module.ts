@@ -87,6 +87,7 @@ import { HighlightDirective } from './highlight.directive';
 import { CostComparatorComponent } from './cost-comparator/cost-comparator.component';
 import { InterpretationComponent } from './interpretation/interpretation.component';
 import { CostOptionComponent } from './cost-option/cost-option.component';
+import { ClimateOptionComponent } from './climate-option/climate-option.component';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 // const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
@@ -181,6 +182,7 @@ const routes: Routes = [
         CostComparatorComponent,
         InterpretationComponent,
         CostOptionComponent,
+        ClimateOptionComponent,
     ],
     imports: [
         BrowserModule,
