@@ -1,1 +1,65 @@
-<p>cost-comparator works!</p>
+<div class="ui segment fluid flex-container">
+    <h2 class="ui  header">{{study.properties.long_name}}</h2>
+
+    <table
+        class="ui very basic table"
+        height="100%"
+    >
+        <thead>
+            <tr>
+                <th class="collapsing">Treatment Inspector</th>
+                <th>Cost Analysis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="collapsing">Values are normalised to show relative effects.</td>
+                <td>Values are normalised to show relative effects. (1 = zero treatment, except for area burnt below minimum TFI where 1 = maximum risk)</td>
+            </tr>
+            <tr>
+                <td
+                    class="collapsing"
+                    valign="top"
+                >
+                    <div class="ui field">
+                      <div class="ui fluid buttons">
+                        <div class="ui icon active button" *ngIf="treatment=='landscape'" (click)="onTreatmentChange('landscape')"><i class="arrows alternate horizontal icon"></i> Landscape</div>
+                        <div class="ui icon button" *ngIf="treatment!='landscape'" (click)="onTreatmentChange('landscape')"><i class="arrows alternate horizontal icon"></i> Landscape</div>
+                        <div class="or"></div>
+                        <div class="ui active icon button" *ngIf="treatment=='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edge</div>
+                        <div class="ui icon button" *ngIf="treatment!='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edge</div>
+                      </div>
+                      <div class="ui divider"></div>
+                      <div class="ui field">
+                        <div class="ui header">@ Level:</div>
+                        <ng5-slider class="rangeslider" [(value)]="level" [options]="pb_options" (valueChange)="levelChange($event)"></ng5-slider>
+                      </div>
+                    </div>
+                </td>
+
+                <td
+                    class=""
+                    valign="top"
+                >
+                    <div
+                        class="ui field"
+                    >
+                        <app-cost-option (costTypeChange)="onCostTypeChange($event)"></app-cost-option>
+                        <div class="ui divider"></div>
+
+                        <!-- <app-boxplot
+                        [study]="area"
+                        [scope]="scope"
+                        [treatment]="treatment"
+                        #boxplot></app-boxplot> -->
+
+                        <div class="ui center aligned header">{{ costType + ' @ ' + pb_label(level) + '% of ' + treatment + '.'}}</div>
+                        <div class="chart-container">
+                        <canvas id='costcanvas' #costcanvas></canvas>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

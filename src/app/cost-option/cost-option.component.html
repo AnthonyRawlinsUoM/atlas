@@ -1,0 +1,17 @@
+<sui-select
+    class="fluid labeled icon button"
+    label="Test"
+    [(ngModel)]="costType"
+    [options]="costTypes"
+    labelField="name"
+    valueField="value"
+    (selectedOptionChange)="onChange($event)
+                    "
+    #select
+>
+    <sui-select-option
+        *ngFor="let option of select.filteredOptions"
+        [value]="option"
+    >
+    </sui-select-option>
+</sui-select>

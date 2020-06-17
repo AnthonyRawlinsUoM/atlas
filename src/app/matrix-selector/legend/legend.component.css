@@ -5,8 +5,16 @@ table.legend {
 table.legend .legend {
   background-size: contain;
   background-image: url('/assets/images/viridis_legend.png');
-  height: 32px;
+  height: 16px;
 }
+
+table.legend .legend.verticle {
+  background-size: contain;
+  background-image: url('/assets/images/verticle_viridis_legend.png');
+  width: 16px;
+  height: 180px;
+}
+
 table.legend label {
   text-align: middle center;
 }

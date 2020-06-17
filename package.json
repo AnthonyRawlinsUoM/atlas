@@ -39,6 +39,7 @@
     "angular2-chartjs": "^0.5.1",
     "chart.js": "^2.9.3",
     "chartjs-chart-box-and-violin-plot": "^2.3.0",
+    "chartjs-plugin-error-bars": "^1.2.2",
     "colormap": "^2.3.1",
     "csl-json": "^0.1.0",
     "d3": "^5.9.7",
