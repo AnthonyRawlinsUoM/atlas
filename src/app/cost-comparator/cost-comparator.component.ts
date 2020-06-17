@@ -102,8 +102,8 @@ export class CostComparatorComponent implements OnInit {
                 yAxes: [{
                   position: 'right',
                   ticks: {
-                      suggestedMin: 0,
-                      suggestedMax: 10000000
+                      min: 0,
+                      max: 12000000
                   }
                 }]
               }
