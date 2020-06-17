@@ -1,5 +1,5 @@
 <sui-modal
-*ngIf="!disclaim.noticed()"
+*ngIf="!noticed"
     [isClosable]="true"
     [isFullScreen]="true"
     [size]="small"
@@ -29,7 +29,7 @@
     >Cancel</button>
     <button
         class="ui basic green button"
-        (click)="approve();modal.approve('done');"
+        (click)="modal.approve('done');approve()"
         autofocus
     >OK</button>
   </div>

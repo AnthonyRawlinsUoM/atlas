@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DisclaimerService } from '../disclaimer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-disclaimer',
@@ -7,10 +8,13 @@ import { DisclaimerService } from '../disclaimer.service';
   styleUrls: ['./disclaimer.component.css']
 })
 export class DisclaimerComponent implements OnInit {
-  constructor(private disclaim: DisclaimerService) { }
+
+  noticed = false;
+
+  constructor(private disclaim: DisclaimerService, private router: Router) { }
 
   ngOnInit() {
-
+    this.noticed = this.disclaim.noticed();
   }
 
   alert(ev) {
@@ -25,5 +29,7 @@ export class DisclaimerComponent implements OnInit {
   approve() {
     console.log('Approving disclaimer now...');
     this.disclaim.acknowledge();
+    console.log('Redirecting...');
+    this.router.navigate(['/']);
   }
 }
