@@ -224,6 +224,10 @@ data: [[5,6], [-3,-6]]
                 // this.chart.data.datasets[4].data = [data[4]];
                 // this.chart.data.datasets[5].data = [data[5]];
                 // this.chart.data.datasets[6].data = [data[6]];
+                this.chart.update({
+                    duration: 450,
+                    easing: 'linear'
+                });
 
             });
 
@@ -233,23 +237,27 @@ data: [[5,6], [-3,-6]]
                 console.log('Got Climate Change data');
                 console.log(data);
 
-                this.chart.data.datasets[1] = this.initialData.datasets[1];
-                this.chart.data.datasets[2] = this.initialData.datasets[2];
+                // this.chart.data.datasets[1] = this.initialData.datasets[1];
+                // this.chart.data.datasets[2] = this.initialData.datasets[2];
                 this.chart.data.datasets[1].data = data['plus']; // Worst CC results
                 this.chart.data.datasets[2].data = data['minus']; // Best CC results
 
+                this.chart.update({
+                    duration: 450,
+                    easing: 'linear'
+                });
               });
             } else {
               // Hacky!
-              while (this.chart.data.datasets.length > 1) {
-                this.chart.data.datasets.pop();
-              }
+                this.chart.data.datasets[1].data = [];
+                this.chart.data.datasets[2].data = [];
+                this.chart.update({
+                    duration: 450,
+                    easing: 'linear'
+                });
             }
 
-            this.chart.update({
-                duration: 450,
-                easing: 'linear'
-            });
+
         }
     }
 

@@ -109,22 +109,22 @@ export class WeightsService {
           // Area = array of indexes row*col + col
           // eg., [0,12,14...,48] etc
           const pos = [0,1,2,3,4,5,6];
-          console.log('Level: ' + level);
+          // console.log('Level: ' + level);
           let res = {
             minus: [],
             plus:[]
           };
 
-          console.log('Cost Type: ' + costType);
+          // console.log('Cost Type: ' + costType);
 
           let selected_area = climatechange.areas[area];
 
           for (let m in selected_area) {
-              console.log('M is: ' + m);
-              
+              // console.log('M is: ' + m);
+
               if ((m == costType + '_plus') || (m == costType + '_rel_plus')) {
 
-                console.log('>>> Hit for metric');
+                // console.log('>>> Hit for metric');
 
                 for (let i in selected_area[m]) {
                   if (treatment == 'landscape') {
@@ -143,7 +143,7 @@ export class WeightsService {
 
               if ((m == costType + '_minus')  || (m == costType + '_rel_minus')){
 
-                  console.log('>>> Hit for metric');
+                  // console.log('>>> Hit for metric');
 
                   for (let i in selected_area[m]) {
                     if (treatment == 'landscape') {
