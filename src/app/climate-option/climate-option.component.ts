@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-climate-option',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./climate-option.component.css']
 })
 export class ClimateOptionComponent implements OnInit {
-
+  @Output() toggleClimateChange: EventEmitter<any> = new EventEmitter<any>();
   /*
     Based on: https://codepen.io/sluger/pen/YjJKYy
   */
@@ -14,6 +14,11 @@ export class ClimateOptionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onChange(ev) {
+      console.log(ev);
+      this.toggleClimateChange.emit(ev);
   }
 
 }

@@ -11,7 +11,7 @@ export class CostOptionComponent implements OnInit {
     @Output() costTypeChange: EventEmitter<any> = new EventEmitter<any>();
     costType;
 
-    costTypes = [{ name: 'Carbon Cost', value: 'Carbon_cost' },
+    costTypes = [{ name: 'Total Cost', value: 'total_cost' },
     { name: 'Environmental', value: 'Environmental_cost' },
     { name: 'House Loss Cost', value: 'House_loss_cost' },
     { name: 'Power Loss Cost', value: 'Power_loss_cost' },

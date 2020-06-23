@@ -50,7 +50,7 @@ export class CostComparatorComponent implements OnInit {
         this.data = this.massage([10000, 10000, 10000, 10000, 10000, 10000, 10000]);
 
         this.initialData = {
-            labels: ['landscape'],
+            labels: ['Cost'],
             datasets: [{
                 label: 'PB 0',
                 backgroundColor: this.colors.colors[0],
@@ -85,13 +85,19 @@ export class CostComparatorComponent implements OnInit {
                 label: 'PB 15',
                 backgroundColor: this.colors.colors[6],
                 data: [0]
-            }]
+            }
+          ]
         };
 
         this.chart = new Chart('costcanvas', {
             type: 'bar',
             data: this.initialData,
             options: {
+               tooltips: {
+                  callbacks: {
+                        label: this.toolTipFormatter
+                    }
+                },
                 legend: {
                 display: true,
                 position: 'bottom'
@@ -102,8 +108,9 @@ export class CostComparatorComponent implements OnInit {
                 yAxes: [{
                   position: 'right',
                   ticks: {
-                      min: 0,
-                      max: 12000000
+                      callback: this.millionsFormatter
+                      // suggestedMin: 0,
+                      // suggestedMax: 12000000
                   }
                 }]
               }
@@ -123,6 +130,21 @@ export class CostComparatorComponent implements OnInit {
 
     ngOnChanges(changes: SimpleChanges) {
         this.refreshCharts();
+    }
+
+    public millionsFormatter(value, index, values) {
+      return "$" + (value/1000000).toFixed(2) + "M";
+    }
+
+    public toolTipFormatter(tooltipItem, data) {
+        var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+        if (label) {
+            label += ': ';
+        }
+        // label += Math.round(tooltipItem.yLabel * 100) / 100;
+        label += "$" + (tooltipItem.yLabel/1000000).toFixed(2) + "M";
+        return label;
     }
 
     //onStudyChange

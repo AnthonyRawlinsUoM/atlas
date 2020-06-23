@@ -4,6 +4,8 @@ import { filter, map } from 'rxjs/operators';
 
 // import matrix from '../assets/matrix_master.json';
 import matrix from '../assets/matrix_w_costs.json';
+
+import climatechange from '../assets/cc.json';
 // import normals from '../assets/BayesNetOutputs/master_normalised.json';
 
 import Blues from '../assets/cmaps/seq/cmap_Blues_255.json';
@@ -35,8 +37,6 @@ import viridis from '../assets/cmaps/pu/cmap_viridis_255.json';
     providedIn: 'root'
 })
 export class WeightsService {
-
-
 
     constructor() { }
 
@@ -95,6 +95,66 @@ export class WeightsService {
                     if (treatment == 'edge') {
                       for (let j of pos) {
                         if(i == (level + (j * 7)).toString()) res.push(selected_area[m][i]);
+                      }
+                    }
+                  }
+              }
+          }
+          observer.next(res)
+      });
+    }
+
+    getClimateRange(area: any, costType: any, level: number, treatment: any): any {
+      return Observable.create((observer) => {
+          // Area = array of indexes row*col + col
+          // eg., [0,12,14...,48] etc
+          const pos = [0,1,2,3,4,5,6];
+          console.log('Level: ' + level);
+          let res = {
+            minus: [],
+            plus:[]
+          };
+
+          console.log('Cost Type: ' + costType);
+
+          let selected_area = climatechange.areas[area];
+
+          for (let m in selected_area) {
+              console.log('M is: ' + m);
+              
+              if ((m == costType + '_plus') || (m == costType + '_rel_plus')) {
+
+                console.log('>>> Hit for metric');
+
+                for (let i in selected_area[m]) {
+                  if (treatment == 'landscape') {
+                    // 0,1,2,3,4,5,6
+                    for (let j of pos) {
+                      if(i == (j + (level * 7)).toString()) res['plus'].push(selected_area[m][i]);
+                    }
+                  }
+                  if (treatment == 'edge') {
+                    for (let j of pos) {
+                      if(i == (level + (j * 7)).toString()) res['plus'].push(selected_area[m][i]);
+                    }
+                  }
+                }
+              }
+
+              if ((m == costType + '_minus')  || (m == costType + '_rel_minus')){
+
+                  console.log('>>> Hit for metric');
+
+                  for (let i in selected_area[m]) {
+                    if (treatment == 'landscape') {
+                      // 0,1,2,3,4,5,6
+                      for (let j of pos) {
+                        if(i == (j + (level * 7)).toString()) res['minus'].push(selected_area[m][i]);
+                      }
+                    }
+                    if (treatment == 'edge') {
+                      for (let j of pos) {
+                        if(i == (level + (j * 7)).toString()) res['minus'].push(selected_area[m][i]);
                       }
                     }
                   }
