@@ -170,4 +170,8 @@ export class MapviewComponent implements OnInit {
   private nearest(lngLat) {
       return { lng: this.precise(lngLat.lng), lat: this.precise(lngLat.lat) };
   }
+
+  public satelliteView() {
+    console.log('Toggling Satellite View');
+  }
 }

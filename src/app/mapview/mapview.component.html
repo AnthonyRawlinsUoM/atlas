@@ -1,5 +1,9 @@
 <!-- draft changes to mapbox styles. Remove this from production! -->
-<mgl-map [style]="'mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft'" [zoom]="[4.9]" [center]="[141.2, -35.557]" [fitBoundsOptions]="boundsOptions" (mouseMove)="onMouseMove($event)" (load)="mapLoaded($event)" #mapview>
+<mgl-map
+
+[style]="'mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft'"
+
+ [zoom]="[4.9]" [center]="[141.2, -35.557]" [fitBoundsOptions]="boundsOptions" (mouseMove)="onMouseMove($event)" (load)="mapLoaded($event)" #mapview>
     <mgl-control mglNavigation position="top-right"></mgl-control>
     <mgl-control mglScale unit="metric" position="top-right"></mgl-control>
     <mgl-geojson-source id="ignitions-source" [data]="ignitions">
@@ -86,3 +90,6 @@
     </mgl-layer>
 
 </mgl-map>
+<div class="satellite">
+  <button class="ui button" (click)="satelliteView()">Satellite View</button>
+</div>

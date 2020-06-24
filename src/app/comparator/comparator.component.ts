@@ -69,27 +69,25 @@ data: [[5,6], [-3,-6]]
           {
             label: 'Risk Reduction for Levels of Prescribed Burning',
             type: 'bar',
-            barThickness: 'flex',
-            minBarLength: 2,
-            backgroundColor: 'rgba(100,100,100,0.45)',
+            backgroundColor: 'rgba(58, 83, 139,0.5)',
             data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5]
           },
 
           {
             label: 'CC Worst',
-            borderColor: 'rgb(235, 69, 28)',
+            borderColor: 'rgba(235, 69, 28, 0.75)',
             data: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
             type: 'line',
-            fill: 'false',
+            fill: false,
             lineTension: 0
           },
 
           {
             label: 'CC Best',
-            borderColor: 'rgb(52, 235, 20)',
+            borderColor: 'rgba(52, 235, 20, 0.75)',
             data: [0.1,0.2,0.3,0.4,0.5,0.6,0.7],
             type: 'line',
-            fill: 'false',
+            fill: false,
             lineTension: 0
           }
         ]
@@ -103,30 +101,11 @@ data: [[5,6], [-3,-6]]
         this.treatment = 'edge';
         this.area = this.study.properties.sim_name;
 
-        // this.chartOptions = {
-        //   options: {
-        //       legend: {
-        //       display: true,
-        //       position: 'bottom'
-        //     },
-        //     aspectRatio: 1,
-        //     maintainAspectRatio: true,
-        //     scales: {
-        //       yAxes: [{
-        //         ticks: {
-        //             beginAtZero: true,
-        //             min: 0,
-        //             max: 1,
-        //             stepSize: 0.1
-        //         }
-        //       }]
-        //     }
-        //   }
-        // };
-
         this.data = this.conform([0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]);
 
         this.chart = new Chart('canvas', {
+
+            type: 'bar',
             data: this.data,
             options: {
                 legend: {
@@ -141,10 +120,11 @@ data: [[5,6], [-3,-6]]
               //         bottom: 0
               //     }
               // },
-              aspectRatio: 16/9,
-              maintainAspectRatio: true,
+              // aspectRatio: 16/9,
+              // maintainAspectRatio: true,
               scales: {
                 xAxes: [{
+
                     gridLines: {
                         offsetGridLines: true
                     }
