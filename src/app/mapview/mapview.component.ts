@@ -42,6 +42,8 @@ export class MapviewComponent implements OnInit {
 
   mapviewer?;
 
+  sat = false;
+
   constructor(
     private route: ActivatedRoute,
     private reactive: ReactiveService) { }
@@ -173,5 +175,11 @@ export class MapviewComponent implements OnInit {
 
   public satelliteView() {
     console.log('Toggling Satellite View');
+    this.sat = !this.sat;
+    if(this.sat) {
+      this.mapviewer.MapService.setStyle('mapbox://styles/mapbox/satellite-v9');
+    } else {
+      this.mapviewer.MapService.setStyle('mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft');
+    }
   }
 }

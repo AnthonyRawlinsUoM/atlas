@@ -70,13 +70,13 @@ data: [[5,6], [-3,-6]]
             label: 'Risk Reduction for Levels of Prescribed Burning',
             type: 'bar',
             backgroundColor: 'rgba(58, 83, 139,0.5)',
-            data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+            data: []
           },
 
           {
             label: 'CC Worst',
             borderColor: 'rgba(235, 69, 28, 0.75)',
-            data: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
+            data: [],
             type: 'line',
             fill: false,
             lineTension: 0
@@ -85,7 +85,7 @@ data: [[5,6], [-3,-6]]
           {
             label: 'CC Best',
             borderColor: 'rgba(52, 235, 20, 0.75)',
-            data: [0.1,0.2,0.3,0.4,0.5,0.6,0.7],
+            data: [],
             type: 'line',
             fill: false,
             lineTension: 0
