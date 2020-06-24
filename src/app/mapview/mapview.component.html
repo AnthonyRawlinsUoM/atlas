@@ -3,7 +3,7 @@
 
 [style]="style"
 
- [zoom]="[4.9]" [center]="[141.2, -35.557]" [fitBoundsOptions]="boundsOptions" (mouseMove)="onMouseMove($event)" (load)="mapLoaded($event)" #mapview>
+ [zoom]="[4.9]" [center]="[141.2, -35.557]" [fitBoundsOptions]="boundsOptions" (mouseMove)="mousemove($event)" (load)="mapLoaded($event)" #mapview>
     <mgl-control mglNavigation position="top-right"></mgl-control>
     <mgl-control mglScale unit="metric" position="top-right"></mgl-control>
     <mgl-geojson-source id="ignitions-source" [data]="ignitions">
@@ -91,5 +91,13 @@
 
 </mgl-map>
 <div class="satellite">
-  <button class="ui button" (click)="satelliteView()">Satellite View {{ sat && 'ON' || 'OFF'}}</button>
+  <button class="ui inverted button" (click)="satelliteView()">Satellite View {{ sat && 'ON' || 'OFF'}}</button>
+  <button class="ui icon inverted button" (click)=overview($event)><i class="expand icon"></i> Re-center</button>
+</div>
+<div class="interpolator">
+  <div class="ui segment raised">
+    <h5 class="ui header">Similarity to Study Areas</h5>
+    <canvas id='interpolatedcanvas' #interpolatedcanvas></canvas>
+  </div>
+
 </div>

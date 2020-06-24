@@ -2,14 +2,15 @@ import { Output, Component, AfterViewInit, ViewChild, ElementRef, EventEmitter, 
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Map, FitBoundsOptions, LngLatBoundsLike } from 'mapbox-gl';
 import { ReactiveService } from '../reactive.service';
+import { Chart, ChartData, ChartConfiguration } from 'chart.js';
 
 import * as turf from '@turf/turf';
 import { easing } from 'ts-easing';
 import { Base64 } from 'js-base64';
 
-
+import { schemes } from '../Viridis';
 import studyareas from '../../assets/studyareas.json';
-import test from '../../assets/PointDistance/pointdist.json';
+// import test from '../../assets/interpolated.json';
 import { filter, map } from 'rxjs/operators';
 import { FeatureCollection, Feature, Geometry } from 'geojson';
 
@@ -45,12 +46,71 @@ export class MapviewComponent implements OnInit {
 
   sat = false;
 
+  chart;
+  chartOptions: ChartConfiguration;
+  initialData: ChartData;
+
+  colors = schemes[2];
+  ov: turf.helpers.BBox;
+
   constructor(
     private route: ActivatedRoute,
     private reactive: ReactiveService) { }
 
   ngOnInit() {
       this.studyareas = '/assets/studyareas.json';
+
+
+      this.initialData = {
+          labels: ['A', 'B', 'C', 'D', 'E', 'F'],
+          datasets: [
+          {
+              label: 'Similarity',
+              borderColor: this.colors.colors[6],
+              lineTension: 0,
+              fill: 0,
+              data: [
+                0.28374612,
+                0.72634576,
+                0.13454252,
+                0.37463784,
+                0.29367457,
+                0.87263487
+              ]
+          }
+        ]
+      };
+
+      this.chart = new Chart('interpolatedcanvas', {
+          type: 'line',
+          data: this.initialData,
+          options: {
+             // tooltips: {
+             //    callbacks: {
+             //          label: this.toolTipFormatter
+             //      }
+             //  },
+              legend: {
+              display: false,
+              position: 'bottom'
+            },
+            aspectRatio: 16/9,
+            maintainAspectRatio: true,
+            scales: {
+              yAxes: [{
+                position: 'left',
+                ticks: {
+                //     callback: this.millionsFormatter
+                    suggestedMin: 0,
+                    suggestedMax: 1,
+                    stepSize: 0.25
+                }
+              }]
+            }
+          }
+      });
+
+      this.ov = turf.bbox(turf.buffer(this.studyareas, 25, { units: 'kilometers' }));
   }
 
   onBoundsChange(bbox:any) {}
@@ -70,8 +130,9 @@ export class MapviewComponent implements OnInit {
   }
 
   mousemove(e) {
-      if (e.features.length > 0) {
+      if (e.features && e.features.length > 0) {
           this.hoveredStateId = e.features[0].id;
+          console.log(this.hoveredStateId );
       }
   }
 
@@ -114,7 +175,7 @@ export class MapviewComponent implements OnInit {
     this.burnblocks = { "type": "FeatureCollection", "features": [] };
     this.ignitions = { "type": "FeatureCollection", "features": [] };
 
-    this.boundsChange.emit(ov.bbox);
+    this.mapviewer.MapService.fitBounds([129.5, -43.47, 153.6, -27.45 ]);
   }
 
   focusOn(study) {
@@ -133,37 +194,33 @@ export class MapviewComponent implements OnInit {
       this.studyChange.emit(this.study_detail);
   }
 
-  private onMouseMove(ev) {
-      // console.log(ev.lngLat);
-      // let coarse = this.nearest(ev.lngLat);
-
-      let top: Number = ev.lngLat.lat - 0.05;
-      let bottom: Number = ev.lngLat.lat + 0.05;
-      let left: Number = ev.lngLat.lng - 0.05;
-      let right: Number = ev.lngLat.lng + 0.05;
-
-      // console.log('top: ' + top + ' left: ' + left + ' bottom: ' + bottom + ' right: ' + right);
-
-      let d = this.weightData.filter(data => {
-          return data.Lon >= left
-      }).filter(data => {
-          return data.Lat >= top
-      }).filter(data => {
-          return data.Lon <= right
-      }).filter(data => {
-          return data.Lat <= bottom
-      });
-      // console.log(d);
-  }
+  // private onMouseMove(ev) {
+  //     // console.log(ev.lngLat);
+  //     // let coarse = this.nearest(ev.lngLat);
+  //
+  //     let top: Number = ev.lngLat.lat - 0.05;
+  //     let bottom: Number = ev.lngLat.lat + 0.05;
+  //     let left: Number = ev.lngLat.lng - 0.05;
+  //     let right: Number = ev.lngLat.lng + 0.05;
+  //
+  //     // console.log('top: ' + top + ' left: ' + left + ' bottom: ' + bottom + ' right: ' + right);
+  //
+  //     let d = this.weightData.filter(data => {
+  //         return data.Lon >= left
+  //     }).filter(data => {
+  //         return data.Lat >= top
+  //     }).filter(data => {
+  //         return data.Lon <= right
+  //     }).filter(data => {
+  //         return data.Lat <= bottom
+  //     });
+  //     // console.log(d);
+  // }
 
   private where(collection, constraint) {
       return collection.filter(collectionItem =>
           Object.keys(constraint).every(key =>
               collectionItem.hasOwnProperty(key) && constraint[key] === collectionItem[key]));
-  }
-
-  private drawWeightedLines(data) {
-      // endpoints
   }
 
   private precise(x) {

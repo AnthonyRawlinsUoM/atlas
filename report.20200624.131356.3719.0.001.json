@@ -1,0 +1,592 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200624.131356.3719.0.001.json",
+    "dumpEventTime": "2020-06-24T13:13:56Z",
+    "dumpEventTimeStamp": "1592968436496",
+    "processId": 3719,
+    "cwd": "/black/cloud/UOW/PBA/atlas",
+    "commandLine": [
+      "node",
+      "/home/arawlins/.nvm/versions/node/v12.15.0/bin/ng",
+      "serve"
+    ],
+    "nodejsVersion": "v12.15.0",
+    "glibcVersionRuntime": "2.27",
+    "glibcVersionCompiler": "2.17",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "12.15.0",
+      "v8": "7.7.299.13-node.16",
+      "uv": "1.33.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.4",
+      "http_parser": "2.9.3",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.15.0/node-v12.15.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.15.0/node-v12.15.0.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "5.3.0-46-generic",
+    "osVersion": "#38~18.04.1-Ubuntu SMP Tue Mar 31 04:17:56 UTC 2020",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1746,
+        "user": 245784600,
+        "nice": 30900,
+        "sys": 261775800,
+        "idle": 13732511200,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1748,
+        "user": 258103800,
+        "nice": 33600,
+        "sys": 289145400,
+        "idle": 13700192900,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1199,
+        "user": 260835500,
+        "nice": 35200,
+        "sys": 292513700,
+        "idle": 13695875900,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1730,
+        "user": 259612300,
+        "nice": 32300,
+        "sys": 285710200,
+        "idle": 13704373300,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1490,
+        "user": 260118700,
+        "nice": 33200,
+        "sys": 291823900,
+        "idle": 13697588600,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 2279,
+        "user": 261881000,
+        "nice": 36000,
+        "sys": 289928100,
+        "idle": 13697722000,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 2414,
+        "user": 263311500,
+        "nice": 39600,
+        "sys": 299402400,
+        "idle": 13687265300,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1462,
+        "user": 238239700,
+        "nice": 34600,
+        "sys": 321707300,
+        "idle": 13669978700,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 2287,
+        "user": 256226900,
+        "nice": 33700,
+        "sys": 291121100,
+        "idle": 13701875300,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1773,
+        "user": 258824200,
+        "nice": 33300,
+        "sys": 290852200,
+        "idle": 13693886100,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1199,
+        "user": 255648700,
+        "nice": 29700,
+        "sys": 291754100,
+        "idle": 13704479000,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1919,
+        "user": 255503800,
+        "nice": 36300,
+        "sys": 288910000,
+        "idle": 13706139800,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1570,
+        "user": 255223600,
+        "nice": 39900,
+        "sys": 288131400,
+        "idle": 13708385500,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 2003,
+        "user": 255958900,
+        "nice": 31800,
+        "sys": 288074600,
+        "idle": 13707512400,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1933,
+        "user": 249559900,
+        "nice": 35600,
+        "sys": 283985200,
+        "idle": 13718536000,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+        "speed": 1926,
+        "user": 251767800,
+        "nice": 34000,
+        "sys": 279971700,
+        "idle": 13719901200,
+        "irq": 0
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "eno1",
+        "internal": false,
+        "mac": "4c:cc:6a:b5:41:f1",
+        "address": "192.168.1.181",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "docker_gwbridge",
+        "internal": false,
+        "mac": "02:42:b2:e1:e8:f7",
+        "address": "172.18.0.1",
+        "netmask": "255.255.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "eno1",
+        "internal": false,
+        "mac": "4c:cc:6a:b5:41:f1",
+        "address": "fe80::a303:51e7:c861:ea68",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 2
+      },
+      {
+        "name": "veth3d1a627",
+        "internal": false,
+        "mac": "82:f1:cc:2d:a0:ae",
+        "address": "fe80::80f1:ccff:fe2d:a0ae",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 6659
+      },
+      {
+        "name": "docker_gwbridge",
+        "internal": false,
+        "mac": "02:42:b2:e1:e8:f7",
+        "address": "fe80::42:b2ff:fee1:e8f7",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 5
+      },
+      {
+        "name": "vethbb7ac04",
+        "internal": false,
+        "mac": "be:db:83:28:7b:fd",
+        "address": "fe80::bcdb:83ff:fe28:7bfd",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 24
+      },
+      {
+        "name": "veth188ac4d",
+        "internal": false,
+        "mac": "5a:81:48:f4:f2:c2",
+        "address": "fe80::5881:48ff:fef4:f2c2",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 31
+      },
+      {
+        "name": "veth97bbb3e",
+        "internal": false,
+        "mac": "9a:40:1d:2e:7a:33",
+        "address": "fe80::9840:1dff:fe2e:7a33",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 41
+      },
+      {
+        "name": "veth1e4fd8f",
+        "internal": false,
+        "mac": "62:f0:8f:db:1c:e7",
+        "address": "fe80::60f0:8fff:fedb:1ce7",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 43
+      },
+      {
+        "name": "veth9239c7c",
+        "internal": false,
+        "mac": "ea:4b:cd:b6:ba:f1",
+        "address": "fe80::e84b:cdff:feb6:baf1",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 46
+      },
+      {
+        "name": "veth5633b91",
+        "internal": false,
+        "mac": "7a:a1:92:d6:cb:49",
+        "address": "fe80::78a1:92ff:fed6:cb49",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 48
+      },
+      {
+        "name": "veth130f33b",
+        "internal": false,
+        "mac": "76:d3:66:a0:e2:bc",
+        "address": "fe80::74d3:66ff:fea0:e2bc",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 68
+      }
+    ],
+    "host": "Charcoal"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000000b05e75",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::string const&, v8::Local<v8::String>) [ng serve]"
+    },
+    {
+      "pc": "0x00000000009dbda3",
+      "symbol": "node::OnFatalError(char const*, char const*) [ng serve]"
+    },
+    {
+      "pc": "0x0000000000b3b45e",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [ng serve]"
+    },
+    {
+      "pc": "0x0000000000b3b7d9",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [ng serve]"
+    },
+    {
+      "pc": "0x0000000000ce6b75",
+      "symbol": " [ng serve]"
+    },
+    {
+      "pc": "0x0000000000ce7206",
+      "symbol": "v8::internal::Heap::RecomputeLimits(v8::internal::GarbageCollector) [ng serve]"
+    },
+    {
+      "pc": "0x0000000000cf309a",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [ng serve]"
+    },
+    {
+      "pc": "0x0000000000cf3fa5",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [ng serve]"
+    },
+    {
+      "pc": "0x0000000000cf69b8",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [ng serve]"
+    },
+    {
+      "pc": "0x0000000000cbd2e7",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationType) [ng serve]"
+    },
+    {
+      "pc": "0x0000000000ff334b",
+      "symbol": "v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [ng serve]"
+    },
+    {
+      "pc": "0x0000000001376519",
+      "symbol": " [ng serve]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2174980096,
+    "totalCommittedMemory": 2174364096,
+    "usedMemory": 2104951304,
+    "availableMemory": 56295704,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 32568,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 33554432,
+        "committedMemory": 33290416,
+        "capacity": 16759808,
+        "used": 295544,
+        "available": 16464264
+      },
+      "old_space": {
+        "memorySize": 1961734144,
+        "committedMemory": 1961661592,
+        "capacity": 1930840592,
+        "used": 1930833736,
+        "available": 6856
+      },
+      "code_space": {
+        "memorySize": 2523136,
+        "committedMemory": 2474336,
+        "capacity": 2151360,
+        "used": 2151360,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 8130560,
+        "committedMemory": 8129504,
+        "capacity": 3117200,
+        "used": 3117200,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 168153088,
+        "committedMemory": 168153088,
+        "capacity": 167970512,
+        "used": 167970512,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 622592,
+        "committedMemory": 622592,
+        "capacity": 550656,
+        "used": 550656,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 16759808,
+        "used": 0,
+        "available": 16759808
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 158.503,
+    "kernelCpuSeconds": 3.89498,
+    "cpuConsumptionPercent": 231.997,
+    "maxRss": 2383491072,
+    "pageFaults": {
+      "IORequired": 130,
+      "IONotRequired": 1006611
+    },
+    "fsActivity": {
+      "reads": 262581,
+      "writes": 15
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 64.317,
+    "kernelCpuSeconds": 2.10691,
+    "cpuConsumptionPercent": 94.8912,
+    "fsActivity": {
+      "reads": 262373,
+      "writes": 15
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "CONDA_SHLVL": "1",
+    "NVM_DIR": "/home/arawlins/.nvm",
+    "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:",
+    "CONDA_EXE": "/home/arawlins/anaconda3/bin/conda",
+    "LESSCLOSE": "/usr/bin/lesspipe %s %s",
+    "XDG_MENU_PREFIX": "gnome-",
+    "LANG": "en_AU.UTF-8",
+    "GDM_LANG": "en_AU",
+    "DISPLAY": ":0",
+    "QT_STYLE_OVERRIDE": "adwaita",
+    "GTK_CSD": "1",
+    "ATOM_DISABLE_SHELLING_OUT_FOR_ENVIRONMENT": "false",
+    "NVM_CD_FLAGS": "",
+    "CONDA_PREFIX": "/home/arawlins/anaconda3",
+    "XDG_VTNR": "7",
+    "GIO_LAUNCHED_DESKTOP_FILE_PID": "6907",
+    "GTK3_MODULES": "pantheon-filechooser-module:pantheon-filechooser-module:pantheon-filechooser-module",
+    "SSH_AUTH_SOCK": "/run/user/1000/keyring/ssh",
+    "MANDATORY_PATH": "/usr/share/gconf/pantheon.mandatory.path",
+    "_CE_M": "",
+    "XDG_SESSION_ID": "c2",
+    "XDG_GREETER_DATA_DIR": "/var/lib/lightdm-data/arawlins",
+    "USER": "arawlins",
+    "DESKTOP_SESSION": "pantheon",
+    "DEFAULTS_PATH": "/usr/share/gconf/pantheon.default.path",
+    "QT_QPA_PLATFORMTHEME": "gtk3",
+    "PWD": "/black/cloud/UOW/PBA/atlas",
+    "HOME": "/home/arawlins",
+    "CONDA_PYTHON_EXE": "/home/arawlins/anaconda3/bin/python",
+    "SSH_AGENT_PID": "21659",
+    "TERM_PROGRAM": "platformio-ide-terminal",
+    "QT_ACCESSIBILITY": "1",
+    "XDG_SESSION_TYPE": "x11",
+    "XDG_DATA_DIRS": "/usr/share/gnome:/usr/share/pantheon:/home/arawlins/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share",
+    "_CE_CONDA": "",
+    "GSETTINGS_SCHEMA_DIR": "/home/arawlins/data",
+    "XDG_SESSION_DESKTOP": "pantheon",
+    "DESKTOP_STARTUP_ID": "plank-21998-Charcoal-env-0_TIME377637240",
+    "CONDA_PROMPT_MODIFIER": "(base) ",
+    "GTK_MODULES": "gail:atk-bridge",
+    "TERM": "xterm-256color",
+    "SHELL": "/bin/bash",
+    "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+    "QT_IM_MODULE": "ibus",
+    "XMODIFIERS": "@im=ibus",
+    "NVM_BIN": "/home/arawlins/.nvm/versions/node/v12.15.0/bin",
+    "XDG_CURRENT_DESKTOP": "Pantheon",
+    "GPG_AGENT_INFO": "/run/user/1000/gnupg/S.gpg-agent:0:1",
+    "GIO_LAUNCHED_DESKTOP_FILE": "/usr/share/applications/atom.desktop",
+    "SHLVL": "3",
+    "XDG_SEAT": "seat0",
+    "LANGUAGE": "en_AU:en",
+    "GDMSESSION": "pantheon",
+    "GNOME_DESKTOP_SESSION_ID": "this-is-deprecated",
+    "LOGNAME": "arawlins",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+    "XDG_RUNTIME_DIR": "/run/user/1000",
+    "XAUTHORITY": "/home/arawlins/.Xauthority",
+    "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session0",
+    "XDG_CONFIG_DIRS": "/etc/xdg/xdg-pantheon:/etc/xdg",
+    "PATH": "/home/arawlins/anaconda3/bin:/home/arawlins/anaconda3/condabin:/home/arawlins/.nvm/versions/node/v12.15.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games",
+    "CONDA_DEFAULT_ENV": "base",
+    "SESSION_MANAGER": "local/Charcoal:@/tmp/.ICE-unix/21534,unix/Charcoal:/tmp/.ICE-unix/21534",
+    "LESSOPEN": "| /usr/bin/lesspipe %s",
+    "_": "/home/arawlins/.nvm/versions/node/v12.15.0/bin/ng",
+    "BROWSERSLIST_IGNORE_OLD_DATA": "1",
+    "WEBPACK_DEV_SERVER": "true"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 16777216,
+      "hard": 16777216
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 1048576,
+      "hard": 1048576
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 127781,
+      "hard": 127781
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "linux-vdso.so.1",
+    "/lib/x86_64-linux-gnu/libdl.so.2",
+    "/usr/lib/x86_64-linux-gnu/libstdc++.so.6",
+    "/lib/x86_64-linux-gnu/libm.so.6",
+    "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+    "/lib/x86_64-linux-gnu/libpthread.so.0",
+    "/lib/x86_64-linux-gnu/libc.so.6",
+    "/lib64/ld-linux-x86-64.so.2",
+    "/lib/x86_64-linux-gnu/libnss_files.so.2"
+  ]
+}
