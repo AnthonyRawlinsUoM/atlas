@@ -221,9 +221,13 @@ export class WeightsService {
         } else if (cmap == 'cividis') {
             let colormap = cividis;
         }
-        let c = this.where(colormap, { index: color_value });
 
-        return c[0]['hex'];
+        if (color_value <= 255) {
+          let c = this.where(colormap, { index: color_value });
+          return c[0]['hex'];
+      } else {
+        return '#999999';
+      }
     }
 
 
