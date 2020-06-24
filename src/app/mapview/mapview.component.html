@@ -1,7 +1,7 @@
 <!-- draft changes to mapbox styles. Remove this from production! -->
 <mgl-map
 
-[style]="'mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft'"
+[style]="style"
 
  [zoom]="[4.9]" [center]="[141.2, -35.557]" [fitBoundsOptions]="boundsOptions" (mouseMove)="onMouseMove($event)" (load)="mapLoaded($event)" #mapview>
     <mgl-control mglNavigation position="top-right"></mgl-control>
@@ -91,5 +91,5 @@
 
 </mgl-map>
 <div class="satellite">
-  <button class="ui button" (click)="satelliteView()">Satellite View</button>
+  <button class="ui button" (click)="satelliteView()">Satellite View {{ sat && 'ON' || 'OFF'}}</button>
 </div>

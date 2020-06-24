@@ -41,6 +41,7 @@ export class MapviewComponent implements OnInit {
   movingOptions: FitBoundsOptions = { padding: 30, easing: (x) => { return easing.quadratic(x) } };
 
   mapviewer?;
+  style = "mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft";
 
   sat = false;
 
@@ -174,12 +175,13 @@ export class MapviewComponent implements OnInit {
   }
 
   public satelliteView() {
-    console.log('Toggling Satellite View');
     this.sat = !this.sat;
     if(this.sat) {
-      this.mapviewer.MapService.setStyle('mapbox://styles/mapbox/satellite-v9');
+      console.log('Toggling Satellite View: ON');
+      this.mapviewer.style = "mapbox://styles/mapbox/satellite-v9";
     } else {
-      this.mapviewer.MapService.setStyle('mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft');
+      console.log('Toggling Satellite View: OFF');
+      this.mapviewer.style = "mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft";
     }
   }
 }
