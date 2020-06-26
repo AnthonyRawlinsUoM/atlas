@@ -120,9 +120,9 @@ export class MapviewComponent implements OnInit {
       this.mapviewer = this.mapview;
 
       this.onBoundsChange = (bbox) => {
-            console.log('Map view was notified of bounds change. Attempting to move now.');
-            this.mapviewer.MapService.fitBounds(bbox, this.movingOptions);
-        }
+          console.log('Map view was notified of bounds change. Attempting to move now.');
+          this.mapviewer.MapService.fitBounds(bbox, this.movingOptions);
+      }
   }
 
   mapLoaded(ev) {
@@ -235,10 +235,11 @@ export class MapviewComponent implements OnInit {
     this.sat = !this.sat;
     if(this.sat) {
       console.log('Toggling Satellite View: ON');
-      this.mapviewer.style = "mapbox://styles/mapbox/satellite-v9";
+      this.style = "mapbox://styles/mapbox/satellite-v9";
     } else {
       console.log('Toggling Satellite View: OFF');
-      this.mapviewer.style = "mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft";
+      this.style = "mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft";
+
     }
   }
 }
