@@ -97,19 +97,19 @@ const routes: Routes = [
     { path: 'callback', component: CallbackComponent },
     { path: 'about', component: AboutComponent, data: { state: 'about' } },
     { path: 'team', component: TeampageComponent, data: { state: 'team' } },
-    {
-        path: 'profile', component: ProfileComponent,
-        canActivate: [AuthGuard], data: { state: 'profile' }
-    },
+    // {
+    //     path: 'profile', component: ProfileComponent,
+    //     canActivate: [AuthGuard], data: { state: 'profile' }
+    // },
     {
         path: 'contact', component: ContactComponent,
         data: { state: 'contact' }
     },
-    {
-        path: 'external-api',
-        component: ExternalApiComponent,
-        canActivate: [AuthGuard]
-    },
+    // {
+    //     path: 'external-api',
+    //     component: ExternalApiComponent,
+    //     canActivate: [AuthGuard]
+    // },
     { path: 'faq', component: FaqsComponent, data: { state: 'faq' } },
 
     { path: 'help', component: HelpComponent, data: {state: 'help'} },
