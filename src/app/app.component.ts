@@ -61,6 +61,7 @@ export class AppComponent implements OnInit {
         this.auth.localAuthSetup();
 
         this.s.getStudyLinks().subscribe((data) => {
+            data.sort((a,b) => (a.order > b.order) ? 1 : -1); // Specified sort ordering
             this.links = data;
         });
     }

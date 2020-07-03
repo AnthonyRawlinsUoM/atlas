@@ -12,7 +12,8 @@
             "Vegetation": "Major vegetation types are mallee woodlands and shrublands, acacia shrublands",
             "Climate": "Mean annual rainfall ranges from 184mm at Cook to the south of the study area to 279 mm at Pukatja to the northeast of the study area. Mean summer daily maximum temperatures are 32.3℃ at Cook and 34.4℃ at Pukatja.",
             "FireRegime": "Part of the mallee (temperate) fire regime niche, a low productivity niche characterised by infrequent medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 20–100 years.",
-            "PrescribedBurningRegime": ""
+            "PrescribedBurningRegime": "",
+            "order": 12
         },
         "geometry": {
             "type": "Polygon",
@@ -38,7 +39,8 @@
             "Vegetation": "Major vegetation types are acacia shrublands, and chenopod shrublands.",
             "Climate": "Mean annual rainfall is 260 mm at Broken Hill. Mean summer daily maximum temperatures are 32.1℃.",
             "FireRegime": "Part of the acacia shrubland (mulga) (semi-arid/arid) fire regime niche, a low-productivity niche characterised by rare low-intensity grass or medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 0 to 100 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 20–100 years, although the interval between fires can over 100 years.",
-            "PrescribedBurningRegime": ""
+            "PrescribedBurningRegime": "",
+            "order": 8
         },
         "geometry": {
             "type": "Polygon",
@@ -64,7 +66,8 @@
             "Vegetation": "Major vegetation types are mallee woodlands and shrublands, heathlands,",
             "Climate": "Mean annual rainfall is 411 mm at Nhill. Mean summer daily maximum temperatures are 29.0℃.",
             "FireRegime": "Part of the mallee (temperate) fire regime niche, a low productivity niche characterised by infrequent medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 20–100 years.",
-            "PrescribedBurningRegime": ""
+            "PrescribedBurningRegime": "",
+            "order": 6
         },
         "geometry": {
             "type": "Polygon",
@@ -90,7 +93,8 @@
             "Vegetation": "Major native vegetation types are eucalypt woodlands, callitris forests and woodlands and tussock grasslands.",
             "Climate": "Mean annual rainfall is 636 mm at Parkes airport. Mean summer daily maximum temperatures are 32.4℃.",
             "FireRegime": "For cleared areas, part of the pasture, cropland (temperate) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity grass fires in autumn. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years. For remnant woodlands, part of the eucalypt woodland (temperate) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity grass fires in summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 20–100 years, although the interval between fires can be over 100 years.",
-            "PrescribedBurningRegime": ""
+            "PrescribedBurningRegime": "",
+            "order": 4
         },
         "geometry": {
             "type": "Polygon",
@@ -116,7 +120,8 @@
             "Vegetation": "Major vegetation types are eucalypt woodlands and callitris forests and woodland",
             "Climate": "Mean annual rainfall is 560 mm at Narrabri airport. Mean summer daily maximum temperatures are 33.9℃.",
             "FireRegime": "For cleared areas, part of the pasture, cropland (temperate/tropical and subtropical) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity grass fires in autumn/spring and summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years. For remnant woodlands, part of the eucalypt woodland (temperate) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity grass fires in summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 20–100 years, although the interval between fires can be over 100 years.",
-            "PrescribedBurningRegime": ""
+            "PrescribedBurningRegime": "",
+            "order": 3
         },
         "geometry": {
             "type": "Polygon",
@@ -142,7 +147,8 @@
             "Vegetation": "Major vegetation types are dry sclerophyll forest and woodlands.",
             "Climate": "Mean annual rainfall is 645 mm at Merimbula airport. Mean summer daily maximum temperatures are 24.3℃.",
             "FireRegime": "Part of the eucalypt forest (temperate) fire regime niche, a high-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years.",
-            "PrescribedBurningRegime": ""
+            "PrescribedBurningRegime": "",
+            "order": 2
         },
         "geometry": {
             "type": "Polygon",
@@ -168,7 +174,8 @@
             "Vegetation": "Major vegetation types are mallee woodlands and shrublands, chenopod shrublands.",
             "Climate": "Mean annual rainfall is 273 mm at Gluepot Reserve to the southwest of the study area. Mean summer daily maximum temperatures are 32.8℃.",
             "FireRegime": "Part of the mallee (temperate) fire regime niche, a low productivity niche characterised by infrequent medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 20–100 years.",
-            "PrescribedBurningRegime": ""
+            "PrescribedBurningRegime": "",
+            "order": 11
         },
         "geometry": {
             "type": "Polygon",
@@ -194,7 +201,8 @@
             "Vegetation": "Major vegetation types within forested areas are dry and wet sclerophyll forest, dominated by Eucalyptus spp., and in high-altitude areas, subalpine woodland forest.",
             "Climate": "Mean annual rainfall ranges from 615 mm at Canberra airport to 1051 mm at Mount Ginini in the ranges to the south of the study area. Mean summer daily maximum temperatures are 27.2℃ at Canberra Airport and 19.3℃ at Mount Ginini",
             "FireRegime": "Part of the eucalypt forest (temperate) FireRegime niche, a high-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1000 to 5000 kW m-1, although under extreme weather conditions, crown fires can occur and fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years.",
-            "PrescribedBurningRegime": "From 2009 to 2014, an annual average of 1.85% of the ACT was treated with prescribed burning (ACT Government 2014)."
+            "PrescribedBurningRegime": "From 2009 to 2014, an annual average of 1.85% of the ACT was treated with prescribed burning (ACT Government 2014).",
+            "order": 10
         },
         "geometry": {
             "type": "Polygon",
@@ -221,7 +229,8 @@
             "Vegetation": "Major vegetation types within forested areas are dry and wet sclerophyll forest.",
             "Climate": "Mean annual rainfall ranges from 614 mm at Hobart to 897 mm at Mount Kunanyi in the Wellington Range to the west of Hobart. Mean summer daily maximum temperatures are 21.4℃ in Hobart and 12.9℃ at Mount Kunanyi",
             "FireRegime": "Part of the eucalypt forest (temperate) fire regime niche, a high-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity shrub fires in spring and summer (Murphy et al. 2013). Typically, fire intensity ranges from 1000 to 5000 kW m-1, although under extreme weather conditions, crown fires can occur and fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years.",
-            "PrescribedBurningRegime": "In Tasmania between the 2008–09 and 2012–13 fire seasons, prescribed fire was applied to an average of 0.66% of treatable land, ranging from 0.29% to 1.58% (Richards et al. 2014)."
+            "PrescribedBurningRegime": "In Tasmania between the 2008–09 and 2012–13 fire seasons, prescribed fire was applied to an average of 0.66% of treatable land, ranging from 0.29% to 1.58% (Richards et al. 2014).",
+            "order": 9
         },
         "geometry": {
             "type": "Polygon",
@@ -247,7 +256,8 @@
             "Vegetation": "Major vegetation type is eucalypt woodlands.",
             "Climate": "Mean annual rainfall ranges from 551 mm at Adelaide to 474 mm at Nuriootpa Pirsa. Mean summer daily maximum temperatures are 28.8℃ at Adelaide and 29.1℃ at Nuriootpa Pirsa.",
             "FireRegime": "For cleared areas, part of the pasture, cropland (temperate/tropical and subtropical) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity grass fires in autumn/spring and summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years. For remnant woodlands, part of the eucalypt woodland (temperate) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity grass fires in summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 20–100 years, although the interval between fires can be over 100 years.",
-            "PrescribedBurningRegime": ""
+            "PrescribedBurningRegime": "",
+            "order": 10
         },
         "geometry": {
             "type": "Polygon",
@@ -275,7 +285,8 @@
             "Vegetation": "Major vegetation types are eucalypt forests, rainforest and eucalypt woodlands.",
             "Climate": "Mean annual rainfall ranges from 1,260 mm at the Gold Coast east of the study area to 1,565 mm at Mount Tamborine. Mean summer daily maximum temperatures are 28.5℃ at the Gold Coast and 25.6℃ at Mount Tamborine.",
             "FireRegime": "For cleared areas, part of the pasture (tropical and subtropical) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity grass fires in spring and summer. Typically, fire intensity ranges from 100 to 1 000 kW m-1, although under extreme weather conditions, fire intensity may reach 1 000–5 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years. Includes rain forest (tropical) fire regime niche, a medium-productivity niche characterised by rare low-intensity litter fires in spring. Typically, fire intensity ranges from 0 to 100 kW m-1, although under extreme weather conditions, fire intensity may reach 100–1 000kWm-1. The interval between fires is typically over 100 years. Includes eucalypt forest and woodland (tropical) fire regime niche, a medium-productivity niche characterised by infrequent low-intensity grass fires in winter and medium intensity shrub fires in summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 5 000–10 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years.",
-            "PrescribedBurningRegime": ""
+            "PrescribedBurningRegime": "",
+            "order": 0
         },
         "geometry": {
             "type": "Polygon",
@@ -301,7 +312,8 @@
             "Vegetation": "Major vegetation types are dry and wet eucalypt forests, eucalypt woodlands.",
             "Climate": "Mean annual rainfall ranges from 735 mm at Coldstream to 1,111 mm at Noojee. Mean summer daily maximum temperatures are 27.1℃ at Coldstream and 24.3 at Noojee.",
             "FireRegime": "Part of the eucalypt forest (temperate) fire regime niche, a high-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years. Includes tall eucalypt forest (temperate) fire regime niche, a high-productivity niche characterised by very infrequent high-intensity crown fires in summer. Typically, fire intensity ranges from 5 000 to 10 000 kW m-1, although under extreme weather conditions, fire intensity may exceed 50 000kWm-1. Fires typically recur every 20–100 years, although the interval between fires can be over 100 years.",
-            "PrescribedBurningRegime": ""
+            "PrescribedBurningRegime": "",
+            "order": 7
         },
         "geometry": {
             "type": "Polygon",
@@ -328,7 +340,8 @@
            "Vegetation": "",
            "Climate": "",
            "FireRegime": "",
-           "PrescribedBurningRegime": ""
+           "PrescribedBurningRegime": "",
+           "order": 1
        },
        "geometry": {
            "type": "Polygon",

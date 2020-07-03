@@ -27,7 +27,8 @@ export class ShortcutService {
                     centroid: cent,
                     bbox: turf.bbox(turf.buffer(poly, 25, { units: 'kilometers' })),
                     lat: cent.geometry.coordinates[1].toFixed(2),
-                    lon: cent.geometry.coordinates[0].toFixed(2)
+                    lon: cent.geometry.coordinates[0].toFixed(2),
+                    order: f.properties.order
                 });
             });
 
