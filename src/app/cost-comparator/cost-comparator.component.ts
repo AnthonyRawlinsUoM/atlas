@@ -45,12 +45,14 @@ export class CostComparatorComponent implements OnInit {
 
     ngOnInit() {
         this.costType = 'House_loss_cost';
+
         this.treatment = 'edge';
+
         this.area = this.study.properties.sim_name;
         this.data = this.massage([10000, 10000, 10000, 10000, 10000, 10000, 10000]);
 
         this.initialData = {
-            labels: ['Cost'],
+            labels: [this.other() + ' Cost'],
             datasets: [{
                 label: 'PB 0',
                 backgroundColor: this.colors.colors[0],
@@ -181,12 +183,15 @@ export class CostComparatorComponent implements OnInit {
             console.log('No chart registered');
             return;
         } else {
-            this.area = this.study.properties.sim_name
+            this.area = this.study.properties.sim_name;
 
             if (this.sub) this.sub.unsubscribe();
             this.sub = this.ws.getCostSeries(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
                 console.log('Got cost series.');
                 console.log(data);
+
+                this.chart.data.labels = [this.other() + ' Cost'];
+
                 this.chart.data.datasets[0].data = [data[0]];
                 this.chart.data.datasets[1].data = [data[1]];
                 this.chart.data.datasets[2].data = [data[2]];
