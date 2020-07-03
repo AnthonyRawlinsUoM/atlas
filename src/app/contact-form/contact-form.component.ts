@@ -18,7 +18,6 @@ export class ContactFormComponent {
     contactForm;
     conditions;
     message_sent = false;
-    tcs = "Terms and Conditions of Use";
     postman_error = '';
 
     TeamMembers: any[] = TeamMembersData;
@@ -42,7 +41,6 @@ export class ContactFormComponent {
             ])
             ],
             address: ['', ValidatorService.emailValidator],
-            terms: [false, Validators.pattern('true')],
             member: ['', Validators.required],
             message: ['', Validators.compose([
                 Validators.minLength(1),
@@ -105,6 +103,5 @@ export class ContactRequest {
     last_name: string;
     message: string;
     address: string;
-    terms?: boolean;
     member: any[];
 }
