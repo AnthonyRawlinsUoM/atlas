@@ -95,9 +95,11 @@
   <button class="ui icon inverted button" (click)=overview($event)><i class="expand icon"></i> Re-center</button>
 </div>
 <div class="interpolator">
-  <div class="ui segment raised">
+  <div class="ui top attached segment raised">
     <h5 class="ui header">Similarity to Study Areas</h5>
     <canvas id='interpolatedcanvas' #interpolatedcanvas></canvas>
   </div>
-
+  <div class="ui bottom attached segment raised">
+    <app-map-legend></app-map-legend>
+  </div>
 </div>
