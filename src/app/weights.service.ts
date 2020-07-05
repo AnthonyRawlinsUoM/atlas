@@ -207,6 +207,12 @@ export class WeightsService {
     public getMatrixCellOptionsForAreaScope(cellpos, area, scope, cmap, mode) {
         let norms = matrix.areas[area][scope];
         let normalised_value = norms[cellpos];
+
+        // Appply rounding for close-to-One values
+        if(normalised_value > 1.0 && normalised_value <= 1.1) {
+          normalised_value = 1.0;
+        }
+
         let color_value = Math.floor(normalised_value * 255);
         let colormap = viridis; // Default
 

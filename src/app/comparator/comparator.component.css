@@ -1,18 +1,12 @@
-/* .summary-content {
-    min-height: 90vh;
-}
-.flex-container {
-    align-items: stretch;
-    background-color: pink;
-    flex-shrink: 0;
-}
-.flex-container .ui {
-    flex-grow: 1;
-} */
-
-.rangeslider .ng5-slider .ng5-slider-selection {
-  /* background: rgb(255, 255, 0) !important; */
-}
 .chart-container {
   min-height: 400px;
+}
+
+.ui.field.relaxed {
+  margin-bottom: 5em;
+}
+div.collapsing {
+  margin-top: 4rem;
+  width: 330px;
+  white-space: pre-wrap;
 }

@@ -1,3 +1,8 @@
 .chart-container {
   min-height: 400px;
 }
+div.collapsing {
+  margin-top: 4rem;
+  width: 330px;
+  white-space: pre-wrap;
+}

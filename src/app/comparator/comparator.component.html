@@ -13,8 +13,20 @@
         </thead>
         <tbody>
             <tr>
-                <td class="collapsing"></td>
-                <td>Values are normalised to show relative effects. (1 = zero treatment, except for area burnt below minimum TFI where 1 = maximum risk)</td>
+                <td>
+                  <sui-message class="collapsing">
+                    <div class="content">
+
+                      <h3 class="ui header">
+                        <i class="circular info icon"></i>
+                        <div class="content">Usage Hint</div>
+                      </h3>
+                      <p>Hold either Edge or Landscape treatment at a constant level and explore differences in risk in the graph on the right.</p>
+                    </div>
+                  </sui-message>
+
+                </td>
+                <td></td>
             </tr>
             <tr>
                 <td
@@ -30,7 +42,7 @@
                         <div class="ui icon button" *ngIf="treatment!='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edge</div>
                       </div>
                       <div class="ui divider"></div>
-                      <div class="ui field">
+                      <div class="ui field relaxed">
                         <div class="ui header">@ Level:</div>
                         <ng5-slider class="rangeslider" [(value)]="level" [options]="pb_options" (valueChange)="levelChange($event)"></ng5-slider>
                       </div>
@@ -40,6 +52,8 @@
                                           <div class="ui divider"></div>
 
                                           <app-climate-option (toggleClimateChange)="toggleClimateChange($event)"></app-climate-option>
+
+                                          <app-interpretation></app-interpretation>
                 </td>
 
                 <td

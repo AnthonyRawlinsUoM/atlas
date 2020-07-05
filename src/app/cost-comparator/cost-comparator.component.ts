@@ -117,7 +117,11 @@ export class CostComparatorComponent implements OnInit {
                 },
                 legend: {
                 display: true,
-                position: 'bottom'
+                position: 'bottom',
+                align: 'start',
+                labels: {
+                  boxWidth: 16
+                }
               },
               aspectRatio: 16/9,
               maintainAspectRatio: true,

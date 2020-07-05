@@ -29,7 +29,7 @@ export class TreatmentComponent implements OnInit {
       console.log(this.colors);
 
       this.initialData = {
-          labels: ['Fire_area', 'House_loss', 'Life_loss', 'Road_loss', 'Power_loss', 'TFI_burnt'],
+          labels: ['Fire Area', 'House Loss', 'Life Loss', 'Road Loss', 'Power Loss', 'TFI Burnt'],
           datasets: [{
               label: 'No Treatment',
               backgroundColor: this.colors.colors[0],
@@ -54,13 +54,18 @@ export class TreatmentComponent implements OnInit {
                 legend: {
                 display: true,
                 position: 'bottom',
+                align: 'start',
                 labels: {
-                  fontSize: 16
+                  fontSize: 12,
+                  boxWidth: 16
                 }
               },
               aspectRatio: 1,
               maintainAspectRatio: true,
               scale: {
+                    pointLabels: {
+                      fontSize: 12
+                    },
                     angleLines: {
                         display: false
                     },
@@ -142,7 +147,7 @@ export class TreatmentComponent implements OnInit {
             let posLabel = this.ws.getRowColumnForIndex(this.positions[i]);
 
             d.push({
-                label: posLabel,
+                label: this.titleCase(posLabel),
                 backgroundColor: this.colors.colors[this.positions[i]],
                 borderColor: this.colors.colors[this.positions[i]],
                 fill: false,
@@ -157,11 +162,17 @@ export class TreatmentComponent implements OnInit {
             });
         }
         let example: ChartData = {
-            labels: ['Fire_area', 'House_loss', 'Life_loss', 'Road_loss', 'Power_loss', 'TFI_burnt'],
+            labels: ['Fire Area', 'House Loss', 'Life Loss', 'Road Loss', 'Power Loss', 'TFI Burnt'],
             datasets: d
         };
 
         return example;
+    }
+
+    public titleCase(str) {
+      return str.toLowerCase().split('_').map(function(word) {
+        return word.replace(word[0], word[0].toUpperCase());
+      }).join(' ');
     }
 }
 const distinct = (value, index, self) => {

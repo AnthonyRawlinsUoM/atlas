@@ -119,7 +119,11 @@ data: [[5,6], [-3,-6]]
             options: {
                 legend: {
                 display: true,
-                position: 'bottom'
+                position: 'bottom',
+                align: 'start',
+                labels: {
+                  boxWidth: 16
+                }
               },
               scales: {
                 xAxes: [{

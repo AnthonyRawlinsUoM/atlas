@@ -1,14 +1,20 @@
-<div class="ui message segment collapsing">
+<div class="collapsing">
+  <sui-message class="blue inverted" [isDismissable]="false">
+  <div class="ui inverted content">
 
-<h3 class="ui header">Climate Change</h3>
+    <h3 class="ui inverted icon header">
+      <i class="thermometer three quarters icon"></i>
+      <div class="content">Climate Change</div>
+    </h3>
 
-<div class="ui form">
-    <div class="grouped fields">
-        <div class="field">
-          <sui-checkbox class="toggle" (checkChange)="onChange($event)"> Toggle Climate Change Effects</sui-checkbox>
-        </div>
+    <div class="ui form ">
+      <div class="grouped fields">
+          <div class="field">
+            <sui-checkbox class="toggle" (checkChange)="onChange($event)"> Toggle Climate Change Effects</sui-checkbox>
+          </div>
+      </div>
     </div>
-</div>
-<p>The effects of climate change are shown as the minimum to maximum variation according to an ensemble of climate change models and scenarios.</p>
-
+    <p>The effects of climate change are shown as the minimum to maximum variation according to an ensemble of climate change models and scenarios.</p>
+  </div>
+</sui-message>
 </div>
