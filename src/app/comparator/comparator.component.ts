@@ -89,6 +89,15 @@ data: [[5,6], [-3,-6]]
             type: 'line',
             fill: false,
             lineTension: 0
+          },
+          {
+            label: 'No Treatment',
+            borderColor: 'rgba(0,0,0,0.3)',
+            borderDash: [5,5],
+            data: [1.0,1.0,1.0,1.0,1.0,1.0,1.0],
+            type: 'line',
+            fill: false,
+            lineTension: 0
           }
         ]
     };
@@ -112,16 +121,6 @@ data: [[5,6], [-3,-6]]
                 display: true,
                 position: 'bottom'
               },
-              // layout: {
-              //     padding: {
-              //         left: 50,
-              //         right: 50,
-              //         top: 0,
-              //         bottom: 0
-              //     }
-              // },
-              // aspectRatio: 16/9,
-              // maintainAspectRatio: true,
               scales: {
                 xAxes: [{
 
@@ -130,7 +129,7 @@ data: [[5,6], [-3,-6]]
                     }
                 }],
                 yAxes: [{
-                  position: 'right',
+                  position: 'left',
                   ticks: {
                       beginAtZero: true,
                       suggestedMin: 0,

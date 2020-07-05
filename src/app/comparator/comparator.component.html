@@ -13,7 +13,7 @@
         </thead>
         <tbody>
             <tr>
-                <td class="collapsing">Values are normalised to show relative effects.</td>
+                <td class="collapsing"></td>
                 <td>Values are normalised to show relative effects. (1 = zero treatment, except for area burnt below minimum TFI where 1 = maximum risk)</td>
             </tr>
             <tr>
@@ -34,7 +34,12 @@
                         <div class="ui header">@ Level:</div>
                         <ng5-slider class="rangeslider" [(value)]="level" [options]="pb_options" (valueChange)="levelChange($event)"></ng5-slider>
                       </div>
+
                     </div>
+
+                                          <div class="ui divider"></div>
+
+                                          <app-climate-option (toggleClimateChange)="toggleClimateChange($event)"></app-climate-option>
                 </td>
 
                 <td
@@ -58,7 +63,6 @@
                         <canvas id='canvas' ></canvas>
                         </div>
                     </div>
-                    <app-climate-option (toggleClimateChange)="toggleClimateChange($event)"></app-climate-option>
                 </td>
             </tr>
         </tbody>

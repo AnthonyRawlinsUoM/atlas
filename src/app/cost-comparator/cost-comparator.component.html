@@ -40,16 +40,10 @@
                     <div
                         class="ui field"
                     >
-                        <app-cost-option (costTypeChange)="onCostTypeChange($event)"></app-cost-option>
+                        <app-cost-option [costType]="costType" (costTypeChange)="onCostTypeChange($event)"></app-cost-option>
                         <div class="ui divider"></div>
 
-                        <!-- <app-boxplot
-                        [study]="area"
-                        [scope]="scope"
-                        [treatment]="treatment"
-                        #boxplot></app-boxplot> -->
-
-                        <div class="ui center aligned header">{{ costType + ' @ ' + pb_label(level) + '% of ' + treatment + '.'}}</div>
+                        <div class="ui center aligned header">{{ titleCase(costType) + ' @ ' + pb_label(level) + '% of ' + treatment + '.'}}</div>
                         <div class="chart-container">
                         <canvas id='costcanvas' #costcanvas></canvas>
                         </div>
