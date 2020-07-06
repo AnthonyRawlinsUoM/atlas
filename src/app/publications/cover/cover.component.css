@@ -1,0 +1,34 @@
+.ui.card {
+  width: inherit !important;
+}
+
+.ui.cards > .ui.card > .black.inverted.content .header,
+.ui.cards > .ui.card > .black.inverted.content,
+.ui.card > .black.inverted.content .header,
+.ui.card > .black.inverted.content {
+  background: rgb(0,0,0) !important;
+  color: rgb(200,200,200) !important;
+}
+.ui.cards > .card .meta,
+.ui.card .meta,
+.ui.card .black.inverted.content .meta,
+.ui.cards > .card .description,
+.ui.card .description,
+.ui.card .black.inverted.content .description,
+.ui.cards > .card a.item,
+.ui.card a.item,
+.ui.card .black.inverted.content a.item {
+    background: rgb(0,0,0) !important;
+    color: rgb(175,175,175) !important;
+}
+
+.ui.cards > .card a.item i.icon,
+.ui.card a.item i.icon,
+.ui.card .black.inverted.content a.item i.icon {
+  color: rgba(255,255,255, 0.4) !important;
+}
+
+.ui.black.inverted.card {
+  padding-bottom: 1rem;
+    background: rgb(0,0,0) !important;
+}

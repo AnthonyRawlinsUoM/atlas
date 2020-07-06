@@ -72,7 +72,7 @@
                         [treatment]="treatment"
                         #boxplot></app-boxplot> -->
 
-                        <div class="ui center aligned header">{{ scope + ' @ ' + pb_label(level) + '% of ' + treatment + '.'}}</div>
+                        <div class="ui center aligned header">{{ titleCase(scope) + ' @ ' + pb_label(level) + '% of ' + treatment + '.'}}</div>
                         <div class="chart-container">
                         <canvas id='canvas' ></canvas>
                         </div>

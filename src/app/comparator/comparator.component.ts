@@ -146,16 +146,6 @@ data: [[5,6], [-3,-6]]
               }
             }
         });
-
-        // this.chart.scaleService.updateScaleDefaults('linear', {
-        //     ticks: {
-        //         min: 0,
-        //         max: 1,
-        //         suggestedMin: 0,
-        //         suggestedMax: 1
-        //     }
-        // });
-
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -255,49 +245,6 @@ data: [[5,6], [-3,-6]]
       return this.pb_options.stepsArray[lvl].legend;
     }
 
-    // massage(data) {
-    //     let example: ChartData = {
-    //         labels: [this.other()],
-    //         datasets: [{
-    //             label: 'PB 0',
-    //             backgroundColor: this.colors.colors[0],
-    //             data: [data[0]]
-    //         },
-    //         {
-    //             label: 'PB 1',
-    //             backgroundColor: this.colors.colors[1],
-    //             data: [data[1]]
-    //         },
-    //         {
-    //             label: 'PB 2',
-    //             backgroundColor: this.colors.colors[2],
-    //             data: [data[2]]
-    //         },
-    //         {
-    //             label: 'PB 3',
-    //             backgroundColor: this.colors.colors[3],
-    //             data: [data[3]]
-    //         },
-    //         {
-    //             label: 'PB 5',
-    //             backgroundColor: this.colors.colors[4],
-    //             data: [data[4]]
-    //         },
-    //         {
-    //             label: 'PB 10',
-    //             backgroundColor: this.colors.colors[5],
-    //             data: [data[5]]
-    //         },
-    //         {
-    //             label: 'PB 15',
-    //             backgroundColor: this.colors.colors[6],
-    //             data: [data[6]]
-    //         }]
-    //     };
-    //
-    //     return example;
-    // }
-
     conform(data) {
       let test = this.initialData;
       test.datasets[0].data = data;
@@ -308,6 +255,12 @@ data: [[5,6], [-3,-6]]
       console.log('Climate change change!' + ev);
       this.cc = ev;
       this.refreshCharts();
+    }
+
+    public titleCase(str) {
+      return str.toLowerCase().split('_').map(function(word) {
+        return word.replace(word[0], word[0].toUpperCase());
+      }).join(' ');
     }
 }
 

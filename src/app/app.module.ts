@@ -89,6 +89,7 @@ import { InterpretationComponent } from './interpretation/interpretation.compone
 import { CostOptionComponent } from './cost-option/cost-option.component';
 import { ClimateOptionComponent } from './climate-option/climate-option.component';
 import { MapLegendComponent } from './map-legend/map-legend.component';
+import { CoverComponent } from './publications/cover/cover.component';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 // const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
@@ -186,6 +187,7 @@ const routes: Routes = [
         CostOptionComponent,
         ClimateOptionComponent,
         MapLegendComponent,
+        CoverComponent,
     ],
     imports: [
         BrowserModule,
