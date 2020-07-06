@@ -41,6 +41,7 @@ export class CostComparatorComponent implements OnInit {
     chartOptions: ChartConfiguration;
 
     initialData: ChartData;
+    axisMax: any;
 
     constructor(private ws: WeightsService) { }
 
@@ -51,16 +52,6 @@ export class CostComparatorComponent implements OnInit {
 
         this.area = this.study.properties.sim_name;
         this.data = [];
-        //this.massage([10000, 10000, 10000, 10000, 10000, 10000, 10000]);
-
-
-//    { name: 'Environmental Costs', value: 'Environmental_cost' },
-//    { name: 'House Loss Costs', value: 'House_loss_cost' },
-//    { name: 'Power Loss Costs', value: 'Power_loss_cost' },
-//    { name: 'Life Loss Costs', value: 'Life_loss_cost' },
-//    { name: 'Edge Treatment Costs', value: 'Edge_cost' },
-//    { name: 'Landscape Treatment Costs', value: 'Landscape_cost' },
-
 
         this.initialData = {
             labels: [
@@ -123,7 +114,7 @@ export class CostComparatorComponent implements OnInit {
                   boxWidth: 16
                 }
               },
-              aspectRatio: 16/9,
+              aspectRatio: 1.0,
               maintainAspectRatio: true,
               scales: {
                 xAxes: [{
@@ -141,6 +132,7 @@ export class CostComparatorComponent implements OnInit {
               }
             }
         });
+        this.refreshCharts();
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -189,8 +181,6 @@ export class CostComparatorComponent implements OnInit {
     }
 
     refreshCharts() {
-        console.log('Changes!');
-
 
         if (!this.chart) {
             console.log('No chart registered');
@@ -199,13 +189,26 @@ export class CostComparatorComponent implements OnInit {
             this.area = this.study.properties.sim_name;
             if (this.sub) this.sub.unsubscribe();
 
+
+
+
             // Stacked Chart for Totals only
             if (this.costType == 'total_cost') {
+              let max_in_range = [];
+
               //Build from all other sets
               console.log('Building stacked bars');
               this.chart.options.scales.yAxes[0].stacked = true;
 
               CostTypes.map(ct => {
+
+                // Ranges
+                this.ws.getCostAxesRange(this.area, ct.value, this.level, this.treatment).subscribe((data) => {
+                  console.log('Max for this 2D array is: ' + data);
+                  max_in_range.push(data);
+                });
+
+                // Data
                 this.ws.getCostSeries(this.area, ct.value, this.level, this.treatment).subscribe((data) => {
                   console.log('Got cost series for: ' + ct.value);
                   console.log(data);
@@ -228,9 +231,16 @@ export class CostComparatorComponent implements OnInit {
                   });
               })
             });
+            this.chart.options.scales.yAxes[0].ticks.suggestedMax = Math.max(...max_in_range);
 
 
             } else {
+              if(this.axisMax) this.axisMax.unsubscribe();
+
+              this.axisMax = this.ws.getCostAxesRange(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
+                console.log('Max for this 2D array is: ' + data);
+                this.chart.options.scales.yAxes[0].ticks.suggestedMax = data;
+              });
 
               this.sub = this.ws.getCostSeries(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
                   console.log('Got cost series for: ' + this.costType);
@@ -271,50 +281,6 @@ export class CostComparatorComponent implements OnInit {
     pb_label(lvl){
       return this.pb_options.stepsArray[lvl].legend;
     }
-
-    // massage(data) {
-    //     let example: ChartData = {
-    //         labels: [this.other()],
-    //         datasets: [{
-    //             label: 'PB 0',
-    //             backgroundColor: this.colors.colors[0],
-    //             data: [data[0]]
-    //         },
-    //         {
-    //             label: 'PB 1',
-    //             backgroundColor: this.colors.colors[1],
-    //             data: [data[1]]
-    //         },
-    //         {
-    //             label: 'PB 2',
-    //             backgroundColor: this.colors.colors[2],
-    //             data: [data[2]]
-    //         },
-    //         {
-    //             label: 'PB 3',
-    //             backgroundColor: this.colors.colors[3],
-    //             data: [data[3]]
-    //         },
-    //         {
-    //             label: 'PB 5',
-    //             backgroundColor: this.colors.colors[4],
-    //             data: [data[4]]
-    //         },
-    //         {
-    //             label: 'PB 10',
-    //             backgroundColor: this.colors.colors[5],
-    //             data: [data[5]]
-    //         },
-    //         {
-    //             label: 'PB 15',
-    //             backgroundColor: this.colors.colors[6],
-    //             data: [data[6]]
-    //         }]
-    //     };
-    //
-    //     return example;
-    // }
-
 
     public longName(costType) {
       CostTypes.map(o => {

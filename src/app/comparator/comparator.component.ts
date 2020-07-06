@@ -125,6 +125,8 @@ data: [[5,6], [-3,-6]]
                   boxWidth: 16
                 }
               },
+              aspectRatio: 1.0,
+              maintainAspectRatio: true,
               scales: {
                 xAxes: [{
 

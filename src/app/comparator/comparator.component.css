@@ -1,12 +1,11 @@
 .chart-container {
-  min-height: 400px;
+  min-height: 480px;
 }
 
 .ui.field.relaxed {
   margin-bottom: 5em;
 }
 div.collapsing {
-  margin-top: 4rem;
   width: 330px;
   white-space: pre-wrap;
 }

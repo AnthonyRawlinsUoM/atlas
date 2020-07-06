@@ -104,6 +104,28 @@ export class WeightsService {
       });
     }
 
+    public getCostAxesRange(study, costType, level:number, treatment) {
+      const pos = [0,1,2,3,4,5,6];
+
+      return Observable.create((observer) => {
+
+          let selected_area = matrix.areas[study];
+          let res:number[] = [];
+
+          for (let m in selected_area) {
+              if (m == costType) {
+                console.log(selected_area[m]);
+                let as_array = [];
+                for( let i in [...Array(49).keys()]) {
+                  as_array.push(selected_area[m][i]);
+                }
+                res.push(Math.max(...as_array));
+              }
+          }
+          observer.next(res);
+      });
+    }
+
     getClimateRange(area: any, costType: any, level: number, treatment: any): any {
       return Observable.create((observer) => {
           // Area = array of indexes row*col + col

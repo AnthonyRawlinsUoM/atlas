@@ -115,6 +115,7 @@ const routes: Routes = [
     { path: 'help', component: HelpComponent, data: {state: 'help'} },
 
     { path: 'publications', component: PublicationsComponent, data: { state: 'publications' } },
+    { path: 'disclaimer', component: DisclaimerComponent, data: {state: 'disclaimer'}},
     { path: 'logout', component: LogoutComponent },
     {
         path: 'home', component: StudyAreasComponent,
