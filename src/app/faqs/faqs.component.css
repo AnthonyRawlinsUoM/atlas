@@ -85,3 +85,22 @@
     width: 1px;
     background: rgba(34,36,38,.1);
 }
+
+.title .question {
+  color: rgba(#303030, 0.88) !important;
+  background-color: #DFDFDF !important;
+}
+
+.title.active .question {
+  color: rgba(#000000, 0.88) !important;
+  background-color: #FFFFFF !important;
+}
+
+.answer.text.container {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+div.indent {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
