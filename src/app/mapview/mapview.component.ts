@@ -14,13 +14,19 @@ import studyareas from '../../assets/studyareas.json';
 import { filter, map } from 'rxjs/operators';
 import { FeatureCollection, Feature, Geometry } from 'geojson';
 
-// Edge Sources
-import * as act_edges from '../../assets/ACT_edges.json';
-import * as bm_edges from '../../assets/BM_edges.json';
-
-// Landscape Sources
-import act_landscapes from '../../assets/ACT_landscapes.json';
-import bm_landscapes from '../../assets/BM_landscapes.json';
+// // Edge Sources
+// import * as act_edges from '../../assets/ACT_edges.json';
+// import * as bm_edges from '../../assets/BM_edges.json';
+// import * as qld_edges from '../../assets/QLD_edges.json';
+// import * as tas_edges from '../../assets/TAS_edges.json';
+// import * as vic_ld_edges from '../../assets/VIC_LD_edges.json';
+//
+// // Landscape Sources
+// import act_landscapes from '../../assets/ACT_landscapes.json';
+// import bm_landscapes from '../../assets/BM_landscapes.json';
+// import qld_landscapes from '../../assets/QLD_landscapes.json';
+// import tas_landscapes from '../../assets/TAS_landscapes.json';
+// import vic_ld_landscapes from '../../assets/VIC_LD_landscapes.json';
 
 
 @Component({
@@ -194,7 +200,7 @@ export class MapviewComponent implements OnInit {
       this.burnblocks_edges = '/assets/' + study.properties.sim_name + '_edges.json';
       this.burnblocks_landscapes = '/assets/' + study.properties.sim_name + '_landscapes.json';
 
-      this.ignitions = '/assets/Ignitions/' + study.properties.sim_name + '_Ign_top1000.json';
+      this.ignitions = '/assets/Ignitions/' + study.properties.sim_name + '.json';
 
       this.focus = study;
       this.zoomToBoundingBoxOfStudy(study);
