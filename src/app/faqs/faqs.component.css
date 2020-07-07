@@ -104,3 +104,7 @@ div.indent {
   margin-left: 2rem;
   margin-right: 2rem;
 }
+
+q {
+  margin: 2rem;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DisclaimerService } from '../disclaimer.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,9 +10,12 @@ export class FooterComponent implements OnInit {
 
     @Input() version: string;
 
-  constructor() { }
+  constructor(private ds: DisclaimerService) { }
 
   ngOnInit() {
   }
 
+  show() {
+    this.ds.decline();
+  }
 }
