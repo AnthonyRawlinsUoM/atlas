@@ -114,7 +114,6 @@ export class WeightsService {
 
           for (let m in selected_area) {
               if (m == costType) {
-                console.log(selected_area[m]);
                 let as_array = [];
                 for( let i in [...Array(49).keys()]) {
                   as_array.push(selected_area[m][i]);
@@ -182,16 +181,67 @@ export class WeightsService {
                   }
               }
           }
+
+          // Invert the Climate Change series for TFI to match scale
+          if(costType == 'TFI_burnt') {
+            let flipped = {
+              plus: res.minus.map(p => 1/p),
+              minus: res.plus.map(p => 1/p)
+            }
+            res = flipped;
+          }
+
           observer.next(res)
+      });
+    }
+
+    public getMaxInRange(area: any, scope: any): any {
+      // throw new Error("Method not implemented.");
+
+      return Observable.create((observer) => {
+        let selected_area = matrix.areas[area];
+        let res:number[] = [];
+
+        for (let m in selected_area) {
+            if (m == scope) {
+              let as_array = [];
+              for( let i in [...Array(49).keys()]) {
+                as_array.push(selected_area[m][i]);
+              }
+              res.push(Math.max(...as_array));
+            }
+        }
+      });
+    }
+
+    public getMaxInRangeWithClimateChange(area: any, scope: any): any {
+      // throw new Error("Method not implemented.");
+
+      return Observable.create((observer) => {
+        let selected_area = matrix.areas[area];
+        let res:number[] = [];
+
+        for (let m in selected_area) {
+            if (m == scope + '_plus') {
+              let as_array = [];
+              for( let i in [...Array(49).keys()]) {
+                if(scope == 'TFI_burnt') {
+                  // Invert to match TFI scale
+                  as_array.push(1 / selected_area[m][i]);
+                } else {
+                  as_array.push(selected_area[m][i]);
+                }
+              }
+              res.push(Math.max(...as_array));
+            }
+        }
       });
     }
 
     public getSingleSeries(study, scope, level:number, treatment) {
 
         const pos = [0,1,2,3,4,5,6];
-        console.log(treatment);
-        console.log(level);
-        console.log(study);
+
         return Observable.create((observer) => {
             // Area = array of indexes row*col + col
             // eg., [0,12,14...,48] etc

@@ -3,6 +3,7 @@ import { MatrixSelectorComponent } from '../matrix-selector/matrix-selector.comp
 import { Chart, ChartData, ChartConfiguration } from 'chart.js';
 import { schemes } from '../Viridis';
 import { WeightsService } from '../weights.service';
+import { UxOptionService } from '../ux-option.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class TreatmentComponent implements OnInit {
     positions: any[];
     initialData: ChartData;
 
-    constructor(private ws: WeightsService) {
+    constructor(private ws: WeightsService, private ux: UxOptionService) {
       console.log(this.colors);
 
       this.initialData = {

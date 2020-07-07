@@ -16,12 +16,22 @@
 /* .shrink {
     width: 33vw !important;
 } */
-@media screen and (max-width: 960px) {
+@media screen and (min-width: 800px) {
 
     .ui.left.sidebar,
     .ui.right.sidebar,
     .panel {
-        width: 100% !important;
+        width: 800px !important;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 960px) {
+
+    .ui.left.sidebar,
+    .ui.right.sidebar,
+    .panel {
+        width: 960px !important;
         height: auto;
     }
 }

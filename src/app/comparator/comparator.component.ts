@@ -3,6 +3,7 @@ import { WeightsService } from '../weights.service';
 import { Options } from 'ng5-slider';
 import { Chart, ChartData, ChartConfiguration } from 'chart.js';
 import { schemes } from '../Viridis';
+import { UxOptionService } from '../ux-option.service';
 // import { jqxChartComponent } from 'jqwidgets-ng/jqxchart/public_api';
 
 
@@ -42,25 +43,6 @@ export class ComparatorComponent implements OnInit {
 
     cc = false;
 
-
-/*
-https://www.chartjs.org/docs/latest/charts/bar.html
-
-Dataset Structure Example
-
-The data property of a dataset for a bar chart is specified as an array of numbers. Each point in the data array corresponds to the label at the same index on the x axis.
-
-data: [20, 10]
-You can also specify the dataset as x/y coordinates when using the time scale.
-
-data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}]
-
-
-You can also specify the dataset for a bar chart as arrays of two numbers. This will force rendering of bars with gaps between them (floating-bars). First and second numbers in array will correspond the start and the end point of a bar respectively.
-
-data: [[5,6], [-3,-6]]
-
-*/
     initialData: ChartData = {
 
         labels: ['PB 0', 'PB 1', 'PB 2', 'PB 3', 'PB 5', 'PB 10', 'PB 15'],
@@ -102,8 +84,9 @@ data: [[5,6], [-3,-6]]
         ]
     };
     ccsub: any;
+    sub_range: any;
 
-    constructor(private ws: WeightsService) { }
+    constructor(private ws: WeightsService, private ux: UxOptionService) { }
 
     ngOnInit() {
         this.scope = 'House_loss';
@@ -139,13 +122,14 @@ data: [[5,6], [-3,-6]]
                   ticks: {
                       beginAtZero: true,
                       suggestedMin: 0,
-                      suggestedMax: 1,
+                      suggestedMax: 1.2,
                       stepSize: 0.1
                   }
                 }]
               }
             }
         });
+        this.refreshCharts();
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -179,14 +163,16 @@ data: [[5,6], [-3,-6]]
     }
 
     refreshCharts() {
-        console.log('Changes!');
-
-
         if (!this.chart) {
             console.log('No chart registered');
             return;
         } else {
             this.area = this.study.properties.sim_name
+
+            if (this.sub_range) this.sub_range.unsubscribe();
+            this.sub_range = this.ws.getMaxInRange(this.area, this.scope).subscribe((data) => {
+              this.chart.options.scales.yAxes[0].ticks.suggestedMax = data;
+            });
 
             if (this.sub) this.sub.unsubscribe();
             this.sub = this.ws.getSingleSeries(this.area, this.scope, this.level, this.treatment).subscribe((data) => {
@@ -207,6 +193,12 @@ data: [[5,6], [-3,-6]]
             });
 
             if(this.cc) {
+
+              if (this.sub_range) this.sub_range.unsubscribe();
+              this.sub_range = this.ws.getMaxInRangeWithClimateChange(this.area, this.scope).subscribe((data) => {
+                this.chart.options.scales.yAxes[0].ticks.suggestedMax = data;
+              });
+
               if (this.ccsub) this.ccsub.unsubscribe();
               this.ccsub = this.ws.getClimateRange(this.area, this.scope, this.level, this.treatment).subscribe((data) => {
                 console.log('Got Climate Change data');

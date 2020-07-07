@@ -26,7 +26,7 @@ import { ShortcutService } from './shortcut.service';
 import { TeamService } from './team.service';
 import { ValidatorService } from './validator.service';
 import { MailerService } from './mailer.service';
-
+import { UxOptionService } from './ux-option.service';
 import { AuthGuard } from './auth.guard';
 
 import { AppComponent } from './app.component';
@@ -90,6 +90,7 @@ import { CostOptionComponent } from './cost-option/cost-option.component';
 import { ClimateOptionComponent } from './climate-option/climate-option.component';
 import { MapLegendComponent } from './map-legend/map-legend.component';
 import { CoverComponent } from './publications/cover/cover.component';
+import { UxOptionsComponent } from './ux-options/ux-options.component';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 // const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
@@ -188,6 +189,7 @@ const routes: Routes = [
         ClimateOptionComponent,
         MapLegendComponent,
         CoverComponent,
+        UxOptionsComponent,
     ],
     imports: [
         BrowserModule,
@@ -222,6 +224,7 @@ const routes: Routes = [
         TeamService,
         ValidatorService,
         MailerService,
+        UxOptionService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: InterceptorService,

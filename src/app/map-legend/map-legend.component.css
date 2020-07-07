@@ -21,19 +21,19 @@ span.tip {
   border-radius: 8px;
 }
 
-span.bb {
+/* span.bb {
   background-color: rgba(3, 41, 4, 0.25);
   border-color: rgba(3, 41, 4, 0.35);
-}
+} */
 
 span.e {
-  background-color: rgba(137, 194, 35, 0.1);
-  border-color: rgba(137, 194, 35, 0.3);
+  background-color: rgba(3, 41, 4, 0.2);
+  border-color: rgba(3, 41, 4, 0.35);
   border-style: dashed;
 }
 
 span.l {
-  background-color: rgba(35, 194, 132, 0.1);
-  border-color: rgba(35, 194, 132, 0.3);
+  background-color: rgba(107, 163, 10, 0.2);
+  border-color: rgba(107, 163, 10, 0.35);
   border-style: dotted;
 }

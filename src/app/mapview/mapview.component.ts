@@ -14,6 +14,14 @@ import studyareas from '../../assets/studyareas.json';
 import { filter, map } from 'rxjs/operators';
 import { FeatureCollection, Feature, Geometry } from 'geojson';
 
+// Edge Sources
+import * as act_edges from '../../assets/ACT_edges.json';
+import * as bm_edges from '../../assets/BM_edges.json';
+
+// Landscape Sources
+import act_landscapes from '../../assets/ACT_landscapes.json';
+import bm_landscapes from '../../assets/BM_landscapes.json';
+
 
 @Component({
   selector: 'app-mapview',
@@ -38,6 +46,8 @@ export class MapviewComponent implements OnInit {
   study_detail: any = { "type": "FeatureCollection", "features": [] };
   burnblocks: any = { "type": "FeatureCollection", "features": [] };
   ignitions: any = { "type": "FeatureCollection", "features": [] };
+  burnblocks_edges:any = { "type": "FeatureCollection", "features": [] };
+  burnblocks_landscapes:any = { "type": "FeatureCollection", "features": [] };
 
   movingOptions: FitBoundsOptions = { padding: 30, easing: (x) => { return easing.quadratic(x) } };
 
@@ -53,11 +63,13 @@ export class MapviewComponent implements OnInit {
   colors = schemes[2];
   ov: turf.helpers.BBox;
 
+
   constructor(
     private route: ActivatedRoute,
     private reactive: ReactiveService) { }
 
   ngOnInit() {
+
       this.studyareas = '/assets/studyareas.json';
 
 
@@ -85,11 +97,6 @@ export class MapviewComponent implements OnInit {
           type: 'line',
           data: this.initialData,
           options: {
-             // tooltips: {
-             //    callbacks: {
-             //          label: this.toolTipFormatter
-             //      }
-             //  },
               legend: {
               display: false,
               position: 'bottom'
@@ -100,7 +107,6 @@ export class MapviewComponent implements OnInit {
               yAxes: [{
                 position: 'left',
                 ticks: {
-                //     callback: this.millionsFormatter
                     suggestedMin: 0,
                     suggestedMax: 1,
                     stepSize: 0.25
@@ -173,19 +179,21 @@ export class MapviewComponent implements OnInit {
 
   overview(ov) {
     this.burnblocks = { "type": "FeatureCollection", "features": [] };
+    this.burnblocks_edges = '';
+    this.burnblocks_landscapes = '';
     this.ignitions = { "type": "FeatureCollection", "features": [] };
-
     this.mapviewer.MapService.fitBounds([129.5, -43.47, 153.6, -27.45 ]);
   }
 
   focusOn(study) {
 
       // Reset
-      this.burnblocks = { "type": "FeatureCollection", "features": [] };
       this.ignitions = { "type": "FeatureCollection", "features": [] };
 
-      // Load
-      this.burnblocks = '/assets/BurnBlocks/' + study.properties.sim_name + '.json';
+      // console.log(this.burnblocks);
+      this.burnblocks_edges = '/assets/' + study.properties.sim_name + '_edges.json';
+      this.burnblocks_landscapes = '/assets/' + study.properties.sim_name + '_landscapes.json';
+
       this.ignitions = '/assets/Ignitions/' + study.properties.sim_name + '_Ign_top1000.json';
 
       this.focus = study;

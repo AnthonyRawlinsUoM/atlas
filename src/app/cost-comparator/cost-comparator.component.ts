@@ -4,6 +4,7 @@ import { Options } from 'ng5-slider';
 import { Chart, ChartData, ChartConfiguration } from 'chart.js';
 import { schemes } from '../Viridis';
 import { CostTypes } from '../cost-option/cost-option.component';
+import { UxOptionService } from '../ux-option.service';
 
 @Component({
   selector: 'app-cost-comparator',
@@ -43,7 +44,7 @@ export class CostComparatorComponent implements OnInit {
     initialData: ChartData;
     axisMax: any;
 
-    constructor(private ws: WeightsService) { }
+    constructor(private ws: WeightsService, private ux: UxOptionService) { }
 
     ngOnInit() {
         this.costType = 'total_cost';

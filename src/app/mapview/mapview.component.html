@@ -10,8 +10,16 @@
         <mgl-feature *ngFor="let g of ignitions.features" [geometry]="g.geometry" properties="g.properties" id="g.id"></mgl-feature>
     </mgl-geojson-source>
 
-    <mgl-geojson-source id="burnblocks-source" [data]="burnblocks">
+    <!-- <mgl-geojson-source id="burnblocks-source" [data]="burnblocks">
         <mgl-feature *ngFor="let g of burnblocks.features" [geometry]="g.geometry" properties="g.properties" id="g.id"></mgl-feature>
+    </mgl-geojson-source> -->
+
+    <mgl-geojson-source id="burnblocks-source-edges" [data]="burnblocks_edges">
+        <mgl-feature *ngFor="let g of burnblocks_edges.features" [geometry]="g.geometry" properties="g.properties" id="g.id"></mgl-feature>
+    </mgl-geojson-source>
+
+    <mgl-geojson-source id="burnblocks-source-landscapes" [data]="burnblocks_landscapes">
+        <mgl-feature *ngFor="let g of burnblocks_landscapes.features" [geometry]="g.geometry" properties="g.properties" id="g.id"></mgl-feature>
     </mgl-geojson-source>
 
     <mgl-geojson-source id="study-detail-source" [data]="study_detail">
@@ -26,15 +34,29 @@
 
 
 
-    <mgl-layer id="burnblocks-layer" type="line" source="burnblocks-source" [paint]="{
+    <mgl-layer id="burnblocks-edge-layer" type="line" source="burnblocks-source-edges" [paint]="{
         'line-color': '#032904',
         'line-opacity': 0.35,
         'line-width': 1.0
       }">
     </mgl-layer>
 
-    <mgl-layer id="burnblocks-fills-layer" type="fill" source="burnblocks-source" [paint]="{
+    <mgl-layer id="burnblocks-edge-fills-layer" type="fill" source="burnblocks-source-edges" [paint]="{
           'fill-color': '#032904',
+          'fill-opacity': 0.20
+        }">
+    </mgl-layer>
+
+
+    <mgl-layer id="burnblocks-landscape-layer" type="line" source="burnblocks-source-landscapes" [paint]="{
+        'line-color': '#6ba30a',
+        'line-opacity': 0.35,
+        'line-width': 1.0
+      }">
+    </mgl-layer>
+
+    <mgl-layer id="burnblocks-landscape-fills-layer" type="fill" source="burnblocks-source-landscapes" [paint]="{
+          'fill-color': '#6ba30a',
           'fill-opacity': 0.20
         }">
     </mgl-layer>
