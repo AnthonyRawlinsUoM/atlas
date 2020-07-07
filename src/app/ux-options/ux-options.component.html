@@ -1,1 +1,21 @@
-<p>ux-options works!</p>
+  <div class="ui raised attached top segment ">
+    <div class="ui vertical stripe">
+    <h2 class="ui icon header">
+      <i class="cogs icon"></i>
+      <div class="content">
+        Interface Options
+      </div>
+    </h2>
+  </div>
+  <div class="ui raised form attached segment">
+    <div class="ui container">
+
+    <div class="ui fieldset">
+      <div class="ui field">
+        <i class="cog icon"></i>
+        <sui-checkbox class="toggle" [(ngModel)]="hints_required" (checkChange)="onCheckChange($event)">Show Inline Hints</sui-checkbox>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

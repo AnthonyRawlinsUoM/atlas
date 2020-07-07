@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UxOptionService } from '../ux-option.service';
 
 @Component({
   selector: 'app-ux-options',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UxOptionsComponent implements OnInit {
 
-  constructor() { }
+
+  hints_required;
+
+  constructor(private ux: UxOptionService) { }
 
   ngOnInit() {
+    this.hints_required = this.ux.getHints();
   }
 
+  onCheckChange(ev) {
+    this.ux.setHints(ev);
+  }
 }

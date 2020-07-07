@@ -91,6 +91,9 @@ import { ClimateOptionComponent } from './climate-option/climate-option.componen
 import { MapLegendComponent } from './map-legend/map-legend.component';
 import { CoverComponent } from './publications/cover/cover.component';
 import { UxOptionsComponent } from './ux-options/ux-options.component';
+import { TopicComponent } from './help/topic/topic.component';
+import { VideoComponent } from './help/topic/video/video.component';
+import { TopicsComponent } from './help/topics/topics.component';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 // const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
@@ -190,6 +193,9 @@ const routes: Routes = [
         MapLegendComponent,
         CoverComponent,
         UxOptionsComponent,
+        TopicComponent,
+        VideoComponent,
+        TopicsComponent,
     ],
     imports: [
         BrowserModule,

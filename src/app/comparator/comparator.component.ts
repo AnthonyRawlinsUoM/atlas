@@ -86,7 +86,11 @@ export class ComparatorComponent implements OnInit {
     ccsub: any;
     sub_range: any;
 
-    constructor(private ws: WeightsService, private ux: UxOptionService) { }
+    hints_required;
+
+    constructor(private ws: WeightsService, private ux: UxOptionService) {
+      this.hints_required = this.ux.getHints();
+    }
 
     ngOnInit() {
         this.scope = 'House_loss';

@@ -43,8 +43,11 @@ export class CostComparatorComponent implements OnInit {
 
     initialData: ChartData;
     axisMax: any;
+    hints_required;
 
-    constructor(private ws: WeightsService, private ux: UxOptionService) { }
+    constructor(private ws: WeightsService, private ux: UxOptionService) {
+      this.hints_required = this.ux.getHints();
+    }
 
     ngOnInit() {
         this.costType = 'total_cost';

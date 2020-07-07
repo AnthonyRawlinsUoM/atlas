@@ -1,4 +1,5 @@
 <div class="ui container">
+  <div class="ui raised segment">
     <!-- Not yet verified -->
     <div
         *ngIf="!auth.loggedIn"
@@ -13,21 +14,6 @@
         </div>
     </div>
 
-    <!-- Verification Error -->
-    <!-- <div
-        *ngIf="!auth.loggedIn"
-        class="ui icon warning message"
-    >
-        <i class="warning icon"></i>
-        <div class="content">
-            <div class="header">
-                {{error}}
-            </div>
-            <p>{{error_message}}</p>
-        </div>
-    </div> -->
-
-
     <h3
         *ngIf="auth.loggedIn"
         class="ui dividing header"
@@ -38,4 +24,5 @@
         *ngIf="auth.loggedIn"
         (success)="onCompleted($event)"
     ></app-contact-form>
+</div>
 </div>

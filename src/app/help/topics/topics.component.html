@@ -1,0 +1,15 @@
+<div class="ui segment">
+  <h3 class="header">Video Help Topics</h3>
+  <div class="ui cards">
+    <div class="card" *ngFor="let topic of topics">
+      <app-video [url]="topic.url"></app-video>
+      <div class="content">
+      <h3 class="header">{{topic.title}}</h3>
+      <div class="meta">{{topic.runtime}}</div>
+      </div>
+      <div class="description">
+        {{topic.description}}
+      </div>
+    </div>
+  </div>
+</div>

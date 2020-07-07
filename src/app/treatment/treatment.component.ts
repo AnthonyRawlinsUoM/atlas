@@ -25,9 +25,10 @@ export class TreatmentComponent implements OnInit {
     colors = schemes[0];
     positions: any[];
     initialData: ChartData;
+    hints_required;
 
     constructor(private ws: WeightsService, private ux: UxOptionService) {
-      console.log(this.colors);
+      this.hints_required = this.ux.getHints();
 
       this.initialData = {
           labels: ['Fire Area', 'House Loss', 'Life Loss', 'Road Loss', 'Power Loss', 'TFI Burnt'],

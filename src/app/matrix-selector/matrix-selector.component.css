@@ -1,7 +1,7 @@
 .matrix {
 
-    width: calc((32px * 10));
-    height: calc((32px * 10));
+    width: calc((32px * 9));
+    height: calc((32px * 9));
 
     display: flex;
     /* justify-content: center; */
@@ -10,6 +10,8 @@
     flex-wrap: wrap;
     flex-direction: row;
     position: relative;
+    margin-bottom: 32px;
+    margin-right:32px;
 }
 
 /* .matrix .mrow {
@@ -21,15 +23,15 @@
 }
 .matrix .ncol {
     width: 32px;
-    height: 64px;
+    height: 32px;
 }
 .matrix .dcol {
-    width: 64px;
+    width: 32px;
     height: 256px;
 }
 .matrix .wcol {
     width: 224px;
-    height: 64px;
+    height: 32px;
     text-align: center;
 }
 .matrix .dcol label,
@@ -68,7 +70,8 @@
 }
 
 .pivot {
-    transform: rotate(-90deg) translate(-110px);
+    transform: rotate(-90deg) translate(-100px, -32px);
+    width: 100px;
 }
 .wrap {
   white-space: pre-wrap;
