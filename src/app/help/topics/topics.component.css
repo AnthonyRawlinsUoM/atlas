@@ -1,0 +1,6 @@
+.scrolling {
+  overflow-y: auto;
+}
+.player {
+  height: 580px;
+}

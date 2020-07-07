@@ -16,6 +16,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ChartModule} from 'angular2-chartjs';
 import { Ng5SliderModule } from 'ng5-slider';
 
+import { VgCoreModule } from 'videogular2/compiled/core';
+import { VgControlsModule } from 'videogular2/compiled/controls';
+import { VgOverlayPlayModule } from 'videogular2/compiled/overlay-play';
+import { VgBufferingModule } from 'videogular2/compiled/buffering';
+
 import { ReactiveService } from './reactive.service';
 import { DisclaimerService } from './disclaimer.service';
 import { AuthService } from './auth.service';
@@ -90,10 +95,11 @@ import { CostOptionComponent } from './cost-option/cost-option.component';
 import { ClimateOptionComponent } from './climate-option/climate-option.component';
 import { MapLegendComponent } from './map-legend/map-legend.component';
 import { CoverComponent } from './publications/cover/cover.component';
+import { PlayerComponent } from './help/player/player.component';
 import { UxOptionsComponent } from './ux-options/ux-options.component';
+import { TopicsComponent } from './help/topics/topics.component';
 import { TopicComponent } from './help/topic/topic.component';
 import { VideoComponent } from './help/topic/video/video.component';
-import { TopicsComponent } from './help/topics/topics.component';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 // const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
@@ -192,10 +198,11 @@ const routes: Routes = [
         ClimateOptionComponent,
         MapLegendComponent,
         CoverComponent,
+        PlayerComponent,
         UxOptionsComponent,
+        TopicsComponent,
         TopicComponent,
         VideoComponent,
-        TopicsComponent,
     ],
     imports: [
         BrowserModule,
@@ -210,6 +217,10 @@ const routes: Routes = [
         DragDropModule,
         ChartModule,
         Ng5SliderModule,
+       VgCoreModule,
+       VgControlsModule,
+       VgOverlayPlayModule,
+       VgBufferingModule,
         SocketIoModule.forRoot(config),
         NgxMapboxGLModule.withConfig({
             accessToken: 'pk.eyJ1IjoiYW50aG9ueXJhd2xpbnN1b20iLCJhIjoiY2o1dm81NTIwMDN6MTJxbjlvOHBiNHdlOSJ9.lt8I4sU0ceA6N8Tnnmx2ig', // Optionnal, can also be set per map (accessToken input of mgl-map)

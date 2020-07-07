@@ -15,12 +15,47 @@
             <div class="ui divided centered equal width grid">
 
             <div class="ui link cards center aligned row">
-              <div class="ui column"><app-cover></app-cover></div>
-              <div class="ui column"><app-cover></app-cover></div>
-              <div class="ui column"><app-cover></app-cover></div>
+              <div class="ui column" *ngFor="let c of covers">
+                <app-cover [cover]="c"></app-cover>
+              </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="ui raised segment">
+          <div class="ui divided grid">
+            <div class="ui four wide column">
+              <h3 class="ui header">Reports</h3>
+              <div class="ui list">
+                <a href="https://www.bnhcrc.com.au/publications/biblio/bnh-5697" class="item" target="_blank"><i class="pdf file icon"></i> 2018-19 Project Annual Report</a>
+                <a href="https://www.bnhcrc.com.au/publications/biblio/bnh-5035" class="item" target="_blank"><i class="pdf file icon"></i> 2017-18 Project Annual Report</a>
+                <a href="https://www.bnhcrc.com.au/publications/biblio/bnh-4203" class="item" target="_blank"><i class="pdf file icon"></i> 2016-17 Project Annual Report</a>
+                <a href="https://www.bnhcrc.com.au/publications/biblio/bnh-2919" class="item" target="_blank"><i class="pdf file icon"></i> 2015-16 Project Annual Report</a>
+              </div>
+            </div>
+
+            <div class="ui four wide column">
+              <h3 class="ui header">Presentations</h3>
+              <div class="ui list">
+                <a href="https://www.bnhcrc.com.au/resources/presentation-slideshow/5945" class="item" target="_blank">2019 AFAC Project Presentation</a>
+                <a href="https://www.bnhcrc.com.au/resources/presentation-audio-video/5782" class="item" target="_blank">2019 Webinar on climate change effects on prescribed burning weather</a>
+                <a href="https://www.bnhcrc.com.au/resources/presentation-slideshow/4868" class="item" target="_blank">2018 AFAC Project Presentation</a>
+              </div>
+            </div>
+
+            <div class="ui four wide column">
+              <h3 class="ui header">Links</h3>
+              <p>These reports and presentations can be found on the <a
+                  href="https://www.bnhcrc.com.au/research/understanding-mitigating-hazards/1303"
+                  target="_blank"
+                  >"From hectares to tailor made solutions for risk mitigation"</a> project page at BNHCRC.</p>
+              </div>
           </div>
-        </div>
-        </div>
+
+
+
+
         </div>
 
         <div class="ui raised segment">
@@ -28,9 +63,17 @@
 
             <div class="ui relaxed list">
 
+              <div class="item open_access">
+                <div class="csl-bib-body">
+                  <div class="csl-entry">
+                    Clarke H, Cirulis B, Bradstock R, Boer M, Penman T, Price O (2019) A new decision support tool for prescribed burning risk assessment. In AFAC19 powered by INTERSCHUTZ Research Proceedings from the Bushfire and Natural Hazards CRC Research Forum (peer reviewed); Australian Journal of Emergency Management, Monograph No. 4. <a href="https://www.aidr.org.au/media/7378/monograph_afac19-peer-reviewed_v2_051219.pdf" target="_blank">https://www.aidr.org.au/media/7378/monograph_afac19-peer-reviewed_v2_051219.pdf</a>
+                  </div>
+                </div>
+              </div>
+
               <div class="item">
                 <div class="csl-bib-body">
-                  <div data-csl-entry-id="temp_id_8693421547269624" class="csl-entry">Clarke, H., Gibson, R., Cirulis, B., Bradstock, R. A., &#38; Penman, T. D. (2019). Developing and testing models of the drivers of anthropogenic and lightning-caused wildfire ignitions in south-eastern Australia. <i>Journal of Environmental Management</i>, <i>235</i>, 34–41. <a href="https://doi.org/10.1016/j.jenvman.2019.01.055">https://doi.org/10.1016/j.jenvman.2019.01.055</a></div>
+                  <div data-csl-entry-id="temp_id_8693421547269624" class="csl-entry">Clarke, H., Gibson, R., Cirulis, B., Bradstock, R. A., &#38; Penman, T. D. (2019). Developing and testing models of the drivers of anthropogenic and lightning-caused wildfire ignitions in south-eastern Australia. <i>Journal of Environmental Management</i>, <i>235</i>, 34–41. <a href="https://doi.org/10.1016/j.jenvman.2019.01.055" target="_blank">https://doi.org/10.1016/j.jenvman.2019.01.055</a></div>
                 </div>
               </div>
 
@@ -62,21 +105,22 @@
 
                 <div class="item">
                   <div class="csl-bib-body">
-                    <div data-csl-entry-id="temp_id_2071680575859025" class="csl-entry">Cirulis, B., Clarke, H., Boer, M., Penman, T., Price, O., &#38; Bradstock, R. (2020). Quantification of inter-regional differences in risk mitigation from prescribed burning across multiple management values. <i>International Journal of Wildland Fire</i>, <i>29</i>(5), 414. <a href="https://doi.org/10.1071/wf18135">https://doi.org/10.1071/wf18135</a></div>
+                    <div data-csl-entry-id="temp_id_2071680575859025" class="csl-entry">Cirulis, B., Clarke, H., Boer, M., Penman, T., Price, O., &#38; Bradstock, R. (2020). Quantification of inter-regional differences in risk mitigation from prescribed burning across multiple management values. <i>International Journal of Wildland Fire</i>, <i>29</i>(5), 414. <a href="https://doi.org/10.1071/wf18135" target="_blank">https://doi.org/10.1071/wf18135</a></div>
                   </div>
                 </div>
 
                 <div class="item">
                   <div class="csl-bib-body">
-                    <div data-csl-entry-id="temp_id_5530007829342549" class="csl-entry">Duff, T. J., Cawson, J. G., &#38; Penman, T. D. (2019). Determining burnability: Predicting completion rates and coverage of prescribed burns for fuel management. <i>Forest Ecology and Management</i>, <i>433</i>, 431–440. <a href="https://doi.org/10.1016/j.foreco.2018.11.009">https://doi.org/10.1016/j.foreco.2018.11.009</a></div>
+                    <div data-csl-entry-id="temp_id_4041553600217238" class="csl-entry">Penman, T. D., Cirulis, B., &#38; Marcot, B. G. (2020). Bayesian decision network modeling for environmental risk management: A wildfire case study. <i>Journal of Environmental Management</i>, <i>270</i>, 110735. <a href="https://doi.org/10.1016/j.jenvman.2020.110735" target="_blank">https://doi.org/10.1016/j.jenvman.2020.110735</a></div>
                   </div>
                 </div>
 
-
-                <div class="item">
+                <div class="item open_access">
                   <div class="csl-bib-body">
-  <div data-csl-entry-id="temp_id_4041553600217238" class="csl-entry">Penman, T. D., Cirulis, B., &#38; Marcot, B. G. (2020). Bayesian decision network modeling for environmental risk management: A wildfire case study. <i>Journal of Environmental Management</i>, <i>270</i>, 110735. <a href="https://doi.org/10.1016/j.jenvman.2020.110735">https://doi.org/10.1016/j.jenvman.2020.110735</a></div>
-</div>
+                    <div class="csl-entry">
+                      Penman, T., Clarke, H., Cirulis, B., Boer, M., Price, O., & Bradstock, R. (2020). Cost-effective prescribed burning solutions vary between landscapes in eastern Australia. Frontiers in Forests and Global Change. <a href="https://doi.org/10.3389/ffgc.2020.00079" target="_blank">doi: 10.3389/ffgc.2020.00079</a>
+                    </div>
+                  </div>
                 </div>
 
 
@@ -96,15 +140,7 @@
             </div> -->
         </div>
 
-        <div class="ui raised segment">
-            <h3 class="ui header">Links</h3>
-            <div class="ui relaxed divided list">
-                <div class="ui item"><a
-                        href="https://www.bnhcrc.com.au/research/understanding-mitigating-hazards/1303"
-                        target="_blank"
-                    >https://www.bnhcrc.com.au/research/understanding-mitigating-hazards/1303</a></div>
-            </div>
-        </div>
+
 
 
     </div>

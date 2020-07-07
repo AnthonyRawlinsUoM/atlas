@@ -1,15 +1,20 @@
-<div class="ui segment">
-  <h3 class="header">Video Help Topics</h3>
-  <div class="ui cards">
-    <div class="card" *ngFor="let topic of topics">
-      <app-video [url]="topic.url"></app-video>
-      <div class="content">
-      <h3 class="header">{{topic.title}}</h3>
-      <div class="meta">{{topic.runtime}}</div>
-      </div>
-      <div class="description">
-        {{topic.description}}
-      </div>
-    </div>
-  </div>
+<div class="ui top attached inverted blue menu">
+    <a class="item" (click)="sidebar.toggle()">
+        <i class="sidebar icon"></i> Help Video Topics
+    </a>
 </div>
+<sui-sidebar-container class="ui attached segment">
+    <sui-sidebar class="inverted vertical" #sidebar>
+        <a class="item"
+        [class.active]="topic === currentItem"
+        *ngFor="let topic of topics; let $index = index" (click)="play(topic, $index); sidebar.close();">
+        <img class="ui middle aligned tiny image" src="/assets/images/video_thumb_placeholder.png"> {{topic.title}}
+        <div class="meta">{{topic.runtime}}</div>
+        </a>
+    </sui-sidebar>
+    <sui-sidebar-sibling [isDimmedWhenVisible]="true">
+        <div class="ui black inverted segment player">
+            <app-player [playlist]="topics" #player></app-player>
+        </div>
+    </sui-sidebar-sibling>
+</sui-sidebar-container>
