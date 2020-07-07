@@ -334,12 +334,12 @@
        "properties": {
            "sim_name": "BM",
            "long_name": "Blue Mountains (NSW)",
-           "location": "",
-           "Population": "",
-           "Landuse": "",
-           "Vegetation": "",
-           "Climate": "",
-           "FireRegime": "",
+           "location": "Covering Blue Mountains National Park and Lithgow region.",
+           "Population": "About 80,000 in Blue Mountains.",
+           "Landuse": "Includes native forest, extensive wildland-urban interface, tourism areas.",
+           "Vegetation": "Major vegetation type is dry sclerophyll forest, other vegetation types include wet sclerophyll forest, rainforest, grassy woodlands and heathlands.",
+           "Climate": "Mean annual rainfall ranges from 728 mm at Richmond to the east of the study area to 1,400 mm at Katoomba. Mean summer daily maximum temperatures are 29.5℃ at Canberra Airport and 22.8℃ at Katoomba.",
+           "FireRegime": "Part of the eucalypt forest (temperate) fire regime niche, a high-productivity niche characterised by infrequent low-intensity litter fires in spring and medium-intensity shrub fires in spring and summer. Typically, fire intensity ranges from 1 000 to 5 000 kW m-1, although under extreme weather conditions, fire intensity may reach 10 000–50 000kWm-1. Fires typically recur every 5–20 years, although the interval between fires can be as long as 20–100 years.",
            "PrescribedBurningRegime": "",
            "order": 1
        },
