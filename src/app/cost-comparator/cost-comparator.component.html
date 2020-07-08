@@ -12,10 +12,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngIf="hints_required" >
               <td>
                 <div class="collapsing">
-                <sui-message *ngIf="hints_required" >
+                <sui-message (dismiss)="hints_required=false;">
                     <div class="content">
                       <h3 class="ui header">
                         <i class="circular info icon"></i>
@@ -59,7 +59,7 @@
                         <app-cost-option [costType]="costType" (costTypeChange)="onCostTypeChange($event)"></app-cost-option>
                         <div class="ui divider"></div>
 
-                        <div class="ui center aligned header">{{ titleCase(costType) + ' @ ' + pb_label(level) + '% of ' + treatment + '.'}}</div>
+                        <div class="ui center aligned header">{{ titleCase(costType) + ' by ' + titleCase(other()) + ' @ ' + pb_label(level) + '% of ' + titleCase(treatment)}}</div>
                         <div class="chart-container">
                         <canvas id='costcanvas' #costcanvas></canvas>
                         </div>

@@ -13,10 +13,10 @@
         </thead>
         <tbody>
 
-            <tr>
+            <tr *ngIf="hints_required" >
                 <td>
 
-                  <sui-message *ngIf="hints_required" class="collapsing">
+                  <sui-message class="collapsing" (dismiss)="hints_required=false;">
     <div class="content">
       <h3 class="ui header">
         <i class="circular info icon"></i>

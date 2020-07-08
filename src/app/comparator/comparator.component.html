@@ -12,9 +12,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngIf="hints_required" >
                 <td>
-                  <sui-message class="collapsing" *ngIf="hints_required" >
+                  <sui-message class="collapsing" (dismiss)="hints_required=false;">
                     <div class="content">
 
                       <h3 class="ui header">
@@ -35,11 +35,17 @@
                 >
                     <div class="ui field">
                       <div class="ui fluid buttons">
+
                         <div class="ui icon active button" *ngIf="treatment=='landscape'" (click)="onTreatmentChange('landscape')"><i class="arrows alternate horizontal icon"></i> Landscape</div>
+
                         <div class="ui icon button" *ngIf="treatment!='landscape'" (click)="onTreatmentChange('landscape')"><i class="arrows alternate horizontal icon"></i> Landscape</div>
+
                         <div class="or"></div>
+
                         <div class="ui active icon button" *ngIf="treatment=='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edge</div>
+
                         <div class="ui icon button" *ngIf="treatment!='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edge</div>
+
                       </div>
                       <div class="ui divider"></div>
                       <div class="ui field relaxed">
@@ -72,7 +78,7 @@
                         [treatment]="treatment"
                         #boxplot></app-boxplot> -->
 
-                        <div class="ui center aligned header">{{ titleCase(scope) + ' @ ' + pb_label(level) + '% of ' + treatment + '.'}}</div>
+                        <div class="ui center aligned header">{{titleCase(scope) + ' by ' + titleCase(other()) + ' @ ' + pb_label(level) + '% of ' + titleCase(treatment)}}</div>
                         <div class="chart-container">
                         <canvas id='canvas' ></canvas>
                         </div>
