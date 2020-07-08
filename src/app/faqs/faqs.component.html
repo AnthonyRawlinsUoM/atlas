@@ -8,9 +8,7 @@
         <sui-accordion class="ui styled fluid">
             <!-- Static pre-defined QAs -->
             <sui-accordion-panel [isOpen]="true">
-                <div
-                    title
-                    class="ui header question"
+                <div title class="ui header question"
                 ><i class="dropdown icon"></i> What is the Prescribed Burning Atlas?</div>
                 <div
                     content
@@ -56,58 +54,70 @@
                     <p>In order to systematically explore how risk responds to treatment, study areas representing as much of the diversity of southern Australia as possible were selected. This includes human and biophysical attributes such as population density, land use, vegetation type and climate.</p>
                     <p>The table below shows key features, similarities and differences between the 13 selected case study landscapes.</p>
 
-                    <table class="ui celled striped table">
+                    <table class="ui celled structured table">
                         <thead>
-                            <tr>
+                            <tr class="ui blue inverted">
                                 <th class="single line">Terrestrial Ecoregion</th>
                                 <th class="single line">Bioregion</th>
                                 <th class="single line">Notes</th>
                             </tr>
                         </thead>
                         <tbody>
+
                             <tr>
                                 <td rowspan="5">Temperate Broadleaf and Mixed Forest</td>
                                 <td class="collapsing">Southeastern Queensland</td>
                                 <td rowspan="5">These form a gradient of mainly forested landscapes along the east coast, ranges and slopes, encompassing wide variations in population
                                     and land uses. These complement existing risk modelling exercises done in the Sydney region and Otways.</td>
                             </tr>
+
                             <tr height="5">
                                 <td class="collapsing">Victoria Midlands</td>
                             </tr>
+
                             <tr height="5">
                                 <td class="collapsing">South East Corner</td>
                             </tr>
+
                             <tr height="5">
                                 <td class="collapsing">South Eastern Highlands</td>
                             </tr>
+
                             <tr height="5">
                                 <td>Tasmanian Southern Ranges</td>
                             </tr>
+
                             <tr height="5">
-                                <td rowspan="4">Mediterranean Forests, Woodlands &amp; Scrub</td>
+                                <td rowspan="2">Mediterranean Forests, Woodlands &amp; Scrub</td>
                                 <td class="collapsing">Murray Darling Depression</td>
-                                <td rowspan="4">These form a mixed gradient of dry vegetation from western Victoria to south western WA</td>
+                                <td rowspan="2">These form a mixed gradient of dry vegetation from western Victoria to south western WA</td>
                             </tr>
+
                             <tr height="5">
                                 <td>Flinders Lofty Block</td>
                             </tr>
+
                             <tr height="5">
                                 <td rowspan="3">Temperate Grasslands, Savannas and Shrublands</td>
                                 <td class="collapsing">Murray Darling Depression</td>
                                 <td rowspan="3">Case studies in these Bioregions represent the spectrum of mixed agriculture and remnant vegetation that typifies these moderately
                                     populated inland regions in Victoria and NSW.</td>
                             </tr>
+
                             <tr height="5">
                                 <td class="collapsing">Nandewar</td>
                             </tr>
+
                             <tr height="5">
                                 <td>NSW South Western Slopes</td>
                             </tr>
+
                             <tr height="5">
                                 <td rowspan="2">Deserts and Xeric Shrublands</td>
                                 <td class="collapsing">Great Victoria Desert</td>
                                 <td rowspan="2">Case studies situated in SA and NSW explore effects in these sparsely populated rangelands and conservation reserves.</td>
                             </tr>
+
                             <tr height="5">
                                 <td class="collapsing">Broken Hill Complex</td>
                             </tr>
@@ -145,7 +155,7 @@
                         state and territory fire management agencies. Impact estimation is based on published techniques for relating fire behaviour and other outputs from Phoenix to values such as life and property loss, infrastructure damage and
                         vegetation sensitive to particular fire intervals.</p>
                     <p>Risk estimation is based on Bayesian Decision Networks, which estimate the risk to each value at each treatment level from the simulation-derived distributions of data and
-                        provide a basis for comparison between regions that explicitly incorporates the observed frequency of fire weather conditions in each case study area. For more information, see <a href="/publications">Cirulis et al. 2019.</a></p>
+                        provide a basis for comparison between regions that explicitly incorporates the observed frequency of fire weather conditions in each case study area. For more information, see <a [routerLink]="publications">Cirulis et al. 2019.</a></p>
                 </div>
             </sui-accordion-panel>
 
@@ -162,16 +172,28 @@
                   <p><strong>As with any experiment that involves modelling, the results reflect the strengths and weaknesses of the model and datasets used to drive the model.</strong></p>
 
                   <p>While fire behaviour simulators have a range of limitations, such as their computational expense and inaccuracies in the representation of key processes and elements (or their omission altogether), it is reasonable to expect performance to improve as existing models are validated, improved and new models are developed.</p>
-
-                  <p>For a recent evaluation of these models, see Faggian, N, Bridge, C, Fox-Hughes, P, Jolly C, Jacobs, H, Ebert, B & Bally, J 2017, Final Report: An evaluation of fire spread simulators used in Australia, Australian Bureau of Meteorology, Bushfire Predictive Services, Melbourne available at http://www.bom.gov.au/research/publications/otherreports/FPS_Final_Report_v1.81_Evaluation_Of_Simulators_Release.pdf</p>
+                  <p>For a recent evaluation of these models, see: </p>
+                  <div class="ui segment">
+                    <div class="csl-bib-body">
+                      <div class="csl-entry">
+                      Faggian, N, Bridge, C, Fox-Hughes, P, Jolly C, Jacobs, H, Ebert, B & Bally, J 2017, Final Report: An evaluation of fire spread simulators used in Australia, Australian Bureau of Meteorology, Bushfire Predictive Services, Melbourne available at <a href="http://www.bom.gov.au/research/publications/otherreports/FPS_Final_Report_v1.81_Evaluation_Of_Simulators_Release.pdf"  target="_blank">http://www.bom.gov.au/research/publications/otherreports/FPS_Final_Report_v1.81_Evaluation_Of_Simulators_Release.pdf</a>
+                    </div>
+                  </div>
+                  </div>
 
                   <p>Input datasets such as fire history, land use and fuel type were generally obtained from State and Federal Government departments. Such datasets are often refined and improved over time.</p>
 
                   <p>While the project represents an important step forward in wildfire risk management research, a number of challenges remain to maximise its value. The treatment of values is essentially modular, meaning that the addition of new values (e.g. agricultural impacts, human health impacts from smoke) or modifications of existing ones is not just desirable, but possible. The project can equally easily incorporate new costs associated with prescribed burning, suppression and wildfire impacts as they are made available. It will also be important to test the sensitivity of results to choice of simulator and fire behaviour model.</p>
 
-                  <p>For details of the models and datasets, including limitations, see Cirulis et al. 2019, Project Annual Reports and Clarke et al. 2019 (AJEM), all available at the Publications page.</p>
+                  <p>For details of the models and datasets, including limitations, see:</p>
+                    <ul>
+                      <li><a [routerLink]="publications">Cirulis et al. 2019, Project Annual Reports</a></li>
+                      <li><a [routerLink]="publications">Clarke et al. 2019 (AJEM)</a></li>
+                    </ul>
+                    <p>all available at the <a [routerLink]="publications">Publications page</a>.</p>
                 </div>
             </sui-accordion-panel>
+
             <sui-accordion-panel>
                 <div
                     title
@@ -201,20 +223,24 @@
 
                   <p>Costs of house loss were estimated as $500,000 per house based on the estimates of median property values across the various study areas (based on www.yourinvestmentpropertymag.com.au accessed November 2017). We did not vary cost by region as this would prioritise areas with greater property values.</p>
 
-                  <p>Life loss was estimated as $4.2 million per life based on national standards (https://www.pmc.gov.au/sites/default/files/publications/Value_of_Statistical_Life_guidance_note.pdf, accessed November 2019 ),</p>
+                  <p>Life loss was <a href="https://www.pmc.gov.au/sites/default/files/publications/Value_of_Statistical_Life_guidance_note.pdf" target="_blank">estimated as $4.2 million per life based on national standards</a> (https://www.pmc.gov.au/sites/default/files/publications/Value_of_Statistical_Life_guidance_note.pdf, accessed November 2019 ),</p>
 
                   <p>Costs of road damage were not estimated due to a lack of published data.</p>
 
-                  <p>Cost of powerline replacement was estimated at $120 per metre (https://www.energy.vic.gov.au/safety-and-emergencies/powerline-bushfire-safety-program/Reports-and-regulations/pb-report-indicative-costs-for-replacing-swer-lines). We did not attempt to estimate the cost of loss of power as this requires detailed modelling of electricity networks, which is beyond the scope of the paper.</p>
+                  <p>Cost of powerline replacement was <a href="https://www.energy.vic.gov.au/safety-and-emergencies/powerline-bushfire-safety-program/Reports-and-regulations/pb-report-indicative-costs-for-replacing-swer-lines" target="_blank">estimated at $120 per metre</a> (https://www.energy.vic.gov.au/safety-and-emergencies/powerline-bushfire-safety-program/Reports-and-regulations/pb-report-indicative-costs-for-replacing-swer-lines). We did not attempt to estimate the cost of loss of power as this requires detailed modelling of electricity networks, which is beyond the scope of the paper.</p>
 
                   <p>There is no means of translating TFI into economic values, we used a coarse value of $1000 per ha burnt below TFI based on the economic impact of major fires on environmental values (Stephenson, 2010).</p>
 
               <div>
                 <h4>References:</h4>
-                <p>Penman TD, Bradstock RA, Price OF (2014) Reducing wildfire risk to urban developments: Simulation of cost‐effective fuel treatment solutions in south eastern Australia. Environmental Modelling & Software 52, 166‐175. https://doi.org/10.1016/j.envsoft.2013.09.030
-                </p>
+                <div class="csl-bib-body">
+                  <div class="csl-entry">
+                    Penman TD, Bradstock RA, Price OF (2014) Reducing wildfire risk to urban developments: Simulation of cost‐effective fuel treatment solutions in south eastern Australia. Environmental Modelling & Software 52, 166‐175. <a href="https://doi.org/10.1016/j.envsoft.2013.09.030" target="_blank">https://doi.org/10.1016/j.envsoft.2013.09.030</a>
+                </div>
+                </div>
 
-                <p>Stephenson C (2010) 'A literature review on the economic, social and environmental impacts of severe bushfires in south‐eastern Australia.' (Victorian Government Department of Sustainability and Environment) available at https://www.ffm.vic.gov.au/__data/assets/pdf_file/0009/21114/Report-87-A-Lit.Rvw-On-The-Economic,-Social-and-Envtal-Impacts-of-Severe-Bushfires-In-SE-Aust.pdf</p>
+                <div class="csl-bib-body">
+                  <div class="csl-entry">Stephenson C (2010) 'A literature review on the economic, social and environmental impacts of severe bushfires in south‐eastern Australia.' (Victorian Government Department of Sustainability and Environment) available at <a href="https://www.ffm.vic.gov.au/__data/assets/pdf_file/0009/21114/Report-87-A-Lit.Rvw-On-The-Economic,-Social-and-Envtal-Impacts-of-Severe-Bushfires-In-SE-Aust.pdf" target="_blank">https://www.ffm.vic.gov.au/__data/assets/pdf_file/0009/21114/Report-87-A-Lit.Rvw-On-The-Economic,-Social-and-Envtal-Impacts-of-Severe-Bushfires-In-SE-Aust.pdf</a></div></div>
                 </div>
               </div>
             </sui-accordion-panel>
@@ -403,7 +429,7 @@
         </sui-accordion>
 
 
-        <div
+        <!-- <div
             *ngIf="!auth.loggedIn"
             class="ui info icon message"
         >
@@ -424,13 +450,13 @@
                 <li>risk mitigation</li>
                 <li>the modelling we use, and more</li>
             </ul>
-            <!-- <p><a [routerLink]="auth.login()">Login</a> to ask a question.</p> -->
+            <p><a [routerLink]="auth.login()">Login</a> to ask a question.</p>
         </div>
 
         <div class="ui segment">
             <h3 class="ui dividing header">Ask a question</h3>
 
             <app-contact-form (success)="onCompleted($event)"></app-contact-form>
-        </div>
+        </div> -->
     </div>
 </div>

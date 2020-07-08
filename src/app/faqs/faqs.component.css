@@ -85,15 +85,18 @@
     width: 1px;
     background: rgba(34,36,38,.1);
 }
-
-.title .question {
+.ui.styled.accordion .title,
+sui-accordion.styled .title,
+.question {
   color: rgba(#303030, 0.88) !important;
-  background-color: #DFDFDF !important;
+  background: #DFDFDF !important;
 }
 
-.title.active .question {
+.ui.styled.accordion .title.active,
+sui-accordion.styled .title.active,
+.question {
   color: rgba(#000000, 0.88) !important;
-  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
 }
 
 .answer.text.container {
@@ -107,4 +110,65 @@ div.indent {
 
 q {
   margin: 2rem;
+}
+
+@media all {
+  .apa,     .apa ul,     .apa ol,     .apa dl,
+  .ref-apa, .ref-apa ul, .ref-apa ol, .ref-apa dl,
+  .apa-ref, .apa-ref ul, .apa-ref ol, .apa-ref dl,
+  .refapa,  .refapa ul,  .refapa ol,  .refapa dl,
+  .aparef,  .aparef ul,  .aparef ol,  .aparef dl{
+  padding-left: 0;margin-left: 0;
+  }
+  .apa li,
+  .ref-apa li,
+  .refapa li,
+  .apa-ref li,
+  .aparef li{
+  list-style-type: none;
+  }
+  .apa p,     .apa li,     .apa dd,
+  .ref-apa p, .ref-apa li, .ref-apa dd,
+  .refapa p,  .refapa li,  .refapa dd,
+  .apa-ref p, .apa-ref li, .apa-ref dd,
+  .aparef p,  .aparef li,  .aparef dd{
+  margin-left:   2em;
+  text-indent:  -2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  }
+  .ref-apa dt{
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: .83em 0;
+  }
+
+  .csl-bib-body {
+      margin-left:   2em;
+      text-indent:  -2em;
+      margin-top: 1em;
+      margin-bottom: 1em;
+  }
+
+  .ref-intro {
+      /* margin-bottom: 3em; */
+  }
+}
+@media print {
+
+  .apa p,     .apa li,     .apa dd,
+  .ref-apa p, .ref-apa li, .ref-apa dd,
+  .refapa p,  .refapa li,  .refapa dd,
+  .apa-ref p, .apa-ref li, .apa-ref dd,
+  .aparef p,  .aparef li,  .aparef dd{
+  margin-left:   .5in;
+  text-indent:  -.5in;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  }
+
+}
+
+.open_access {
+
 }
