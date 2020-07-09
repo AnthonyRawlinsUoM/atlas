@@ -33,7 +33,7 @@ export class ShortcutsComponent implements OnInit {
     }
 
     onClick(ev) {
-        console.log(ev);
+        // console.log(ev);
         this.shct.emit(ev);
     }
 

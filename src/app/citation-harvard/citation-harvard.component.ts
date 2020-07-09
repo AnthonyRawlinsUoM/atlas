@@ -19,7 +19,7 @@ export class CitationHarvardComponent implements AfterViewInit {
             const keys = resp.headers.keys();
             let headers = keys.map(key => `${key}: ${resp.headers.get(key)}`);
             let body = { ... resp.body };
-            console.log(body);
+            // console.log(body);
 
             // Hyperlinking the DOI itself in the result
             // See: https://www.crossref.org/blog/dois-and-matching-regular-expressions/
@@ -29,14 +29,14 @@ export class CitationHarvardComponent implements AfterViewInit {
         });
 
         //     .subscribe((data) => {
-        //         console.log(data);
+        //         // console.log(data);
         //         this.content = data.toString();
         //     },
         // (err) => {
         //     console.warn(err);
         // },
         // () => {
-        //     console.log('done GETting');
+        //     // console.log('done GETting');
         // });
     }
 

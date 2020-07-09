@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
         router.events.subscribe(s => {
             if (s instanceof NavigationEnd) {
                 const tree = router.parseUrl(router.url);
-                console.log(`URL Fragment: ${tree.fragment}`);
+                // console.log(`URL Fragment: ${tree.fragment}`);
             }
         });
 
@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
     }
 
     onClick(ev) {
-        console.log(ev);
+        // console.log(ev);
         // this.router.navigate(ev);
     }
 

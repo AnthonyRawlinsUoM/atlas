@@ -25,6 +25,6 @@ export class ContactComponent implements OnInit {
   }
 
   onCompleted(ev) {
-      console.log(ev);
+      // console.log(ev);
   }
 }

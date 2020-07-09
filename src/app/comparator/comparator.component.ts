@@ -146,29 +146,29 @@ export class ComparatorComponent implements OnInit {
     }
 
     onScopeChange(scope) {
-        console.log('Scope changed!');
-        console.log(scope);
+        // console.log('Scope changed!');
+        // console.log(scope);
         this.scope = scope;
         this.refreshCharts();
     }
 
     onTreatmentChange(treatment) {
-        console.log('treatment changed!');
-        console.log(treatment);
+        // console.log('treatment changed!');
+        // console.log(treatment);
         this.treatment = treatment;
         // this.boxplot.treatment = treatment;
         this.refreshCharts();
     }
 
     levelChange(ev) {
-        console.log(ev);
+        // console.log(ev);
         this.level = ev;
         this.refreshCharts();
     }
 
     refreshCharts() {
         if (!this.chart) {
-            console.log('No chart registered');
+            // console.log('No chart registered');
             return;
         } else {
             this.area = this.study.properties.sim_name
@@ -180,8 +180,8 @@ export class ComparatorComponent implements OnInit {
 
             if (this.sub) this.sub.unsubscribe();
             this.sub = this.ws.getSingleSeries(this.area, this.scope, this.level, this.treatment).subscribe((data) => {
-                console.log('Got single series.');
-                console.log(data);
+                // console.log('Got single series.');
+                // console.log(data);
                 this.chart.data.datasets[0].data = data;
                 // this.chart.data.datasets[1].data = [data[1]];
                 // this.chart.data.datasets[2].data = [data[2]];
@@ -205,8 +205,8 @@ export class ComparatorComponent implements OnInit {
 
               if (this.ccsub) this.ccsub.unsubscribe();
               this.ccsub = this.ws.getClimateRange(this.area, this.scope, this.level, this.treatment).subscribe((data) => {
-                console.log('Got Climate Change data');
-                console.log(data);
+                // console.log('Got Climate Change data');
+                // console.log(data);
 
                 // this.chart.data.datasets[1] = this.initialData.datasets[1];
                 // this.chart.data.datasets[2] = this.initialData.datasets[2];
@@ -248,7 +248,7 @@ export class ComparatorComponent implements OnInit {
     }
 
     toggleClimateChange(ev) {
-      console.log('Climate change change!' + ev);
+      // console.log('Climate change change!' + ev);
       this.cc = ev;
       this.refreshCharts();
     }

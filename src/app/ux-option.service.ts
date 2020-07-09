@@ -29,6 +29,6 @@ export class UxOptionService {
 
     persist() {
       this.cookieJar.set('PBA_ux_hints', this.hints);
-      console.log('Hints:' + this.getHints());
+      // console.log('Hints:' + this.getHints());
     }
 }

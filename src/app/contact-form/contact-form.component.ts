@@ -62,11 +62,11 @@ export class ContactFormComponent {
         // Process  data here
         if (this.contactForm.dirty && this.contactForm.valid) {
 
-            console.log('Form is valid, sending to postman service');
+            // console.log('Form is valid, sending to postman service');
 
             try {
                 cd = contactData;
-                console.log(cd);
+                // console.log(cd);
             } catch (e) {
                 console.error(e);
             } finally {
@@ -74,7 +74,7 @@ export class ContactFormComponent {
                 .postman
                 .sendMail(cd)
                 .subscribe((data) => {
-                    console.log(data);
+                    // console.log(data);
                     if (data.success !== undefined) {
                         if (data.success) {
                             this.message_sent = true;
@@ -88,7 +88,7 @@ export class ContactFormComponent {
                         console.error('An error occured sending the message', err);
                     },
                     () => {
-                        console.log('Message sending complete.');
+                        // console.log('Message sending complete.');
                     }
                 );
             }

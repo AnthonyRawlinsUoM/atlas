@@ -18,18 +18,18 @@ export class DisclaimerComponent implements OnInit {
   }
 
   alert(ev) {
-    console.log(ev);
+    // console.log(ev);
   }
 
   deny() {
-    console.log('Declining disclaimer now...');
+    // console.log('Declining disclaimer now...');
     this.disclaim.decline();
   }
 
   approve() {
-    console.log('Approving disclaimer now...');
+    // console.log('Approving disclaimer now...');
     this.disclaim.acknowledge();
-    console.log('Redirecting...');
+    // console.log('Redirecting...');
     this.router.navigate(['/']);
   }
 }

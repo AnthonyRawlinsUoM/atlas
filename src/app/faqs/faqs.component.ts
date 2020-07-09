@@ -13,7 +13,7 @@ export class FaqsComponent implements OnInit {
   faqs: FAQ[];
 
   constructor(private auth: AuthService) {
-    console.log(freq.faqs);
+    // console.log(freq.faqs);
     this.faqs = freq.faqs;
   }
 

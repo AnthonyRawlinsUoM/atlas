@@ -17,7 +17,7 @@ export class ClimateOptionComponent implements OnInit {
   }
 
   onChange(ev) {
-      console.log(ev);
+      // console.log(ev);
       this.toggleClimateChange.emit(ev);
   }
 

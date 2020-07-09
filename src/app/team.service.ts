@@ -11,7 +11,7 @@ export class TeamService {
     constructor(private http: HttpClient) { }
 
     public getTeam() {
-        console.log('Getting Team Metadata');
+        // console.log('Getting Team Metadata');
         return this.http.get<any>(this.configUrl);
     }
 }

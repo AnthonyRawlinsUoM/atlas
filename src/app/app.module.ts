@@ -26,7 +26,6 @@ import { DisclaimerService } from './disclaimer.service';
 import { AuthService } from './auth.service';
 import { WeightsService } from './weights.service';
 import { CookieService } from 'ngx-cookie-service';
-import { BayesNetOutputsService } from './bayes-net-outputs.service';
 import { ShortcutService } from './shortcut.service';
 import { TeamService } from './team.service';
 import { ValidatorService } from './validator.service';
@@ -42,7 +41,6 @@ import { AboutComponent } from './about/about.component';
 import { TeamComponent } from './team/team.component';
 import { PublicationsComponent } from './publications/publications.component';
 import { FaqsComponent } from './faqs/faqs.component';
-import { OverviewComponent } from './overview/overview.component';
 import { ComparatorComponent } from './comparator/comparator.component';
 import { CallbackComponent } from './callback/callback.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -147,7 +145,6 @@ const routes: Routes = [
         TeamComponent,
         PublicationsComponent,
         FaqsComponent,
-        OverviewComponent,
         ComparatorComponent,
         CallbackComponent,
         ProfileComponent,
@@ -231,7 +228,6 @@ const routes: Routes = [
         CookieService,
         SuiModalService,
         WeightsService,
-        BayesNetOutputsService,
         ShortcutService,
         TeamService,
         ValidatorService,

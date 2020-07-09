@@ -29,7 +29,7 @@ export class StudyAreaWindowComponent implements OnInit {
     }
 
     onSelectedItemsChange(selection) {
-        // console.log(selection);
+        // // console.log(selection);
 
         let itms = [];
         for (let s in selection) {
@@ -45,7 +45,7 @@ export class StudyAreaWindowComponent implements OnInit {
 
     refresh() {
 
-        console.log('REFRESHING!');
+        // console.log('REFRESHING!');
         this.mtx.study_area = this.study;
         this.mtx.renew();
 

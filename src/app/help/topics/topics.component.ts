@@ -27,7 +27,7 @@ export class TopicsComponent implements OnInit {
   }
 
   play(topic, index) {
-    console.log('Clicked video topic: ' + topic.title);
+    // console.log('Clicked video topic: ' + topic.title);
     this.player.onClickPlaylistItem(topic, index);
   }
 }

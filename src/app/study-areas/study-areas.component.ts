@@ -45,14 +45,14 @@ export class StudyAreasComponent implements AfterViewInit {
         private router: Router,
         private modalService: SuiModalService) {
         const tree = this.router.parseUrl(this.router.url);
-        console.log(tree.fragment);
-        console.log('Got fragment update!');
+        // console.log(tree.fragment);
+        // console.log('Got fragment update!');
         try {
             this.fragment = JSON.parse(Base64.decode(tree.fragment));
-            console.log(this.fragment);
+            // console.log(this.fragment);
         }
         catch(e) {
-            console.log(e);
+            // console.log(e);
         }
     }
 
@@ -73,10 +73,10 @@ export class StudyAreasComponent implements AfterViewInit {
         this.router.events.subscribe(s => {
             if (s instanceof NavigationEnd) {
                 const tree = this.router.parseUrl(this.router.url);
-                console.log(tree.fragment);
-                console.log('Got fragment update!');
+                // console.log(tree.fragment);
+                // console.log('Got fragment update!');
                 this.fragment = JSON.parse(Base64.decode(tree.fragment));
-                console.log(this.fragment);
+                // console.log(this.fragment);
 
                 this.focus = studyareas.features
                     .filter((f) => {
@@ -85,13 +85,13 @@ export class StudyAreasComponent implements AfterViewInit {
                         }
                     })[0];
                 this.focusOn(this.focus);
-                console.log(this.fragment.bbox);
+                // console.log(this.fragment.bbox);
                 this.onBoundsChange(this.fragment.bbox);
             };
         });
 
         this.focusOn = (study) => {
-            console.log(study);
+            // console.log(study);
             if (study != undefined) {
                 this.mapview.focusOn(study);
             }
@@ -101,7 +101,7 @@ export class StudyAreasComponent implements AfterViewInit {
             this.focusOn(this.focus);
         }
         if (this.fragment != undefined) {
-            console.log(this.fragment.bbox);
+            // console.log(this.fragment.bbox);
             this.onBoundsChange(this.fragment.bbox);
         }
     }
@@ -111,8 +111,8 @@ export class StudyAreasComponent implements AfterViewInit {
 
 
     onBoundsChange(bounds) {
-        console.log('StudyController was notified of bounds change');
-        console.log(bounds);
+        // console.log('StudyController was notified of bounds change');
+        // console.log(bounds);
         this.mapview.onBoundsChange(bounds);
     }
 

@@ -49,10 +49,10 @@ export class MatrixCellComponent implements OnInit {
         this.toggle();
 
         if (this.active) {
-            // console.log([this.row, this.column], ' is now activated');
+            // // console.log([this.row, this.column], ' is now activated');
             this.activated.emit({ row: this.row, column: this.column });
         } else {
-            // console.log([this.row, this.column], ' is now deactivated');
+            // // console.log([this.row, this.column], ' is now deactivated');
             this.deactivated.emit({ row: this.row, column: this.column });
         }
     }

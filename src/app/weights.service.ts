@@ -73,9 +73,9 @@ export class WeightsService {
 
     public getCostSeries(study, costType, level:number, treatment) {
       const pos = [0,1,2,3,4,5,6];
-      console.log(treatment);
-      console.log(level);
-      console.log(study);
+      // console.log(treatment);
+      // console.log(level);
+      // console.log(study);
       return Observable.create((observer) => {
           // Area = array of indexes row*col + col
           // eg., [0,12,14...,48] etc
@@ -130,22 +130,22 @@ export class WeightsService {
           // Area = array of indexes row*col + col
           // eg., [0,12,14...,48] etc
           const pos = [0,1,2,3,4,5,6];
-          // console.log('Level: ' + level);
+          // // console.log('Level: ' + level);
           let res = {
             minus: [],
             plus:[]
           };
 
-          // console.log('Cost Type: ' + costType);
+          // // console.log('Cost Type: ' + costType);
 
           let selected_area = climatechange.areas[area];
 
           for (let m in selected_area) {
-              // console.log('M is: ' + m);
+              // // console.log('M is: ' + m);
 
               if ((m == costType + '_plus') || (m == costType + '_rel_plus')) {
 
-                // console.log('>>> Hit for metric');
+                // // console.log('>>> Hit for metric');
 
                 for (let i in selected_area[m]) {
                   if (treatment == 'landscape') {
@@ -164,7 +164,7 @@ export class WeightsService {
 
               if ((m == costType + '_minus')  || (m == costType + '_rel_minus')){
 
-                  // console.log('>>> Hit for metric');
+                  // // console.log('>>> Hit for metric');
 
                   for (let i in selected_area[m]) {
                     if (treatment == 'landscape') {
@@ -335,8 +335,8 @@ export class WeightsService {
         let column = parseInt(idx) % matrix.regimes.landscape.length;
         let row = Math.floor(parseInt(idx) / matrix.regimes.edge.length); // Reversed order!!
 
-        console.log("Row: " + row);
-        console.log("Column: " + column);
+        // console.log("Row: " + row);
+        // console.log("Column: " + column);
 
         let edge = matrix.regimes.edge.filter(e => {
             if (e['value'] === row) {
@@ -352,11 +352,11 @@ export class WeightsService {
         }).map(l => {
             return l['name'];
         });
-        console.log("Edge: " + edge);
-        console.log("Land: " + land);
+        // console.log("Edge: " + edge);
+        // console.log("Land: " + land);
 
         let disp = "Edge: " + edge + "% Landscape: " + land + "%";
-        console.log(disp);
+        // console.log(disp);
         return disp;
     }
 }

@@ -20,16 +20,16 @@ export class SandboxComponent implements OnInit {
 
     ngOnInit() {
         this.sub = this.ws.getSpiderSeries(this.area, this.positions).subscribe((data) => {
-            // console.log('Got subscription data for Spider Chart');
-            // console.log(data);
+            // // console.log('Got subscription data for Spider Chart');
+            // // console.log(data);
             this.source = data;
         });
     }
 
     refresh() {
         this.sub = this.ws.getSpiderSeries(this.area, this.positions).subscribe((data) => {
-            // console.log('Got subscription data for Spider Chart');
-            // console.log(data);
+            // // console.log('Got subscription data for Spider Chart');
+            // // console.log(data);
             this.source = data;
             this.spider.refresh();
         });

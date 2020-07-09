@@ -16,6 +16,6 @@ export class TeampageComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        console.log(this.TeamMembers);
+        // console.log(this.TeamMembers);
     }
 }

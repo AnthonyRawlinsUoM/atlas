@@ -14,6 +14,7 @@
         <mgl-feature *ngFor="let g of burnblocks.features" [geometry]="g.geometry" properties="g.properties" id="g.id"></mgl-feature>
     </mgl-geojson-source> -->
 
+
     <mgl-geojson-source id="burnblocks-source-edges" [data]="burnblocks_edges">
         <mgl-feature *ngFor="let g of burnblocks_edges.features" [geometry]="g.geometry" properties="g.properties" id="g.id"></mgl-feature>
     </mgl-geojson-source>
@@ -23,13 +24,12 @@
     </mgl-geojson-source>
 
     <mgl-geojson-source id="study-detail-source" [data]="study_detail">
-        <mgl-feature *ngFor="let g of focus.features" [geometry]="g.geometry" properties="g.properties" id="g.properties.sim_name" (hover)="console.log('Entered feature!');"></mgl-feature>
+        <mgl-feature *ngFor="let g of focus.features" [geometry]="g.geometry" properties="g.properties" id="g.properties.sim_name"></mgl-feature>
     </mgl-geojson-source>
 
     <mgl-geojson-source id="study-areas-source" [data]="studyareas">
         <mgl-feature *ngFor="let g of studyareas.features" [geometry]="g.geometry" properties="g.properties" id="g.properties.sim_name"></mgl-feature>
     </mgl-geojson-source>
-
 
 
 
@@ -66,25 +66,17 @@
           'base': 2.75,
           'stops': [[12, 3], [22, 180]]
         },
-        'circle-color': {
-        property: 'prob',
-        colorSpace: 'hcl',
-        stops: [
-          [0, '#646365'],
-          [1, '#e20909']
-        ],
-        type: 'exponential'
-      }
+        'circle-color': '#ca3706'
       }">
     </mgl-layer>
 
-    <mgl-layer id="study-hotspots" type="line" source="study-areas-source" [paint]="{
+    <!-- <mgl-layer id="study-hotspots" type="line" source="study-areas-source" [paint]="{
         'line-color': '#ca3706',
         'line-width': 2
     }">
-    </mgl-layer>
+    </mgl-layer> -->
     <mgl-layer id="study-hotspots-fills" type="fill" source="study-areas-source" [paint]="{
-        'fill-color': '#ca3706',
+        'fill-color': '#e09a20',
         'fill-opacity': ['case',['boolean', ['feature-state', 'hover'], false],
         1,
         0.1

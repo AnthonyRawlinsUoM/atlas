@@ -34,7 +34,7 @@ export class CitationService {
 
         let url = `${this.configUrl}/${doi}/harvard`;
 
-        console.log(url);
+        // console.log(url);
 
         return this.http.get(url, { observe: 'response' });
     }

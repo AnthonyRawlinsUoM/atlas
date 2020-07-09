@@ -18,7 +18,7 @@ export class SelectedItemComponent implements OnInit {
     }
 
     ngOnInit() {
-        // console.log(this.item);
+        // // console.log(this.item);
         this.initial = this.deepCopy(this.item);
     }
 
@@ -57,7 +57,7 @@ export class SelectedItemComponent implements OnInit {
     }
 
     changedOption(ev) {
-        // console.log('>> ChangedOption', ev);
+        // // console.log('>> ChangedOption', ev);
         let change = {
             was: {
                 row: this.initial.row,
@@ -69,7 +69,7 @@ export class SelectedItemComponent implements OnInit {
             }
         };
 
-        // console.log(change);
+        // // console.log(change);
         this.change.emit(change);
     }
 }

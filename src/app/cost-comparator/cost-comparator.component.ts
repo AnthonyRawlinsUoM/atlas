@@ -164,22 +164,22 @@ export class CostComparatorComponent implements OnInit {
     }
 
     onCostTypeChange(costType) {
-        console.log('CostType changed!');
-        console.log(costType);
+        // console.log('CostType changed!');
+        // console.log(costType);
         this.costType = costType;
         this.refreshCharts();
     }
 
     onTreatmentChange(treatment) {
-        console.log('treatment changed!');
-        console.log(treatment);
+        // console.log('treatment changed!');
+        // console.log(treatment);
         this.treatment = treatment;
         // this.boxplot.treatment = treatment;
         this.refreshCharts();
     }
 
     levelChange(ev) {
-        console.log(ev);
+        // console.log(ev);
         this.level = ev;
         this.refreshCharts();
     }
@@ -187,7 +187,7 @@ export class CostComparatorComponent implements OnInit {
     refreshCharts() {
 
         if (!this.chart) {
-            console.log('No chart registered');
+            // console.log('No chart registered');
             return;
         } else {
             this.area = this.study.properties.sim_name;
@@ -201,25 +201,24 @@ export class CostComparatorComponent implements OnInit {
               let max_in_range = [];
 
               //Build from all other sets
-              console.log('Building stacked bars');
+              // console.log('Building stacked bars');
               this.chart.options.scales.yAxes[0].stacked = true;
 
               CostTypes.map(ct => {
 
                 // Ranges
                 this.ws.getCostAxesRange(this.area, ct.value, this.level, this.treatment).subscribe((data) => {
-                  console.log('Max for this 2D array is: ' + data);
                   max_in_range.push(data);
                 });
 
                 // Data
                 this.ws.getCostSeries(this.area, ct.value, this.level, this.treatment).subscribe((data) => {
-                  console.log('Got cost series for: ' + ct.value);
-                  console.log(data);
+                  // console.log('Got cost series for: ' + ct.value);
+                  // console.log(data);
 
                   this.chart.data.datasets.map(d => {
                     if(d.label === this.titleCase(ct.value)) {
-                      console.log('Activating: ' + ct.value);
+                      // console.log('Activating: ' + ct.value);
                       d.data = [
                         data[0],
                         data[1],
@@ -230,28 +229,30 @@ export class CostComparatorComponent implements OnInit {
                         data[6]
                       ];
                     } else {
-                      console.log(d.label);
+                      // console.log(d.label);
                     }
                   });
               })
             });
             this.chart.options.scales.yAxes[0].ticks.suggestedMax = Math.max(...max_in_range);
+            
+            console.log('Max for this 2D array is: ' + this.chart.options.scales.yAxes[0].ticks.suggestedMax);
 
 
             } else {
               if(this.axisMax) this.axisMax.unsubscribe();
 
               this.axisMax = this.ws.getCostAxesRange(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
-                console.log('Max for this 2D array is: ' + data);
+                // console.log('Max for this 2D array is: ' + data);
                 this.chart.options.scales.yAxes[0].ticks.suggestedMax = data;
               });
 
               this.sub = this.ws.getCostSeries(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
-                  console.log('Got cost series for: ' + this.costType);
-                  console.log(data);
+                  // console.log('Got cost series for: ' + this.costType);
+                  // console.log(data);
                   this.chart.data.datasets.map(d => {
                     if(d.label === this.titleCase(this.costType)) {
-                      console.log('Activating: ' + this.costType);
+                      // console.log('Activating: ' + this.costType);
                       d.data = [
                         data[0],
                         data[1],
@@ -262,7 +263,7 @@ export class CostComparatorComponent implements OnInit {
                         data[6]
                       ];
                     } else {
-                      console.log('De-activate this dataset: ' + d.label);
+                      // console.log('De-activate this dataset: ' + d.label);
                       d.data = [0,0,0,0,0,0,0,];
                     }
                   });

@@ -94,7 +94,7 @@ export class TreatmentComponent implements OnInit {
     }
 
     onSelectedItemsChange(selection) {
-        // console.log(selection);
+        // // console.log(selection);
 
         let itms = [];
         for (let s in selection) {
@@ -111,22 +111,22 @@ export class TreatmentComponent implements OnInit {
     }
 
     refreshCharts() {
-        console.log('Changes!');
-        console.log(this.initialData);
+        // console.log('Changes!');
+        // console.log(this.initialData);
 
         if (!this.chart) {
-            console.log('No chart registered');
+            // console.log('No chart registered');
             return;
         } else {
             this.area = this.study.properties.sim_name
 
             if (this.sub) this.sub.unsubscribe();
             this.sub = this.ws.getSpiderSeries(this.area, this.positions).subscribe((data) => {
-                console.log('Treatment SpiderData came back...');
-                console.log(data);
+                // console.log('Treatment SpiderData came back...');
+                // console.log(data);
 
                 this.chart.data = this.massage(data);
-                console.log(this.chart.data);
+                // console.log(this.chart.data);
             });
             this.chart.update({
                 duration: 450,
@@ -136,7 +136,7 @@ export class TreatmentComponent implements OnInit {
     }
 
     refresh() {
-        console.log('REFRESHING!');
+        // console.log('REFRESHING!');
         this.mtx.study_area = this.study;
         this.mtx.renew();
         this.refreshCharts();

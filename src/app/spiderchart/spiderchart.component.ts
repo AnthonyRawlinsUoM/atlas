@@ -89,8 +89,8 @@ export class SpiderchartComponent implements OnInit {
         this.titlePadding = { left: 0, top: 5, right: 0, bottom: 5 };
 
         this.sub = this.ws.getSpiderSeries(this.area, this.positions).subscribe((data) => {
-            // console.log('Got subscription data for Spider Chart');
-            // console.log(data);
+            // // console.log('Got subscription data for Spider Chart');
+            // // console.log(data);
             this.source = data;
         });
 
@@ -132,7 +132,7 @@ export class SpiderchartComponent implements OnInit {
 
         this.chartInstance = this.myChart;
 
-        // console.log(this.colorchart);
+        // // console.log(this.colorchart);
     }
 
 
@@ -144,7 +144,7 @@ export class SpiderchartComponent implements OnInit {
     // }
 
     refresh() {
-        // console.log(this.positions);
+        // // console.log(this.positions);
         this.series = [];
 
         for (let p in Array.from(Array(49).keys())) {
@@ -186,7 +186,7 @@ export class SpiderchartComponent implements OnInit {
         this.edgeOptions = this.ws.getEdgeOptions().map(eo => {
             return eo.name;
         });
-        console.log(this.edgeOptions);
+        // console.log(this.edgeOptions);
         this.landscapeOptions = this.ws.getLandscapeOptions().map(eo => {
             return eo.name;
         });

@@ -116,23 +116,23 @@ export class MapviewComponent implements OnInit {
   onBoundsChange(bbox:any) {}
 
   ngAfterViewInit() {
-      console.log(this.mapview);
+      // // console.log(this.mapview);
       this.mapviewer = this.mapview;
 
       this.onBoundsChange = (bbox) => {
-          console.log('Map view was notified of bounds change. Attempting to move now.');
+          // // console.log('Map view was notified of bounds change. Attempting to move now.');
           this.mapviewer.MapService.fitBounds(bbox, this.movingOptions);
       }
   }
 
   mapLoaded(ev) {
-    console.log(ev);
+    // // console.log(ev);
   }
 
   mousemove(e) {
       if (e.features && e.features.length > 0) {
           this.hoveredStateId = e.features[0].id;
-          console.log(this.hoveredStateId );
+          // // console.log(this.hoveredStateId );
       }
   }
 
@@ -142,10 +142,10 @@ export class MapviewComponent implements OnInit {
 
   click(e) {
       if (this.hoveredStateId) {
-          console.log(e);
+          // // console.log(e);
           this.selectedAreaId = e.features[0].id;
           if(e.features[0].properties) {
-            console.log('found properties');
+            // // console.log('found properties');
             this.selectedArea = e.features[0].properties.sim_name;
           }
           this.study_detail = e.features[0];
@@ -162,10 +162,10 @@ export class MapviewComponent implements OnInit {
 
   zoomToBoundingBoxOfStudy(study) {
     let poly = turf.polygon(study.geometry.coordinates);
-    // console.log(poly);
+    // // // console.log(poly);
 
     let bbox = this.getBufferedBoundsOfPoly(poly);
-    console.log(bbox);
+    // // console.log(bbox);
 
     // let centroid = turf.centroid(poly);
     let bounds: LngLatBoundsLike = [bbox[0], bbox[1], bbox[2], bbox[3]];
@@ -186,7 +186,7 @@ export class MapviewComponent implements OnInit {
       // Reset
       this.ignitions = { "type": "FeatureCollection", "features": [] };
 
-      // console.log(this.burnblocks);
+      // // // console.log(this.burnblocks);
       this.burnblocks_edges = '/assets/data/G01/spatial/' + study.properties.sim_name + '_edges.json';
       this.burnblocks_landscapes = '/assets/data/G01/spatial/' + study.properties.sim_name + '_landscapes.json';
 
@@ -199,7 +199,7 @@ export class MapviewComponent implements OnInit {
   }
 
   // private onMouseMove(ev) {
-  //     // console.log(ev.lngLat);
+  //     // // // console.log(ev.lngLat);
   //     // let coarse = this.nearest(ev.lngLat);
   //
   //     let top: Number = ev.lngLat.lat - 0.05;
@@ -207,7 +207,7 @@ export class MapviewComponent implements OnInit {
   //     let left: Number = ev.lngLat.lng - 0.05;
   //     let right: Number = ev.lngLat.lng + 0.05;
   //
-  //     // console.log('top: ' + top + ' left: ' + left + ' bottom: ' + bottom + ' right: ' + right);
+  //     // // // console.log('top: ' + top + ' left: ' + left + ' bottom: ' + bottom + ' right: ' + right);
   //
   //     let d = this.weightData.filter(data => {
   //         return data.Lon >= left
@@ -218,7 +218,7 @@ export class MapviewComponent implements OnInit {
   //     }).filter(data => {
   //         return data.Lat <= bottom
   //     });
-  //     // console.log(d);
+  //     // // // console.log(d);
   // }
 
   private where(collection, constraint) {
@@ -238,10 +238,10 @@ export class MapviewComponent implements OnInit {
   public satelliteView() {
     this.sat = !this.sat;
     if(this.sat) {
-      console.log('Toggling Satellite View: ON');
+      // // console.log('Toggling Satellite View: ON');
       this.style = "mapbox://styles/mapbox/satellite-v9";
     } else {
-      console.log('Toggling Satellite View: OFF');
+      // // console.log('Toggling Satellite View: OFF');
       this.style = "mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft";
 
     }

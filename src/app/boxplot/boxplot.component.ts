@@ -29,10 +29,10 @@ export class BoxplotComponent implements OnInit {
         private ws: WeightsService) { }
 
     refresh() {
-        console.log([this.scope, this.treatment]);
+        // console.log([this.scope, this.treatment]);
         this.sub = this.ws.getSingleSeries(this.study, this.scope, this.level, this.treatment).subscribe((data) => {
-            console.log('SingleSeriesSubscription data');
-            console.log(data);
+            // console.log('SingleSeriesSubscription data');
+            // console.log(data);
         });
         this.build();
         // this.chart.update();
@@ -44,7 +44,7 @@ export class BoxplotComponent implements OnInit {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        console.log('Changes!');
+        // console.log('Changes!');
 
 
         if (!this.chart) {
@@ -52,8 +52,8 @@ export class BoxplotComponent implements OnInit {
         }
 
         this.sub = this.ws.getSingleSeries(this.study, this.scope, this.level, this.treatment).subscribe((data) => {
-            console.log('SingleSeriesSubscription data');
-            console.log(data);
+            // console.log('SingleSeriesSubscription data');
+            // console.log(data);
         });
         // TODO handle updates
         // this.chart.update();
@@ -63,8 +63,8 @@ export class BoxplotComponent implements OnInit {
         this.level = 0;
 
         this.sub = this.ws.getSingleSeries(this.study, this.scope, this.level, this.treatment).subscribe((data) => {
-            console.log('SingleSeriesSubscription data');
-            console.log(data);
+            // console.log('SingleSeriesSubscription data');
+            // console.log(data);
         });
 
         this.build();
