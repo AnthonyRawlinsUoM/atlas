@@ -185,8 +185,8 @@ export class WeightsService {
           // Invert the Climate Change series for TFI to match scale
           if(costType == 'TFI_burnt') {
             let flipped = {
-              plus: res.minus.map(p => 1/p),
-              minus: res.plus.map(p => 1/p)
+              plus: res.minus,//.map(p => 1-p),
+              minus: res.plus//.map(p => 1-p)
             }
             res = flipped;
           }
