@@ -8,7 +8,9 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import { FeatureCollection, Feature, Geometry } from 'geojson';
 import { Base64 } from 'js-base64';
-import studyareas from '../../assets/studyareas.json';
+
+import studyareas from '../../assets/data/studyareas.json';
+
 import { filter, map } from 'rxjs/operators';
 import { Shortcut } from '../shortcuts/shortcuts.component';
 import { InformationComponent } from '../information/information.component';
@@ -31,7 +33,7 @@ export class StudyAreasComponent implements AfterViewInit {
     study: any;
     focus;
     focusOn;
-    studyareas;
+    // studyareas;
 
     leftIsPip = false;
     rightIsPip = false;
@@ -55,7 +57,7 @@ export class StudyAreasComponent implements AfterViewInit {
     }
 
     ngOnInit() {
-        this.studyareas = '/assets/studyareas.json';
+        // this.studyareas = '/assets/studyareas.json';
 
         this.focus = studyareas.features
             .filter((f) => {

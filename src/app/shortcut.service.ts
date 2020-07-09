@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import studys from '../assets/studyareas.json';
+import studys from '../assets/data/studyareas.json';
 import * as turf from '@turf/turf';
 
 @Injectable({

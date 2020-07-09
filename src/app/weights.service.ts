@@ -3,9 +3,9 @@ import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from
 import { filter, map } from 'rxjs/operators';
 
 // import matrix from '../assets/matrix_master.json';
-import matrix from '../assets/matrix_w_costs.json';
+import matrix from '../assets/data/G01/costs/matrix_w_costs.json';
 
-import climatechange from '../assets/cc.json';
+import climatechange from '../assets/data/G01/climate/cc.json';
 // import normals from '../assets/BayesNetOutputs/master_normalised.json';
 
 import Blues from '../assets/cmaps/seq/cmap_Blues_255.json';

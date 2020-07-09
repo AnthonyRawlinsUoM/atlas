@@ -43,11 +43,9 @@ import { TeamComponent } from './team/team.component';
 import { PublicationsComponent } from './publications/publications.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { OverviewComponent } from './overview/overview.component';
-import { LandscapeComponent } from './landscape/landscape.component';
 import { ComparatorComponent } from './comparator/comparator.component';
 import { CallbackComponent } from './callback/callback.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LogoutComponent } from './logout/logout.component';
 import { ExternalApiComponent } from './external-api/external-api.component';
 import { FooterComponent } from './footer/footer.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
@@ -127,7 +125,6 @@ const routes: Routes = [
 
     { path: 'publications', component: PublicationsComponent, data: { state: 'publications' } },
     { path: 'disclaimer', component: DisclaimerComponent, data: {state: 'disclaimer'}},
-    { path: 'logout', component: LogoutComponent },
     {
         path: 'home', component: StudyAreasComponent,
         canActivate: [AuthGuard],
@@ -151,11 +148,9 @@ const routes: Routes = [
         PublicationsComponent,
         FaqsComponent,
         OverviewComponent,
-        LandscapeComponent,
         ComparatorComponent,
         CallbackComponent,
         ProfileComponent,
-        LogoutComponent,
         ExternalApiComponent,
         FooterComponent,
         ConfirmationComponent,

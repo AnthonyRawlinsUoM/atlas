@@ -5,7 +5,7 @@ import { Map } from 'mapbox-gl';
 import * as turf from '@turf/turf';
 import { easing } from 'ts-easing';
 import { Base64 } from 'js-base64';
-import studyareas from '../../assets/studyareas.json';
+import studyareas from '../../assets/data/studyareas.json';
 import { filter, map } from 'rxjs/operators';
 
 @Component({

@@ -9,24 +9,12 @@ import { easing } from 'ts-easing';
 import { Base64 } from 'js-base64';
 
 import { schemes } from '../Viridis';
-import studyareas from '../../assets/studyareas.json';
+
+import studyareas from '../../assets/data/studyareas.json';
+
 // import test from '../../assets/interpolated.json';
 import { filter, map } from 'rxjs/operators';
 import { FeatureCollection, Feature, Geometry } from 'geojson';
-
-// // Edge Sources
-// import * as act_edges from '../../assets/ACT_edges.json';
-// import * as bm_edges from '../../assets/BM_edges.json';
-// import * as qld_edges from '../../assets/QLD_edges.json';
-// import * as tas_edges from '../../assets/TAS_edges.json';
-// import * as vic_ld_edges from '../../assets/VIC_LD_edges.json';
-//
-// // Landscape Sources
-// import act_landscapes from '../../assets/ACT_landscapes.json';
-// import bm_landscapes from '../../assets/BM_landscapes.json';
-// import qld_landscapes from '../../assets/QLD_landscapes.json';
-// import tas_landscapes from '../../assets/TAS_landscapes.json';
-// import vic_ld_landscapes from '../../assets/VIC_LD_landscapes.json';
 
 
 @Component({
@@ -76,7 +64,7 @@ export class MapviewComponent implements OnInit {
 
   ngOnInit() {
 
-      this.studyareas = '/assets/studyareas.json';
+      this.studyareas = '/assets/data/studyareas.json';
 
 
       this.initialData = {
@@ -153,16 +141,18 @@ export class MapviewComponent implements OnInit {
   }
 
   click(e) {
-      if (e.features.length > 0) {
+      if (this.hoveredStateId) {
+          console.log(e);
           this.selectedAreaId = e.features[0].id;
-          this.selectedArea = e.features[0].properties.sim_name;
+          if(e.features[0].properties) {
+            console.log('found properties');
+            this.selectedArea = e.features[0].properties.sim_name;
+          }
+          this.study_detail = e.features[0];
+          this.zoomToBoundingBoxOfStudy(this.study_detail);
+          this.focusOn(this.study_detail);
+          e.features[0].state = { 'hover': true };
       }
-      // console.log(this.selectedArea);
-      e.features[0].state = { 'hover': true };
-
-      this.study_detail = e.features[0];
-      this.zoomToBoundingBoxOfStudy(this.study_detail);
-      this.studyChange.emit(this.study_detail);
   }
 
   getBufferedBoundsOfPoly(poly) {
@@ -197,10 +187,10 @@ export class MapviewComponent implements OnInit {
       this.ignitions = { "type": "FeatureCollection", "features": [] };
 
       // console.log(this.burnblocks);
-      this.burnblocks_edges = '/assets/' + study.properties.sim_name + '_edges.json';
-      this.burnblocks_landscapes = '/assets/' + study.properties.sim_name + '_landscapes.json';
+      this.burnblocks_edges = '/assets/data/G01/spatial/' + study.properties.sim_name + '_edges.json';
+      this.burnblocks_landscapes = '/assets/data/G01/spatial/' + study.properties.sim_name + '_landscapes.json';
 
-      this.ignitions = '/assets/Ignitions/' + study.properties.sim_name + '.json';
+      this.ignitions = '/assets/data/G01/spatial/ignitions/' + study.properties.sim_name + '.json';
 
       this.focus = study;
       this.zoomToBoundingBoxOfStudy(study);
