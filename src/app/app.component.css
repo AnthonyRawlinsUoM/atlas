@@ -1,6 +1,7 @@
-nav {
+/*nav {
     max-height: 3rem;
 }
+*/
 
 
 .main footer,
@@ -45,9 +46,11 @@ footer {
 }
 
 @media screen and (max-width: 959px) {
+  /*
     #primary {
         max-height: 3rem;
     }
+    */
     #primary .ui.container {
         width: 100% !important;
     }
@@ -67,7 +70,8 @@ footer {
 
 @media screen and (min-width: 960px) {
     #primary {
-        display: block;        max-height: 3rem;
+        display: block;
+        /* max-height: 3rem; */
     }
     #primary .toc.item {
         display: none;
