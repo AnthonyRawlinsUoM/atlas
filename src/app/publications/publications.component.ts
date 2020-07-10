@@ -88,7 +88,7 @@ export class PublicationsComponent implements OnInit {
       {
         title: "Cost-effective prescribed burning solutions vary between landscapes in eastern Australia",
         image: '/assets/images/east_coast.jpg',
-        link: 'https://www.aidr.org.au/media/7378/monograph_afac19-peer-reviewed_v2_051219.pdf',
+        link: 'https://www.frontiersin.org/articles/10.3389/ffgc.2020.00079/abstract',
         description: 'Frontiers in Forests and Global Change',
         date: '6/2020',
         doi: '10.3389/ffgc.2020.00079',
