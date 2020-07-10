@@ -3,7 +3,7 @@
     <img src="{{cover.image}}">
   </div>
   <div class="black inverted content">
-    <a href="cover.link" target="_blank" class="header">{{cover.title}}</a>
+    <a [href]="cover.link" target="_blank" class="header">{{cover.title}}</a>
     <div class="meta">
       <span class="date">{{cover.date}}</span>
     </div>
@@ -13,7 +13,7 @@
   </div>
   <div class="black inverted extra content">
     <div class="ui list">
-       <a class="item" href="author.url" *ngFor="let author of cover.authors"><i class="user icon"></i> {{author.name}}</a>
+       <a class="item" [href]="author.url" *ngFor="let author of cover.authors"><i class="user icon"></i> {{author.name}}</a>
       </div>
   </div>
 </div>

@@ -104,24 +104,45 @@ export class WeightsService {
       });
     }
 
-    public getCostAxesRange(study, costType, level:number, treatment) {
-      const pos = [0,1,2,3,4,5,6];
+    public getCostAxesRange(study, costType, level, treatment) {
 
       return Observable.create((observer) => {
-
+          const pos = [0,1,2,3,4,5,6];
           let selected_area = matrix.areas[study];
           let res:number[] = [];
 
-          for (let m in selected_area) {
-              if (m == costType) {
-                let as_array = [];
-                for( let i in [...Array(49).keys()]) {
-                  as_array.push(selected_area[m][i]);
+          if(costType == 'total_cost') {
+            let as_array:number[] = [];
+            console.log('Max for total costs...');
+            for( let i in [...Array(49).keys()]) {
+              as_array.push(selected_area['total'][i]);
+            }
+            res.push(Math.max(...as_array));
+          } else {
+            console.log('Max for specific cost...');
+            for (let m in selected_area) {
+                if (m == costType) {
+                  let as_array:number[] = [];
+
+                  for (let i in selected_area[m]) {
+                    if (treatment == 'landscape') {
+                      // 0,1,2,3,4,5,6
+                      for (let j of pos) {
+                        if(i == (j + (level * 7)).toString()) as_array.push(selected_area[m][i]);
+                      }
+                    }
+                    if (treatment == 'edge') {
+                      for (let j of pos) {
+                        if(i == (level + (j * 7)).toString()) as_array.push(selected_area[m][i]);
+                      }
+                    }
+
+                  }
+                  res.push(Math.max(...as_array));
                 }
-                res.push(Math.max(...as_array));
-              }
+            }
           }
-          observer.next(res);
+          observer.next(Math.max(...res));
       });
     }
 
@@ -183,13 +204,13 @@ export class WeightsService {
           }
 
           // Invert the Climate Change series for TFI to match scale
-          if(costType == 'TFI_burnt') {
-            let flipped = {
-              plus: res.minus,//.map(p => 1-p),
-              minus: res.plus//.map(p => 1-p)
-            }
-            res = flipped;
-          }
+          // if(costType == 'TFI_burnt') {
+          //   let flipped = {
+          //     plus: res.minus.map(p => 1-p +  1),
+          //     minus: res.plus.map(p => 1-p + 1)
+          //   }
+          //   res = flipped;
+          // }
 
           observer.next(res)
       });

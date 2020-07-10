@@ -118,7 +118,7 @@ export class CostComparatorComponent implements OnInit {
                   boxWidth: 16
                 }
               },
-              aspectRatio: 1.0,
+              aspectRatio: 4/3,
               maintainAspectRatio: true,
               scales: {
                 xAxes: [{
@@ -128,7 +128,7 @@ export class CostComparatorComponent implements OnInit {
                   position: 'left',
                   stacked: true,
                   ticks: {
-                      callback: this.millionsFormatter,
+                      callback: this.dollarsFormatter,
                       suggestedMin: 0,
                       // suggestedMax: 12000000
                   }
@@ -143,8 +143,9 @@ export class CostComparatorComponent implements OnInit {
         this.refreshCharts();
     }
 
-    public millionsFormatter(value, index, values) {
-      return "$" + (value/1000000).toFixed(2) + "M";
+    public dollarsFormatter(value, index, values) {
+
+      return (value > 10000) ? "$" + (value/1000000).toFixed(2) + "M" : "$" + (value/10000).toFixed(2) + "K";
     }
 
     public toolTipFormatter(tooltipItem, data) {
@@ -154,7 +155,12 @@ export class CostComparatorComponent implements OnInit {
             label += ': ';
         }
         // label += Math.round(tooltipItem.yLabel * 100) / 100;
-        label += "$" + (tooltipItem.yLabel/1000000).toFixed(2) + "M";
+
+        if (tooltipItem.yLabel < 10000) {
+          label += "$" + (tooltipItem.yLabel/10000).toFixed(2) + "K";
+        } else {
+          label += "$" + (tooltipItem.yLabel/1000000).toFixed(2) + "M";
+        }
         return label;
     }
 
@@ -193,23 +199,23 @@ export class CostComparatorComponent implements OnInit {
             this.area = this.study.properties.sim_name;
             if (this.sub) this.sub.unsubscribe();
 
+            if(this.axisMax) this.axisMax.unsubscribe();
 
+            this.axisMax = this.ws.getCostAxesRange(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
+              console.log('Max for this 2D array is: ' + data);
+              this.chart.options.scales.yAxes[0].ticks.suggestedMax = data;
+            });
 
 
             // Stacked Chart for Totals only
             if (this.costType == 'total_cost') {
-              let max_in_range = [];
+              let max_in_range = 0.0; // Has to be *SUM of maxes* across metrics
 
               //Build from all other sets
               // console.log('Building stacked bars');
               this.chart.options.scales.yAxes[0].stacked = true;
 
               CostTypes.map(ct => {
-
-                // Ranges
-                this.ws.getCostAxesRange(this.area, ct.value, this.level, this.treatment).subscribe((data) => {
-                  max_in_range.push(data);
-                });
 
                 // Data
                 this.ws.getCostSeries(this.area, ct.value, this.level, this.treatment).subscribe((data) => {
@@ -228,25 +234,19 @@ export class CostComparatorComponent implements OnInit {
                         data[5],
                         data[6]
                       ];
-                    } else {
-                      // console.log(d.label);
                     }
+                    // else {
+                    //   // console.log(d.label);
+                    // }
                   });
               })
             });
-            this.chart.options.scales.yAxes[0].ticks.suggestedMax = Math.max(...max_in_range);
-            
+
+
             console.log('Max for this 2D array is: ' + this.chart.options.scales.yAxes[0].ticks.suggestedMax);
 
 
             } else {
-              if(this.axisMax) this.axisMax.unsubscribe();
-
-              this.axisMax = this.ws.getCostAxesRange(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
-                // console.log('Max for this 2D array is: ' + data);
-                this.chart.options.scales.yAxes[0].ticks.suggestedMax = data;
-              });
-
               this.sub = this.ws.getCostSeries(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
                   // console.log('Got cost series for: ' + this.costType);
                   // console.log(data);
