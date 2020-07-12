@@ -112,7 +112,7 @@ export class ComparatorComponent implements OnInit {
                   boxWidth: 16
                 }
               },
-              aspectRatio: 1.0,
+              aspectRatio: 4/3,
               maintainAspectRatio: true,
               scales: {
                 xAxes: [{
