@@ -26,6 +26,7 @@ export class CostOptionComponent implements OnInit {
 export const CostTypes = [{ name: 'Total Cost', value: 'total_cost' },
     { name: 'Environmental Cost', value: 'Environmental_cost' },
     { name: 'House Loss Cost', value: 'House_loss_cost' },
+    { name: 'Carbon Cost', value: 'Carbon_cost' },
     { name: 'Power Loss Cost', value: 'Power_loss_cost' },
     { name: 'Life Loss Cost', value: 'Life_loss_cost' },
     { name: 'Edge Cost', value: 'Edge_cost' },

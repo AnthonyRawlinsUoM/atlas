@@ -105,6 +105,11 @@ export class CostComparatorComponent implements OnInit {
                 label: CostTypes[6].name,
                 backgroundColor: this.colors.colors[6],
                 data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
+            },
+            {
+                label: CostTypes[7].name,
+                backgroundColor: this.colors.colors[7],
+                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
             }
 
           ]
@@ -232,7 +237,8 @@ export class CostComparatorComponent implements OnInit {
                         data[3],
                         data[4],
                         data[5],
-                        data[6]
+                        data[6],
+                        data[7],
                       ];
                     }
                     // else {
@@ -245,10 +251,10 @@ export class CostComparatorComponent implements OnInit {
             if(this.axisMax) this.axisMax.unsubscribe();
             this.axisMax = this.ws.getCostAxesRange(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
 
-              this.chart.options.scales.yAxes[0].ticks.suggestedMax = data.max;
+              this.chart.options.scales.yAxes[0].ticks.suggestedMax = data['max'];
 
               // Minimal Cost line...
-              this.chart.data.datasets[0].data = new Array(7).fill(data.min);
+              this.chart.data.datasets[0].data = new Array(8).fill(data['min']);
               this.chart.update({
                   duration: 450,
                   easing: 'linear'
@@ -272,7 +278,8 @@ export class CostComparatorComponent implements OnInit {
                         data[3],
                         data[4],
                         data[5],
-                        data[6]
+                        data[6],
+                        data[7]
                       ];
 
                       if(this.axisMax) this.axisMax.unsubscribe();
@@ -280,10 +287,10 @@ export class CostComparatorComponent implements OnInit {
 
                         // console.log(data);
 
-                        this.chart.options.scales.yAxes[0].ticks.suggestedMax = data.max;
+                        this.chart.options.scales.yAxes[0].ticks.suggestedMax = data['max'];
 
                         // Minimal Cost line...
-                        this.chart.data.datasets[0].data = new Array(7).fill(data.min);
+                        this.chart.data.datasets[0].data = new Array(8).fill(data['min']);
                         this.chart.update({
                           duration: 450,
                           easing: 'linear'
