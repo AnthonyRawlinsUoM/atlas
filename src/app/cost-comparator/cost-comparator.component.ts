@@ -78,37 +78,37 @@ export class CostComparatorComponent implements OnInit {
               },
               {
                 label: CostTypes[1].name,
-                backgroundColor: this.colors.colors[1],
-                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
-            },
-            {
-                label: CostTypes[2].name,
-                backgroundColor: this.colors.colors[2],
-                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
-            },
-            {
-                label: CostTypes[3].name,
-                backgroundColor: this.colors.colors[3],
-                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
-            },
-            {
-                label: CostTypes[4].name,
-                backgroundColor: this.colors.colors[4],
-                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
-            },
-            {
-                label: CostTypes[5].name,
-                backgroundColor: this.colors.colors[5],
-                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
-            },
-            {
-                label: CostTypes[6].name,
                 backgroundColor: this.colors.colors[6],
                 data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
             },
             {
+                label: CostTypes[2].name,
+                backgroundColor: this.colors.colors[5],
+                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
+            },
+            {
+                label: CostTypes[3].name,
+                backgroundColor: this.colors.colors[4],
+                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
+            },
+            {
+                label: CostTypes[4].name,
+                backgroundColor: this.colors.colors[3],
+                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
+            },
+            {
+                label: CostTypes[5].name,
+                backgroundColor: this.colors.colors[2],
+                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
+            },
+            {
+                label: CostTypes[6].name,
+                backgroundColor: this.colors.colors[1],
+                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
+            },
+            {
                 label: CostTypes[7].name,
-                backgroundColor: this.colors.colors[7],
+                backgroundColor: this.colors.colors[0],
                 data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
             }
 
