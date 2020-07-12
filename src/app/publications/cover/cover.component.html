@@ -5,7 +5,8 @@
   <div class="black inverted content">
     <a [href]="cover.link" target="_blank" class="header">{{cover.title}}</a>
     <div class="meta">
-      <span class="date">{{cover.date}}</span>
+      <div class="date">{{cover.date}}</div>
+      <div class="doi">DOI: <a href="{{cover.doi}}" target="_blank">{{cover.doi}}</a></div>
     </div>
     <div class="description">
       {{cover.description}}

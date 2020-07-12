@@ -96,6 +96,7 @@ import { UxOptionsComponent } from './ux-options/ux-options.component';
 import { TopicsComponent } from './help/topics/topics.component';
 import { TopicComponent } from './help/topic/topic.component';
 import { VideoComponent } from './help/topic/video/video.component';
+import { CostInterpretationComponent } from './cost-interpretation/cost-interpretation.component';
 
 const config: SocketIoConfig = { url: 'https://prescribedburnatlas.science/', options: {} };
 // const config: SocketIoConfig = { url: 'http://localhost:4200', options: {} };
@@ -195,6 +196,7 @@ const routes: Routes = [
         TopicsComponent,
         TopicComponent,
         VideoComponent,
+        CostInterpretationComponent,
     ],
     imports: [
         BrowserModule,

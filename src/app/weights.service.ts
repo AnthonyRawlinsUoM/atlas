@@ -109,40 +109,47 @@ export class WeightsService {
       return Observable.create((observer) => {
           const pos = [0,1,2,3,4,5,6];
           let selected_area = matrix.areas[study];
-          let res:number[] = [];
+          let res_max:number[] = [];
+          let res_min:number[] = [];
 
           if(costType == 'total_cost') {
             let as_array:number[] = [];
-            console.log('Max for total costs...');
+            // console.log('Max for total costs...');
             for( let i in [...Array(49).keys()]) {
-              as_array.push(selected_area['total'][i]);
+              // Skip no treatment
+              if(i !== '0'){
+                as_array.push(selected_area['total'][i]);
+              }
             }
-            res.push(Math.max(...as_array));
+            res_min.push(Math.min(...as_array));
+            res_max.push(Math.max(...as_array));
+
           } else {
-            console.log('Max for specific cost...');
+
+
             for (let m in selected_area) {
                 if (m == costType) {
                   let as_array:number[] = [];
 
-                  for (let i in selected_area[m]) {
-                    if (treatment == 'landscape') {
-                      // 0,1,2,3,4,5,6
-                      for (let j of pos) {
-                        if(i == (j + (level * 7)).toString()) as_array.push(selected_area[m][i]);
-                      }
-                    }
-                    if (treatment == 'edge') {
-                      for (let j of pos) {
-                        if(i == (level + (j * 7)).toString()) as_array.push(selected_area[m][i]);
-                      }
-                    }
-
+                  for( let i in [...Array(49).keys()]) {
+                    as_array.push(selected_area[m][i]);
                   }
-                  res.push(Math.max(...as_array));
+                  res_max.push(Math.max(...as_array));
+
+
+                  as_array = [];
+                  // console.log('Max for total costs...');
+                  for( let i in [...Array(49).keys()]) {
+                    // Skip no treatment
+                    if(i !== '0'){
+                      as_array.push(selected_area[m][i]);
+                    }
+                  }
+                  res_min.push(Math.min(...as_array));
                 }
             }
           }
-          observer.next(Math.max(...res));
+          observer.next({min: Math.min(...res_min), max: Math.max(...res_max)});
       });
     }
 

@@ -68,7 +68,15 @@ export class CostComparatorComponent implements OnInit {
               'PB 15'
             ],
             datasets: [
-            {
+              {
+                label: 'Cheapest Treatment',
+                borderColor: 'rgba(0,0,0,0.5)',
+                data: [1.0,1.0,1.0,1.0,1.0,1.0,1.0],
+                type: 'line',
+                fill: false,
+                lineTension: 0
+              },
+              {
                 label: CostTypes[1].name,
                 backgroundColor: this.colors.colors[1],
                 data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
@@ -98,6 +106,7 @@ export class CostComparatorComponent implements OnInit {
                 backgroundColor: this.colors.colors[6],
                 data: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
             }
+
           ]
         };
 
@@ -199,14 +208,6 @@ export class CostComparatorComponent implements OnInit {
             this.area = this.study.properties.sim_name;
             if (this.sub) this.sub.unsubscribe();
 
-            if(this.axisMax) this.axisMax.unsubscribe();
-
-            this.axisMax = this.ws.getCostAxesRange(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
-              console.log('Max for this 2D array is: ' + data);
-              this.chart.options.scales.yAxes[0].ticks.suggestedMax = data;
-            });
-
-
             // Stacked Chart for Totals only
             if (this.costType == 'total_cost') {
               let max_in_range = 0.0; // Has to be *SUM of maxes* across metrics
@@ -239,11 +240,23 @@ export class CostComparatorComponent implements OnInit {
                     //   // console.log(d.label);
                     // }
                   });
-              })
+              });
             });
 
+            if(this.axisMax) this.axisMax.unsubscribe();
+            this.axisMax = this.ws.getCostAxesRange(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
 
-            console.log('Max for this 2D array is: ' + this.chart.options.scales.yAxes[0].ticks.suggestedMax);
+              this.chart.options.scales.yAxes[0].ticks.suggestedMax = data.max;
+
+              // Minimal Cost line...
+              this.chart.data.datasets[0].data = new Array(7).fill(data.min);
+              this.chart.update({
+                  duration: 450,
+                  easing: 'linear'
+              });
+            });
+
+            // console.log('Max for this 2D array is: ' + this.chart.options.scales.yAxes[0].ticks.suggestedMax);
 
 
             } else {
@@ -266,7 +279,22 @@ export class CostComparatorComponent implements OnInit {
                       // console.log('De-activate this dataset: ' + d.label);
                       d.data = [0,0,0,0,0,0,0,];
                     }
+
+                    this.ws.getCostAxesRange(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
+
+                      // console.log(data);
+
+                      this.chart.options.scales.yAxes[0].ticks.suggestedMax = data.max;
+
+                      // Minimal Cost line...
+                      this.chart.data.datasets[0].data = new Array(7).fill(data.min);
+                      this.chart.update({
+                        duration: 450,
+                        easing: 'linear'
+                      });
+                    });
                   });
+
               });
               this.chart.options.scales.yAxes[0].stacked = true;
 
