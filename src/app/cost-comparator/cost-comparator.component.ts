@@ -210,7 +210,6 @@ export class CostComparatorComponent implements OnInit {
 
             // Stacked Chart for Totals only
             if (this.costType == 'total_cost') {
-              let max_in_range = 0.0; // Has to be *SUM of maxes* across metrics
 
               //Build from all other sets
               // console.log('Building stacked bars');
@@ -275,24 +274,26 @@ export class CostComparatorComponent implements OnInit {
                         data[5],
                         data[6]
                       ];
+
+                      if(this.axisMax) this.axisMax.unsubscribe();
+                      this.axisMax = this.ws.getCostAxesRange(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
+
+                        // console.log(data);
+
+                        this.chart.options.scales.yAxes[0].ticks.suggestedMax = data.max;
+
+                        // Minimal Cost line...
+                        this.chart.data.datasets[0].data = new Array(7).fill(data.min);
+                        this.chart.update({
+                          duration: 450,
+                          easing: 'linear'
+                        });
+                      });
+
                     } else {
                       // console.log('De-activate this dataset: ' + d.label);
                       d.data = [0,0,0,0,0,0,0,];
                     }
-
-                    this.ws.getCostAxesRange(this.area, this.costType, this.level, this.treatment).subscribe((data) => {
-
-                      // console.log(data);
-
-                      this.chart.options.scales.yAxes[0].ticks.suggestedMax = data.max;
-
-                      // Minimal Cost line...
-                      this.chart.data.datasets[0].data = new Array(7).fill(data.min);
-                      this.chart.update({
-                        duration: 450,
-                        easing: 'linear'
-                      });
-                    });
                   });
 
               });

@@ -116,7 +116,7 @@ export class WeightsService {
             let as_array:number[] = [];
             // console.log('Max for total costs...');
             for( let i in [...Array(49).keys()]) {
-              // Skip no treatment
+              // Skip no treatment, ie., Cheapest "Treatment"
               if(i !== '0'){
                 as_array.push(selected_area['total'][i]);
               }
@@ -126,7 +126,6 @@ export class WeightsService {
 
           } else {
 
-
             for (let m in selected_area) {
                 if (m == costType) {
                   let as_array:number[] = [];
@@ -135,7 +134,6 @@ export class WeightsService {
                     as_array.push(selected_area[m][i]);
                   }
                   res_max.push(Math.max(...as_array));
-
 
                   as_array = [];
                   // console.log('Max for total costs...');
