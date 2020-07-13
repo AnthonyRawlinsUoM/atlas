@@ -87,28 +87,28 @@ export class MapviewComponent implements OnInit {
         ]
       };
 
-      this.chart = new Chart('interpolatedcanvas', {
-          type: 'line',
-          data: this.initialData,
-          options: {
-              legend: {
-              display: false,
-              position: 'bottom'
-            },
-            aspectRatio: 16/9,
-            maintainAspectRatio: true,
-            scales: {
-              yAxes: [{
-                position: 'left',
-                ticks: {
-                    suggestedMin: 0,
-                    suggestedMax: 1,
-                    stepSize: 0.25
-                }
-              }]
-            }
-          }
-      });
+      // this.chart = new Chart('interpolatedcanvas', {
+      //     type: 'line',
+      //     data: this.initialData,
+      //     options: {
+      //         legend: {
+      //         display: false,
+      //         position: 'bottom'
+      //       },
+      //       aspectRatio: 16/9,
+      //       maintainAspectRatio: true,
+      //       scales: {
+      //         yAxes: [{
+      //           position: 'left',
+      //           ticks: {
+      //               suggestedMin: 0,
+      //               suggestedMax: 1,
+      //               stepSize: 0.25
+      //           }
+      //         }]
+      //       }
+      //     }
+      // });
 
       this.ov = turf.bbox(turf.buffer(this.studyareas, 25, { units: 'kilometers' }));
   }
@@ -131,8 +131,8 @@ export class MapviewComponent implements OnInit {
 
   mousemove(e) {
       if (e.features && e.features.length > 0) {
-          this.hoveredStateId = e.features[0].id;
-          // // console.log(this.hoveredStateId );
+          this.hoveredStateId = e.features[0].properties.id;
+          // console.log(this.hoveredStateId );
       }
   }
 
@@ -141,9 +141,9 @@ export class MapviewComponent implements OnInit {
   }
 
   click(e) {
+      console.log(e);
       if (this.hoveredStateId) {
-          // // console.log(e);
-          this.selectedAreaId = e.features[0].id;
+          this.selectedAreaId = e.features[0].properties.id;
           if(e.features[0].properties) {
             // // console.log('found properties');
             this.selectedArea = e.features[0].properties.sim_name;

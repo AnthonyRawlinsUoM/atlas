@@ -29,5 +29,10 @@ q {
 }
 
 .page {
-        background-color: rgb(224, 228, 231);
+    background-color: rgb(224, 228, 231);
+}
+
+.ui.very.relaxed.grid .column,
+.ui.very.relaxed.grid .column .item {
+  line-height: 1.5rem;
 }
