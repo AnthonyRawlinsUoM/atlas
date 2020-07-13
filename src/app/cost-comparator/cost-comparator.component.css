@@ -5,3 +5,6 @@ div.collapsing {
   width: 330px;
   white-space: pre-wrap;
 }
+.el {
+  margin-top: 1rem !important;
+}

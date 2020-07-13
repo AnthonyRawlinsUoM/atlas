@@ -86,13 +86,13 @@ export class WeightsService {
           for (let m in selected_area) {
               if (m == costType) {
                   for (let i in selected_area[m]) {
-                    if (treatment == 'landscape') {
+                    if (treatment == 'edge') {
                       // 0,1,2,3,4,5,6
                       for (let j of pos) {
                         if(i == (j + (level * 7)).toString()) res.push(selected_area[m][i]);
                       }
                     }
-                    if (treatment == 'edge') {
+                    if (treatment == 'landscape') {
                       for (let j of pos) {
                         if(i == (level + (j * 7)).toString()) res.push(selected_area[m][i]);
                       }

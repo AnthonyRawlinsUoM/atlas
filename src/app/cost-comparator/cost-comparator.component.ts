@@ -45,6 +45,8 @@ export class CostComparatorComponent implements OnInit {
     axisMax: any;
     hints_required;
 
+    axes;
+
     constructor(private ws: WeightsService, private ux: UxOptionService) {
       this.hints_required = this.ux.getHints();
     }
@@ -53,6 +55,8 @@ export class CostComparatorComponent implements OnInit {
         this.costType = 'total_cost';
 
         this.treatment = 'edge';
+
+        this.axes = this.getAxes();
 
         this.area = this.study.properties.sim_name;
         this.data = [];
@@ -206,6 +210,8 @@ export class CostComparatorComponent implements OnInit {
 
     refreshCharts() {
 
+        this.axes = this.getAxes();
+
         if (!this.chart) {
             // console.log('No chart registered');
             return;
@@ -337,6 +343,10 @@ export class CostComparatorComponent implements OnInit {
       return str.toLowerCase().split('_').map(function(word) {
         return word.replace(word[0], word[0].toUpperCase());
       }).join(' ');
+    }
+
+    private getAxes() {
+      return '../../assets/images/selections/' + this.treatment + 's' + this.level + '.png';
     }
 }
 

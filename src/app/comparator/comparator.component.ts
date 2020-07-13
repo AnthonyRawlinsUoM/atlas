@@ -51,7 +51,7 @@ export class ComparatorComponent implements OnInit {
           {
             label: 'Risk Reduction for Levels of Prescribed Burning',
             type: 'bar',
-            backgroundColor: 'rgba(58, 83, 139,0.5)',
+            backgroundColor: 'rgba(68, 57, 131, 1)',
             data: []
           },
 
@@ -87,6 +87,7 @@ export class ComparatorComponent implements OnInit {
     sub_range: any;
 
     hints_required;
+    axes: any;
 
     constructor(private ws: WeightsService, private ux: UxOptionService) {
       this.hints_required = this.ux.getHints();
@@ -167,6 +168,8 @@ export class ComparatorComponent implements OnInit {
     }
 
     refreshCharts() {
+      this.axes = this.getAxes();
+
         if (!this.chart) {
             // console.log('No chart registered');
             return;
@@ -257,6 +260,10 @@ export class ComparatorComponent implements OnInit {
       return str.toLowerCase().split('_').map(function(word) {
         return word.replace(word[0], word[0].toUpperCase());
       }).join(' ');
+    }
+
+    private getAxes() {
+      return '../../assets/images/selections/' + this.treatment + 's' + this.level + '.png';
     }
 }
 

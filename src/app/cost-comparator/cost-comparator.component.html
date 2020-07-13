@@ -35,11 +35,18 @@
                 >
                     <div class="ui field">
                       <div class="ui fluid buttons">
-                        <div class="ui icon active button" *ngIf="treatment=='landscape'" (click)="onTreatmentChange('landscape')"><i class="arrows alternate horizontal icon"></i> Landscape</div>
-                        <div class="ui icon button" *ngIf="treatment!='landscape'" (click)="onTreatmentChange('landscape')"><i class="arrows alternate horizontal icon"></i> Landscape</div>
+
+                        <div class="ui active icon button" *ngIf="treatment=='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edges</div>
+                        <div class="ui icon button" *ngIf="treatment!='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edges</div>
+
                         <div class="or"></div>
-                        <div class="ui active icon button" *ngIf="treatment=='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edge</div>
-                        <div class="ui icon button" *ngIf="treatment!='edge'" (click)="onTreatmentChange('edge')"><i class="arrows alternate vertical icon"></i> Edge</div>
+
+                        <div class="ui icon active button" *ngIf="treatment=='landscape'" (click)="onTreatmentChange('landscape')"><i class="arrows alternate horizontal icon"></i> Landscapes</div>
+                        <div class="ui icon button" *ngIf="treatment!='landscape'" (click)="onTreatmentChange('landscape')"><i class="arrows alternate horizontal icon"></i> Landscapes</div>
+
+                      </div>
+                      <div class="ui center aligned field el">
+                        <img [src]="axes" alt="Please use the slider below"/>
                       </div>
                       <div class="ui divider"></div>
                       <div class="ui field">
