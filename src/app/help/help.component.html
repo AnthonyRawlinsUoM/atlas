@@ -1,6 +1,29 @@
-<app-topics></app-topics>
+<app-topics [playlist]="topics"></app-topics>
 
 <div class="ui container">
+
+  <sui-message  class="attached warning">
+    <div class="content">
+      <h2 class="ui header">Videos in production (coming soon)</h2>
+    </div>
+  </sui-message>
+
+  <table class="ui celled striped table">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Topics covered</th>
+        <th>Runtime</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let topic of topics">
+        <td><strong>{{topic.title}}</strong></td>
+        <td><span *ngFor="let tag of topic.tags"> {{tag}}, </span></td>
+        <td>{{topic.runtime}}</td>
+      </tr>
+    </tbody>
+  </table>
   <app-ux-options></app-ux-options>
   <div class="ui raised bottom attached segment">
     <h3 class="ui header">Technical Documentation</h3>

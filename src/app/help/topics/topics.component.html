@@ -7,14 +7,14 @@
     <sui-sidebar class="inverted vertical" #sidebar>
         <a class="item"
         [class.active]="topic === currentItem"
-        *ngFor="let topic of topics; let $index = index" (click)="play(topic, $index); sidebar.close();">
-        <img class="ui middle aligned tiny image" src="/assets/video/images/thumb_introduction_160x100.png"> {{topic.title}}
+        *ngFor="let topic of playlist; let $index = index" (click)="play(topic, $index); sidebar.close();">
+        <img class="ui middle aligned tiny image" src="/assets/video/thumbs/thumb_introduction_160x100.png"/> {{topic.title}}
         <div class="meta">{{topic.runtime}}</div>
         </a>
     </sui-sidebar>
     <sui-sidebar-sibling [isDimmedWhenVisible]="true">
         <div class="ui black inverted segment player">
-            <app-player [playlist]="topics" #player></app-player>
+            <app-player [playlist]="playlist" #player></app-player>
         </div>
     </sui-sidebar-sibling>
 </sui-sidebar-container>

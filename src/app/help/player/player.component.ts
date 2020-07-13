@@ -6,7 +6,9 @@ export interface IMedia {
    runtime: string;
    src: string;
    type: string;
+   tags: Array<string>
 }
+
 
 @Component({
   selector: 'app-player',
