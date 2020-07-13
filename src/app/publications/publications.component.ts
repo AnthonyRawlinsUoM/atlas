@@ -55,8 +55,7 @@ export class PublicationsComponent implements OnInit {
       {
         title: "A new decision support tool for prescribed burning risk assessment",
         image: '/assets/images/afac19.jpg',
-        link: 'https://www.aidr.org.au/media/7378/monograph_afac19-peer-reviewed_v2_051219.pdf',
-        doi: 'https://doi.org/10.3389/ffgc.2020.00079',
+        link: 'https://www.bnhcrc.com.au/publications/biblio/bnh-6396',
         description: 'Bushfire and Natural Hazards CRC Research Day AFAC19',
         date: '12/2019',
         authors: [
@@ -92,7 +91,7 @@ export class PublicationsComponent implements OnInit {
         link: 'https://www.frontiersin.org/articles/10.3389/ffgc.2020.00079/abstract',
         description: 'Frontiers in Forests and Global Change',
         date: '6/2020',
-        doi: '10.3389/ffgc.2020.00079',
+        doi: 'https://doi.org/10.3389/ffgc.2020.00079',
         authors: [
           {
             name: 'Penman, T',
