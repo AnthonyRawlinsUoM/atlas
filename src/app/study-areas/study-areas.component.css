@@ -58,28 +58,18 @@
 
 .left.docked {
     position: absolute;
+    z-index: 10;
     left: 0;
     top: 48vh;
-    z-index: 100;
 }
 
-.ui.inverted.black.icon.button {}
-
-/* .panel {
-    background-color: #FFF;
-    flex: none;
-} */
-
-/* .flex-container {
-    flex: 1;
-    align-content: stretch;
-    background-color: pink;
-    justify-content: flex-start;
-} */
-
-/* .flex-container .ui {
-    flex-grow: 1;
-} */
+.ui.black.icon.circular.button.docked {
+  z-index: 10;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.53);
+  opacity: 0.5;
+  left: -1.8em;
+}
 
 .ui.fluid.segment.active {
     margin: 0;
@@ -88,6 +78,7 @@
 .whiteform .ui.tabular.menu,
 .whiteform .ui.tabular.menu .item {
     background-color: #CCC;
+    z-index: 101;
 }
 
 .whiteform .ui.tabular.menu .item.active {
@@ -97,7 +88,6 @@
 .flex-container {
     flex: 1;
     align-content: stretch;
-    background-color: pink;
     justify-content: flex-start;
     flex-shrink: 0;
     flex-direction: column;

@@ -3,7 +3,11 @@
 
 [style]="style"
 
- [zoom]="[4.9]" [center]="[141.2, -35.557]" [fitBoundsOptions]="boundsOptions" (mouseMove)="mousemove($event)" (load)="mapLoaded($event)" #mapview>
+ [zoom]="[4.9]" [center]="[141.2, -35.557]"
+ [fitBounds] = "bounds"
+ [fitBoundsOptions]="boundsOptions"
+ (mouseMove)="mousemove($event)"
+ (load)="mapLoaded($event)" #mapview>
     <mgl-control mglNavigation position="top-right"></mgl-control>
     <mgl-control mglScale unit="metric" position="top-right"></mgl-control>
     <mgl-geojson-source id="ignitions-source" [data]="ignitions">

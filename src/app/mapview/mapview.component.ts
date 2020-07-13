@@ -1,6 +1,6 @@
 import { Output, Component, AfterViewInit, ViewChild, ElementRef, EventEmitter, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-import { Map, FitBoundsOptions, LngLatBoundsLike } from 'mapbox-gl';
+import { Map, FitBoundsOptions, LngLatBoundsLike, LngLatBounds } from 'mapbox-gl';
 import { ReactiveService } from '../reactive.service';
 import { Chart, ChartData, ChartConfiguration } from 'chart.js';
 
@@ -15,6 +15,7 @@ import studyareas from '../../assets/data/studyareas.json';
 // import test from '../../assets/interpolated.json';
 import { filter, map } from 'rxjs/operators';
 import { FeatureCollection, Feature, Geometry } from 'geojson';
+import { MapComponent } from 'ngx-mapbox-gl';
 
 
 @Component({
@@ -24,7 +25,7 @@ import { FeatureCollection, Feature, Geometry } from 'geojson';
 })
 export class MapviewComponent implements OnInit {
 
-  @ViewChild('mapview', { static: false }) mapview: Map;
+  @ViewChild('mapview', { static: false }) mapview: MapComponent;
 
   @Input() focus?: any = { "type": "FeatureCollection", "features": [] };
   @Output() hoveredStateId = null;
@@ -33,7 +34,7 @@ export class MapviewComponent implements OnInit {
   @Output() boundsChange = new EventEmitter<any>();
   @Output() studyChange = new EventEmitter<any>();
 
-  map: MapviewComponent;
+  // map: MapviewComponent;
 
   weightData: any[] = [];
   studyareas: any = { "type": "FeatureCollection", "features": [] };
@@ -45,7 +46,8 @@ export class MapviewComponent implements OnInit {
 
   movingOptions: FitBoundsOptions = { padding: 30, easing: (x) => { return easing.quadratic(x) } };
 
-  mapviewer?;
+  mapviewer?: MapComponent;
+
   style = "mapbox://styles/anthonyrawlinsuom/cjz27t7x1594x1cpklj1anw95/draft";
 
   sat = false;
@@ -55,7 +57,9 @@ export class MapviewComponent implements OnInit {
   initialData: ChartData;
 
   colors = schemes[2];
-  ov: turf.helpers.BBox;
+  ov: any;
+
+  bounds: LngLatBounds;
 
 
   constructor(
@@ -64,28 +68,28 @@ export class MapviewComponent implements OnInit {
 
   ngOnInit() {
 
-      this.studyareas = '/assets/data/studyareas.json';
+      this.studyareas = '../../assets/data/studyareas.json';
+      this.bounds = new LngLatBounds([129.5, -43.47, 153.6, -27.45]);
 
-
-      this.initialData = {
-          labels: ['A', 'B', 'C', 'D', 'E', 'F'],
-          datasets: [
-          {
-              label: 'Similarity',
-              borderColor: this.colors.colors[6],
-              lineTension: 0,
-              fill: 0,
-              data: [
-                0.28374612,
-                0.72634576,
-                0.13454252,
-                0.37463784,
-                0.29367457,
-                0.87263487
-              ]
-          }
-        ]
-      };
+      // this.initialData = {
+      //     labels: ['A', 'B', 'C', 'D', 'E', 'F'],
+      //     datasets: [
+      //     {
+      //         label: 'Similarity',
+      //         borderColor: this.colors.colors[6],
+      //         lineTension: 0,
+      //         fill: 0,
+      //         data: [
+      //           0.28374612,
+      //           0.72634576,
+      //           0.13454252,
+      //           0.37463784,
+      //           0.29367457,
+      //           0.87263487
+      //         ]
+      //     }
+      //   ]
+      // };
 
       // this.chart = new Chart('interpolatedcanvas', {
       //     type: 'line',
@@ -110,29 +114,28 @@ export class MapviewComponent implements OnInit {
       //     }
       // });
 
-      this.ov = turf.bbox(turf.buffer(this.studyareas, 25, { units: 'kilometers' }));
   }
 
-  onBoundsChange(bbox:any) {}
-
-  ngAfterViewInit() {
-      // // console.log(this.mapview);
-      this.mapviewer = this.mapview;
-
-      this.onBoundsChange = (bbox) => {
-          // // console.log('Map view was notified of bounds change. Attempting to move now.');
-          this.mapviewer.MapService.fitBounds(bbox, this.movingOptions);
-      }
+  onBoundsChange(bounds:LngLatBounds) {
+    console.log('Moving!');
+    this.bounds = bounds;
   }
 
   mapLoaded(ev) {
-    // // console.log(ev);
+    console.log('Map loaded EVENT:')
+    // console.log(ev);
+    // this.mapviewer = ev;
+    //
+    // // this.mapview.fitBoundsOptions = this.movingOptions;
+    //
+    // console.log(this.mapview);
+    // this.ov = turf.bbox(turf.buffer(studyareas, 25, { units: 'kilometers' }));
   }
 
   mousemove(e) {
       if (e.features && e.features.length > 0) {
           this.hoveredStateId = e.features[0].properties.id;
-          // console.log(this.hoveredStateId );
+          console.log(this.hoveredStateId );
       }
   }
 
@@ -143,9 +146,10 @@ export class MapviewComponent implements OnInit {
   click(e) {
       console.log(e);
       if (this.hoveredStateId) {
+        console.log('Selected! ' + e.features[0]);
           this.selectedAreaId = e.features[0].properties.id;
           if(e.features[0].properties) {
-            // // console.log('found properties');
+            console.log('found properties');
             this.selectedArea = e.features[0].properties.sim_name;
           }
           this.study_detail = e.features[0];
@@ -162,15 +166,11 @@ export class MapviewComponent implements OnInit {
 
   zoomToBoundingBoxOfStudy(study) {
     let poly = turf.polygon(study.geometry.coordinates);
-    // // // console.log(poly);
-
+    console.log(poly);
     let bbox = this.getBufferedBoundsOfPoly(poly);
     // // console.log(bbox);
-
-    // let centroid = turf.centroid(poly);
-    let bounds: LngLatBoundsLike = [bbox[0], bbox[1], bbox[2], bbox[3]];
-
-    this.boundsChange.emit(bounds);
+    this.bounds = new LngLatBounds([bbox[0], bbox[1], bbox[2], bbox[3]]);
+    this.boundsChange.emit(this.bounds);
   }
 
   overview(ov) {
@@ -178,7 +178,8 @@ export class MapviewComponent implements OnInit {
     this.burnblocks_edges = '';
     this.burnblocks_landscapes = '';
     this.ignitions = { "type": "FeatureCollection", "features": [] };
-    this.mapviewer.MapService.fitBounds([129.5, -43.47, 153.6, -27.45 ]);
+
+    this.bounds = this.bounds = new LngLatBounds([129.5, -43.47, 153.6, -27.45]);
   }
 
   focusOn(study) {

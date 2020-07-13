@@ -37,7 +37,7 @@ export class StudyAreasComponent implements AfterViewInit {
 
     leftIsPip = false;
     rightIsPip = false;
-    sidebarIsOpen = false;
+    sidebarIsOpen;
 
     private fragment: Shortcut;
 
@@ -57,7 +57,7 @@ export class StudyAreasComponent implements AfterViewInit {
     }
 
     ngOnInit() {
-        // this.studyareas = '/assets/studyareas.json';
+        this.sidebarIsOpen = false;
 
         this.focus = studyareas.features
             .filter((f) => {
