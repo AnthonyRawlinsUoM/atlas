@@ -8,7 +8,7 @@
         <a class="item"
         [class.active]="topic === currentItem"
         *ngFor="let topic of topics; let $index = index" (click)="play(topic, $index); sidebar.close();">
-        <img class="ui middle aligned tiny image" src="/assets/images/video_thumb_placeholder.png"> {{topic.title}}
+        <img class="ui middle aligned tiny image" src="/assets/video/images/thumb_introduction_160x100.png"> {{topic.title}}
         <div class="meta">{{topic.runtime}}</div>
         </a>
     </sui-sidebar>
