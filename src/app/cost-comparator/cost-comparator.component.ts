@@ -73,7 +73,7 @@ export class CostComparatorComponent implements OnInit {
             ],
             datasets: [
               {
-                label: 'Cheapest Treatment',
+                label: 'Least Cost Treatment',
                 borderColor: 'rgba(255,0,0,0.5)',
                 data: [1.0,1.0,1.0,1.0,1.0,1.0,1.0],
                 type: 'line',
