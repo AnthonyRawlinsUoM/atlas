@@ -1,6 +1,8 @@
 FROM node:current-alpine
 MAINTAINER Anthony Rawlins <anthony.rawlins@unimelb.edu.au>
 
+RUN apk add --no-cache tzdata
+
 # Make working dir
 WORKDIR /usr/src/app
 
