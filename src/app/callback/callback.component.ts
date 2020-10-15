@@ -15,8 +15,8 @@ export class CallbackComponent implements OnInit {
       constructor(private auth: AuthService, private route: ActivatedRoute) {
 
           this.route.queryParams.subscribe(params => {
-                this.error = params['error'].toUpperCase();
-                this.error_message = params['error_description'];
+                // this.error = params['error'].toUpperCase();
+                // this.error_message = params['error_description'];
             });
       }
 
