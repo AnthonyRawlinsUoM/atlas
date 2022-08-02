@@ -52,7 +52,7 @@
     "js-base64": "^2.5.1",
     "jwks-rsa": "^1.6.0",
     "mapbox-gl": "^0.54.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ng2-nvd3": "^2.0.0",
     "ng2-semantic-ui": "^0.9.7",
     "ng5-slider": "^1.2.4",
