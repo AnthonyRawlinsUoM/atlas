@@ -57,7 +57,7 @@
     "ng2-semantic-ui": "^0.9.7",
     "ng5-slider": "^1.2.4",
     "ngx-cookie-service": "^2.2.0",
-    "ngx-mapbox-gl": "^3.3.1",
+    "ngx-mapbox-gl": "^9.1.0",
     "ngx-papaparse": "^4.0.2",
     "ngx-socket-io": "^3.0.1",
     "nodemailer": "^6.3.1",
